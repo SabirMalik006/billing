@@ -101,15 +101,7 @@ export default function Navbar() {
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="flex items-center">
-              <svg className="h-8 w-auto" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="30" fontFamily="proxima-nova, sans-serif" fontSize="28" fontWeight="700" fill="#ffffff">
-                  SimiTree
-                </text>
-                <circle cx="185" cy="12" r="6" fill="#e87722" />
-                <path d="M182 12 L188 12 M185 9 L185 15" stroke="#ffffff" strokeWidth="1.5" />
-              </svg>
-            </div>
+            <img src="/logo.jpeg" alt="SimiTree Logo" className="h-10 w-auto rounded" />
           </Link>
 
           {/* Desktop Nav */}

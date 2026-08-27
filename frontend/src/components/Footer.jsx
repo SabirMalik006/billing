@@ -44,12 +44,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="mb-6 inline-block">
-              <svg className="h-8 w-auto" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="30" fontFamily="proxima-nova, sans-serif" fontSize="28" fontWeight="700" fill="#ffffff">
-                  SimiTree
-                </text>
-                <circle cx="185" cy="12" r="6" fill="#e87722" />
-              </svg>
+              <img src="/logo.jpeg" alt="SimiTree Logo" className="h-10 w-auto rounded" />
             </Link>
             <p className="mb-6 text-sm leading-relaxed text-brand-blue-gray">
               Driving growth in home health, hospice, and behavioral health with consulting, AI technology, analytics, and billing support.
