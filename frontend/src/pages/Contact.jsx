@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare } from 'lucide-react'
-import { SectionHeader } from '../components/UI'
+import { Mail, Phone, Clock, MessageSquare, Send, ArrowRight } from 'lucide-react'
+import { AnimatedSection } from '../components/Animated'
+import { SectionHeading, PrimaryButton } from '../components/UI'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    firstName: '', lastName: '', email: '', phone: '', company: '', message: '', interest: ''
+    firstName: '', lastName: '', email: '', phone: '',
+    organization: '', specialty: '', challenge: '', message: '',
   })
+  const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -13,185 +16,176 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert('Thank you for your message! We will get back to you within 24 hours.')
-    setFormData({ firstName: '', lastName: '', email: '', phone: '', company: '', message: '', interest: '' })
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 5000)
+    setFormData({ firstName: '', lastName: '', email: '', phone: '', organization: '', specialty: '', challenge: '', message: '' })
   }
+
+  const inputClass = "w-full rounded-xl border border-mbx-border bg-mbx-surface px-5 py-3.5 text-sm text-mbx-navy outline-none transition-all focus:border-mbx-teal focus:ring-2 focus:ring-mbx-teal/10 placeholder:text-mbx-text-muted/50"
+  const selectClass = "w-full rounded-xl border border-mbx-border bg-mbx-surface px-5 py-3.5 text-sm text-mbx-navy outline-none transition-all focus:border-mbx-teal focus:ring-2 focus:ring-mbx-teal/10 appearance-none"
 
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-dark-blue via-brand-blue to-brand-royal-blue py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full bg-brand-orange/20 px-4 py-1 text-sm font-semibold text-brand-orange">
-              Contact Us
+      <section className="relative min-h-[60vh] flex items-center bg-mbx-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute bottom-0 -left-32 h-96 w-96 rounded-full bg-mbx-teal/8 blur-[120px]" />
+        </div>
+        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <AnimatedSection>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-mbx-teal">
+              Contact
             </span>
-            <h1 className="mb-6 text-4xl font-bold text-brand-white md:text-5xl">
-              Let's Start a Conversation
+            <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-mbx-white md:text-5xl lg:text-6xl">
+              Let's Build a Stronger Revenue Cycle
             </h1>
-            <p className="text-lg text-brand-blue-gray leading-relaxed">
-              Ready to transform your organization? Reach out to our team and discover
-              how SimiTree can help you achieve your goals.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              Whether you're looking to strengthen home health billing, improve hospice revenue
+              performance, or support your growing organization — we're ready to listen.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Contact Info + Form */}
-      <section className="bg-brand-cream py-16 lg:py-24">
+      {/* Form + Info */}
+      <section className="py-16 lg:py-24 bg-mbx-surface">
         <div className="container mx-auto px-4">
           <div className="grid gap-12 lg:grid-cols-5">
             {/* Contact Info */}
-            <div className="lg:col-span-2">
-              <h2 className="mb-6 text-2xl font-bold text-brand-dark-blue">Get in Touch</h2>
+            <AnimatedSection className="lg:col-span-2">
+              <h2 className="mb-8 text-2xl font-bold text-mbx-navy">Get in Touch</h2>
 
               <div className="space-y-6">
-                <a href="tel:8667464830" className="flex items-start gap-4 group">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <p className="font-bold text-brand-dark-blue">Phone</p>
-                    <p className="text-gray-600">(866) 746-4830</p>
-                  </div>
-                </a>
-
-                <a href="mailto:info@simitreehc.com" className="flex items-start gap-4 group">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <p className="font-bold text-brand-dark-blue">Email</p>
-                    <p className="text-gray-600">info@simitreehc.com</p>
-                  </div>
-                </a>
-
                 <div className="flex items-start gap-4">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange">
-                    <MapPin size={20} />
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-mbx-teal/10 text-mbx-teal">
+                    <Mail size={18} />
                   </div>
                   <div>
-                    <p className="font-bold text-brand-dark-blue">Office</p>
-                    <p className="text-gray-600">405 N Frederick Ave, Suite 200<br />Gaithersburg, MD 20877</p>
+                    <p className="font-semibold text-mbx-navy">Email</p>
+                    <a href="mailto:info@mbxsol.com" className="text-sm text-mbx-text-muted hover:text-mbx-teal transition-colors">info@mbxsol.com</a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange">
-                    <Clock size={20} />
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-mbx-teal/10 text-mbx-teal">
+                    <Phone size={18} />
                   </div>
                   <div>
-                    <p className="font-bold text-brand-dark-blue">Hours</p>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM EST</p>
+                    <p className="font-semibold text-mbx-navy">Phone</p>
+                    <a href="tel:+18000000000" className="text-sm text-mbx-text-muted hover:text-mbx-teal transition-colors">(800) 000-0000</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-mbx-teal/10 text-mbx-teal">
+                    <Clock size={18} />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-mbx-navy">Hours</p>
+                    <p className="text-sm text-mbx-text-muted">Monday - Friday: 8:00 AM - 6:00 PM EST</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-mbx-teal/10 text-mbx-teal">
+                    <MessageSquare size={18} />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-mbx-navy">Response Time</p>
+                    <p className="text-sm text-mbx-text-muted">We respond to inquiries within 24 business hours.</p>
                   </div>
                 </div>
               </div>
-
-              <div className="mt-8 rounded-[10px] bg-white p-6 shadow-md">
-                <div className="flex items-center gap-3 mb-3">
-                  <MessageSquare size={20} className="text-brand-orange" />
-                  <h3 className="font-bold text-brand-dark-blue">Quick Response</h3>
-                </div>
-                <p className="text-sm text-gray-600">
-                  We typically respond to all inquiries within 24 hours during business days.
-                  For urgent matters, please call us directly.
-                </p>
-              </div>
-            </div>
+            </AnimatedSection>
 
             {/* Form */}
-            <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="rounded-[10px] bg-white p-8 shadow-lg">
-                <h2 className="mb-6 text-2xl font-bold text-brand-dark-blue">Send Us a Message</h2>
+            <AnimatedSection className="lg:col-span-3" delay={0.15}>
+              <form onSubmit={handleSubmit} className="rounded-2xl border border-mbx-border bg-mbx-white p-8 shadow-lg">
+                <h2 className="mb-6 text-2xl font-bold text-mbx-navy">Send Us a Message</h2>
+
+                {submitted && (
+                  <div className="mb-6 rounded-xl bg-green-50 border border-green-200 px-5 py-3 text-sm text-green-700">
+                    Thank you for your message. We'll get back to you within 24 business hours.
+                  </div>
+                )}
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">First Name *</label>
-                    <input
-                      type="text" name="firstName" required
-                      value={formData.firstName} onChange={handleChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition"
-                      placeholder="John"
-                    />
+                    <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">First Name *</label>
+                    <input type="text" name="firstName" required value={formData.firstName} onChange={handleChange} className={inputClass} placeholder="John" />
                   </div>
                   <div>
-                    <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">Last Name *</label>
-                    <input
-                      type="text" name="lastName" required
-                      value={formData.lastName} onChange={handleChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition"
-                      placeholder="Smith"
-                    />
+                    <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Last Name *</label>
+                    <input type="text" name="lastName" required value={formData.lastName} onChange={handleChange} className={inputClass} placeholder="Smith" />
                   </div>
                 </div>
 
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">Email *</label>
-                    <input
-                      type="email" name="email" required
-                      value={formData.email} onChange={handleChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition"
-                      placeholder="john@company.com"
-                    />
+                    <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Email *</label>
+                    <input type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="john@organization.com" />
                   </div>
                   <div>
-                    <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">Phone</label>
-                    <input
-                      type="tel" name="phone"
-                      value={formData.phone} onChange={handleChange}
-                      className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition"
-                      placeholder="(555) 123-4567"
-                    />
+                    <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Phone</label>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className={inputClass} placeholder="(555) 123-4567" />
                   </div>
                 </div>
 
                 <div className="mt-4">
-                  <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">Company *</label>
-                  <input
-                    type="text" name="company" required
-                    value={formData.company} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition"
-                    placeholder="Your Organization"
-                  />
+                  <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Organization *</label>
+                  <input type="text" name="organization" required value={formData.organization} onChange={handleChange} className={inputClass} placeholder="Your Organization" />
+                </div>
+
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Healthcare Specialty</label>
+                    <div className="relative">
+                      <select name="specialty" value={formData.specialty} onChange={handleChange} className={selectClass}>
+                        <option value="">Select specialty</option>
+                        <option value="home-health">Home Health</option>
+                        <option value="hospice">Hospice</option>
+                        <option value="private-practice">Private Practice</option>
+                        <option value="large-group">Large Group / Health System</option>
+                        <option value="behavioral-health">Behavioral Health / ABA</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Current Challenge</label>
+                    <div className="relative">
+                      <select name="challenge" value={formData.challenge} onChange={handleChange} className={selectClass}>
+                        <option value="">Select primary need</option>
+                        <option value="billing">Billing Support</option>
+                        <option value="coding">Coding & QA</option>
+                        <option value="credentialing">Credentialing</option>
+                        <option value="virtual-assistance">Virtual Assistance</option>
+                        <option value="denials">Denial Management</option>
+                        <option value="visibility">Revenue Visibility</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-4">
-                  <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">Area of Interest</label>
-                  <select
-                    name="interest" value={formData.interest} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="technology">Technology & AI</option>
-                    <option value="rcm">Revenue Cycle Management</option>
-                    <option value="coding">Coding & OASIS</option>
-                    <option value="compliance">Compliance & Regulatory Risk</option>
-                    <option value="consulting">Consulting</option>
-                    <option value="billing">Billing Services</option>
-                    <option value="analytics">Data Analytics</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="mt-4">
-                  <label className="mb-1 block text-sm font-semibold text-brand-dark-blue">Message *</label>
+                  <label className="mb-1.5 block text-sm font-semibold text-mbx-navy">Message *</label>
                   <textarea
-                    name="message" required rows={5}
-                    value={formData.message} onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition resize-none"
-                    placeholder="Tell us about your needs..."
+                    name="message" required rows={5} value={formData.message} onChange={handleChange}
+                    className={`${inputClass} resize-none`}
+                    placeholder="Tell us about your organization and how we can help..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-orange px-8 py-3 text-base font-semibold text-white transition-all hover:bg-orange-600 hover:shadow-lg sm:w-auto"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-mbx-teal px-8 py-4 text-base font-semibold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/25 sm:w-auto"
                 >
-                  <Send size={18} /> Send Message
+                  <Send size={18} /> Start the Conversation
                 </button>
               </form>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

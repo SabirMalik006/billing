@@ -1,135 +1,158 @@
 import { Link } from 'react-router-dom'
-import {
-  Stethoscope, Heart, Building2, FileText, TrendingUp, Shield,
-  Users, BarChart3, Briefcase, ClipboardCheck, Search, ArrowRight,
-  CheckCircle
-} from 'lucide-react'
-import { SectionHeader, CTASection } from '../components/UI'
+import { Stethoscope, Heart, Users, Building2, Shield, FileText, ClipboardCheck, TrendingUp, ArrowRight, CheckCircle } from 'lucide-react'
+import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
+import { SectionHeading, PrimaryButton, CapabilityCard } from '../components/UI'
+import ServiceAccordion from '../components/ServiceAccordion'
 
-const markets = [
-  {
-    icon: Stethoscope,
-    title: 'Home Health Care',
-    id: 'home-health',
-    description: 'Comprehensive solutions designed specifically for home health agencies to improve patient outcomes, streamline operations, and maximize reimbursement.',
-    services: ['Coding & OASIS Review', 'Revenue Cycle Management', 'Compliance Consulting', 'Data Analytics'],
-  },
-  {
-    icon: Heart,
-    title: 'Hospice',
-    id: 'hospice',
-    description: 'Compassionate technology and expert consulting to help hospice organizations deliver exceptional care while maintaining financial sustainability.',
-    services: ['Cost Reporting', 'Compliance & Regulatory Risk', 'Billing Support', 'Strategic Consulting'],
-  },
-  {
-    icon: Building2,
-    title: 'Behavioral Health',
-    id: 'behavioral-health',
-    description: 'Tailored services for behavioral health organizations to navigate complex regulations and optimize their revenue cycle.',
-    services: ['Credentialing & Contracting', 'Revenue Cycle Management', 'Data Analysis', 'M&A Advisory'],
-  },
+const primaryServices = [
+  { number: 1, title: 'Home Health Billing', description: 'PDGM-focused billing workflows, OASIS-related revenue, LUPA management, claims processing, coding support, documentation quality, revenue optimization, and AR/denial management.', link: '/connect-us', featured: true },
+  { number: 2, title: 'Hospice Billing', description: 'NOE/NOTR processes, hospice claim management, revenue code workflows, GIP/respite/routine care, coding support, documentation and QA, AR and denial management.', link: '/connect-us', featured: true },
 ]
 
-const services = [
-  { icon: FileText, title: 'Billing', id: 'billing', description: 'End-to-end billing services ensuring clean claims and faster reimbursements.', link: '/connect-us' },
-  { icon: ClipboardCheck, title: 'Coding & OASIS', id: 'coding', description: 'Expert coding review and OASIS accuracy improvement services.', link: '/connect-us' },
-  { icon: Shield, title: 'Compliance & Regulatory Risk', id: 'compliance', description: 'Stay ahead of regulatory changes and maintain compliance.', link: '/connect-us' },
-  { icon: Users, title: 'Consulting', id: 'consulting', description: 'Strategic consulting for operational excellence and growth.', link: '/connect-us' },
-  { icon: BarChart3, title: 'Cost Reporting', id: 'cost-reporting', description: 'Accurate cost reporting and analysis for better financial decisions.', link: '/connect-us' },
-  { icon: Briefcase, title: 'Credentialing & Contracting', id: 'credentialing', description: 'Streamlined credentialing and payer contract optimization.', link: '/connect-us' },
-  { icon: Search, title: 'Data Analysis', id: 'data-analysis', description: 'Deep data insights to drive strategic decision-making.', link: '/connect-us' },
-  { icon: TrendingUp, title: 'Mergers & Acquisitions', id: 'ma', description: 'Expert M&A advisory for healthcare organizations.', link: '/connect-us' },
-  { icon: Users, title: 'Recruiting & Interim Leadership', id: 'recruiting', description: 'Access top talent and interim leadership solutions.', link: '/connect-us' },
-  { icon: TrendingUp, title: 'Revenue Cycle Management', id: 'rcm', description: 'Optimize your entire revenue cycle for maximum performance.', link: '/connect-us' },
+const secondaryServices = [
+  { number: 3, title: 'Virtual Assistance', description: 'Patient intake, scheduling support, referral coordination, documentation follow-up, insurance verification, and back-office support.', link: '/connect-us' },
+  { number: 4, title: 'Contracting & Credentialing', description: 'Provider credentialing, payer enrollment, CAQH support, recredentialing, contracting, enrollment tracking, and documentation management.', link: '/connect-us' },
+  { number: 5, title: 'QA & Medical Coding', description: 'Medical coding support, documentation review, billing QA, claims quality checks, compliance review, and revenue integrity.', link: '/connect-us' },
+  { number: 6, title: 'AR & Denial Management', description: 'Aging receivables follow-up, denial identification, appeal management, payer-specific workflows, and revenue recovery.', link: '/connect-us' },
+]
+
+const industries = [
+  { number: 7, title: 'Private Practice RCM', description: 'Full-cycle revenue management for independent practices across family medicine, cardiology, PT, mental health, and more.', link: '/connect-us' },
+  { number: 8, title: 'Large Groups & Health Systems', description: 'Standardized workflows, centralized reporting, and scalable operations for multi-location healthcare organizations.', link: '/connect-us' },
+  { number: 9, title: 'Behavioral Health / ABA', description: 'Specialized billing support for behavioral health organizations, ABA providers, and related healthcare specialties.', link: '/connect-us' },
 ]
 
 export default function Capabilities() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-dark-blue via-brand-blue to-brand-royal-blue py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full bg-brand-orange/20 px-4 py-1 text-sm font-semibold text-brand-orange">
+      <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute bottom-0 -right-32 h-96 w-96 rounded-full bg-mbx-teal/8 blur-[120px]" />
+        </div>
+        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <AnimatedSection>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-mbx-teal">
               Capabilities
             </span>
-            <h1 className="mb-6 text-4xl font-bold text-brand-white md:text-5xl">
-              Solutions for Every Healthcare Need
+            <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-mbx-white md:text-5xl lg:text-6xl">
+              Revenue Cycle Expertise Built Around Healthcare
             </h1>
-            <p className="text-lg text-brand-blue-gray leading-relaxed">
-              From market-specific solutions to comprehensive services, we deliver the expertise
-              and technology your organization needs to thrive.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              From specialized home health and hospice billing to enterprise-scale operations —
+              comprehensive revenue cycle support for every type of healthcare organization.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Markets */}
-      <section className="bg-brand-cream py-16 lg:py-24">
+      {/* Primary: Home Health + Hospice */}
+      <section className="py-24 lg:py-32 bg-mbx-white">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Markets We Serve"
-            subtitle="Specialized solutions tailored for each segment of the healthcare continuum."
-          />
-          <div className="grid gap-8 lg:grid-cols-3">
-            {markets.map((market) => (
-              <div key={market.id} id={market.id} className="rounded-[10px] bg-white p-8 shadow-md">
-                <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-brand-orange/10 text-brand-orange">
-                  <market.icon size={28} />
-                </div>
-                <h3 className="mb-3 text-2xl font-bold text-brand-dark-blue">{market.title}</h3>
-                <p className="mb-6 text-gray-600 leading-relaxed">{market.description}</p>
-                <ul className="space-y-2">
-                  {market.services.map((service) => (
-                    <li key={service} className="flex items-center gap-2 text-sm">
-                      <CheckCircle size={16} className="text-brand-orange" />
-                      <span className="text-brand-dark-blue">{service}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Primary Specializations"
+              title="Home Health & Hospice"
+              subtitle="Deep operational expertise in the billing workflows, documentation requirements, and revenue considerations unique to home-based care."
+            />
+          </AnimatedSection>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {primaryServices.map((service) => (
+              <AnimatedSection key={service.number} delay={service.number === 1 ? 0 : 0.1}>
+                <CapabilityCard {...service} />
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="bg-white py-16 lg:py-24">
+      {/* Services Accordion */}
+      <section className="py-24 lg:py-32 bg-mbx-surface">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Our Services"
-            subtitle="Comprehensive consulting and technology services to optimize every aspect of your operations."
-          />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {services.map((service) => (
-              <Link
-                key={service.id}
-                to={service.link}
-                className="group flex flex-col rounded-[10px] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-              >
-                <div className="mb-3 flex size-10 items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
-                  <service.icon size={20} />
-                </div>
-                <h3 className="mb-2 text-lg font-bold text-brand-dark-blue group-hover:text-brand-orange transition-colors">
-                  {service.title}
-                </h3>
-                <p className="flex-1 text-sm text-gray-600">{service.description}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-orange">
-                  Learn More <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
+          <div className="flex flex-col gap-16 lg:flex-row lg:items-start">
+            <AnimatedSection className="lg:w-1/3 lg:sticky lg:top-28">
+              <SectionHeading
+                eyebrow="Services"
+                title="Comprehensive RCM Services"
+                subtitle="Each service is designed to support specific aspects of the healthcare revenue cycle."
+                centered={false}
+              />
+              <PrimaryButton to="/connect-us">Discuss Your Needs</PrimaryButton>
+            </AnimatedSection>
+
+            <AnimatedSection className="lg:w-2/3" delay={0.15}>
+              <ServiceAccordion />
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      <CTASection
-        title="Let's Build Your Solution Together"
-        description="Contact us to discuss how our capabilities can address your specific challenges and goals."
-        buttonText="Get Started"
-        buttonLink="/connect-us"
-        variant="dark"
-      />
+      {/* Secondary Services */}
+      <section className="py-24 lg:py-32 bg-mbx-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Additional Services"
+              title="Supporting Every Aspect of Revenue Management"
+              subtitle="From virtual assistance to denial management, we provide the operational support healthcare organizations need."
+            />
+          </AnimatedSection>
+
+          <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+            {secondaryServices.map((service) => (
+              <StaggerItem key={service.number}>
+                <CapabilityCard {...service} />
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="py-24 lg:py-32 bg-mbx-navy">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Industries"
+              title="Built for Every Stage of Healthcare Growth"
+              subtitle="Supporting private practices, large groups, behavioral health, and other healthcare organizations."
+              light
+            />
+          </AnimatedSection>
+
+          <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+            {industries.map((service) => (
+              <StaggerItem key={service.number}>
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-all hover:border-mbx-teal/30 hover:bg-white/[0.06]">
+                  <span className="mb-3 block text-sm font-bold text-mbx-teal">{String(service.number).padStart(2, '0')}</span>
+                  <h3 className="mb-2 text-xl font-bold text-mbx-white">{service.title}</h3>
+                  <p className="mb-4 text-sm leading-relaxed text-gray-400">{service.description}</p>
+                  <Link to={service.link} className="inline-flex items-center gap-1.5 text-sm font-semibold text-mbx-teal hover:text-mbx-teal-light transition-colors">
+                    Get Started <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 lg:py-32 bg-mbx-surface">
+        <div className="container mx-auto px-4 text-center">
+          <AnimatedSection>
+            <h2 className="mb-5 text-3xl font-bold tracking-tight text-mbx-navy md:text-4xl">
+              Let's Build Your Revenue Solution
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
+              Contact us to discuss how MBX capabilities can address your specific challenges.
+            </p>
+            <PrimaryButton to="/connect-us" size="lg">Start a Conversation</PrimaryButton>
+          </AnimatedSection>
+        </div>
+      </section>
     </>
   )
 }

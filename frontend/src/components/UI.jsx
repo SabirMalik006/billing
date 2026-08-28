@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
-export function SectionHeader({ title, subtitle, centered = true, light = false }) {
+export function SectionHeading({ eyebrow, title, subtitle, centered = true, light = false, className = '' }) {
   return (
-    <div className={`mb-12 ${centered ? 'text-center' : ''} max-w-3xl ${centered ? 'mx-auto' : ''}`}>
-      <h2 className={`mb-4 text-3xl font-bold md:text-4xl ${light ? 'text-brand-white' : 'text-brand-dark-blue'}`}>
+    <div className={`mb-16 ${centered ? 'text-center' : ''} max-w-3xl ${centered ? 'mx-auto' : ''} ${className}`}>
+      {eyebrow && (
+        <span className={`mb-4 inline-block text-sm font-semibold tracking-widest uppercase ${light ? 'text-mbx-teal-light' : 'text-mbx-teal'}`}>
+          {eyebrow}
+        </span>
+      )}
+      <h2 className={`mb-5 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl ${light ? 'text-mbx-white' : 'text-mbx-navy'}`}>
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-lg leading-relaxed ${light ? 'text-brand-blue-gray' : 'text-gray-600'}`}>
+        <p className={`text-lg leading-relaxed ${light ? 'text-gray-300' : 'text-mbx-text-muted'}`}>
           {subtitle}
         </p>
       )}
@@ -16,87 +22,141 @@ export function SectionHeader({ title, subtitle, centered = true, light = false 
   )
 }
 
-export function ServiceCard({ icon: Icon, title, description, link }) {
+export function PrimaryButton({ children, to, href, className = '', size = 'md' }) {
+  const sizeClasses = {
+    sm: 'px-5 py-2.5 text-sm',
+    md: 'px-7 py-3.5 text-sm',
+    lg: 'px-8 py-4 text-base',
+  }
+
+  const classes = `inline-flex items-center gap-2.5 rounded-lg bg-mbx-teal font-semibold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/25 ${sizeClasses[size]} ${className}`
+
+  const content = (
+    <>
+      {children}
+      <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+    </>
+  )
+
+  if (to) {
+    return (
+      <Link to={to} className={`group ${classes}`}>
+        {content}
+      </Link>
+    )
+  }
+
+  if (href) {
+    return (
+      <a href={href} className={`group ${classes}`}>
+        {content}
+      </a>
+    )
+  }
+
+  return (
+    <button className={`group ${classes}`}>
+      {content}
+    </button>
+  )
+}
+
+export function SecondaryButton({ children, to, href, className = '', size = 'md' }) {
+  const sizeClasses = {
+    sm: 'px-5 py-2.5 text-sm',
+    md: 'px-7 py-3.5 text-sm',
+    lg: 'px-8 py-4 text-base',
+  }
+
+  const classes = `inline-flex items-center gap-2.5 rounded-lg border-2 border-mbx-navy font-semibold text-mbx-navy transition-all duration-300 hover:bg-mbx-navy hover:text-mbx-white ${sizeClasses[size]} ${className}`
+
+  const content = (
+    <>
+      {children}
+      <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+    </>
+  )
+
+  if (to) {
+    return <Link to={to} className={`group ${classes}`}>{content}</Link>
+  }
+
+  if (href) {
+    return <a href={href} className={`group ${classes}`}>{content}</a>
+  }
+
+  return <button className={`group ${classes}`}>{content}</button>
+}
+
+export function CapabilityCard({ number, title, description, link, featured = false }) {
   return (
     <Link
       to={link}
-      className="group flex flex-col rounded-[10px] bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-100"
+      className={`group relative flex flex-col rounded-2xl border transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${
+        featured
+          ? 'border-mbx-teal/30 bg-gradient-to-br from-mbx-navy to-mbx-navy-light p-8 text-mbx-white'
+          : 'border-mbx-border bg-mbx-white p-7 hover:border-mbx-teal/40'
+      }`}
     >
-      <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
-        <Icon size={24} />
-      </div>
-      <h3 className="mb-2 text-lg font-bold text-brand-dark-blue group-hover:text-brand-orange transition-colors">
+      <span className={`mb-4 text-sm font-bold tracking-wider ${featured ? 'text-mbx-teal-light' : 'text-mbx-teal'}`}>
+        {String(number).padStart(2, '0')}
+      </span>
+      <h3 className={`mb-3 text-xl font-bold ${featured ? 'text-mbx-white' : 'text-mbx-navy'} group-hover:text-mbx-teal transition-colors`}>
         {title}
       </h3>
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-600">{description}</p>
-      <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand-orange">
-        Learn More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-      </span>
+      <p className={`flex-1 text-sm leading-relaxed ${featured ? 'text-gray-300' : 'text-mbx-text-muted'}`}>
+        {description}
+      </p>
+      <div className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold ${featured ? 'text-mbx-teal-light' : 'text-mbx-teal'}`}>
+        Learn More
+        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1.5" />
+      </div>
     </Link>
   )
 }
 
-export function CTASection({ title, description, buttonText, buttonLink, variant = 'dark' }) {
-  const bgClass = variant === 'dark'
-    ? 'bg-gradient-to-r from-brand-blue to-brand-dark-blue'
-    : 'bg-brand-orange'
-
+export function ProcessStep({ number, title, description, isLast = false }) {
   return (
-    <section className={`${bgClass} py-16`}>
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-4 text-3xl font-bold text-brand-white md:text-4xl">{title}</h2>
-        {description && (
-          <p className="mb-8 mx-auto max-w-2xl text-lg text-brand-blue-gray">{description}</p>
-        )}
-        <Link
-          to={buttonLink}
-          className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-8 py-3 text-base font-semibold text-brand-white transition-all hover:bg-orange-600 hover:shadow-lg"
-        >
-          {buttonText} <ArrowRight size={18} />
-        </Link>
+    <div className="flex gap-6">
+      <div className="flex flex-col items-center">
+        <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-mbx-teal text-sm font-bold text-mbx-white">
+          {number}
+        </div>
+        {!isLast && <div className="mt-2 h-full w-px bg-mbx-teal/20" />}
       </div>
-    </section>
-  )
-}
-
-export function StatCard({ number, label }) {
-  return (
-    <div className="text-center">
-      <p className="mb-1 text-4xl font-bold text-brand-orange md:text-5xl">{number}</p>
-      <p className="text-sm font-medium text-brand-blue-gray">{label}</p>
+      <div className={`pb-10 ${isLast ? '' : ''}`}>
+        <h4 className="mb-1 text-lg font-bold text-mbx-navy">{title}</h4>
+        <p className="text-sm leading-relaxed text-mbx-text-muted">{description}</p>
+      </div>
     </div>
   )
 }
 
-export function MarketCard({ icon: Icon, title, description, link }) {
+export function DarkCard({ icon: Icon, title, description }) {
   return (
-    <Link
-      to={link}
-      className="group flex flex-col items-center rounded-[10px] bg-brand-nav-panel p-8 text-center transition-all duration-300 hover:bg-brand-royal-blue hover:shadow-xl"
-    >
-      <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-brand-orange/20 text-brand-orange transition-colors group-hover:bg-white group-hover:text-brand-orange">
-        <Icon size={28} />
+    <div className="rounded-2xl bg-mbx-navy-light/50 p-6 backdrop-blur-sm border border-white/5">
+      <div className="mb-4 flex size-11 items-center justify-center rounded-xl bg-mbx-teal/15 text-mbx-teal">
+        <Icon size={20} />
       </div>
-      <h3 className="mb-2 text-xl font-bold text-brand-white">{title}</h3>
-      <p className="text-sm leading-relaxed text-brand-blue-gray">{description}</p>
-    </Link>
+      <h3 className="mb-2 text-base font-bold text-mbx-white">{title}</h3>
+      <p className="text-sm leading-relaxed text-gray-400">{description}</p>
+    </div>
   )
 }
 
-export function TeamCard({ name, role, image }) {
+export function FeatureBlock({ eyebrow, title, description, children, reversed = false, className = '' }) {
   return (
-    <div className="group text-center">
-      <div className="relative mb-4 mx-auto size-40 overflow-hidden rounded-full bg-brand-blue-gray">
-        {image ? (
-          <img src={image} alt={name} className="h-full w-full object-cover" />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-brand-royal-blue">
-            {name.split(' ').map(n => n[0]).join('')}
-          </div>
+    <div className={`flex flex-col items-center gap-12 lg:flex-row ${reversed ? 'lg:flex-row-reverse' : ''} ${className}`}>
+      <div className="flex-1">
+        {eyebrow && (
+          <span className="mb-4 inline-block text-sm font-semibold tracking-widest uppercase text-mbx-teal">
+            {eyebrow}
+          </span>
         )}
+        <h2 className="mb-5 text-3xl font-bold tracking-tight text-mbx-navy md:text-4xl">{title}</h2>
+        <p className="mb-6 text-lg leading-relaxed text-mbx-text-muted">{description}</p>
+        {children}
       </div>
-      <h3 className="text-lg font-bold text-brand-dark-blue">{name}</h3>
-      <p className="text-sm text-brand-orange">{role}</p>
     </div>
   )
 }

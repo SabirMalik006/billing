@@ -1,136 +1,227 @@
 import { Link } from 'react-router-dom'
-import { Brain, Activity, BarChart3, ArrowRight, CheckCircle, Zap, Shield, TrendingUp, Database } from 'lucide-react'
-import { SectionHeader, CTASection } from '../components/UI'
+import { BarChart3, Activity, FileText, Shield, Zap, TrendingUp, ArrowRight, CheckCircle, Database, Eye } from 'lucide-react'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
+import { SectionHeading, PrimaryButton, DarkCard } from '../components/UI'
 
-const features = [
+const capabilities = [
   {
-    icon: Brain,
-    title: 'CLARITY: AI-Driven Revenue Cycle',
-    id: 'clarity',
-    description: 'Predictive analytics and AI-powered tools that deliver over 90% cash forecast accuracy for home health, hospice, and behavioral health organizations.',
-    highlights: ['Cash forecast accuracy over 90%', 'Predictive denial management', 'Real-time revenue insights', 'Automated follow-up prioritization'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=400&fit=crop',
+    icon: BarChart3,
+    title: 'Revenue Analytics',
+    id: 'analytics',
+    desc: 'Real-time visibility into billing performance, collections, and revenue trends across your organization.',
+    items: ['Performance dashboards', 'Collection trend analysis', 'Payer mix reporting', 'Revenue forecasting'],
   },
   {
     icon: Activity,
-    title: 'SARA: AI-Powered Coding & OASIS',
-    id: 'sara',
-    description: 'Clinician-designed AI assistant that ensures accurate coding and OASIS documentation, reducing compliance risk while maximizing reimbursement.',
-    highlights: ['Clinician-designed AI engine', 'Real-time coding suggestions', 'OASIS accuracy improvement', 'Compliance risk reduction'],
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&h=400&fit=crop',
+    title: 'Workflow Automation',
+    id: 'automation',
+    desc: 'Technology-enabled workflows designed to improve consistency, reduce manual tasks, and accelerate turnaround.',
+    items: ['Claims processing automation', 'Follow-up prioritization', 'Task routing', 'Status tracking'],
   },
   {
-    icon: BarChart3,
-    title: 'Data Analytics & Reporting',
-    id: 'analytics',
-    description: 'Comprehensive analytics dashboards and custom reporting tools that transform your data into actionable insights for better decision-making.',
-    highlights: ['Custom dashboard creation', 'Real-time performance metrics', 'Regulatory reporting automation', 'Trend analysis & forecasting'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=400&fit=crop',
+    icon: Eye,
+    title: 'Claims Intelligence',
+    id: 'claims',
+    desc: 'Proactive claims tracking and denial pattern identification to prevent revenue loss before it happens.',
+    items: ['Claims status monitoring', 'Denial pattern analysis', 'Appeal management', 'Clean claims optimization'],
   },
-]
-
-const advantages = [
-  { icon: Zap, title: 'Faster Results', description: 'AI-accelerated workflows that reduce processing time and improve turnaround.' },
-  { icon: Shield, title: 'Built-In Compliance', description: 'Every tool designed with regulatory compliance at its core.' },
-  { icon: TrendingUp, title: 'Proven ROI', description: 'Measurable improvements in revenue, efficiency, and outcomes.' },
-  { icon: Database, title: 'Seamless Integration', description: 'Works with your existing EHR and practice management systems.' },
+  {
+    icon: FileText,
+    title: 'Documentation Workflows',
+    id: 'documentation',
+    desc: 'Structured documentation review processes that support coding accuracy and compliance.',
+    items: ['Documentation quality checks', 'Completeness verification', 'Compliance review', 'Coder-clinician feedback loops'],
+  },
+  {
+    icon: Shield,
+    title: 'Compliance Monitoring',
+    id: 'compliance',
+    desc: 'Operational workflows designed with healthcare data privacy and security considerations in mind.',
+    items: ['Regulatory awareness', 'Audit preparation support', 'Policy documentation', 'Staff training resources'],
+  },
+  {
+    icon: Database,
+    title: 'EMR Integration',
+    id: 'integration',
+    desc: 'Technology-enabled approaches that work alongside your existing electronic health record and practice management systems.',
+    items: ['EHR workflow alignment', 'Data consistency checks', 'System interoperability', 'Export and reporting'],
+  },
 ]
 
 export default function Technology() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
+
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-dark-blue via-brand-blue to-brand-royal-blue py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full bg-brand-orange/20 px-4 py-1 text-sm font-semibold text-brand-orange">
+      <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-mbx-teal/8 blur-[120px]" />
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+              backgroundSize: '60px 60px',
+            }}
+          />
+        </div>
+        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <AnimatedSection>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-mbx-teal">
               Technology & AI
             </span>
-            <h1 className="mb-6 text-4xl font-bold text-brand-white md:text-5xl">
-              AI-Powered Solutions for Healthcare
+            <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-mbx-white md:text-5xl lg:text-6xl">
+              Technology-Enabled Revenue Intelligence
             </h1>
-            <p className="text-lg text-brand-blue-gray leading-relaxed">
-              Our clinician-designed and expert-validated AI tools deliver compliance-ready coding
-              and over 90% cash forecast accuracy for healthcare organizations.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              Modern workflows designed to improve visibility, consistency and operational
+              efficiency across the healthcare revenue cycle.
             </p>
-          </div>
+            <div className="mt-8">
+              <PrimaryButton to="/connect-us">Request a Consultation</PrimaryButton>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Features */}
-      {features.map((feature, index) => (
-        <section
-          key={feature.id}
-          id={feature.id}
-          className={`py-16 lg:py-24 ${index % 2 === 0 ? 'bg-brand-cream' : 'bg-white'}`}
-        >
-          <div className="container mx-auto px-4">
-            <div className={`flex flex-col items-center gap-12 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-              <div className="flex-1">
-                <div className="mb-4 flex size-14 items-center justify-center rounded-xl bg-brand-orange/10 text-brand-orange">
-                  <feature.icon size={28} />
-                </div>
-                <h2 className="mb-4 text-3xl font-bold text-brand-dark-blue md:text-4xl">{feature.title}</h2>
-                <p className="mb-6 text-lg text-gray-600 leading-relaxed">{feature.description}</p>
-                <ul className="mb-8 space-y-3">
-                  {feature.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-brand-orange" />
-                      <span className="text-brand-dark-blue">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/connect-us"
-                  className="inline-flex items-center gap-2 rounded-md bg-brand-orange px-6 py-3 text-sm font-semibold text-brand-white transition-all hover:bg-orange-600 hover:shadow-lg"
-                >
-                  Request a Demo <ArrowRight size={18} />
-                </Link>
-              </div>
-              <div className="flex-1">
-                <div className="overflow-hidden rounded-2xl shadow-2xl">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="h-auto w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {/* Advantages */}
-      <section className="bg-brand-dark-blue py-16 lg:py-24">
+      {/* Capabilities */}
+      <section className="py-24 lg:py-32 bg-mbx-white">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Why Choose Our Technology"
-            subtitle="Purpose-built for the unique needs of home health, hospice, and behavioral health."
-            light
-          />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((adv) => (
-              <div key={adv.title} className="rounded-[10px] bg-brand-nav-panel p-6 text-center">
-                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-brand-orange/20 text-brand-orange">
-                  <adv.icon size={24} />
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Our Approach"
+              title="Technology-Enabled RCM"
+              subtitle="MBX combines deep healthcare expertise with modern technology to deliver operational visibility and efficiency."
+            />
+          </AnimatedSection>
+
+          <div className="space-y-6">
+            {capabilities.map((cap, index) => (
+              <AnimatedSection key={cap.id} id={cap.id} delay={index * 0.05}>
+                <div className={`flex flex-col gap-8 rounded-2xl border border-mbx-border p-8 transition-all duration-500 hover:shadow-lg lg:flex-row ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                  <div className="flex-1">
+                    <div className="mb-4 flex size-12 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal">
+                      <cap.icon size={24} />
+                    </div>
+                    <h3 className="mb-3 text-2xl font-bold text-mbx-navy">{cap.title}</h3>
+                    <p className="mb-6 text-base leading-relaxed text-mbx-text-muted">{cap.desc}</p>
+                    <ul className="space-y-2.5">
+                      {cap.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2.5 text-sm text-mbx-navy">
+                          <CheckCircle size={16} className="shrink-0 text-mbx-teal" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex-1">
+                    <div className="rounded-2xl bg-mbx-surface border border-mbx-border p-6">
+                      <div className="space-y-3">
+                        {cap.items.map((item, i) => (
+                          <div key={item} className="flex items-center gap-3 rounded-xl bg-mbx-white border border-mbx-border/50 px-4 py-3">
+                            <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-mbx-teal/10 text-xs font-bold text-mbx-teal">
+                              {String(i + 1).padStart(2, '0')}
+                            </div>
+                            <span className="text-sm font-medium text-mbx-navy">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-brand-white">{adv.title}</h3>
-                <p className="text-sm text-brand-blue-gray">{adv.description}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection
-        title="Ready to See Our AI in Action?"
-        description="Schedule a personalized demo to see how SARA and CLARITY can transform your organization."
-        buttonText="Request a Demo"
-        buttonLink="/connect-us"
-        variant="dark"
-      />
+      {/* MBX Clarity */}
+      <section ref={ref} className="py-24 lg:py-32 bg-mbx-navy">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="MBX Clarity"
+              title="Clearer Visibility into the Revenue Cycle"
+              subtitle="MBX's technology-enabled approach to revenue visibility — designed to give healthcare organizations the insights they need."
+              light
+            />
+          </AnimatedSection>
+
+          <div className="mx-auto max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="rounded-2xl bg-mbx-navy-light/50 border border-white/10 p-8 backdrop-blur-sm"
+            >
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  { icon: Activity, title: 'Real-Time Data', desc: 'Current visibility into claims and payments' },
+                  { icon: BarChart3, title: 'Revenue Reporting', desc: 'Performance dashboards and trend analysis' },
+                  { icon: Eye, title: 'Workflow Tracking', desc: 'Monitor task progress and bottlenecks' },
+                  { icon: Shield, title: 'Payer Intelligence', desc: 'Understand payer behavior and patterns' },
+                  { icon: TrendingUp, title: 'Operational Insights', desc: 'Identify opportunities for improvement' },
+                  { icon: Zap, title: 'Actionable Alerts', desc: 'Proactive notifications for critical items' },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-xl bg-white/5 p-5 border border-white/5">
+                    <item.icon size={20} className="mb-3 text-mbx-teal" />
+                    <h4 className="mb-1 text-base font-bold text-mbx-white">{item.title}</h4>
+                    <p className="text-sm text-gray-400">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-6 text-center text-xs text-gray-500">
+                MBX Clarity represents our technology-enabled approach to revenue visibility.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advantages */}
+      <section className="py-24 lg:py-32 bg-mbx-surface">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Benefits"
+              title="Why Technology Matters in RCM"
+              subtitle="Purpose-built workflows for the unique needs of healthcare revenue management."
+            />
+          </AnimatedSection>
+
+          <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+            {[
+              { icon: Zap, title: 'Faster Turnaround', desc: 'Streamlined workflows reduce processing time.' },
+              { icon: Shield, title: 'Built-In Compliance', desc: 'Every workflow designed with compliance in mind.' },
+              { icon: TrendingUp, title: 'Better Visibility', desc: 'Real-time insights into billing performance.' },
+              { icon: Database, title: 'System Integration', desc: 'Works alongside your existing systems.' },
+            ].map((adv) => (
+              <StaggerItem key={adv.title}>
+                <DarkCard {...adv} />
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 lg:py-32 bg-mbx-white">
+        <div className="container mx-auto px-4 text-center">
+          <AnimatedSection>
+            <h2 className="mb-5 text-3xl font-bold tracking-tight text-mbx-navy md:text-4xl">
+              Ready to See Our Approach in Action?
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
+              Schedule a consultation to discuss how MBX's technology-enabled workflows can support your organization.
+            </p>
+            <PrimaryButton to="/connect-us" size="lg">Request a Consultation</PrimaryButton>
+          </AnimatedSection>
+        </div>
+      </section>
     </>
   )
 }

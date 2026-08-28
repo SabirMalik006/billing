@@ -1,60 +1,51 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown, Search } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 
 const navItems = [
   {
     label: 'Technology & AI',
     path: '/technology-and-ai',
     children: [
-      { label: 'CLARITY: AI-Driven Revenue Cycle', path: '/technology-and-ai#clarity' },
-      { label: 'SARA: AI-Powered Coding & OASIS', path: '/technology-and-ai#sara' },
-      { label: 'Data Analytics & Reporting Tools', path: '/technology-and-ai#analytics' },
+      { label: 'Revenue Analytics', path: '/technology-and-ai#analytics' },
+      { label: 'Workflow Automation', path: '/technology-and-ai#automation' },
+      { label: 'Claims Intelligence', path: '/technology-and-ai#claims' },
+      { label: 'MBX Clarity', path: '/technology-and-ai#clarity' },
     ],
   },
   {
     label: 'Capabilities',
     path: '/capabilities',
     children: [
-      {
-        heading: 'Markets',
-        items: [
-          { label: 'Home Health Care', path: '/capabilities#home-health' },
-          { label: 'Hospice', path: '/capabilities#hospice' },
-          { label: 'Behavioral Health', path: '/capabilities#behavioral-health' },
-        ],
-      },
-      {
-        heading: 'Services',
-        items: [
-          { label: 'Billing', path: '/capabilities#billing' },
-          { label: 'Coding & OASIS', path: '/capabilities#coding' },
-          { label: 'Compliance & Regulatory Risk', path: '/capabilities#compliance' },
-          { label: 'Consulting', path: '/capabilities#consulting' },
-          { label: 'Revenue Cycle Management', path: '/capabilities#rcm' },
-        ],
-      },
+      { heading: 'Primary', items: [
+        { label: 'Home Health Billing', path: '/capabilities#home-health' },
+        { label: 'Hospice Billing', path: '/capabilities#hospice' },
+      ]},
+      { heading: 'Services', items: [
+        { label: 'Virtual Assistance', path: '/capabilities#virtual-assistance' },
+        { label: 'Contracting & Credentialing', path: '/capabilities#credentialing' },
+        { label: 'QA & Medical Coding', path: '/capabilities#qa-coding' },
+        { label: 'AR & Denial Management', path: '/capabilities#ar-denials' },
+      ]},
+      { heading: 'Industries', items: [
+        { label: 'Private Practice', path: '/capabilities#private-practice' },
+        { label: 'Large Groups & Health Systems', path: '/capabilities#large-groups' },
+        { label: 'Behavioral Health / ABA', path: '/capabilities#behavioral-health' },
+      ]},
     ],
   },
   {
-    label: 'Our Insights',
+    label: 'Insights',
     path: '/our-insights',
-    children: [
-      { label: 'Blog', path: '/our-insights#blog' },
-      { label: 'Case Studies', path: '/our-insights#case-studies' },
-      { label: 'eBooks', path: '/our-insights#ebooks' },
-      { label: 'White Papers', path: '/our-insights#white-papers' },
-      { label: 'Webinars', path: '/our-insights#webinars' },
-    ],
   },
   {
     label: 'About',
     path: '/about',
     children: [
-      { label: 'Leadership', path: '/about#leadership' },
-      { label: 'Our Story', path: '/about#story' },
-      { label: 'Our History', path: '/about#history' },
-      { label: 'Security & Compliance', path: '/about#security' },
+      { label: 'Who We Are', path: '/about#who-we-are' },
+      { label: 'Our Approach', path: '/about#approach' },
+      { label: 'Our Expertise', path: '/about#expertise' },
     ],
   },
 ]
@@ -66,188 +57,200 @@ export default function Navbar() {
   const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {
     setMobileOpen(false)
     setExpandedMobile(null)
+    window.scrollTo(0, 0)
   }, [location])
 
-  return (
-    <header className={`sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
-      {/* Utility Nav */}
-      <div className="bg-brand-blue-gray">
-        <div className="container mx-auto flex items-center justify-end gap-6 px-4 py-2">
-          <button className="text-brand-dark-blue hover:text-brand-royal-blue transition-colors" aria-label="Search">
-            <Search size={16} />
-          </button>
-          <Link to="/our-insights" className="text-sm font-semibold text-brand-dark-blue hover:text-brand-royal-blue transition-colors">
-            Events
-          </Link>
-          <a href="#" className="text-sm font-semibold text-brand-dark-blue hover:text-brand-royal-blue transition-colors">
-            Careers
-          </a>
-          <a href="#" className="text-sm font-semibold text-brand-dark-blue hover:text-brand-royal-blue transition-colors">
-            Client Login
-          </a>
-        </div>
-      </div>
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
 
-      {/* Main Nav */}
-      <nav className="bg-brand-dark-blue" aria-label="Main navigation">
-        <div className="container mx-auto flex items-center justify-between px-4 py-4">
+  const isHome = location.pathname === '/'
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled || !isHome
+            ? 'bg-mbx-navy/95 backdrop-blur-xl shadow-lg shadow-black/10'
+            : 'bg-transparent'
+        }`}
+      >
+        <nav className="container mx-auto flex items-center justify-between py-4 lg:py-5">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src="/logo.jpeg" alt="SimiTree Logo" className="h-10 w-auto rounded" />
+          <Link to="/" className="relative z-10 flex items-center shrink-0">
+            <img src="/logo.jpeg" alt="MBX Solutions" className="h-9 lg:h-10 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden items-center gap-3 lg:flex">
-            <ul className="flex items-center gap-1">
-              {navItems.map((item) => (
-                <li key={item.label} className="group relative">
-                  <div className="flex items-center">
-                    <Link
-                      to={item.path}
-                      className="px-3 py-2 text-sm xl:text-base font-semibold text-brand-white hover:text-brand-orange transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                    {item.children && (
-                      <button
-                        className="ml-1 text-brand-white group-hover:text-brand-orange transition-colors"
-                        aria-label={`Toggle ${item.label} submenu`}
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <ChevronDown size={14} />
-                      </button>
-                    )}
-                  </div>
+          <div className="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => (
+              <div key={item.label} className="group relative">
+                <div className="flex items-center">
+                  <Link
+                    to={item.path}
+                    className="px-4 py-2 text-sm font-medium text-mbx-white/80 hover:text-mbx-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
                   {item.children && (
-                    <div className="pointer-events-none invisible absolute left-0 top-full z-40 -mt-1 min-w-48 w-max origin-top scale-y-95 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:scale-y-100 group-hover:opacity-100">
-                      <div className="min-w-[17rem] w-max overflow-hidden rounded-b-md bg-brand-nav-panel shadow-2xl">
-                        <div className="px-6 py-5">
-                          {item.children.map((child, idx) => (
-                            <div key={idx}>
-                              {child.heading && (
-                                <p className="mb-3 text-xs font-bold uppercase tracking-wider text-brand-royal-blue">{child.heading}</p>
-                              )}
-                              <ul className={child.heading ? 'mb-4 space-y-3' : 'space-y-4'}>
-                                {(child.items || [child]).map((sub, subIdx) => (
-                                  <li key={subIdx}>
-                                    <Link
-                                      to={sub.path}
-                                      className="block text-sm leading-6 text-brand-white transition-colors hover:text-brand-orange"
-                                    >
-                                      {sub.label}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                    <button
+                      className="text-mbx-white/60 group-hover:text-mbx-white transition-colors"
+                      aria-label={`Toggle ${item.label} submenu`}
+                    >
+                      <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                    </button>
                   )}
-                </li>
-              ))}
-            </ul>
+                </div>
 
-            <Link
-              to="/connect-us"
-              className="ml-4 rounded-md bg-brand-orange px-6 py-2 text-sm font-semibold text-brand-white transition-all hover:bg-orange-600 hover:shadow-lg"
-            >
-              Connect With Us
-            </Link>
+                {item.children && (
+                  <div className="pointer-events-none invisible absolute left-0 top-full z-50 pt-3 opacity-0 scale-y-95 origin-top transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100">
+                    <div className="min-w-[20rem] w-max rounded-2xl bg-mbx-navy border border-white/10 shadow-2xl shadow-black/30 p-6">
+                      {item.children.map((child, idx) => (
+                        <div key={idx}>
+                          {child.heading && (
+                            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-mbx-teal">{child.heading}</p>
+                          )}
+                          <ul className={child.heading ? 'mb-5 space-y-2.5' : 'space-y-2.5'}>
+                            {(child.items || [child]).map((sub, subIdx) => (
+                              <li key={subIdx}>
+                                <Link
+                                  to={sub.path}
+                                  className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-white/70 transition-all hover:bg-white/5 hover:text-mbx-white"
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            className="flex size-12 items-center justify-center text-brand-white lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+          {/* CTA + Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            <Link
+              to="/connect-us"
+              className="hidden lg:inline-flex items-center gap-2 rounded-lg bg-mbx-teal px-6 py-2.5 text-sm font-semibold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/25"
+            >
+              Let's Talk <ArrowRight size={15} />
+            </Link>
 
-        {/* Mobile Nav */}
-        <div
-          className={`overflow-hidden border-t border-brand-white/10 bg-brand-dark-blue transition-all duration-300 lg:hidden ${
-            mobileOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="container mx-auto px-4 pb-10 pt-2">
-            <ul>
-              {navItems.map((item) => (
-                <li key={item.label} className="border-b border-brand-royal-blue/65">
-                  <div className="flex items-center justify-between py-4">
-                    <Link
-                      to={item.path}
-                      className="text-lg font-semibold text-brand-white hover:text-brand-orange transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                    {item.children && (
-                      <button
-                        className="flex size-11 items-center justify-center text-brand-white"
-                        onClick={() => setExpandedMobile(expandedMobile === item.label ? null : item.label)}
-                        aria-label={`Toggle ${item.label} submenu`}
-                        aria-expanded={expandedMobile === item.label}
+            <button
+              className="relative z-10 flex size-11 items-center justify-center text-mbx-white lg:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-mbx-navy lg:hidden"
+          >
+            <div className="flex h-full flex-col overflow-y-auto pt-24 pb-10 px-6">
+              <ul className="space-y-1">
+                {navItems.map((item, idx) => (
+                  <motion.li
+                    key={item.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="border-b border-white/10"
+                  >
+                    <div className="flex items-center justify-between py-4">
+                      <Link
+                        to={item.path}
+                        className="text-2xl font-bold text-mbx-white"
                       >
-                        <ChevronDown
-                          size={16}
-                          className={`transition-transform duration-200 ${expandedMobile === item.label ? 'rotate-180' : ''}`}
-                        />
-                      </button>
-                    )}
-                  </div>
-                  {item.children && (
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        expandedMobile === item.label ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="pb-5 pt-1">
-                        <ul className="space-y-4">
-                          {item.children.map((child, idx) => (
-                            <div key={idx}>
-                              {child.heading && (
-                                <p className="mb-2 text-sm font-bold uppercase tracking-wider text-brand-royal-blue pl-4">{child.heading}</p>
-                              )}
-                              {(child.items || [child]).map((sub, subIdx) => (
-                                <li key={subIdx}>
+                        {item.label}
+                      </Link>
+                      {item.children && (
+                        <button
+                          className="flex size-10 items-center justify-center text-white/60"
+                          onClick={() => setExpandedMobile(expandedMobile === item.label ? null : item.label)}
+                          aria-expanded={expandedMobile === item.label}
+                        >
+                          <ChevronDown
+                            size={20}
+                            className={`transition-transform duration-300 ${expandedMobile === item.label ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+                      )}
+                    </div>
+                    <AnimatePresence>
+                      {item.children && expandedMobile === item.label && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-4 pl-4 space-y-2">
+                            {item.children.map((child, cIdx) => (
+                              <div key={cIdx}>
+                                {child.heading && (
+                                  <p className="mb-2 text-xs font-bold uppercase tracking-widest text-mbx-teal pt-2">{child.heading}</p>
+                                )}
+                                {(child.items || [child]).map((sub, sIdx) => (
                                   <Link
+                                    key={sIdx}
                                     to={sub.path}
-                                    className="block rounded-md py-1 pl-4 text-base text-brand-white transition-colors hover:text-brand-orange"
+                                    className="block rounded-lg py-2 pl-3 text-base text-white/60 transition-colors hover:text-mbx-white"
                                   >
                                     {sub.label}
                                   </Link>
-                                </li>
-                              ))}
-                            </div>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <div className="border-b border-brand-royal-blue/65 py-4">
-              <Link to="/connect-us" className="text-lg font-semibold text-brand-white hover:text-brand-orange transition-colors">
-                Connect With Us
-              </Link>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.li>
+                ))}
+              </ul>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.35 }}
+                className="mt-8"
+              >
+                <Link
+                  to="/connect-us"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-mbx-teal px-8 py-4 text-lg font-bold text-mbx-white"
+                >
+                  Let's Talk <ArrowRight size={18} />
+                </Link>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      </nav>
-    </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

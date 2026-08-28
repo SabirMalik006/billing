@@ -1,196 +1,208 @@
-import { Link } from 'react-router-dom'
-import { Users, Shield, Heart, Target, ArrowRight, CheckCircle } from 'lucide-react'
-import { SectionHeader, CTASection, TeamCard } from '../components/UI'
+import { Target, Shield, Users, Heart, ArrowRight, CheckCircle } from 'lucide-react'
+import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
+import { SectionHeading, PrimaryButton, DarkCard } from '../components/UI'
 
 const values = [
-  { icon: Heart, title: 'Patient-Centered', description: 'Every solution we build starts with better patient outcomes in mind.' },
-  { icon: Target, title: 'Results-Driven', description: 'We measure success by the tangible improvements we deliver.' },
-  { icon: Shield, title: 'Compliance-First', description: 'Regulatory compliance is embedded in everything we do.' },
-  { icon: Users, title: 'Client Partnership', description: 'We work alongside you as an extension of your team.' },
+  { icon: Heart, title: 'Patient-Centered', desc: 'Every workflow starts with better patient outcomes in mind.' },
+  { icon: Target, title: 'Results-Driven', desc: 'We measure success by the tangible improvements we deliver.' },
+  { icon: Shield, title: 'Compliance-First', desc: 'Regulatory awareness is embedded in everything we do.' },
+  { icon: Users, title: 'Client Partnership', desc: 'We work alongside you as an extension of your team.' },
 ]
 
-const milestones = [
-  { year: '2001', title: 'Founded', description: 'SimiTree established to serve home health organizations.' },
-  { year: '2008', title: 'Expansion', description: 'Expanded services to include hospice and behavioral health.' },
-  { year: '2015', title: 'AI Innovation', description: 'Launched first AI-powered coding and analytics tools.' },
-  { year: '2020', title: 'SARA Launch', description: 'Introduced SARA AI-Powered Coding & OASIS assistant.' },
-  { year: '2022', title: 'CLARITY Launch', description: 'Released CLARITY AI-Driven Revenue Cycle platform.' },
-  { year: '2026', title: 'Today', description: 'Serving 500+ clients with cutting-edge AI technology.' },
-]
-
-const leadership = [
-  { name: 'Joe Osentoski', role: 'Chief Executive Officer' },
-  { name: 'Derek Fournier', role: 'Chief Technology Officer' },
-  { name: 'Tara Ross', role: 'VP of Revenue Cycle' },
-  { name: 'Mark Kimball', role: 'VP of Business Development' },
-  { name: 'Dr. Susan Paparella', role: 'VP of Clinical Services' },
+const approach = [
+  { num: '01', title: 'Understand', desc: 'We learn your organization, workflows, and revenue challenges.' },
+  { num: '02', title: 'Design', desc: 'We build a tailored support plan aligned with your goals.' },
+  { num: '03', title: 'Implement', desc: 'We integrate with your team and technology systems.' },
+  { num: '04', title: 'Optimize', desc: 'We continuously monitor and refine for better performance.' },
 ]
 
 export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-dark-blue via-brand-blue to-brand-royal-blue py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-block rounded-full bg-brand-orange/20 px-4 py-1 text-sm font-semibold text-brand-orange">
-              About SimiTree
+      <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute top-1/3 -left-32 h-96 w-96 rounded-full bg-mbx-teal/8 blur-[120px]" />
+        </div>
+        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <AnimatedSection>
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-mbx-teal">
+              About MBX
             </span>
-            <h1 className="mb-6 text-4xl font-bold text-brand-white md:text-5xl">
-              Driving Healthcare Forward
+            <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-mbx-white md:text-5xl lg:text-6xl">
+              Healthcare Expertise.<br />
+              Revenue Intelligence.<br />
+              <span className="text-mbx-teal">Human Support.</span>
             </h1>
-            <p className="text-lg text-brand-blue-gray leading-relaxed">
-              For over 25 years, SimiTree has been the trusted partner for home health, hospice,
-              and behavioral health organizations seeking growth, efficiency, and compliance.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              MBX Solutions is a healthcare revenue cycle partner with deep expertise in
+              Home Health and Hospice, supporting organizations that want greater clarity,
+              stronger workflows and more time to focus on care.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="bg-brand-cream py-16 lg:py-24" id="story">
+      {/* Who We Are */}
+      <section id="who-we-are" className="py-24 lg:py-32 bg-mbx-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center gap-12 lg:flex-row">
-            <div className="flex-1">
-              <span className="mb-4 inline-block rounded-full bg-brand-orange/20 px-4 py-1 text-sm font-semibold text-brand-orange">
-                Our Story
-              </span>
-              <h2 className="mb-4 text-3xl font-bold text-brand-dark-blue md:text-4xl">
-                25+ Years of Healthcare Excellence
-              </h2>
-              <p className="mb-4 text-lg text-gray-600 leading-relaxed">
-                SimiTree was founded with a mission to help healthcare organizations navigate the
-                complexities of an ever-evolving industry. What started as a consulting firm has
-                grown into a comprehensive technology and services partner.
+          <div className="flex flex-col items-center gap-16 lg:flex-row">
+            <AnimatedSection className="flex-1">
+              <SectionHeading
+                eyebrow="Who We Are"
+                title="A Healthcare RCM Partner"
+                subtitle="MBX Solutions specializes in healthcare revenue cycle management with particular expertise in Home Health and Hospice, while also supporting private practices, large groups and other healthcare organizations."
+                centered={false}
+              />
+              <p className="mt-4 text-base leading-relaxed text-mbx-text-muted">
+                We understand that healthcare organizations face unique revenue challenges —
+                from PDGM and OASIS complexities in home health to NOE/NOTR processes in hospice.
+                Our team brings deep operational knowledge of these specialized workflows.
               </p>
-              <p className="mb-6 text-gray-600 leading-relaxed">
-                Today, we combine deep industry expertise with cutting-edge AI technology to deliver
-                solutions that drive real results. Our clinician-designed AI tools and experienced
-                consultants work together to improve outcomes, strengthen compliance, and accelerate
-                financial performance.
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <p className="mb-1 text-3xl font-bold text-brand-orange">25+</p>
-                  <p className="text-sm text-gray-600">Years of Experience</p>
-                </div>
-                <div className="text-center">
-                  <p className="mb-1 text-3xl font-bold text-brand-orange">500+</p>
-                  <p className="text-sm text-gray-600">Clients Served</p>
-                </div>
+            </AnimatedSection>
+
+            <AnimatedSection className="flex-1" delay={0.2} direction="left">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  'Home Health Expertise',
+                  'Hospice Billing Knowledge',
+                  'Private Practice Support',
+                  'Enterprise Operations',
+                  'Technology-Enabled',
+                  'Quality-Focused',
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 rounded-xl bg-mbx-surface border border-mbx-border px-4 py-3.5">
+                    <CheckCircle size={16} className="shrink-0 text-mbx-teal" />
+                    <span className="text-sm font-medium text-mbx-navy">{item}</span>
+                  </div>
+                ))}
               </div>
-            </div>
-            <div className="flex-1">
-              <div className="overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&h=450&fit=crop"
-                  alt="SimiTree Team"
-                  className="h-auto w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="py-24 lg:py-32 bg-mbx-surface">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Our Values"
-            subtitle="The principles that guide everything we do."
-          />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Our Values"
+              title="What We Believe"
+              subtitle="The principles that guide how we support healthcare organizations."
+            />
+          </AnimatedSection>
+
+          <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
             {values.map((value) => (
-              <div key={value.title} className="rounded-[10px] bg-brand-cream p-6 text-center">
-                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
-                  <value.icon size={24} />
+              <StaggerItem key={value.title}>
+                <div className="rounded-2xl bg-mbx-white border border-mbx-border p-7 text-center transition-all hover:shadow-lg hover:border-mbx-teal/30">
+                  <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal">
+                    <value.icon size={22} />
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-mbx-navy">{value.title}</h3>
+                  <p className="text-sm text-mbx-text-muted">{value.desc}</p>
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-brand-dark-blue">{value.title}</h3>
-                <p className="text-sm text-gray-600">{value.description}</p>
-              </div>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* Approach */}
+      <section id="approach" className="py-24 lg:py-32 bg-mbx-navy">
+        <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Our Approach"
+              title="How We Work"
+              subtitle="A structured approach to understanding and supporting your revenue cycle."
+              light
+            />
+          </AnimatedSection>
+
+          <div className="mx-auto max-w-3xl">
+            {approach.map((step, i) => (
+              <AnimatedSection key={step.num} delay={i * 0.1}>
+                <div className="flex gap-6">
+                  <div className="flex flex-col items-center">
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-mbx-teal text-sm font-bold text-mbx-white">
+                      {step.num}
+                    </div>
+                    {i < approach.length - 1 && <div className="mt-2 h-full w-px bg-white/10" />}
+                  </div>
+                  <div className="pb-10">
+                    <h4 className="mb-1 text-lg font-bold text-mbx-white">{step.title}</h4>
+                    <p className="text-sm text-gray-400">{step.desc}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="bg-brand-dark-blue py-16 lg:py-24" id="history">
+      {/* Expertise */}
+      <section id="expertise" className="py-24 lg:py-32 bg-mbx-white">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Our Journey"
-            subtitle="Key milestones that have shaped who we are today."
-            light
-          />
-          <div className="relative mx-auto max-w-2xl">
-            <div className="absolute left-4 top-0 h-full w-px bg-brand-royal-blue md:left-1/2" />
-            {milestones.map((milestone, index) => (
-              <div key={milestone.year} className={`relative mb-8 flex items-start gap-6 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="hidden flex-1 md:block" />
-                <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-orange text-xs font-bold text-white z-10">
-                  {milestone.year.slice(2)}
-                </div>
-                <div className="flex-1 rounded-[10px] bg-brand-nav-panel p-5">
-                  <span className="text-sm font-bold text-brand-orange">{milestone.year}</span>
-                  <h3 className="text-lg font-bold text-brand-white">{milestone.title}</h3>
-                  <p className="text-sm text-brand-blue-gray">{milestone.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Our Expertise"
+              title="What Sets MBX Apart"
+              subtitle="Deep healthcare revenue cycle knowledge combined with modern technology-enabled workflows."
+            />
+          </AnimatedSection>
 
-      {/* Leadership */}
-      <section className="bg-brand-cream py-16 lg:py-24" id="leadership">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Leadership Team"
-            subtitle="Experienced professionals driving innovation in healthcare."
-          />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {leadership.map((person) => (
-              <TeamCard key={person.name} {...person} />
+          <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+            {[
+              { title: 'Home Health Depth', desc: 'PDGM, OASIS, LUPA — we understand the complexities of home health billing.' },
+              { title: 'Hospice Specialization', desc: 'NOE/NOTR, revenue codes, GIP/respite — hospice-specific expertise.' },
+              { title: 'Multi-Specialty Support', desc: 'From private practices to health systems, we scale to your needs.' },
+              { title: 'Technology Integration', desc: 'Modern workflows that work alongside your existing systems.' },
+              { title: 'Quality Assurance', desc: 'Documentation review, coding accuracy, and claims quality checks.' },
+              { title: 'Operational Excellence', desc: 'Consistent, reliable revenue cycle support you can depend on.' },
+            ].map((item) => (
+              <StaggerItem key={item.title}>
+                <div className="rounded-2xl border border-mbx-border bg-mbx-surface p-7 transition-all hover:shadow-lg hover:border-mbx-teal/30">
+                  <h3 className="mb-2 text-lg font-bold text-mbx-navy">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-mbx-text-muted">{item.desc}</p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       {/* Security */}
-      <section className="bg-white py-16 lg:py-24" id="security">
+      <section className="py-16 bg-mbx-surface border-t border-mbx-border">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Security & Compliance"
-            subtitle="Your data security is our top priority."
-          />
-          <div className="mx-auto max-w-3xl">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                'HIPAA Compliant',
-                'SOC 2 Type II Certified',
-                'End-to-End Encryption',
-                'Regular Security Audits',
-                'Access Controls & Monitoring',
-                'Incident Response Plan',
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-lg bg-brand-cream p-4">
-                  <CheckCircle size={20} className="text-brand-orange" />
-                  <span className="font-semibold text-brand-dark-blue">{item}</span>
-                </div>
-              ))}
+          <AnimatedSection>
+            <div className="mx-auto max-w-3xl text-center">
+              <h3 className="mb-4 text-xl font-bold text-mbx-navy">Security-Conscious Workflows</h3>
+              <p className="text-sm text-mbx-text-muted">
+                MBX designs healthcare workflows with data privacy and security considerations in mind.
+                Our operational processes are built to support healthcare organizations' compliance requirements.
+              </p>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      <CTASection
-        title="Join Our Growing Family"
-        description="Discover how SimiTree can help your organization achieve its goals."
-        buttonText="Connect With Us"
-        buttonLink="/connect-us"
-        variant="dark"
-      />
+      {/* CTA */}
+      <section className="py-24 lg:py-32 bg-mbx-white">
+        <div className="container mx-auto px-4 text-center">
+          <AnimatedSection>
+            <h2 className="mb-5 text-3xl font-bold tracking-tight text-mbx-navy md:text-4xl">
+              Partner With MBX
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
+              Discover how MBX Solutions can support your organization's revenue cycle.
+            </p>
+            <PrimaryButton to="/connect-us" size="lg">Start a Conversation</PrimaryButton>
+          </AnimatedSection>
+        </div>
+      </section>
     </>
   )
 }
