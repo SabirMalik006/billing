@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Stethoscope, Heart, Users, Building2, Shield, FileText, ClipboardCheck, TrendingUp, ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
 import { SectionHeading, PrimaryButton, CapabilityCard } from '../components/UI'
 import ServiceAccordion from '../components/ServiceAccordion'
@@ -29,17 +29,21 @@ export default function Capabilities() {
       <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
-          <div className="absolute bottom-0 -right-32 h-96 w-96 rounded-full bg-mbx-teal/8 blur-[120px]" />
+          <div className="hero-grid absolute inset-0" />
+          <div className="absolute bottom-0 -right-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
+            <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">RCM</span>
+          </div>
         </div>
         <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-mbx-teal">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Capabilities
             </span>
-            <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-mbx-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
               Revenue Cycle Expertise Built Around Healthcare
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
               From specialized home health and hospice billing to enterprise-scale operations —
               comprehensive revenue cycle support for every type of healthcare organization.
             </p>
@@ -48,7 +52,7 @@ export default function Capabilities() {
       </section>
 
       {/* Primary: Home Health + Hospice */}
-      <section className="py-24 lg:py-32 bg-mbx-white">
+      <section className="py-28 lg:py-36 bg-mbx-white">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
@@ -69,7 +73,7 @@ export default function Capabilities() {
       </section>
 
       {/* Services Accordion */}
-      <section className="py-24 lg:py-32 bg-mbx-surface">
+      <section className="py-28 lg:py-36 bg-mbx-surface">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-16 lg:flex-row lg:items-start">
             <AnimatedSection className="lg:w-1/3 lg:sticky lg:top-28">
@@ -90,7 +94,7 @@ export default function Capabilities() {
       </section>
 
       {/* Secondary Services */}
-      <section className="py-24 lg:py-32 bg-mbx-white">
+      <section className="py-28 lg:py-36 bg-mbx-white">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
@@ -111,7 +115,7 @@ export default function Capabilities() {
       </section>
 
       {/* Industries */}
-      <section className="py-24 lg:py-32 bg-mbx-navy">
+      <section className="py-28 lg:py-36 bg-mbx-navy">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
@@ -125,11 +129,11 @@ export default function Capabilities() {
           <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {industries.map((service) => (
               <StaggerItem key={service.number}>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-all hover:border-mbx-teal/30 hover:bg-white/[0.06]">
-                  <span className="mb-3 block text-sm font-bold text-mbx-teal">{String(service.number).padStart(2, '0')}</span>
-                  <h3 className="mb-2 text-xl font-bold text-mbx-white">{service.title}</h3>
-                  <p className="mb-4 text-sm leading-relaxed text-gray-400">{service.description}</p>
-                  <Link to={service.link} className="inline-flex items-center gap-1.5 text-sm font-semibold text-mbx-teal hover:text-mbx-teal-light transition-colors">
+                <div className="group rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-all duration-500 hover:border-mbx-teal/30 hover:bg-white/[0.06]">
+                  <span className="mb-3 block text-xs font-bold tracking-[0.2em] text-mbx-teal">{String(service.number).padStart(2, '0')}</span>
+                  <h3 className="mb-2 text-xl font-extrabold text-white group-hover:text-mbx-teal transition-colors">{service.title}</h3>
+                  <p className="mb-5 text-sm leading-relaxed text-white/40">{service.description}</p>
+                  <Link to={service.link} className="inline-flex items-center gap-1.5 text-sm font-bold text-mbx-teal hover:text-mbx-teal-light transition-colors">
                     Get Started <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -140,10 +144,10 @@ export default function Capabilities() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 bg-mbx-surface">
+      <section className="py-28 lg:py-36 bg-mbx-surface">
         <div className="container mx-auto px-4 text-center">
           <AnimatedSection>
-            <h2 className="mb-5 text-3xl font-bold tracking-tight text-mbx-navy md:text-4xl">
+            <h2 className="mb-6 text-3xl md:text-4xl font-extrabold tracking-tight text-mbx-navy">
               Let's Build Your Revenue Solution
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">

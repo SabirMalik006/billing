@@ -7,6 +7,7 @@ import Capabilities from './pages/Capabilities'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Insights from './pages/Insights'
+import Services from './pages/Services'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/technology-and-ai" element={<Technology />} />
             <Route path="/capabilities" element={<Capabilities />} />
             <Route path="/about" element={<About />} />

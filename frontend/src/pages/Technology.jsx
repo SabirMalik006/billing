@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { BarChart3, Activity, FileText, Shield, Zap, TrendingUp, ArrowRight, CheckCircle, Database, Eye } from 'lucide-react'
+import { BarChart3, Activity, FileText, Shield, Zap, TrendingUp, CheckCircle, Database, Eye } from 'lucide-react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
@@ -60,24 +59,21 @@ export default function Technology() {
       <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
-          <div className="absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-mbx-teal/8 blur-[120px]" />
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-              backgroundSize: '60px 60px',
-            }}
-          />
+          <div className="hero-grid absolute inset-0" />
+          <div className="absolute top-1/3 -right-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
+            <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">AI</span>
+          </div>
         </div>
         <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-mbx-teal">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Technology & AI
             </span>
-            <h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-mbx-white md:text-5xl lg:text-6xl">
-              Technology-Enabled Revenue Intelligence
+            <h1 className="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              Technology That Brings Clarity to the Revenue Cycle
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
               Modern workflows designed to improve visibility, consistency and operational
               efficiency across the healthcare revenue cycle.
             </p>
@@ -89,7 +85,7 @@ export default function Technology() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-24 lg:py-32 bg-mbx-white">
+      <section className="py-28 lg:py-36 bg-mbx-white">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
@@ -102,17 +98,17 @@ export default function Technology() {
           <div className="space-y-6">
             {capabilities.map((cap, index) => (
               <AnimatedSection key={cap.id} id={cap.id} delay={index * 0.05}>
-                <div className={`flex flex-col gap-8 rounded-2xl border border-mbx-border p-8 transition-all duration-500 hover:shadow-lg lg:flex-row ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                <div className={`flex flex-col gap-8 rounded-2xl border border-mbx-border p-8 transition-all duration-500 hover:shadow-xl hover:border-mbx-teal/20 lg:flex-row ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
                   <div className="flex-1">
-                    <div className="mb-4 flex size-12 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal">
+                    <div className="mb-5 flex size-12 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal">
                       <cap.icon size={24} />
                     </div>
-                    <h3 className="mb-3 text-2xl font-bold text-mbx-navy">{cap.title}</h3>
+                    <h3 className="mb-3 text-2xl font-extrabold text-mbx-navy">{cap.title}</h3>
                     <p className="mb-6 text-base leading-relaxed text-mbx-text-muted">{cap.desc}</p>
                     <ul className="space-y-2.5">
                       {cap.items.map((item) => (
                         <li key={item} className="flex items-center gap-2.5 text-sm text-mbx-navy">
-                          <CheckCircle size={16} className="shrink-0 text-mbx-teal" />
+                          <CheckCircle size={15} className="shrink-0 text-mbx-teal" />
                           {item}
                         </li>
                       ))}
@@ -122,11 +118,11 @@ export default function Technology() {
                     <div className="rounded-2xl bg-mbx-surface border border-mbx-border p-6">
                       <div className="space-y-3">
                         {cap.items.map((item, i) => (
-                          <div key={item} className="flex items-center gap-3 rounded-xl bg-mbx-white border border-mbx-border/50 px-4 py-3">
+                          <div key={item} className="flex items-center gap-3 rounded-xl bg-mbx-white border border-mbx-border/50 px-4 py-3 transition-all hover:border-mbx-teal/30">
                             <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-mbx-teal/10 text-xs font-bold text-mbx-teal">
                               {String(i + 1).padStart(2, '0')}
                             </div>
-                            <span className="text-sm font-medium text-mbx-navy">{item}</span>
+                            <span className="text-sm font-semibold text-mbx-navy">{item}</span>
                           </div>
                         ))}
                       </div>
@@ -140,7 +136,7 @@ export default function Technology() {
       </section>
 
       {/* MBX Clarity */}
-      <section ref={ref} className="py-24 lg:py-32 bg-mbx-navy">
+      <section ref={ref} className="py-28 lg:py-36 bg-mbx-navy">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
@@ -156,7 +152,7 @@ export default function Technology() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="rounded-2xl bg-mbx-navy-light/50 border border-white/10 p-8 backdrop-blur-sm"
+              className="rounded-2xl bg-white/[0.04] border border-white/[0.06] p-8 backdrop-blur-sm"
             >
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {[
@@ -167,14 +163,14 @@ export default function Technology() {
                   { icon: TrendingUp, title: 'Operational Insights', desc: 'Identify opportunities for improvement' },
                   { icon: Zap, title: 'Actionable Alerts', desc: 'Proactive notifications for critical items' },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-xl bg-white/5 p-5 border border-white/5">
+                  <div key={item.title} className="rounded-xl bg-white/[0.03] p-5 border border-white/[0.04] transition-all hover:bg-white/[0.06] hover:border-mbx-teal/20">
                     <item.icon size={20} className="mb-3 text-mbx-teal" />
-                    <h4 className="mb-1 text-base font-bold text-mbx-white">{item.title}</h4>
-                    <p className="text-sm text-gray-400">{item.desc}</p>
+                    <h4 className="mb-1 text-base font-extrabold text-white">{item.title}</h4>
+                    <p className="text-sm text-white/40">{item.desc}</p>
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-center text-xs text-gray-500">
+              <p className="mt-6 text-center text-xs text-white/25">
                 MBX Clarity represents our technology-enabled approach to revenue visibility.
               </p>
             </motion.div>
@@ -183,7 +179,7 @@ export default function Technology() {
       </section>
 
       {/* Advantages */}
-      <section className="py-24 lg:py-32 bg-mbx-surface">
+      <section className="py-28 lg:py-36 bg-mbx-surface">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <SectionHeading
@@ -209,13 +205,16 @@ export default function Technology() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 bg-mbx-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
-            <h2 className="mb-5 text-3xl font-bold tracking-tight text-mbx-navy md:text-4xl">
+            <h2 className="mb-6 text-3xl md:text-4xl font-extrabold tracking-tight text-white">
               Ready to See Our Approach in Action?
             </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-white/50">
               Schedule a consultation to discuss how MBX's technology-enabled workflows can support your organization.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Request a Consultation</PrimaryButton>

@@ -3,13 +3,13 @@ import { motion, useInView } from 'framer-motion'
 
 export function AnimatedSection({ children, className = '', delay = 0, direction = 'up' }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const isInView = useInView(ref, { once: true, margin: '-60px' })
 
   const variants = {
     hidden: {
       opacity: 0,
-      y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,
-      x: direction === 'left' ? 40 : direction === 'right' ? -40 : 0,
+      y: direction === 'up' ? 50 : direction === 'down' ? -50 : 0,
+      x: direction === 'left' ? 50 : direction === 'right' ? -50 : 0,
     },
     visible: {
       opacity: 1,
@@ -24,7 +24,7 @@ export function AnimatedSection({ children, className = '', delay = 0, direction
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={variants}
-      transition={{ duration: 0.7, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}
@@ -32,9 +32,9 @@ export function AnimatedSection({ children, className = '', delay = 0, direction
   )
 }
 
-export function StaggerChildren({ children, className = '', stagger = 0.1 }) {
+export function StaggerChildren({ children, className = '', stagger = 0.08 }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-60px' })
+  const isInView = useInView(ref, { once: true, margin: '-40px' })
 
   return (
     <motion.div
@@ -56,8 +56,8 @@ export function StaggerItem({ children, className = '' }) {
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+        hidden: { opacity: 0, y: 35 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
       }}
       className={className}
     >
@@ -75,7 +75,7 @@ export function TextReveal({ children, className = '', delay = 0 }) {
       <motion.div
         initial={{ y: '100%' }}
         animate={isInView ? { y: 0 } : { y: '100%' }}
-        transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.9, delay, ease: [0.25, 0.1, 0.25, 1] }}
         className={className}
       >
         {children}
@@ -84,7 +84,7 @@ export function TextReveal({ children, className = '', delay = 0 }) {
   )
 }
 
-export function CountUp({ target, suffix = '', duration = 2 }) {
+export function CountUp({ target, suffix = '' }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -104,5 +104,39 @@ export function CountUp({ target, suffix = '', duration = 2 }) {
         </motion.span>
       ) : '0'}
     </motion.span>
+  )
+}
+
+export function ScaleIn({ children, className = '', delay = 0 }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-60px' })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.92 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
+      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export function SlideIn({ children, className = '', delay = 0, direction = 'left' }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-60px' })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: direction === 'left' ? -60 : 60 }}
+      animate={isInView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   )
 }

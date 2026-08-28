@@ -45,13 +45,13 @@ export default function ServiceAccordion() {
   const [expanded, setExpanded] = useState(0)
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       {services.map((service, index) => (
         <div
           key={service.number}
-          className={`rounded-2xl border transition-all duration-500 ${
+          className={`rounded-2xl border transition-all duration-500 overflow-hidden ${
             expanded === index
-              ? 'border-mbx-teal/30 bg-mbx-navy shadow-lg shadow-mbx-navy/50'
+              ? 'border-mbx-teal/30 bg-mbx-navy shadow-xl shadow-mbx-navy/10'
               : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/20'
           }`}
         >
@@ -60,11 +60,11 @@ export default function ServiceAccordion() {
             className="flex w-full items-center gap-5 p-6 text-left"
             aria-expanded={expanded === index}
           >
-            <span className={`text-2xl font-bold transition-colors ${expanded === index ? 'text-mbx-teal' : 'text-mbx-teal/40'}`}>
+            <span className={`text-2xl font-extrabold transition-colors ${expanded === index ? 'text-mbx-teal' : 'text-mbx-teal/30'}`}>
               {service.number}
             </span>
             <div className="flex-1">
-              <h3 className={`text-lg font-bold transition-colors ${expanded === index ? 'text-mbx-white' : 'text-mbx-navy'}`}>
+              <h3 className={`text-lg font-extrabold transition-colors ${expanded === index ? 'text-white' : 'text-mbx-navy'}`}>
                 {service.title}
               </h3>
             </div>
@@ -87,12 +87,12 @@ export default function ServiceAccordion() {
               >
                 <div className="px-6 pb-6 pt-0">
                   <div className="border-t border-white/10 pt-5">
-                    <p className="mb-5 text-sm leading-relaxed text-gray-400">{service.description}</p>
+                    <p className="mb-5 text-sm leading-relaxed text-white/50">{service.description}</p>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                       {service.details.map((detail) => (
                         <div
                           key={detail}
-                          className="rounded-lg bg-white/5 px-3 py-2 text-xs font-medium text-mbx-teal-light"
+                          className="rounded-lg bg-white/5 px-3 py-2 text-xs font-semibold text-mbx-teal-light border border-white/5"
                         >
                           {detail}
                         </div>
