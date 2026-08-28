@@ -35,7 +35,7 @@ export default function Capabilities() {
             <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">RCM</span>
           </div>
         </div>
-        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Capabilities
@@ -53,7 +53,7 @@ export default function Capabilities() {
 
       {/* Primary: Home Health + Hospice */}
       <section className="py-28 lg:py-36 bg-mbx-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Primary Specializations"
@@ -74,7 +74,7 @@ export default function Capabilities() {
 
       {/* Services Accordion */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="flex flex-col gap-16 lg:flex-row lg:items-start">
             <AnimatedSection className="lg:w-1/3 lg:sticky lg:top-28">
               <SectionHeading
@@ -95,7 +95,7 @@ export default function Capabilities() {
 
       {/* Secondary Services */}
       <section className="py-28 lg:py-36 bg-mbx-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Additional Services"
@@ -116,7 +116,7 @@ export default function Capabilities() {
 
       {/* Industries */}
       <section className="py-28 lg:py-36 bg-mbx-navy">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Industries"
@@ -145,7 +145,7 @@ export default function Capabilities() {
 
       {/* CTA */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto text-center">
           <AnimatedSection>
             <h2 className="mb-6 text-3xl md:text-4xl font-extrabold tracking-tight text-mbx-navy">
               Let's Build Your Revenue Solution

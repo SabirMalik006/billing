@@ -12,7 +12,7 @@ function TrustStrip() {
   const items = ['Home Health', 'Hospice', 'Behavioral Health', 'Private Practice', 'Medical Groups', 'Healthcare Organizations']
   return (
     <section className="bg-mbx-surface py-12 border-b border-mbx-border">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <p className="mb-6 text-center text-[10px] font-bold tracking-[0.2em] uppercase text-mbx-text-muted">
             Built around the realities of modern healthcare
@@ -36,7 +36,7 @@ function TrustStrip() {
 function IntroductionSection() {
   return (
     <section className="py-28 lg:py-36 bg-mbx-white overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="max-w-5xl mx-auto text-center">
           <AnimatedSection>
             <span className="mb-6 inline-block text-xs font-bold tracking-[0.2em] uppercase text-mbx-teal">
@@ -81,7 +81,7 @@ function IntroductionSection() {
 function SpecializationSection() {
   return (
     <section className="py-28 lg:py-36 bg-mbx-navy overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Core Specialization"
@@ -168,7 +168,7 @@ function MBXAdvantageSection() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-white overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="The MBX Advantage"
@@ -215,7 +215,7 @@ function ServiceExplorer() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-surface">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Capabilities"
@@ -307,7 +307,7 @@ function VirtualAssistanceSection() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-surface">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Virtual Assistance"
@@ -370,7 +370,7 @@ function CredentialingSection() {
       <div className="absolute inset-0 hero-grid opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[200px]" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Contracting & Credentialing"
@@ -459,7 +459,7 @@ function QASection() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="QA & Medical Coding"
@@ -517,7 +517,7 @@ function SpecialtiesSection() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-white overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Beyond Home Health & Hospice"
@@ -577,7 +577,7 @@ function SpecialtiesSection() {
 function EnterpriseSection() {
   return (
     <section className="py-28 lg:py-36 bg-mbx-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           <AnimatedSection className="flex-1" direction="right">
             <SectionHeading
@@ -656,7 +656,7 @@ function WhyMBXSection() {
   return (
     <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
       <div className="absolute inset-0 hero-grid opacity-50" />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <AnimatedSection>
           <SectionHeading
             eyebrow="The Structural Advantage"
@@ -714,7 +714,7 @@ function TestimonialsSection() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Testimonials"
@@ -774,7 +774,7 @@ function CTASection() {
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
       </div>
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto text-center relative z-10">
         <AnimatedSection>
           <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase text-mbx-teal">
             Free Financial Audit
@@ -823,7 +823,7 @@ function FAQSection() {
 
   return (
     <section className="py-28 lg:py-36 bg-mbx-surface">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
             eyebrow="FAQ"

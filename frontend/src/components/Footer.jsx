@@ -48,7 +48,7 @@ export default function Footer() {
         backgroundSize: '60px 60px',
       }} />
 
-      <div className="container mx-auto relative z-10 px-4 pt-20 pb-8">
+      <div className="container mx-auto relative z-10 pt-20 pb-8">
         {/* Top row: Logo + Newsletter + Live Chat */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8 pb-12 border-b border-white/8">
           {/* Brand */}

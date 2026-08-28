@@ -65,7 +65,7 @@ export default function Technology() {
             <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">AI</span>
           </div>
         </div>
-        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Technology & AI
@@ -86,7 +86,7 @@ export default function Technology() {
 
       {/* Capabilities */}
       <section className="py-28 lg:py-36 bg-mbx-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Approach"
@@ -137,7 +137,7 @@ export default function Technology() {
 
       {/* MBX Clarity */}
       <section ref={ref} className="py-28 lg:py-36 bg-mbx-navy">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="MBX Clarity"
@@ -180,7 +180,7 @@ export default function Technology() {
 
       {/* Advantages */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Benefits"
@@ -209,7 +209,7 @@ export default function Technology() {
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10">
           <AnimatedSection>
             <h2 className="mb-6 text-3xl md:text-4xl font-extrabold tracking-tight text-white">
               Ready to See Our Approach in Action?

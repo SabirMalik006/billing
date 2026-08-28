@@ -26,7 +26,7 @@ export default function WorkflowVisual() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-[80%] bg-gradient-to-r from-transparent via-mbx-teal/20 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Header */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
           <span className="mb-5 inline-block text-xs font-bold tracking-[0.2em] uppercase text-mbx-teal">

@@ -186,7 +186,7 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="flex flex-col items-center gap-16 lg:flex-row lg:gap-20">
           {/* Left */}
           <div className="flex-1 max-w-2xl">

@@ -29,7 +29,7 @@ export default function About() {
             <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">MBX</span>
           </div>
         </div>
-        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               About MBX
@@ -50,7 +50,7 @@ export default function About() {
 
       {/* Who We Are */}
       <section id="who-we-are" className="py-28 lg:py-36 bg-mbx-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
             <AnimatedSection className="flex-1">
               <SectionHeading
@@ -89,7 +89,7 @@ export default function About() {
 
       {/* Values */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Values"
@@ -116,7 +116,7 @@ export default function About() {
 
       {/* Approach */}
       <section id="approach" className="py-28 lg:py-36 bg-mbx-navy">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Approach"
@@ -149,7 +149,7 @@ export default function About() {
 
       {/* Expertise */}
       <section id="expertise" className="py-28 lg:py-36 bg-mbx-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Expertise"
@@ -180,7 +180,7 @@ export default function About() {
 
       {/* Team */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="flex flex-col items-center gap-12 lg:flex-row">
             <AnimatedSection className="flex-1">
               <SectionHeading
@@ -207,7 +207,7 @@ export default function About() {
 
       {/* Security */}
       <section className="py-16 bg-mbx-white border-t border-mbx-border">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <div className="mx-auto max-w-3xl text-center">
               <h3 className="mb-4 text-xl font-extrabold text-mbx-navy">Security-Conscious Workflows</h3>
@@ -225,7 +225,7 @@ export default function About() {
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10">
           <AnimatedSection>
             <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
               Partner With MBX

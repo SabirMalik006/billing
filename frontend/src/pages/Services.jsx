@@ -130,7 +130,7 @@ export default function Services() {
             <span className="text-[18vw] font-extrabold text-white/[0.02] tracking-tighter">SERVICES</span>
           </div>
         </div>
-        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Our Services
@@ -158,8 +158,8 @@ export default function Services() {
       </section>
 
       {/* What We Offer */}
-      <section className="py-28 lg:py-36 bg-mbx-white">
-        <div className="container mx-auto px-4">
+      <section className="py-28 lg:py-36 bg-mbx-surface">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="What We Offer"
@@ -168,75 +168,110 @@ export default function Services() {
             />
           </AnimatedSection>
 
-          <div className="space-y-3 mx-auto max-w-5xl">
+          {/* Services Grid */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
             {services.map((service, index) => (
-              <AnimatedSection key={service.id} delay={index * 0.03}>
+              <AnimatedSection key={service.id} delay={index * 0.05}>
                 <div
                   id={service.id}
-                  className={`rounded-2xl border transition-all duration-500 overflow-hidden scroll-mt-28 ${
+                  onClick={() => setExpandedService(expandedService === index ? null : index)}
+                  className={`group relative rounded-2xl border p-7 lg:p-8 cursor-pointer transition-all duration-500 h-full overflow-hidden scroll-mt-28 text-center ${
                     expandedService === index
-                      ? 'border-mbx-teal/30 bg-mbx-navy shadow-xl shadow-mbx-navy/10'
-                      : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/20 hover:shadow-md'
+                      ? 'border-mbx-teal/40 bg-mbx-navy shadow-2xl shadow-mbx-navy/20'
+                      : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/30 hover:shadow-xl hover:-translate-y-1.5'
                   }`}
                 >
-                  <button
-                    onClick={() => setExpandedService(expandedService === index ? null : index)}
-                    className="flex w-full items-center gap-5 p-6 text-left"
-                    aria-expanded={expandedService === index}
-                  >
-                    <div className={`flex size-12 shrink-0 items-center justify-center rounded-xl transition-all duration-500 ${
-                      expandedService === index
-                        ? 'bg-mbx-teal text-white'
-                        : 'bg-mbx-teal/10 text-mbx-teal group-hover:bg-mbx-teal group-hover:text-white'
-                    }`}>
-                      <service.icon size={22} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className={`text-lg font-extrabold transition-colors ${expandedService === index ? 'text-white' : 'text-mbx-navy'}`}>
-                        {service.title}
-                      </h3>
-                      <p className={`text-sm mt-0.5 transition-colors ${expandedService === index ? 'text-white/50' : 'text-mbx-text-muted'}`}>
-                        {service.tagline}
-                      </p>
-                    </div>
-                    <ChevronDown
-                      size={20}
-                      className={`shrink-0 transition-all duration-300 ${
-                        expandedService === index ? 'rotate-180 text-mbx-teal' : 'text-mbx-text-muted'
-                      }`}
-                    />
-                  </button>
+                  {/* Hover glow */}
+                  <div className={`absolute inset-0 transition-opacity duration-500 ${
+                    expandedService === index
+                      ? 'opacity-100'
+                      : 'opacity-0 group-hover:opacity-100'
+                  }`}>
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-mbx-teal/8 rounded-full blur-[80px]" />
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-mbx-teal/5 rounded-full blur-[60px]" />
+                  </div>
 
-                  <AnimatePresence>
-                    {expandedService === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-6 pt-0">
-                          <div className="border-t border-white/10 pt-5">
-                            <p className="mb-5 text-sm leading-relaxed text-white/50">{service.description}</p>
-                            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                  <div className="relative z-10">
+                    {/* Icon — centered */}
+                    <div className={`mx-auto mb-5 flex size-16 items-center justify-center rounded-2xl transition-all duration-500 ${
+                      expandedService === index
+                        ? 'bg-mbx-teal text-white shadow-xl shadow-mbx-teal/30'
+                        : 'bg-mbx-teal/10 text-mbx-teal group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-xl group-hover:shadow-mbx-teal/25 group-hover:scale-105'
+                    }`}>
+                      <service.icon size={28} />
+                    </div>
+
+                    {/* Number */}
+                    <span className={`mb-3 block text-xs font-extrabold tracking-wider transition-colors ${
+                      expandedService === index ? 'text-mbx-teal' : 'text-mbx-border group-hover:text-mbx-teal/50'
+                    }`}>
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+
+                    {/* Title */}
+                    <h3 className={`mb-2 text-xl font-extrabold transition-colors leading-tight ${
+                      expandedService === index ? 'text-white' : 'text-mbx-navy group-hover:text-mbx-teal'
+                    }`}>
+                      {service.title}
+                    </h3>
+
+                    {/* Tagline */}
+                    <p className={`text-sm font-medium transition-colors ${
+                      expandedService === index ? 'text-mbx-teal-light' : 'text-mbx-teal/70'
+                    }`}>
+                      {service.tagline}
+                    </p>
+
+                    {/* Description */}
+                    <p className={`mt-4 text-sm leading-relaxed transition-all duration-500 ${
+                      expandedService === index ? 'text-white/50' : 'text-mbx-text-muted'
+                    }`}>
+                      {service.description}
+                    </p>
+
+                    {/* Details grid — only when expanded */}
+                    <AnimatePresence>
+                      {expandedService === index && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="mt-5 pt-5 border-t border-white/10">
+                            <div className="grid grid-cols-2 gap-2">
                               {service.details.map((detail) => (
-                                <div key={detail} className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-2.5 text-xs font-semibold text-mbx-teal-light border border-white/5">
+                                <div key={detail} className="flex items-center justify-center gap-2 rounded-lg bg-white/5 px-3 py-2.5 text-xs font-semibold text-mbx-teal-light border border-white/5">
                                   <CheckCircle size={12} className="shrink-0" />
                                   {detail}
                                 </div>
                               ))}
                             </div>
                             <div className="mt-5">
-                              <Link to="/connect-us" className="inline-flex items-center gap-2 text-sm font-bold text-mbx-teal hover:text-mbx-teal-light transition-colors">
+                              <Link
+                                to="/connect-us"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-2 rounded-xl bg-mbx-teal px-6 py-3 text-sm font-bold text-white transition-all hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/20"
+                              >
                                 Get Started <ArrowRight size={14} />
                               </Link>
                             </div>
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Expand indicator */}
+                    <div className={`mt-4 flex items-center justify-center gap-2 text-xs font-bold transition-colors ${
+                      expandedService === index ? 'text-mbx-teal' : 'text-mbx-text-muted group-hover:text-mbx-teal'
+                    }`}>
+                      <span>{expandedService === index ? 'Show less' : 'View details'}</span>
+                      <ChevronDown size={14} className={`transition-transform duration-300 ${
+                        expandedService === index ? 'rotate-180' : ''
+                      }`} />
+                    </div>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -246,7 +281,7 @@ export default function Services() {
 
       {/* Specialties */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Specialties"
@@ -290,7 +325,7 @@ export default function Services() {
 
       {/* Billing Process */}
       <section className="py-28 lg:py-36 bg-mbx-navy">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Billing Process"
@@ -343,7 +378,7 @@ export default function Services() {
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
         </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10">
           <AnimatedSection>
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Free Financial Audit

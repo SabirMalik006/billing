@@ -32,7 +32,7 @@ export default function Contact() {
           <div className="hero-grid absolute inset-0" />
           <div className="absolute bottom-0 -left-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
         </div>
-        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Contact
@@ -51,7 +51,7 @@ export default function Contact() {
 
       {/* Form + Info */}
       <section className="py-16 lg:py-24 bg-mbx-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="grid gap-12 lg:grid-cols-5">
             {/* Contact Info */}
             <AnimatedSection className="lg:col-span-2">

@@ -35,7 +35,7 @@ export default function Insights() {
           <div className="hero-grid absolute inset-0" />
           <div className="absolute top-1/2 -right-32 h-[400px] w-[400px] rounded-full bg-mbx-teal/5 blur-[120px]" />
         </div>
-        <div className="container mx-auto relative z-10 px-4 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Insights
@@ -53,7 +53,7 @@ export default function Insights() {
 
       {/* Filters */}
       <section className="sticky top-[72px] z-30 bg-mbx-white/95 backdrop-blur-md border-b border-mbx-border py-4">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
@@ -86,7 +86,7 @@ export default function Insights() {
 
       {/* Posts */}
       <section className="py-16 lg:py-24 bg-mbx-surface min-h-[50vh]">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           {filtered.length === 0 ? (
             <div className="py-20 text-center">
               <p className="text-lg text-mbx-text-muted">No articles found matching your criteria.</p>

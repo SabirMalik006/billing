@@ -71,14 +71,16 @@
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
       max-width: 1320px;
     }
   }
 
   @media (min-width: 1280px) {
     .container {
+      padding-left: 5rem;
+      padding-right: 5rem;
       max-width: 1440px;
     }
   }
