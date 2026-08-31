@@ -4,7 +4,7 @@ import { ArrowRight, TrendingUp, Activity, Shield, FileText, CheckCircle, Clock 
 
 function DashboardVisual() {
   return (
-    <div className="relative w-full max-w-[540px]">
+    <div className="relative w-full max-w-[540px] overflow-hidden rounded-2xl">
       {/* Glow effect */}
       <div className="absolute -inset-4 rounded-3xl bg-mbx-teal/10 blur-3xl" />
 
@@ -108,7 +108,7 @@ function DashboardVisual() {
 
       {/* Floating cards */}
       <motion.div
-        className="absolute -right-4 top-8 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm"
+        className="absolute right-4 top-8 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm hidden sm:block"
         animate={{ y: [0, -8, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -124,7 +124,7 @@ function DashboardVisual() {
       </motion.div>
 
       <motion.div
-        className="absolute -left-6 bottom-20 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm"
+        className="absolute left-4 bottom-20 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm hidden sm:block"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       >
@@ -140,7 +140,7 @@ function DashboardVisual() {
       </motion.div>
 
       <motion.div
-        className="absolute -right-2 bottom-8 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm"
+        className="absolute right-6 bottom-8 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm hidden sm:block"
         animate={{ y: [0, -6, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       >
@@ -164,10 +164,19 @@ export default function HeroSection() {
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D"
+            alt=""
+            className="h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-mbx-navy/50 via-mbx-navy/60 to-mbx-navy/90" />
+        </div>
         <div className="hero-grid absolute inset-0" />
         {/* Teal glows */}
-        <div className="absolute top-1/4 -right-48 h-[500px] w-[500px] rounded-full bg-mbx-teal/6 blur-[150px]" />
-        <div className="absolute bottom-1/4 -left-48 h-[400px] w-[400px] rounded-full bg-mbx-teal/4 blur-[120px]" />
+        <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-mbx-teal/6 blur-[150px]" />
+        <div className="absolute bottom-1/4 left-0 h-[400px] w-[400px] rounded-full bg-mbx-teal/4 blur-[120px]" />
         {/* Giant background text */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
           <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">RCM</span>
