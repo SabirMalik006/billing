@@ -28,7 +28,7 @@ export function PrimaryButton({ children, to, href, className = '', size = 'md' 
     lg: 'px-9 py-4.5 text-base',
   }
 
-  const classes = `inline-flex items-center gap-2.5 rounded-xl bg-mbx-teal font-bold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/20 hover:-translate-y-0.5 ${sizeClasses[size]} ${className}`
+  const classes = `inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5 ${sizeClasses[size]} ${className}`
 
   const content = (
     <>

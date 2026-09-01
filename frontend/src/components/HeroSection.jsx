@@ -171,7 +171,7 @@ export default function HeroSection() {
             alt=""
             className="h-full w-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-mbx-navy/30 via-mbx-navy/40 to-mbx-navy/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-mbx-navy/40 via-mbx-navy/15 to-transparent" />
         </div>
         <div className="hero-grid absolute inset-0" />
         {/* Teal glows */}
@@ -241,14 +241,14 @@ export default function HeroSection() {
             >
               <Link
                 to="/connect-us"
-                className="group inline-flex items-center gap-2.5 rounded-xl bg-mbx-teal px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/20 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
               >
                 Get Your Free Billing Audit
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/capabilities"
-                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-white/15 px-8 py-4 text-base font-bold text-white/80 transition-all duration-300 hover:border-mbx-teal hover:bg-mbx-teal/10 hover:text-white"
+                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-white/15 px-8 py-4 text-base font-bold text-white/80 transition-all duration-300 hover:border-[#4486BF] hover:bg-[#4486BF]/10 hover:text-white"
               >
                 Explore Our Capabilities
               </Link>

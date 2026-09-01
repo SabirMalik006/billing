@@ -252,7 +252,7 @@ export default function Services() {
                               <Link
                                 to="/connect-us"
                                 onClick={(e) => e.stopPropagation()}
-                                className="inline-flex items-center gap-2 rounded-xl bg-mbx-teal px-6 py-3 text-sm font-bold text-white transition-all hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/20"
+                                className="inline-flex items-center gap-2 rounded-xl bg-[#4486BF] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20"
                               >
                                 Get Started <ArrowRight size={14} />
                               </Link>

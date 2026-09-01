@@ -175,7 +175,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-mbx-teal px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/20 hover:-translate-y-0.5 sm:w-auto"
+                  className="mt-6 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5 sm:w-auto"
                 >
                   <Send size={18} /> Schedule Your Free Audit
                 </button>

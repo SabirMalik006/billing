@@ -37,40 +37,66 @@ function IntroductionSection() {
   return (
     <section className="py-28 lg:py-36 bg-mbx-white overflow-hidden">
       <div className="container mx-auto">
-        <div className="max-w-5xl mx-auto text-center">
-          <AnimatedSection>
-            <span className="mb-6 inline-block text-xs font-bold tracking-[0.2em] uppercase text-mbx-teal">
-              Who We Are
-            </span>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-mbx-navy leading-[1.1] mb-8">
-              Healthcare Revenue,<br />
-              <span className="text-mbx-teal">Without the Complexity.</span>
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <p className="text-lg md:text-xl text-mbx-text-muted max-w-3xl mx-auto leading-relaxed mb-12">
-              MBX is a trusted medical billing and revenue cycle management company delivering
-              comprehensive, technology-driven solutions to healthcare providers. We combine billing,
-              coding, OASIS, and QA into one streamlined workflow — eliminating gaps, reducing errors,
-              and improving outcomes across your entire revenue cycle.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3}>
-            <div className="flex flex-wrap justify-center gap-8 mt-16 pt-12 border-t border-mbx-border">
+        <div className="flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20">
+          {/* Left Content */}
+          <div className="flex-1">
+            <AnimatedSection>
+              <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-mbx-teal/20 bg-mbx-teal/5 px-4 py-1.5 text-xs font-bold tracking-[0.15em] uppercase text-mbx-teal">
+                Who We Are
+              </span>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <h2 className="mt-6 text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-mbx-navy leading-[1.1]">
+                Healthcare Revenue,<br />
+                <span className="text-mbx-teal">Without the Complexity.</span>
+              </h2>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <p className="mt-8 text-lg leading-relaxed text-mbx-text-muted max-w-xl">
+                MBX is a trusted medical billing and revenue cycle management company delivering
+                comprehensive, technology-driven solutions to healthcare providers. We combine billing,
+                coding, OASIS, and QA into one streamlined workflow — eliminating gaps, reducing errors,
+                and improving outcomes across your entire revenue cycle.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.3}>
+              <div className="mt-10">
+                <Link to="/about" className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5">
+                  Learn More About Us
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Right Stats */}
+          <div className="flex-1">
+            <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:gap-4">
               {[
-                { value: '98.5%', label: 'Billing Accuracy' },
-                { value: '35%', label: 'A/R Reduction' },
-                { value: '100%', label: 'HIPAA Compliant' },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="text-3xl md:text-4xl font-extrabold text-mbx-teal">{stat.value}</p>
-                  <p className="text-xs font-bold tracking-[0.15em] uppercase text-mbx-text-muted mt-1">{stat.label}</p>
-                </div>
+                { value: '98.5%', label: 'Billing Accuracy', desc: 'Industry-leading precision in claims processing and submission', icon: Target },
+                { value: '35%', label: 'A/R Reduction', desc: 'Faster payments and improved cash flow for your practice', icon: TrendingUp },
+                { value: '100%', label: 'HIPAA Compliant', desc: 'Full compliance with healthcare data security standards', icon: Shield },
+              ].map((stat, i) => (
+                <AnimatedSection key={stat.label} delay={0.2 + i * 0.1}>
+                  <div className="group relative flex items-start gap-5 rounded-2xl border border-mbx-border/60 bg-white p-6 transition-all duration-500 hover:border-mbx-teal/40 hover:shadow-xl hover:shadow-mbx-teal/5 hover:-translate-y-1 overflow-hidden">
+                    {/* Top accent */}
+                    <div className="absolute top-0 left-0 h-[3px] w-0 rounded-full bg-gradient-to-r from-mbx-teal to-blue-500 transition-all duration-500 group-hover:w-full" />
+                    {/* Glow */}
+                    <div className="absolute -top-20 -right-20 w-40 h-40 bg-mbx-teal/8 rounded-full blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                    <div className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-mbx-teal group-hover:to-mbx-teal-dark group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-mbx-teal/30">
+                      <stat.icon size={26} />
+                    </div>
+                    <div className="relative z-10">
+                      <p className="text-3xl font-extrabold text-mbx-navy">{stat.value}</p>
+                      <p className="mt-1 text-sm font-bold text-mbx-navy">{stat.label}</p>
+                      <p className="mt-1.5 text-sm text-mbx-text-muted leading-relaxed">{stat.desc}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
               ))}
             </div>
-          </AnimatedSection>
+          </div>
         </div>
       </div>
     </section>
@@ -80,16 +106,16 @@ function IntroductionSection() {
 /* ── MBX Advantage ── */
 function MBXAdvantageSection() {
   const advantages = [
-    { icon: ClipboardCheck, title: 'Accurate Documentation', desc: 'Improve coding precision and reduce costly errors with thorough documentation review and alignment.' },
-    { icon: TrendingUp, title: 'Higher Star Ratings', desc: 'Boost quality scores and patient satisfaction outcomes through optimized clinical documentation.' },
-    { icon: BarChart3, title: 'Better Reimbursement', desc: 'Maximize revenue with compliant and optimized claims that capture the full value of services rendered.' },
-    { icon: Shield, title: 'Denial Prevention', desc: 'QA-driven process that reduces errors at the source, prevents denials before they happen.' },
-    { icon: Activity, title: 'Revenue Visibility', desc: 'Clear insight into billing performance across your organization with real-time dashboards and reports.' },
-    { icon: Zap, title: 'End-to-End RCM', desc: 'One partner supporting your entire revenue cycle lifecycle from credentialing to payment posting.' },
+    { icon: ClipboardCheck, title: 'Accurate Documentation', desc: 'Improve coding precision and reduce costly errors with thorough documentation review and alignment.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+    { icon: TrendingUp, title: 'Higher Star Ratings', desc: 'Boost quality scores and patient satisfaction outcomes through optimized clinical documentation.', color: 'from-blue-500/20 to-blue-500/5' },
+    { icon: BarChart3, title: 'Better Reimbursement', desc: 'Maximize revenue with compliant and optimized claims that capture the full value of services rendered.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+    { icon: Shield, title: 'Denial Prevention', desc: 'QA-driven process that reduces errors at the source, prevents denials before they happen.', color: 'from-blue-500/20 to-blue-500/5' },
+    { icon: Activity, title: 'Revenue Visibility', desc: 'Clear insight into billing performance across your organization with real-time dashboards and reports.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+    { icon: Zap, title: 'End-to-End RCM', desc: 'One partner supporting your entire revenue cycle lifecycle from credentialing to payment posting.', color: 'from-blue-500/20 to-blue-500/5' },
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-mbx-white overflow-hidden">
+    <section className="py-28 lg:py-36 bg-mbx-surface overflow-hidden">
       <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
@@ -99,17 +125,42 @@ function MBXAdvantageSection() {
           />
         </AnimatedSection>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {advantages.map((item, i) => (
-            <AnimatedSection key={item.title} delay={i * 0.06}>
-              <div className="group relative rounded-2xl border border-mbx-border bg-mbx-surface p-8 transition-all duration-500 hover:shadow-2xl hover:border-mbx-teal/30 hover:-translate-y-1.5 h-full overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-mbx-teal/5 rounded-full blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <AnimatedSection key={item.title} delay={i * 0.08}>
+              <div className="group relative rounded-3xl border border-mbx-border/60 bg-white p-8 lg:p-9 transition-all duration-500 hover:shadow-2xl hover:shadow-mbx-navy/10 hover:border-mbx-teal/40 hover:-translate-y-2 h-full overflow-hidden text-center">
+                {/* Top accent line */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[3px] w-0 rounded-full bg-gradient-to-r from-mbx-teal to-blue-500 transition-all duration-500 group-hover:w-full" />
+                {/* Gradient bg */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
+                {/* Glow */}
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-mbx-teal/10 rounded-full blur-[80px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
                 <div className="relative z-10">
-                  <div className="mb-6 flex size-16 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-xl group-hover:shadow-mbx-teal/25">
+                  {/* Number */}
+                  <span className="mb-5 inline-block text-[11px] font-extrabold tracking-[0.2em] text-mbx-border group-hover:text-mbx-teal/40 transition-colors">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+
+                  {/* Icon */}
+                  <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-mbx-teal group-hover:to-mbx-teal-dark group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-mbx-teal/30">
                     <item.icon size={28} />
                   </div>
-                  <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-mbx-text-muted">{item.desc}</p>
+
+                  {/* Title */}
+                  <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-navy transition-colors leading-tight">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm leading-relaxed text-mbx-text-muted">
+                    {item.desc}
+                  </p>
+
+                  {/* Arrow */}
+                  <div className="mt-6 flex items-center justify-center gap-2 text-sm font-bold text-mbx-teal opacity-0 translate-x-[-10px] transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                    Learn More <ArrowRight size={14} />
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -244,11 +295,11 @@ function VirtualAssistanceSection() {
             <div className="flex flex-wrap items-center justify-center gap-3 lg:gap-0">
               {steps.map((step, i) => (
                 <div key={step} className="flex items-center">
-                  <div className="rounded-xl border-2 border-mbx-border bg-mbx-white px-6 py-3.5 text-sm font-bold text-mbx-navy shadow-sm transition-all hover:border-mbx-teal hover:shadow-lg hover:text-mbx-teal hover:-translate-y-0.5">
+                  <div className="rounded-xl border-2 border-mbx-border bg-white px-6 py-3.5 text-sm font-bold text-mbx-navy shadow-sm transition-all hover:border-[#4486BF] hover:shadow-lg hover:text-[#4486BF] hover:-translate-y-0.5">
                     {step}
                   </div>
                   {i < steps.length - 1 && (
-                    <div className="mx-3 text-mbx-teal/40 hidden sm:block">
+                    <div className="mx-3 text-[#4486BF]/40 hidden sm:block">
                       <ArrowRight size={20} />
                     </div>
                   )}
@@ -262,12 +313,19 @@ function VirtualAssistanceSection() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {cards.map((item, i) => (
             <AnimatedSection key={item.title} delay={0.1 + i * 0.06}>
-              <div className="group rounded-2xl border border-mbx-border bg-mbx-white p-8 transition-all duration-500 hover:shadow-xl hover:border-mbx-teal/30 hover:-translate-y-1 h-full">
-                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-lg group-hover:shadow-mbx-teal/20">
-                  <item.icon size={26} />
+              <div className="group relative rounded-2xl border border-mbx-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:border-[#4486BF]/30 hover:-translate-y-1 h-full overflow-hidden">
+                {/* Top accent */}
+                <div className="absolute top-0 left-0 h-[3px] w-0 rounded-full bg-gradient-to-r from-[#4486BF] to-[#5A9AD0] transition-all duration-500 group-hover:w-full" />
+                {/* Glow */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#4486BF]/8 rounded-full blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="relative z-10">
+                  <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-[#4486BF] group-hover:to-[#3570A0] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#4486BF]/30">
+                    <item.icon size={26} />
+                  </div>
+                  <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-navy transition-colors">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-mbx-text-muted">{item.desc}</p>
                 </div>
-                <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-mbx-text-muted">{item.desc}</p>
               </div>
             </AnimatedSection>
           ))}

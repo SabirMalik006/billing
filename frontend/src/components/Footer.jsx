@@ -83,7 +83,7 @@ export default function Footer() {
                 className="flex-1 rounded-lg bg-white/5 border border-white/10 px-4 py-2.5 text-sm text-white outline-none focus:border-mbx-teal transition-colors placeholder:text-white/30"
                 required
               />
-              <button type="submit" className="rounded-lg bg-mbx-teal px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-mbx-teal-dark">
+              <button type="submit" className="rounded-lg bg-[#4486BF] px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-[#3a73a8]">
                 Sign Up
               </button>
             </form>

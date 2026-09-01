@@ -242,7 +242,7 @@ export default function Navbar() {
               >
                 <Link
                   to="/connect-us"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-mbx-teal px-8 py-4 text-lg font-bold text-mbx-white"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-[#4486BF] px-8 py-4 text-lg font-bold text-mbx-white"
                 >
                   Get Free Audit <ArrowRight size={18} />
                 </Link>
