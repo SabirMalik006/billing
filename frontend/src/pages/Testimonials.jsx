@@ -5,33 +5,6 @@ import { Star, Quote } from 'lucide-react'
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
-const fallbackTestimonials = [
-  {
-    name: 'Jazzmyn Cook',
-    role: 'Hospice Director',
-    content: 'MBX Solutions transformed our hospice billing operations. Their deep understanding of hospice-specific workflows and dedication to accuracy has significantly improved our revenue cycle. We saw a marked improvement in claim acceptance rates within the first quarter.',
-    rating: 5,
-  },
-  {
-    name: 'Anna Boguslavsky',
-    role: 'Home Health Agency Owner',
-    content: 'Working with MBX has been a game-changer for our home health agency. Their team handles everything from OASIS reviews to claim submissions with exceptional precision. The reduced denials and faster payments have made a real difference in our cash flow.',
-    rating: 5,
-  },
-  {
-    name: 'Jerry M',
-    role: 'Home Health Operator',
-    content: 'MBX Solutions provides reliable, accurate billing support that we can count on. Their team is responsive, knowledgeable, and genuinely invested in our success. I recommend them to any home health organization looking for a trusted billing partner.',
-    rating: 5,
-  },
-  {
-    name: 'Good News CEO',
-    role: 'Pain Management Practice',
-    content: 'Switching to MBX was the best decision we made for our practice. Their attention to detail in coding and billing has maximized our reimbursements while keeping us fully compliant. The team feels like an extension of our own staff.',
-    rating: 5,
-  },
-]
-
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState([])
   const [loading, setLoading] = useState(true)
@@ -39,15 +12,8 @@ export default function Testimonials() {
   useEffect(() => {
     fetch(`${API}/api/testimonials`)
       .then(res => res.json())
-      .then(data => {
-        if (data.length > 0) setTestimonials(data)
-        else setTestimonials(fallbackTestimonials)
-        setLoading(false)
-      })
-      .catch(() => {
-        setTestimonials(fallbackTestimonials)
-        setLoading(false)
-      })
+      .then(data => { setTestimonials(data); setLoading(false) })
+      .catch(() => setLoading(false))
   }, [])
 
   return (
