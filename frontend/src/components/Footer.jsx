@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Phone, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react'
+import { ArrowUpRight, Phone, Mail, MapPin, MessageCircle, ArrowRight, Star } from 'lucide-react'
 import { useState } from 'react'
+import ReviewForm from './ReviewForm'
 
 const footerLinks = {
   Services: [
@@ -27,6 +28,7 @@ const footerLinks = {
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const [showReview, setShowReview] = useState(false)
 
   const handleSubscribe = (e) => {
     e.preventDefault()
@@ -117,6 +119,13 @@ export default function Footer() {
                   <p className="text-xs text-white/30">Explore helpful articles and updates</p>
                 </div>
               </Link>
+              <button onClick={() => setShowReview(true)} className="flex items-center gap-3 rounded-xl bg-white/5 border border-white/5 px-4 py-3 text-sm text-white/50 transition-all hover:border-mbx-teal/30 hover:text-white w-full text-left">
+                <Star size={16} className="text-mbx-teal shrink-0" />
+                <div>
+                  <p className="font-bold text-white/70">Write a Review</p>
+                  <p className="text-xs text-white/30">Share your experience with us</p>
+                </div>
+              </button>
             </div>
           </div>
         </div>
@@ -174,6 +183,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <ReviewForm isOpen={showReview} onClose={() => setShowReview(false)} />
     </footer>
   )
 }

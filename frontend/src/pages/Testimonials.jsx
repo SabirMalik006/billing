@@ -86,28 +86,22 @@ export default function Testimonials() {
               {testimonials.map((t, i) => (
                 <AnimatedSection key={t._id || t.name} delay={i * 0.08}>
                   <div className="group relative rounded-2xl border border-mbx-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:border-[#4486BF]/30 hover:-translate-y-1 h-full overflow-hidden">
-                    {/* Top accent */}
                     <div className="absolute top-0 left-0 h-[3px] w-0 rounded-full bg-gradient-to-r from-[#4486BF] to-[#5A9AD0] transition-all duration-500 group-hover:w-full" />
-
-                    {/* Quote icon */}
                     <div className="mb-6 flex size-12 items-center justify-center rounded-xl bg-[#4486BF]/10 text-[#4486BF]">
                       <Quote size={22} />
                     </div>
-
-                    {/* Stars */}
                     <div className="flex gap-1 mb-4">
                       {[...Array(t.rating || 5)].map((_, j) => (
                         <Star key={j} size={16} className="fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-
-                    {/* Content */}
                     <p className="text-sm leading-relaxed text-mbx-text-muted mb-6">&ldquo;{t.content}&rdquo;</p>
-
-                    {/* Author */}
                     <div className="border-t border-mbx-border pt-5">
                       <p className="text-base font-extrabold text-mbx-navy">{t.name}</p>
-                      <p className="text-sm text-[#4486BF] font-medium">{t.role}</p>
+                      {t.role && <p className="text-sm text-[#4486BF] font-medium">{t.role}</p>}
+                      {t.source === 'user' && (
+                        <span className="mt-1 inline-block rounded-full bg-[#4486BF]/10 px-2.5 py-0.5 text-[9px] font-bold text-[#4486BF] uppercase tracking-wider">Client Review</span>
+                      )}
                     </div>
                   </div>
                 </AnimatedSection>

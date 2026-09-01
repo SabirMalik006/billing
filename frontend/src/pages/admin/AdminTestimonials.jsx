@@ -61,9 +61,19 @@ export default function AdminTestimonials() {
     fetchTestimonials()
   }
 
+  const toggleApproved = async (t) => {
+    await fetch(`${API}/api/testimonials/${t._id}`, {
+      method: 'PUT', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ approved: !t.approved }),
+    })
+    fetchTestimonials()
+  }
+
+  const pendingCount = testimonials.filter(t => !t.approved && t.source === 'user').length
+
   return (
     <div>
-      <PageHeader title="Testimonials" subtitle={`${testimonials.length} total, ${testimonials.filter(t => t.active).length} active`}
+      <PageHeader title="Testimonials" subtitle={`${testimonials.length} total, ${pendingCount} pending approval`}
         action={() => openForm()} actionLabel="Add Testimonial" actionIcon={Plus} />
 
       {/* Inline Form */}
@@ -152,11 +162,29 @@ export default function AdminTestimonials() {
               <p className="text-sm leading-relaxed text-[#5A6B82] line-clamp-3 mb-4">&ldquo;{t.content}&rdquo;</p>
               <div className="flex items-center justify-between border-t border-[#DEE4EB] pt-4">
                 <div>
-                  <p className="text-sm font-extrabold text-[#0B2348]">{t.name}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-extrabold text-[#0B2348]">{t.name}</p>
+                    {t.source === 'user' && (
+                      <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[9px] font-bold text-blue-600 uppercase tracking-wider">User</span>
+                    )}
+                    {!t.approved && t.source === 'user' && (
+                      <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[9px] font-bold text-amber-600 uppercase tracking-wider">Pending</span>
+                    )}
+                  </div>
                   <p className="text-xs font-medium text-[#4486BF]">{t.role}</p>
                 </div>
                 <div className="flex items-center gap-1.5">
                   {!t.active && <span className="rounded-md bg-gray-100 px-2 py-0.5 text-[9px] font-bold text-gray-500 uppercase tracking-wider">Hidden</span>}
+                  {t.source === 'user' && !t.approved && (
+                    <button onClick={() => toggleApproved(t)} className="flex size-7 items-center justify-center rounded-lg text-emerald-500 hover:bg-emerald-50 transition-all" title="Approve">
+                      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    </button>
+                  )}
+                  {t.source === 'user' && t.approved && (
+                    <button onClick={() => toggleApproved(t)} className="flex size-7 items-center justify-center rounded-lg text-amber-500 hover:bg-amber-50 transition-all" title="Unapprove">
+                      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                  )}
                   <button onClick={() => toggleActive(t)} className="flex size-7 items-center justify-center rounded-lg text-[#5A6B82] hover:bg-[#F5F8FA] hover:text-[#4486BF] transition-all"
                     title={t.active ? 'Hide' : 'Show'}>
                     {t.active ? <Eye size={14} /> : <EyeOff size={14} />}
