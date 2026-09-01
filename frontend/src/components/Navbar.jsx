@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 
 const navItems = [
+  { label: 'Home', path: '/' },
   {
     label: 'Services',
     path: '/services',
@@ -25,39 +26,10 @@ const navItems = [
       ]},
     ],
   },
-  {
-    label: 'Technology & AI',
-    path: '/technology-and-ai',
-    children: [
-      { label: 'Revenue Analytics', path: '/technology-and-ai#analytics' },
-      { label: 'Workflow Automation', path: '/technology-and-ai#automation' },
-      { label: 'Claims Intelligence', path: '/technology-and-ai#claims' },
-      { label: 'MBX Clarity', path: '/technology-and-ai#clarity' },
-    ],
-  },
-  {
-    label: 'Capabilities',
-    path: '/capabilities',
-    children: [
-      { heading: 'Primary', items: [
-        { label: 'Home Health Billing', path: '/capabilities#home-health' },
-        { label: 'Hospice Billing', path: '/capabilities#hospice' },
-      ]},
-      { heading: 'Services', items: [
-        { label: 'Virtual Assistance', path: '/capabilities#virtual-assistance' },
-        { label: 'Contracting & Credentialing', path: '/capabilities#credentialing' },
-        { label: 'QA & Medical Coding', path: '/capabilities#qa-coding' },
-        { label: 'AR & Denial Management', path: '/capabilities#ar-denials' },
-      ]},
-      { heading: 'Industries', items: [
-        { label: 'Private Practice', path: '/capabilities#private-practice' },
-        { label: 'Large Groups & Health Systems', path: '/capabilities#large-groups' },
-        { label: 'Behavioral Health / ABA', path: '/capabilities#behavioral-health' },
-      ]},
-    ],
-  },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Testimonials', path: '/testimonials' },
   { label: 'About', path: '/about' },
-  { label: 'Insights', path: '/our-insights' },
+  { label: 'Contact', path: '/connect-us' },
 ]
 
 export default function Navbar() {
