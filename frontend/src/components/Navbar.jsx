@@ -88,16 +88,11 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled || !isHome
-            ? 'bg-mbx-navy/95 backdrop-blur-xl shadow-lg shadow-black/10'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg shadow-black/5"
       >
-        <nav className="container mx-auto flex items-center justify-between py-4 lg:py-5">
-          <Link to="/" className="relative z-10 flex items-center gap-2.5 shrink-0">
-            <img src="/logo.jpeg" alt="MBX Solutions" className="h-8 lg:h-9 w-auto" />
-            <span className="hidden sm:block text-sm font-extrabold text-white tracking-tight">MBX Solutions</span>
+        <nav className="container mx-auto flex items-center justify-between py-2 lg:py-3">
+          <Link to="/" className="relative z-10 shrink-0">
+            <img src="https://mbxsol.com/wp-content/uploads/2026/04/MBX-Solutions-Logo-2-e1779169428791.png" alt="MBX Solutions" className="h-14 lg:h-16 w-auto" />
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -106,13 +101,13 @@ export default function Navbar() {
                 <div className="flex items-center">
                   <Link
                     to={item.path}
-                    className="px-4 py-2 text-[13px] font-semibold text-white/70 hover:text-white transition-colors"
+                    className="px-5 py-2.5 text-base font-semibold text-[#4486BF] hover:text-mbx-navy transition-colors"
                   >
                     {item.label}
                   </Link>
                   {item.children && (
                     <button
-                      className="text-white/40 group-hover:text-white/70 transition-colors"
+                      className="text-mbx-text-muted/50 group-hover:text-mbx-text-muted transition-colors"
                       aria-label={`Toggle ${item.label} submenu`}
                     >
                       <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180" />
@@ -152,13 +147,13 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               to="/connect-us"
-              className="hidden lg:inline-flex items-center gap-2 rounded-xl bg-mbx-teal px-6 py-2.5 text-[13px] font-bold text-mbx-white transition-all duration-300 hover:bg-mbx-teal-dark hover:shadow-lg hover:shadow-mbx-teal/20 hover:-translate-y-0.5"
+              className="hidden lg:inline-flex items-center gap-2 rounded-xl bg-[#4486BF] px-10 py-3.5 text-base font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
             >
               Get Free Audit <ArrowRight size={14} />
             </Link>
 
             <button
-              className="relative z-10 flex size-11 items-center justify-center text-mbx-white lg:hidden"
+              className="relative z-10 flex size-12 items-center justify-center text-mbx-navy lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}

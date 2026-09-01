@@ -77,84 +77,6 @@ function IntroductionSection() {
   )
 }
 
-/* ── Home Health + Hospice ── */
-function SpecializationSection() {
-  return (
-    <section className="py-28 lg:py-36 bg-mbx-navy overflow-hidden">
-      <div className="container mx-auto">
-        <AnimatedSection>
-          <SectionHeading
-            eyebrow="Core Specialization"
-            title="Deep Expertise Where Healthcare Gets Complicated"
-            subtitle="Deep operational understanding of the workflows, documentation, and billing complexities unique to home-based care."
-            light
-          />
-        </AnimatedSection>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Home Health */}
-          <AnimatedSection delay={0.1}>
-            <div className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-8 lg:p-10 transition-all duration-500 hover:border-mbx-teal/30 hover:bg-white/[0.06] overflow-hidden h-full">
-              <div className="absolute top-0 right-0 w-72 h-72 bg-mbx-teal/5 rounded-full blur-[100px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative z-10">
-                <div className="flex items-center gap-5 mb-8">
-                  <div className="flex size-16 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-xl group-hover:shadow-mbx-teal/25">
-                    <Stethoscope size={30} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-white">Home Health</h3>
-                    <p className="text-sm text-white/40">PDGM-focused billing & revenue</p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-2.5 mb-8">
-                  {['PDGM Billing Workflows', 'OASIS Revenue Considerations', 'LUPA Management', 'Claims & Coding', 'Documentation Quality', 'Revenue Optimization', 'AR & Denial Management', 'Compliance Support'].map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 rounded-xl bg-white/[0.04] px-4 py-3 text-sm text-white/60 border border-white/[0.04] transition-colors group-hover:bg-white/[0.07]">
-                      <CheckCircle size={14} className="shrink-0 text-mbx-teal" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-                <Link to="/services#home-health" className="inline-flex items-center gap-2 text-sm font-bold text-mbx-teal hover:text-mbx-teal-light transition-colors">
-                  Explore Home Health Expertise <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Hospice */}
-          <AnimatedSection delay={0.2}>
-            <div className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-8 lg:p-10 transition-all duration-500 hover:border-mbx-teal/30 hover:bg-white/[0.06] overflow-hidden h-full">
-              <div className="absolute top-0 right-0 w-72 h-72 bg-mbx-navy-light/30 rounded-full blur-[100px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="relative z-10">
-                <div className="flex items-center gap-5 mb-8">
-                  <div className="flex size-16 items-center justify-center rounded-2xl bg-white/5 text-white/60 transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-xl group-hover:shadow-mbx-teal/25">
-                    <Heart size={30} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-white">Hospice</h3>
-                    <p className="text-sm text-white/40">Specialized hospice billing support</p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-2.5 mb-8">
-                  {['NOE / NOTR Processes', 'Hospice Claim Management', 'Revenue Code Workflows', 'GIP / Respite / Routine', 'Coding & Documentation', 'QA & Compliance', 'AR & Denial Management', 'Revenue Integrity'].map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 rounded-xl bg-white/[0.04] px-4 py-3 text-sm text-white/60 border border-white/[0.04] transition-colors group-hover:bg-white/[0.07]">
-                      <CheckCircle size={14} className="shrink-0 text-mbx-teal" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-                <Link to="/services#hospice" className="inline-flex items-center gap-2 text-sm font-bold text-mbx-teal hover:text-mbx-teal-light transition-colors">
-                  Explore Hospice Expertise <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* ── MBX Advantage ── */
 function MBXAdvantageSection() {
   const advantages = [
@@ -884,7 +806,6 @@ export default function Home() {
       <HeroSection />
       <TrustStrip />
       <IntroductionSection />
-      <SpecializationSection />
       <MBXAdvantageSection />
       <ServiceExplorer />
       <WorkflowVisual />

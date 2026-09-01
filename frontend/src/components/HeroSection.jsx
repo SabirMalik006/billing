@@ -15,43 +15,43 @@ function DashboardVisual() {
         className="relative rounded-2xl border border-white/10 bg-mbx-navy/80 p-6 backdrop-blur-xl shadow-2xl shadow-black/30"
       >
         {/* Header */}
-        <div className="mb-5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex size-2 rounded-full bg-mbx-teal animate-pulse-slow" />
-            <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">MBX Revenue Intelligence</span>
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="flex size-1.5 rounded-full bg-mbx-teal animate-pulse-slow" />
+            <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-mbx-teal">MBX Revenue Intelligence</span>
           </div>
-          <div className="flex items-center gap-1.5 text-[10px] text-white/40">
-            <div className="size-1.5 rounded-full bg-green-400" />
+          <div className="flex items-center gap-1.5 text-[9px] text-white/40">
+            <div className="size-1 rounded-full bg-green-400" />
             Live
           </div>
         </div>
 
         {/* Main metric */}
-        <div className="mb-5 rounded-xl bg-white/[0.04] p-5 border border-white/[0.06]">
+        <div className="mb-4 rounded-xl bg-white/[0.04] p-4 border border-white/[0.06]">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-[11px] font-medium text-white/40 mb-1">Revenue Performance</p>
-              <p className="text-3xl font-extrabold text-white">$2.48M</p>
-              <p className="mt-1 text-[11px] text-white/30">illustrative data</p>
+              <p className="text-[10px] font-medium text-white/40 mb-0.5">Revenue Performance</p>
+              <p className="text-[1.5rem] font-extrabold text-white">$2.48M</p>
+              <p className="mt-0.5 text-[10px] text-white/30">illustrative data</p>
             </div>
-            <div className="flex items-center gap-1 rounded-lg bg-green-500/10 px-2.5 py-1.5">
-              <TrendingUp size={12} className="text-green-400" />
-              <span className="text-[11px] font-bold text-green-400">+12.4%</span>
+            <div className="flex items-center gap-1 rounded-lg bg-green-500/10 px-2 py-1">
+              <TrendingUp size={10} className="text-green-400" />
+              <span className="text-[10px] font-bold text-green-400">+12.4%</span>
             </div>
           </div>
           {/* Animated chart line */}
-          <div className="mt-4 h-16">
+          <div className="mt-3 h-16">
             <svg viewBox="0 0 400 60" className="h-full w-full" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgb(21,159,160)" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="rgb(21,159,160)" stopOpacity="0" />
+                  <stop offset="0%" stopColor="rgb(68,134,191)" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="rgb(68,134,191)" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <motion.path
                 d="M0,45 L30,40 L60,42 L90,35 L120,38 L150,30 L180,32 L210,25 L240,28 L270,20 L300,22 L330,15 L360,18 L400,10"
                 fill="none"
-                stroke="rgb(21,159,160)"
+                stroke="rgb(68,134,191)"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
@@ -70,22 +70,22 @@ function DashboardVisual() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-2">
           {[
             { label: 'Claims', value: '94.8%', icon: FileText, color: 'text-mbx-teal' },
             { label: 'AR Days', value: '28', icon: Clock, color: 'text-mbx-teal-light' },
             { label: 'Denials', value: '↓3.2%', icon: Shield, color: 'text-green-400' },
           ].map((stat) => (
-            <div key={stat.label} className="rounded-lg bg-white/[0.04] p-3 border border-white/[0.04]">
-              <stat.icon size={14} className={`mb-2 ${stat.color}`} />
-              <p className="text-[10px] text-white/40 mb-0.5">{stat.label}</p>
-              <p className="text-sm font-extrabold text-white">{stat.value}</p>
+            <div key={stat.label} className="rounded-lg bg-white/[0.04] p-2.5 border border-white/[0.04]">
+              <stat.icon size={12} className={`mb-1.5 ${stat.color}`} />
+              <p className="text-[9px] text-white/40 mb-0.5">{stat.label}</p>
+              <p className="text-xs font-extrabold text-white">{stat.value}</p>
             </div>
           ))}
         </div>
 
         {/* Activity feed */}
-        <div className="mt-4 space-y-2">
+        <div className="mt-3 space-y-1.5">
           {[
             { text: 'Clean claim posted', time: '2m ago', color: 'bg-green-400' },
             { text: 'OASIS review completed', time: '8m ago', color: 'bg-mbx-teal' },
@@ -96,11 +96,11 @@ function DashboardVisual() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 2 + i * 0.2 }}
-              className="flex items-center gap-3 rounded-lg bg-white/[0.03] px-3 py-2"
+              className="flex items-center gap-2.5 rounded-lg bg-white/[0.03] px-2.5 py-1.5"
             >
-              <div className={`size-1.5 rounded-full ${item.color}`} />
-              <span className="flex-1 text-[11px] text-white/50">{item.text}</span>
-              <span className="text-[10px] text-white/25">{item.time}</span>
+              <div className={`size-1 rounded-full ${item.color}`} />
+              <span className="flex-1 text-[10px] text-white/50">{item.text}</span>
+              <span className="text-[9px] text-white/25">{item.time}</span>
             </motion.div>
           ))}
         </div>
@@ -169,9 +169,9 @@ export default function HeroSection() {
           <img
             src="https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D"
             alt=""
-            className="h-full w-full object-cover opacity-40"
+            className="h-full w-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-mbx-navy/50 via-mbx-navy/60 to-mbx-navy/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-mbx-navy/30 via-mbx-navy/40 to-mbx-navy/70" />
         </div>
         <div className="hero-grid absolute inset-0" />
         {/* Teal glows */}
@@ -195,21 +195,11 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="flex flex-col items-center gap-16 lg:flex-row lg:gap-20">
+      <div className="container mx-auto relative z-10 pt-36 pb-20 lg:pt-44 lg:pb-28">
+        <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-start lg:gap-20">
           {/* Left */}
           <div className="flex-1 max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
-                Healthcare Revenue Cycle Management
-              </span>
-            </motion.div>
-
-            <div className="mt-8">
+            <div>
               <motion.h1
                 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem] leading-[1.08]"
                 initial="hidden"
@@ -234,7 +224,7 @@ export default function HeroSection() {
             </div>
 
             <motion.p
-              className="mt-8 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1 }}
