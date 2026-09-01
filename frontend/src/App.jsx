@@ -8,6 +8,7 @@ import Gallery from './pages/Gallery'
 import Testimonials from './pages/Testimonials'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 import Admin from './pages/Admin'
 
 function AppContent() {
@@ -26,6 +27,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/connect-us" element={<Contact />} />
           <Route path="/admin/*" element={<Admin />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       {!isAdmin && <Footer />}
