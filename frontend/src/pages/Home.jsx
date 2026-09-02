@@ -495,53 +495,73 @@ function QASection() {
 /* ── Specialties ── */
 function SpecialtiesSection() {
   const specialties = [
-    { title: 'Internal Medicine', desc: 'Comprehensive billing solutions designed to streamline patient care services, improve claim accuracy, and maximize reimbursements for internal medicine practices.', icon: Stethoscope },
-    { title: 'Cardiology', desc: 'Specialized revenue cycle management for cardiology practices, ensuring accurate coding, faster claims processing, and reduced payment delays.', icon: Activity },
-    { title: 'Immunology', desc: 'Efficient billing support for immunology services with optimized workflows, accurate documentation, and improved reimbursement outcomes.', icon: Shield },
-    { title: 'Pain Management', desc: 'Specialized billing support for pain management practices with complex multi-procedure coding requirements.', icon: Target },
-    { title: 'Behavioral Health', desc: 'Specialized billing for behavioral health organizations, ABA providers, and related healthcare specialties.', icon: Users },
+    { title: 'Internal Medicine', desc: 'Comprehensive billing solutions designed to streamline patient care services, improve claim accuracy, and maximize reimbursements for internal medicine practices.', icon: Stethoscope, image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80' },
+    { title: 'Cardiology', desc: 'Specialized revenue cycle management for cardiology practices, ensuring accurate coding, faster claims processing, and reduced payment delays.', icon: Activity, image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80' },
+    { title: 'Immunology', desc: 'Efficient billing support for immunology services with optimized workflows, accurate documentation, and improved reimbursement outcomes.', icon: Shield, image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80' },
+    { title: 'Pain Management', desc: 'Specialized billing support for pain management practices with complex multi-procedure coding requirements.', icon: Target, image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80' },
+    { title: 'Behavioral Health', desc: 'Specialized billing for behavioral health organizations, ABA providers, and related healthcare specialties.', icon: Users, image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80' },
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-mbx-white overflow-hidden">
+    <section className="py-20 lg:py-28 bg-mbx-white overflow-hidden">
       <div className="container mx-auto">
-        <AnimatedSection>
-          <SectionHeading
-            eyebrow="Beyond Home Health & Hospice"
-            title="Expertise Across Medical Specialties"
-            subtitle="Our expertise spans across multiple medical specialties, delivering customized billing and RCM solutions tailored to each practice."
-          />
-        </AnimatedSection>
+        {/* Heading — centered */}
+        <div className="text-center mb-14">
+          <p className="text-sm font-semibold text-[#29ABE2] mb-2 tracking-wide uppercase">Beyond Home Health & Hospice</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B3D66] leading-tight mb-3">
+            Expertise Across{' '}
+            <span className="text-[#29ABE2]">Medical Specialties</span>
+          </h2>
+          <div className="w-[60px] h-[3px] bg-[#F5A623] mx-auto mb-5" />
+          <p className="text-[15px] text-mbx-text-muted max-w-2xl mx-auto leading-relaxed">
+            Our expertise spans across multiple medical specialties, delivering customized billing and RCM solutions tailored to each practice.
+          </p>
+        </div>
 
         {/* Specialty Cards */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5 max-w-7xl mx-auto">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5 max-w-7xl mx-auto">
           {specialties.map((s, i) => (
             <AnimatedSection key={s.title} delay={i * 0.08}>
-              <div className="group relative rounded-2xl border border-mbx-border bg-mbx-surface p-6 lg:p-7 text-center transition-all duration-500 hover:shadow-2xl hover:border-mbx-teal/30 hover:-translate-y-2 h-full overflow-hidden cursor-pointer">
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-b from-mbx-teal/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="group relative rounded-2xl border border-[#DEE4EB] bg-white overflow-hidden cursor-pointer min-h-[320px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                {/* Image — hidden by default, reveals on hover */}
+                <div className="absolute inset-0 transition-all duration-700 ease-in-out">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-in-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-[#0B3D66]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
 
-                <div className="relative z-10">
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 text-center">
                   {/* Icon */}
-                  <div className="mx-auto mb-5 flex size-16 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-xl group-hover:shadow-mbx-teal/25 group-hover:scale-110">
-                    <s.icon size={28} />
+                  <div className="mb-5 flex size-[64px] items-center justify-center rounded-2xl bg-[#E8F4FD] text-[#0B3D66] transition-all duration-500 group-hover:bg-white/20 group-hover:text-white group-hover:scale-110 group-hover:shadow-lg">
+                    <s.icon size={28} strokeWidth={1.5} />
                   </div>
 
                   {/* Title */}
-                  <h3 className="mb-2.5 text-base font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors leading-tight">{s.title}</h3>
+                  <h3 className="mb-2 text-base font-extrabold text-[#0B3D66] transition-colors duration-500 group-hover:text-white leading-tight">
+                    {s.title}
+                  </h3>
 
-                  {/* Description — shows on hover */}
-                  <p className="text-xs leading-relaxed text-mbx-text-muted max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-40 group-hover:opacity-100">
+                  {/* Description — default hidden, shows on hover */}
+                  <p className="text-xs leading-relaxed text-mbx-text-muted max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-40 group-hover:opacity-100 group-hover:text-white/80">
                     {s.desc}
                   </p>
 
                   {/* Arrow — shows on hover */}
                   <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-10 group-hover:opacity-100">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-mbx-teal">
-                      Learn More <ArrowRight size={12} />
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#29ABE2] group-hover:text-[#F5A623] transition-colors duration-300">
+                      Learn More
+                      <ArrowRight size={12} />
                     </span>
                   </div>
                 </div>
+
+                {/* Bottom accent bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#29ABE2] to-[#F5A623] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </AnimatedSection>
           ))}
@@ -550,7 +570,7 @@ function SpecialtiesSection() {
         {/* Bottom note */}
         <AnimatedSection delay={0.4}>
           <div className="mt-12 text-center">
-            <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold text-mbx-teal hover:text-mbx-teal-dark transition-colors">
+            <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold text-[#29ABE2] hover:text-[#F5A623] transition-colors">
               View All Specialties <ArrowRight size={14} />
             </Link>
           </div>
