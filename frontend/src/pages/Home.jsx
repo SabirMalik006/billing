@@ -6,6 +6,13 @@ import HeroSection from '../components/HeroSection'
 import WorkflowVisual from '../components/WorkflowVisual'
 import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
 import { SectionHeading, PrimaryButton, SecondaryButton } from '../components/UI'
+import SectionStatsGrid from '../components/SectionStatsGrid'
+import SectionRCMTimeline from '../components/SectionRCMTimeline'
+import SectionSpecialtiesScroll from '../components/SectionSpecialtiesScroll'
+import SectionAuditCTA from '../components/SectionAuditCTA'
+import SectionEHRLogos from '../components/SectionEHRLogos'
+import SectionSolutionsTabs from '../components/SectionSolutionsTabs'
+import SectionHealthcareSectors from '../components/SectionHealthcareSectors'
 
 /* ── Trust Strip ── */
 function TrustStrip() {
@@ -313,14 +320,14 @@ function VirtualAssistanceSection() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {cards.map((item, i) => (
             <AnimatedSection key={item.title} delay={0.1 + i * 0.06}>
-              <div className="group relative rounded-2xl border border-mbx-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:border-[#4486BF]/30 hover:-translate-y-1 h-full overflow-hidden">
+              <div className="group relative rounded-2xl border border-mbx-border bg-white p-8 transition-all duration-500 hover:shadow-xl hover:border-[#4486BF]/30 hover:-translate-y-1 h-full overflow-hidden text-center">
                 {/* Top accent */}
                 <div className="absolute top-0 left-0 h-[3px] w-0 rounded-full bg-gradient-to-r from-[#4486BF] to-[#5A9AD0] transition-all duration-500 group-hover:w-full" />
                 {/* Glow */}
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#4486BF]/8 rounded-full blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 <div className="relative z-10">
-                  <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-[#4486BF] group-hover:to-[#3570A0] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#4486BF]/30">
+                  <div className="mb-6 mx-auto flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-[#4486BF] group-hover:to-[#3570A0] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#4486BF]/30">
                     <item.icon size={26} />
                   </div>
                   <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-navy transition-colors">{item.title}</h3>
@@ -863,13 +870,20 @@ export default function Home() {
     <>
       <HeroSection />
       <TrustStrip />
+      <SectionStatsGrid />
       <IntroductionSection />
+      <SectionRCMTimeline />
       <MBXAdvantageSection />
+      <SectionSolutionsTabs />
       <ServiceExplorer />
+      <SectionSpecialtiesScroll />
       <WorkflowVisual />
+      <SectionAuditCTA />
       <VirtualAssistanceSection />
+      <SectionEHRLogos />
       <CredentialingSection />
       <QASection />
+      <SectionHealthcareSectors />
       <SpecialtiesSection />
       <EnterpriseSection />
       <WhyMBXSection />
