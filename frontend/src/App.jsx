@@ -9,6 +9,7 @@ import Testimonials from './pages/Testimonials'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import HIPAA from './pages/HIPAA'
 import Admin from './pages/Admin'
 
 function AppContent() {
@@ -26,6 +27,7 @@ function AppContent() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/about" element={<About />} />
           <Route path="/connect-us" element={<Contact />} />
+          <Route path="/hipaa" element={<HIPAA />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

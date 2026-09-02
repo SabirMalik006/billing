@@ -29,6 +29,7 @@ const navItems = [
   { label: 'Gallery', path: '/gallery' },
   { label: 'Testimonials', path: '/testimonials' },
   { label: 'About', path: '/about' },
+  { label: 'HIPAA', path: '/hipaa' },
   { label: 'Contact', path: '/connect-us' },
 ]
 

@@ -1,162 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, TrendingUp, Activity, Shield, FileText, CheckCircle, Clock } from 'lucide-react'
-
-function DashboardVisual() {
-  return (
-    <div className="relative w-full max-w-[540px] overflow-hidden rounded-2xl">
-      {/* Glow effect */}
-      <div className="absolute -inset-4 rounded-3xl bg-mbx-teal/10 blur-3xl" />
-
-      <motion.div
-        initial={{ opacity: 0, y: 30, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className="relative rounded-2xl border border-white/10 bg-mbx-navy/80 p-6 backdrop-blur-xl shadow-2xl shadow-black/30"
-      >
-        {/* Header */}
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="flex size-1.5 rounded-full bg-mbx-teal animate-pulse-slow" />
-            <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-mbx-teal">MBX Revenue Intelligence</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-[9px] text-white/40">
-            <div className="size-1 rounded-full bg-green-400" />
-            Live
-          </div>
-        </div>
-
-        {/* Main metric */}
-        <div className="mb-4 rounded-xl bg-white/[0.04] p-4 border border-white/[0.06]">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-[10px] font-medium text-white/40 mb-0.5">Revenue Performance</p>
-              <p className="text-[1.5rem] font-extrabold text-white">$2.48M</p>
-              <p className="mt-0.5 text-[10px] text-white/30">illustrative data</p>
-            </div>
-            <div className="flex items-center gap-1 rounded-lg bg-green-500/10 px-2 py-1">
-              <TrendingUp size={10} className="text-green-400" />
-              <span className="text-[10px] font-bold text-green-400">+12.4%</span>
-            </div>
-          </div>
-          {/* Animated chart line */}
-          <div className="mt-3 h-16">
-            <svg viewBox="0 0 400 60" className="h-full w-full" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgb(68,134,191)" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="rgb(68,134,191)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <motion.path
-                d="M0,45 L30,40 L60,42 L90,35 L120,38 L150,30 L180,32 L210,25 L240,28 L270,20 L300,22 L330,15 L360,18 L400,10"
-                fill="none"
-                stroke="rgb(68,134,191)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 2, delay: 1.2, ease: "easeInOut" }}
-              />
-              <motion.path
-                d="M0,45 L30,40 L60,42 L90,35 L120,38 L150,30 L180,32 L210,25 L240,28 L270,20 L300,22 L330,15 L360,18 L400,10 L400,60 L0,60 Z"
-                fill="url(#chartGrad)"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 2 }}
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Stats grid */}
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            { label: 'Claims', value: '94.8%', icon: FileText, color: 'text-mbx-teal' },
-            { label: 'AR Days', value: '28', icon: Clock, color: 'text-mbx-teal-light' },
-            { label: 'Denials', value: '↓3.2%', icon: Shield, color: 'text-green-400' },
-          ].map((stat) => (
-            <div key={stat.label} className="rounded-lg bg-white/[0.04] p-2.5 border border-white/[0.04]">
-              <stat.icon size={12} className={`mb-1.5 ${stat.color}`} />
-              <p className="text-[9px] text-white/40 mb-0.5">{stat.label}</p>
-              <p className="text-xs font-extrabold text-white">{stat.value}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Activity feed */}
-        <div className="mt-3 space-y-1.5">
-          {[
-            { text: 'Clean claim posted', time: '2m ago', color: 'bg-green-400' },
-            { text: 'OASIS review completed', time: '8m ago', color: 'bg-mbx-teal' },
-            { text: 'Credentialing approved', time: '15m ago', color: 'bg-mbx-teal-light' },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 2 + i * 0.2 }}
-              className="flex items-center gap-2.5 rounded-lg bg-white/[0.03] px-2.5 py-1.5"
-            >
-              <div className={`size-1 rounded-full ${item.color}`} />
-              <span className="flex-1 text-[10px] text-white/50">{item.text}</span>
-              <span className="text-[9px] text-white/25">{item.time}</span>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Floating cards */}
-      <motion.div
-        className="absolute right-4 top-8 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm hidden sm:block"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-mbx-teal/15">
-            <Activity size={14} className="text-mbx-teal" />
-          </div>
-          <div>
-            <p className="text-[10px] text-white/40">Claims Processing</p>
-            <p className="text-xs font-bold text-white">Active</p>
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute left-4 bottom-20 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm hidden sm:block"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      >
-        <div className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-green-500/15">
-            <CheckCircle size={14} className="text-green-400" />
-          </div>
-          <div>
-            <p className="text-[10px] text-white/40">QA Review</p>
-            <p className="text-xs font-bold text-white">98.5% Accuracy</p>
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute right-6 bottom-8 rounded-xl border border-white/10 bg-mbx-navy/90 px-4 py-3 shadow-xl backdrop-blur-sm hidden sm:block"
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      >
-        <div className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-mbx-teal/15">
-            <Shield size={14} className="text-mbx-teal" />
-          </div>
-          <div>
-            <p className="text-[10px] text-white/40">AR Recovery</p>
-            <p className="text-xs font-bold text-white">In Progress</p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  )
-}
+import { ArrowRight } from 'lucide-react'
 
 export default function HeroSection() {
   return (
@@ -196,9 +40,9 @@ export default function HeroSection() {
       </div>
 
       <div className="container mx-auto relative z-10 pt-36 pb-20 lg:pt-44 lg:pb-28">
-        <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-start lg:gap-20">
+        <div className="flex justify-center">
           {/* Left */}
-          <div className="flex-1 max-w-2xl">
+          <div className="max-w-3xl text-center">
             <div>
               <motion.h1
                 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem] leading-[1.08]"
@@ -273,11 +117,6 @@ export default function HeroSection() {
                 </div>
               ))}
             </motion.div>
-          </div>
-
-          {/* Right - Animated Dashboard */}
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <DashboardVisual />
           </div>
         </div>
       </div>
