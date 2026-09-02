@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function SectionAuditCTA() {
   return (
-    <section className="py-10 lg:py-14 bg-mbx-white overflow-hidden">
+    <section className="py-8 lg:py-12 bg-mbx-white overflow-hidden">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left: Text */}
@@ -25,7 +25,7 @@ export default function SectionAuditCTA() {
           </div>
 
           {/* Right: 3 device illustration */}
-          <div className="flex-1 relative w-full max-w-lg lg:max-w-none">
+          <div className="flex-1 relative w-full max-w-lg lg:max-w-none mt-12 lg:mt-20">
             <div className="relative h-[350px] lg:h-[400px]">
               {/* Laptop (center, back) */}
               <div className="absolute left-1/2 top-4 -translate-x-1/2 w-[280px] lg:w-[320px]">

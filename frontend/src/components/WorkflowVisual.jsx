@@ -51,7 +51,7 @@ export default function WorkflowVisual() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative"
             >
-              <div className="relative rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 transition-all duration-500 hover:border-[#4486BF]/40 hover:bg-[#4486BF]/10 hover:shadow-xl hover:shadow-[#4486BF]/10 hover:-translate-y-1 overflow-hidden h-full">
+              <div className="relative rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 text-center transition-all duration-500 hover:border-[#4486BF]/40 hover:bg-[#4486BF]/10 hover:shadow-xl hover:shadow-[#4486BF]/10 hover:-translate-y-1 overflow-hidden h-full">
                 {/* Top accent */}
                 <div className="absolute top-0 left-0 h-[3px] w-0 rounded-full bg-gradient-to-r from-[#4486BF] to-[#5A9AD0] transition-all duration-500 group-hover:w-full" />
 
@@ -67,7 +67,7 @@ export default function WorkflowVisual() {
                 <p className="text-xs text-white/40 leading-relaxed">{step.desc}</p>
 
                 {/* Check */}
-                <div className="mt-4 flex items-center gap-1.5 text-[10px] font-bold text-[#4486BF] opacity-0 transition-all duration-500 group-hover:opacity-100">
+                <div className="mt-4 flex items-center justify-center gap-1.5 text-[10px] font-bold text-[#4486BF] opacity-0 transition-all duration-500 group-hover:opacity-100">
                   <CheckCircle size={12} />
                   Active
                 </div>

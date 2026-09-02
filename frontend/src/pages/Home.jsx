@@ -477,8 +477,8 @@ function QASection() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
           {items.map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.06}>
-              <div className="group rounded-2xl border border-mbx-border bg-mbx-surface p-8 transition-all duration-500 hover:shadow-xl hover:border-mbx-teal/30 hover:-translate-y-1 h-full">
-                <div className="mb-6 flex size-14 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-lg group-hover:shadow-mbx-teal/20">
+              <div className="group rounded-2xl border border-mbx-border bg-mbx-surface p-8 text-center transition-all duration-500 hover:shadow-xl hover:border-mbx-teal/30 hover:-translate-y-1 h-full">
+                <div className="mb-6 mx-auto flex size-14 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-lg group-hover:shadow-mbx-teal/20">
                   <item.icon size={26} />
                 </div>
                 <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors">{item.title}</h3>
