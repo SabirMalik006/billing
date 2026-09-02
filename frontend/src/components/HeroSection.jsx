@@ -95,26 +95,6 @@ export default function HeroSection() {
               Explore Our Capabilities
             </Link>
           </motion.div>
-
-          {/* Trust metrics */}
-          <motion.div
-            className="mt-16 grid grid-cols-2 gap-8 border-t border-white/8 pt-10 sm:grid-cols-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 1.5 }}
-          >
-            {[
-              { label: 'Home Health', sublabel: 'Specialization' },
-              { label: 'Hospice', sublabel: 'Expertise' },
-              { label: 'Private Practice', sublabel: 'Support' },
-              { label: 'Health Systems', sublabel: 'Scale' },
-            ].map((item) => (
-              <div key={item.label}>
-                <p className="text-base font-extrabold text-white">{item.label}</p>
-                <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-mbx-teal mt-0.5">{item.sublabel}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
