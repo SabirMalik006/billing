@@ -40,84 +40,81 @@ export default function HeroSection() {
       </div>
 
       <div className="container mx-auto relative z-10 pt-36 pb-20 lg:pt-44 lg:pb-28">
-        <div className="flex justify-center">
-          {/* Left */}
-          <div className="max-w-3xl text-center">
-            <div>
-              <motion.h1
-                className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem] leading-[1.08]"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: {},
-                  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
-                }}
-              >
-                {['Leave Billing To Us.', 'Focus On What', 'Matters Most.'].map((line, i) => (
-                  <motion.span
-                    key={i}
-                    className="block"
-                    initial={{ y: 60, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-                  >
-                    {i === 2 ? <span className="text-mbx-teal">{line}</span> : line}
-                  </motion.span>
-                ))}
-              </motion.h1>
-            </div>
-
-            <motion.p
-              className="mt-6 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1 }}
+        <div className="max-w-3xl">
+          <div>
+            <motion.h1
+              className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4rem] leading-[1.08]"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
+              }}
             >
-              MBX Solutions helps healthcare organizations simplify medical billing, coding,
-              credentialing and revenue cycle management — with deep expertise in Home Health and Hospice.
-            </motion.p>
-
-            <motion.div
-              className="mt-10 flex flex-wrap items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.2 }}
-            >
-              <Link
-                to="/connect-us"
-                className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
-              >
-                Get Your Free Billing Audit
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/capabilities"
-                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-white/15 px-8 py-4 text-base font-bold text-white/80 transition-all duration-300 hover:border-[#4486BF] hover:bg-[#4486BF]/10 hover:text-white"
-              >
-                Explore Our Capabilities
-              </Link>
-            </motion.div>
-
-            {/* Trust metrics */}
-            <motion.div
-              className="mt-16 grid grid-cols-2 gap-8 border-t border-white/8 pt-10 sm:grid-cols-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 1.5 }}
-            >
-              {[
-                { label: 'Home Health', sublabel: 'Specialization' },
-                { label: 'Hospice', sublabel: 'Expertise' },
-                { label: 'Private Practice', sublabel: 'Support' },
-                { label: 'Health Systems', sublabel: 'Scale' },
-              ].map((item) => (
-                <div key={item.label}>
-                  <p className="text-base font-extrabold text-white">{item.label}</p>
-                  <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-mbx-teal mt-0.5">{item.sublabel}</p>
-                </div>
+              {['Leave Billing To Us.', 'Focus On What', 'Matters Most.'].map((line, i) => (
+                <motion.span
+                  key={i}
+                  className="block"
+                  initial={{ y: 60, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  {i === 2 ? <span className="text-mbx-teal">{line}</span> : line}
+                </motion.span>
               ))}
-            </motion.div>
+            </motion.h1>
           </div>
+
+          <motion.p
+            className="mt-6 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1 }}
+          >
+            MBX Solutions helps healthcare organizations simplify medical billing, coding,
+            credentialing and revenue cycle management — with deep expertise in Home Health and Hospice.
+          </motion.p>
+
+          <motion.div
+            className="mt-10 flex flex-wrap items-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.2 }}
+          >
+            <Link
+              to="/connect-us"
+              className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
+            >
+              Get Your Free Billing Audit
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/capabilities"
+              className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-white/15 px-8 py-4 text-base font-bold text-white/80 transition-all duration-300 hover:border-[#4486BF] hover:bg-[#4486BF]/10 hover:text-white"
+            >
+              Explore Our Capabilities
+            </Link>
+          </motion.div>
+
+          {/* Trust metrics */}
+          <motion.div
+            className="mt-16 grid grid-cols-2 gap-8 border-t border-white/8 pt-10 sm:grid-cols-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 1.5 }}
+          >
+            {[
+              { label: 'Home Health', sublabel: 'Specialization' },
+              { label: 'Hospice', sublabel: 'Expertise' },
+              { label: 'Private Practice', sublabel: 'Support' },
+              { label: 'Health Systems', sublabel: 'Scale' },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-base font-extrabold text-white">{item.label}</p>
+                <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-mbx-teal mt-0.5">{item.sublabel}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
