@@ -286,7 +286,7 @@ function VirtualAssistanceSection() {
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-mbx-surface">
+    <section className="py-28 lg:py-36 bg-[#f0fdf4]">
       <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
@@ -445,7 +445,7 @@ function QASection() {
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-mbx-white">
+    <section className="py-28 lg:py-36 bg-[#fefce8]">
       <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
@@ -503,7 +503,7 @@ function SpecialtiesSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-28 bg-mbx-white overflow-hidden">
+    <section className="py-20 lg:py-28 bg-[#f0fdf4] overflow-hidden">
       <div className="container mx-auto">
         {/* Heading — centered */}
         <div className="text-center mb-14">
