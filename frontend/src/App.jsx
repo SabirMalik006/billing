@@ -11,6 +11,12 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import HIPAA from './pages/HIPAA'
 import Admin from './pages/Admin'
+import Company from './pages/Company'
+import Resources from './pages/Resources'
+import Software from './pages/Software'
+import MedicalAssistant from './pages/MedicalAssistant'
+import RSMServices from './pages/RSMServices'
+import Solution from './pages/Solution'
 
 function AppContent() {
   const { pathname } = useLocation()
@@ -28,6 +34,12 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/connect-us" element={<Contact />} />
           <Route path="/hipaa" element={<HIPAA />} />
+          <Route path="/company" element={<Company />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/software" element={<Software />} />
+          <Route path="/medical-assistant" element={<MedicalAssistant />} />
+          <Route path="/rsm-services" element={<RSMServices />} />
+          <Route path="/solution" element={<Solution />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

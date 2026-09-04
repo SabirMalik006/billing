@@ -6,6 +6,20 @@ import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 const navItems = [
   { label: 'Home', path: '/' },
   {
+    label: 'Company',
+    path: '/company',
+    children: [
+      { heading: 'Company', items: [
+        { label: 'Why MBX', path: '/company' },
+        { label: 'About Us', path: '/about' },
+        { label: 'Gallery', path: '/gallery' },
+        { label: 'Testimonials', path: '/testimonials' },
+        { label: 'HIPAA Compliance', path: '/hipaa' },
+        { label: 'Contact Us', path: '/connect-us' },
+      ]},
+    ],
+  },
+  {
     label: 'Services',
     path: '/services',
     children: [
@@ -26,11 +40,65 @@ const navItems = [
       ]},
     ],
   },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'Testimonials', path: '/testimonials' },
-  { label: 'About', path: '/about' },
-  { label: 'HIPAA', path: '/hipaa' },
-  { label: 'Contact', path: '/connect-us' },
+  {
+    label: 'Resources',
+    path: '/resources',
+    children: [
+      { heading: 'Resources', items: [
+        { label: 'Resource Center', path: '/resources' },
+        { label: 'Free Billing Audit', path: '/services#free-audit' },
+        { label: 'Compliance (HIPAA)', path: '/hipaa' },
+        { label: 'Our Services', path: '/services' },
+      ]},
+    ],
+  },
+  {
+    label: 'Software',
+    path: '/software',
+    children: [
+      { heading: 'Software', items: [
+        { label: 'Billing Software', path: '/software' },
+        { label: 'RCM Dashboard', path: '/software#dashboard' },
+        { label: 'Coding Tools', path: '/software#coding' },
+      ]},
+    ],
+  },
+  {
+    label: 'Medical Assistant',
+    path: '/medical-assistant',
+    children: [
+      { heading: 'Medical Assistant', items: [
+        { label: 'Virtual Assistant', path: '/medical-assistant' },
+        { label: 'Patient Intake', path: '/medical-assistant#intake' },
+        { label: 'Scheduling', path: '/medical-assistant#scheduling' },
+        { label: 'Insurance Verification', path: '/medical-assistant#verification' },
+      ]},
+    ],
+  },
+  {
+    label: 'RSM Services',
+    path: '/rsm-services',
+    children: [
+      { heading: 'RSM Services', items: [
+        { label: 'Revenue Cycle Management', path: '/rsm-services' },
+        { label: 'Medical Coding', path: '/rsm-services#coding' },
+        { label: 'AR Follow-up', path: '/rsm-services#ar' },
+        { label: 'Denial Management', path: '/rsm-services#denial' },
+      ]},
+    ],
+  },
+  {
+    label: 'Solution',
+    path: '/solution',
+    children: [
+      { heading: 'Solution', items: [
+        { label: 'End-to-End Solution', path: '/solution' },
+        { label: 'Billing & Coding', path: '/solution#billing' },
+        { label: 'OASIS & QA', path: '/solution#oasis' },
+        { label: 'Reporting', path: '/solution#reporting' },
+      ]},
+    ],
+  },
 ]
 
 export default function Navbar() {
@@ -69,12 +137,12 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
-            {navItems.map((item) => (
+            {navItems.map((item, idx) => (
               <div key={item.label} className="group relative">
                 <div className="flex items-center">
                   <Link
                     to={item.path}
-                    className="px-5 py-2.5 text-base font-semibold text-[#4486BF] hover:text-mbx-navy transition-colors"
+                    className="px-3 lg:px-3.5 py-2.5 text-sm lg:text-[15px] font-semibold text-[#4486BF] hover:text-mbx-navy transition-colors whitespace-nowrap"
                   >
                     {item.label}
                   </Link>
@@ -89,8 +157,8 @@ export default function Navbar() {
                 </div>
 
                 {item.children && (
-                  <div className="pointer-events-none invisible absolute left-0 top-full z-50 pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100">
-                    <div className="min-w-[22rem] w-max rounded-2xl bg-mbx-navy border border-white/10 shadow-2xl shadow-black/40 p-6">
+                  <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
+                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[15rem]'} w-max rounded-2xl bg-mbx-navy border border-white/10 shadow-2xl shadow-black/40 p-6`}>
                       {item.children.map((child, idx) => (
                         <div key={idx}>
                           {child.heading && (
