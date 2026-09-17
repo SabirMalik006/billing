@@ -12,6 +12,7 @@ export const submitContact = async (req, res) => {
     res.status(500).json({ error: err.message })
   }
 }
+// .
 
 export const getContacts = async (req, res) => {
   try {
