@@ -13,8 +13,6 @@ export const submitContact = async (req, res) => {
   }
 }
 
-// .
-
 export const getContacts = async (req, res) => {
   try {
     const submissions = await Contact.find().sort({ createdAt: -1 })
