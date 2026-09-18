@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight, MessageSquare } from 'lucide-react'
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -104,14 +104,7 @@ const navItems = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedMobile, setExpandedMobile] = useState(null)
-  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     setMobileOpen(false)
@@ -124,47 +117,45 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const isHome = location.pathname === '/'
-
   return (
     <>
       <header
         className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg shadow-black/5"
       >
-        <nav className="container mx-auto flex items-center justify-between py-2 lg:py-3">
+        <nav className="container mx-auto grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 py-3 md:gap-4 lg:py-4 xl:gap-6">
           <Link to="/" className="relative z-10 shrink-0">
-            <img src="https://mbxsol.com/wp-content/uploads/2026/04/MBX-Solutions-Logo-2-e1779169428791.png" alt="MBX Solutions" className="h-14 lg:h-16 w-auto" />
+            <img src="https://mbxsol.com/wp-content/uploads/2026/04/MBX-Solutions-Logo-2-e1779169428791.png" alt="MBX Solutions" className="h-8 md:h-10 lg:h-12 w-auto" />
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden min-w-0 items-center justify-center xl:flex">
             {navItems.map((item, idx) => (
               <div key={item.label} className="group relative">
                 <div className="flex items-center">
                   <Link
                     to={item.path}
-                    className="px-3 lg:px-3.5 py-2.5 text-sm lg:text-[15px] font-semibold text-[#4486BF] hover:text-mbx-navy transition-colors whitespace-nowrap"
+                    className="px-2.5 xl:px-3 py-2.5 text-[13px] xl:text-sm font-semibold text-[#4486BF] hover:text-mbx-navy transition-colors whitespace-nowrap"
                   >
                     {item.label}
                   </Link>
                   {item.children && (
                     <button
-                      className="text-mbx-text-muted/50 group-hover:text-mbx-text-muted transition-colors"
+                      className="-ml-1 text-mbx-text-muted/50 group-hover:text-mbx-text-muted transition-colors"
                       aria-label={`Toggle ${item.label} submenu`}
                     >
-                      <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown size={12} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                   )}
                 </div>
 
                 {item.children && (
                   <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
-                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[15rem]'} w-max rounded-2xl bg-mbx-navy border border-white/10 shadow-2xl shadow-black/40 p-6`}>
+                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max rounded-2xl bg-mbx-navy border border-white/10 shadow-2xl shadow-black/40 p-5`}>
                       {item.children.map((child, idx) => (
                         <div key={idx}>
                           {child.heading && (
-                            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-mbx-teal">{child.heading}</p>
+                            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-mbx-teal">{child.heading}</p>
                           )}
-                          <ul className={child.heading ? 'mb-5 space-y-1' : 'space-y-1'}>
+                          <ul className={child.heading ? 'mb-4 space-y-1' : 'space-y-1'}>
                             {(child.items || [child]).map((sub, subIdx) => (
                               <li key={subIdx}>
                                 <Link
@@ -185,16 +176,18 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-end gap-2 md:gap-3 shrink-0">
             <Link
               to="/connect-us"
-              className="hidden lg:inline-flex items-center gap-2 rounded-xl bg-[#4486BF] px-10 py-3.5 text-base font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#4486BF] px-3 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2.5 text-xs md:text-sm font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
             >
-              Get Free Audit <ArrowRight size={14} />
+              <span className="hidden sm:inline">Get Free Audit</span>
+              <span className="sm:hidden">Free Audit</span>
+              <ArrowRight size={12} className="md:w-[14px]" />
             </Link>
 
             <button
-              className="relative z-10 flex size-12 items-center justify-center text-mbx-navy lg:hidden"
+              className="relative z-10 flex size-11 items-center justify-center text-mbx-navy xl:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
@@ -213,7 +206,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-mbx-navy lg:hidden"
+            className="fixed inset-0 z-40 bg-mbx-navy xl:hidden"
           >
             <div className="flex h-full flex-col overflow-y-auto pt-28 pb-10 px-8">
               <ul className="space-y-0">
@@ -298,6 +291,16 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <a
+        href="https://wa.me/18883706494"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/40 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-[#25D366]/60 focus:outline-none focus:ring-2 focus:ring-[#25D366]/50 focus:ring-offset-2 md:size-16"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <MessageSquare size={26} className="md:size-30" />
+      </a>
     </>
   )
 }
