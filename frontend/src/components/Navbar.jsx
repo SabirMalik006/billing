@@ -176,16 +176,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center justify-end gap-2 md:gap-3 shrink-0">
-            <Link
-              to="/connect-us"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#4486BF] px-3 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2.5 text-xs md:text-sm font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
-            >
-              <span className="hidden sm:inline">Get Free Audit</span>
-              <span className="sm:hidden">Free Audit</span>
-              <ArrowRight size={12} className="md:w-[14px]" />
-            </Link>
-
+          <div className="flex items-center justify-end shrink-0">
             <button
               className="relative z-10 flex size-11 items-center justify-center text-mbx-navy xl:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
