@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import TopUtilityHeader from './TopUtilityHeader'
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -119,10 +120,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg shadow-black/5"
-      >
-        <nav className="container mx-auto grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 py-3 md:gap-4 lg:py-4 xl:gap-6">
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <TopUtilityHeader className="hidden lg:block" />
+        <header className="relative bg-white shadow-lg shadow-black/5">
+        <nav className="container mx-auto grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 py-2 md:gap-4 lg:py-2.5 xl:gap-6">
           <Link to="/" className="relative z-10 shrink-0">
             <img src="https://mbxsol.com/wp-content/uploads/2026/04/MBX-Solutions-Logo-2-e1779169428791.png" alt="MBX Solutions" className="h-8 md:h-10 lg:h-12 w-auto" />
           </Link>
@@ -187,7 +188,8 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
-      </header>
+        </header>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -199,7 +201,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-mbx-navy xl:hidden"
           >
-            <div className="flex h-full flex-col overflow-y-auto pt-28 pb-10 px-8">
+            <div className="flex h-full flex-col overflow-y-auto pt-60 pb-10 px-8 md:pt-48 lg:pt-44">
               <ul className="space-y-0">
                 {navItems.map((item, idx) => (
                   <motion.li

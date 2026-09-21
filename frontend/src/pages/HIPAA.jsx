@@ -74,7 +74,7 @@ export default function HIPAA() {
           <div className="hero-grid absolute inset-0" />
           <div className="absolute top-1/3 -right-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
         </div>
-        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-64 pb-20 md:pt-56 lg:pt-44 lg:pb-28">
           <AnimatedSection>
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
               <div className="flex-1">

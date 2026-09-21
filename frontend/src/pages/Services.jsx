@@ -130,7 +130,7 @@ export default function Services() {
             <span className="text-[18vw] font-extrabold text-white/[0.02] tracking-tighter">SERVICES</span>
           </div>
         </div>
-        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-64 pb-20 md:pt-56 lg:pt-44 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Our Services
@@ -175,7 +175,7 @@ export default function Services() {
                 <div
                   id={service.id}
                   onClick={() => setExpandedService(expandedService === index ? null : index)}
-                  className={`group relative rounded-2xl border p-7 lg:p-8 cursor-pointer transition-all duration-500 h-full overflow-hidden scroll-mt-28 text-center ${
+                  className={`group relative rounded-2xl border p-7 lg:p-8 cursor-pointer transition-all duration-500 h-full overflow-hidden text-center ${
                     expandedService === index
                       ? 'border-mbx-teal/40 bg-mbx-navy shadow-2xl shadow-mbx-navy/20'
                       : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/30 hover:shadow-xl hover:-translate-y-1.5'

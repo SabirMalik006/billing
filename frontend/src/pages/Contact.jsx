@@ -10,7 +10,7 @@ export default function Contact() {
           <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
           <div className="hero-grid absolute inset-0" />
         </div>
-        <div className="container mx-auto relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-64 pb-20 md:pt-56 lg:pt-44 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-white/80">
               Contact Us
