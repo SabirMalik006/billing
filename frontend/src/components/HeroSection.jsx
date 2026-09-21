@@ -40,7 +40,7 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto relative z-10 pt-64 pb-20 md:pt-56 lg:pt-56 lg:pb-28">
+      <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-56 lg:pb-28">
         <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-stretch lg:gap-16 xl:grid-cols-[minmax(0,1fr)_460px]">
           <div>
             <div>

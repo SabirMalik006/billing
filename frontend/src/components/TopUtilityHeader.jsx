@@ -6,7 +6,7 @@ const iconProps = { size: 13, strokeWidth: 2 }
 
 export function TopAnnouncementBar() {
   return (
-      <div className="border-b border-white/[0.06] bg-[#091126] text-white">
+      <div className="border-b border-white/[0.06] bg-[#091126] text-white py-3">
       <div
         className={`${announceContainer} flex-col items-center justify-center gap-1.5 py-2 text-center lg:h-[42px] lg:flex-row lg:justify-between lg:gap-4 lg:py-1 lg:text-left`}
       >
@@ -38,7 +38,7 @@ function Divider({ className = '' }) {
 
 export function TopContactBar() {
   return (
-    <div className="bg-[#0B1226] text-white">
+    <div className="bg-[#0B1226] text-white py-3">
       <div
         className={`${announceContainer} flex-wrap items-center justify-center gap-x-3 gap-y-1 py-1.5 md:justify-between lg:h-[28px] lg:flex-nowrap lg:py-0.5`}
       >

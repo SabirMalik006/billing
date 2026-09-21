@@ -130,7 +130,7 @@ export default function Services() {
             <span className="text-[18vw] font-extrabold text-white/[0.02] tracking-tighter">SERVICES</span>
           </div>
         </div>
-        <div className="container mx-auto relative z-10 pt-64 pb-20 md:pt-56 lg:pt-44 lg:pb-28">
+        <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-48 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Our Services
