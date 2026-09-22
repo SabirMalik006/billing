@@ -8,7 +8,7 @@ export function TopAnnouncementBar() {
   return (
       <div className="border-b border-white/[0.06] bg-[#091126] text-white py-3">
       <div
-        className={`${announceContainer} flex-col items-center justify-center gap-1.5 py-2 text-center lg:h-[42px] lg:flex-row lg:justify-between lg:gap-4 lg:py-1 lg:text-left`}
+        className={`${announceContainer} flex-col items-center justify-center gap-1.5 py-1.5 text-center lg:h-[42px] lg:flex-row lg:justify-between lg:gap-4 lg:py-1 lg:text-left`}
       >
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 md:gap-3">
           <span className="whitespace-nowrap rounded-[6px] border border-[#F5A623]/40 bg-[#F5A623]/10 px-2.5 py-1 text-[12px] font-semibold leading-none tracking-wide text-[#F5A623]">
