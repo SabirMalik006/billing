@@ -1,27 +1,124 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 import ContactForm from './ContactForm'
 
+const slides = [
+  {
+    id: 'intro',
+    bg: 'https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D',
+    giant: 'RCM',
+    eyebrow: null,
+    lines: ['Leave Billing To Us.', 'Focus On What', 'Matters Most.'],
+    highlightIndex: 2,
+    para: 'MBX Solutions helps healthcare organizations simplify medical billing, coding, credentialing and revenue cycle management — with deep expertise in Home Health and Hospice.',
+    card: null,
+    buttons: [
+      { label: 'Get Your Free Billing Audit', to: '/connect-us' },
+      { label: 'Explore Our Capabilities', to: '/capabilities' },
+    ],
+  },
+  {
+    id: 'billing',
+    bg: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&auto=format&fit=crop&q=80',
+    giant: '30%',
+    eyebrow: 'Services',
+    lines: ['Boost Collections &', 'Grow Your Practice', 'by 30%'],
+    highlightIndex: 2,
+    para: null,
+    card: {
+      title: 'Medical Billing Services',
+      tagline: 'Clean claims, faster payments, zero revenue leakage.',
+      desc: 'We handle the complete claims cycle from initial eligibility verification to prompt payment posting, maintaining an industry-leading 98.5% first-pass clean claims rate.',
+      bullets: [
+        'Electronic claim submission within 24–48 hours',
+        'Continuous clearinghouse & payer rejection monitoring',
+        'Aggressive denial appeals and timely filing management',
+        'Comprehensive ERA/EOB payment posting & reconciliation',
+      ],
+    },
+    buttons: [
+      { label: 'Get Your Free Billing Audit', to: '/connect-us' },
+      { label: 'Explore Services', to: '/services' },
+    ],
+  },
+  {
+    id: 'coding',
+    bg: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920&auto=format&fit=crop&q=80',
+    giant: 'CODING',
+    eyebrow: 'Services',
+    lines: ['Precision Coding That', 'Drives Accuracy &', 'Maximizes Reimbursement.'],
+    highlightIndex: 2,
+    para: null,
+    card: {
+      title: 'Medical Coding (ICD-10)',
+      tagline: 'Precision coding that drives accuracy and maximizes reimbursement.',
+      desc: 'Our AAPC/AHIMA certified coders ensure accurate clinical documentation translation, code sequencing, and compliant PDGM / Medicare reimbursement.',
+      bullets: [
+        'Certified ICD-10-CM & CPT clinical coders',
+        'PDGM case-mix grouping & diagnosis sequencing',
+        'Documentation gap analysis to prevent compliance audits',
+        'Turnaround in as fast as 24 hours',
+      ],
+    },
+    buttons: [
+      { label: 'Get Your Free Billing Audit', to: '/connect-us' },
+      { label: 'Explore Services', to: '/services' },
+    ],
+  },
+]
+
 export default function HeroSection() {
+  const [index, setIndex] = useState(0)
+  const slide = slides[index]
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const timer = setInterval(() => setIndex((i) => (i + 1) % slides.length), 10000)
+    return () => clearInterval(timer)
+  }, [index])
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-atmos">
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden bg-atmos"
+    >
       {/* Background */}
       <div className="absolute inset-0">
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D"
-            alt=""
-            className="h-[115%] w-full object-cover object-[center_30%] opacity-70 translate-y-8"
-          />
-        </div>
+        <AnimatePresence>
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1, ease: 'easeOut' }}
+            className="absolute inset-0"
+          >
+            <img
+              src={slide.bg}
+              alt=""
+              className="h-[115%] w-full object-cover object-[center_30%] opacity-70 translate-y-8"
+            />
+          </motion.div>
+        </AnimatePresence>
         {/* Blue glows */}
         <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-[#4486BF]/10 blur-[150px]" />
         <div className="absolute top-1/3 right-1/4 h-[280px] w-[280px] rounded-full bg-[#4486BF]/6 blur-[100px]" />
         {/* Giant background text */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
-          <span className="text-[20vw] font-extrabold text-mbx-teal/[0.04] tracking-tighter">RCM</span>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={slide.giant}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="block text-[20vw] font-extrabold text-mbx-teal/[0.04] tracking-tighter"
+            >
+              {slide.giant}
+            </motion.span>
+          </AnimatePresence>
         </div>
         {/* Subtle pulse line */}
         <svg className="absolute bottom-0 left-0 right-0 h-24 text-mbx-teal/8" viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -32,68 +129,123 @@ export default function HeroSection() {
             strokeWidth="1.5"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 3, delay: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 3, delay: 0.5, ease: 'easeInOut' }}
           />
         </svg>
       </div>
 
       <div className="container mx-auto relative z-10 pt-40 pb-16 md:pt-44 lg:pt-40 lg:pb-24">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 xl:grid-cols-[minmax(0,1fr)_460px] xl:gap-24">
-          <div>
-            <div>
-              <motion.h1
-                className="text-4xl font-extrabold tracking-tight text-mbx-navy sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.08]"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  hidden: {},
-                  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
-                }}
+          {/* Left: Slide content */}
+          <div className="min-h-[500px] sm:min-h-[520px] lg:min-h-[560px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slide.id}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                {['Leave Billing To Us.', 'Focus On What', 'Matters Most.'].map((line, i) => (
-                  <motion.span
-                    key={i}
-                    className="block"
-                    initial={{ y: 60, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                {slide.eyebrow && (
+                  <span className="mb-4 inline-flex items-center rounded-full border border-mbx-teal/30 bg-white/80 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-mbx-teal">
+                    {slide.eyebrow}
+                  </span>
+                )}
+
+                <motion.h1
+                  className="text-4xl font-extrabold tracking-tight text-mbx-navy sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.08]"
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.1, delayChildren: index === 0 ? 0.4 : 0.05 } },
+                  }}
+                >
+                  {slide.lines.map((line, i) => (
+                    <motion.span
+                      key={i}
+                      className="block"
+                      initial={{ y: 50, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                    >
+                      {i === slide.highlightIndex ? <span className="text-[#00B8A9]">{line}</span> : line}
+                    </motion.span>
+                  ))}
+                </motion.h1>
+
+                {slide.para && (
+                  <motion.p
+                    className="mt-5 max-w-xl text-lg font-medium leading-relaxed text-white md:text-xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: index === 0 ? 1 : 0.3 }}
                   >
-                    {i === 2 ? <span className="text-[#00B8A9]">{line}</span> : line}
-                  </motion.span>
-                ))}
-              </motion.h1>
+                    {slide.para}
+                  </motion.p>
+                )}
+
+                {slide.card && (
+                  <div className="mt-6 max-w-2xl rounded-2xl border border-white/40 bg-white/85 p-6 shadow-xl shadow-[#0B2348]/10 backdrop-blur-md">
+                    <h3 className="text-[15px] font-extrabold uppercase tracking-wide text-mbx-navy">
+                      {slide.card.title}
+                    </h3>
+                    <p className="mt-1 text-sm font-bold text-mbx-teal">{slide.card.tagline}</p>
+                    <p className="mt-2.5 text-[13.5px] leading-relaxed text-mbx-text-muted">
+                      {slide.card.desc}
+                    </p>
+                    <ul className="mt-4 space-y-2">
+                      {slide.card.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2.5 text-[13.5px] font-medium text-mbx-text-muted">
+                          <CheckCircle size={16} className="mt-0.5 shrink-0 text-mbx-teal" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <motion.div
+                  className="mt-7 flex flex-wrap items-center gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: index === 0 ? 1.2 : 0.4 }}
+                >
+                  {slide.buttons.map((btn) => (
+                    <Link
+                      key={btn.label}
+                      to={btn.to}
+                      className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
+                    >
+                      {btn.label}
+                      <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  ))}
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Indicators */}
+            <div className="mt-8 flex items-center gap-3">
+              {slides.map((s, i) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Go to slide ${i + 1}: ${s.lines.map((l) => l).join(' ')}`}
+                  className="group"
+                >
+                  <span
+                    className={`block h-1.5 rounded-full transition-all duration-300 ${
+                      i === index ? 'w-12 bg-[#4486BF]' : 'w-6 bg-mbx-navy/25 group-hover:bg-mbx-navy/40'
+                    }`}
+                  />
+                </button>
+              ))}
+              <span className="ml-2 text-xs font-extrabold tracking-widest text-mbx-navy/40">
+                0{index + 1} / 0{slides.length}
+              </span>
             </div>
-
-            <motion.p
-              className="mt-5 max-w-xl text-lg font-medium leading-relaxed text-white md:text-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1 }}
-            >
-              MBX Solutions helps healthcare organizations simplify medical billing, coding,
-              credentialing and revenue cycle management — with deep expertise in Home Health and Hospice.
-            </motion.p>
-
-            <motion.div
-              className="mt-8 flex flex-wrap items-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.2 }}
-            >
-              <Link
-                to="/connect-us"
-                className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
-              >
-                Get Your Free Billing Audit
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/capabilities"
-                className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
-              >
-                Explore Our Capabilities
-              </Link>
-            </motion.div>
           </div>
 
           {/* Contact Form */}
