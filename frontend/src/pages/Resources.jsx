@@ -7,7 +7,7 @@ const resources = [
   { icon: FileText, title: 'Free Billing Audit', desc: 'Get a free revenue leakage analysis and identify untapped revenue opportunities for your practice.', path: '/services#free-audit', color: 'from-mbx-teal/20 to-mbx-teal/5' },
   { icon: BookOpen, title: 'Service Guides', desc: 'Understand our billing, coding, and revenue cycle services in plain language.', path: '/services', color: 'from-blue-500/20 to-blue-500/5' },
   { icon: Shield, title: 'Compliance Center', desc: 'Learn about HIPAA and how we protect sensitive patient health information.', path: '/hipaa', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: BarChart3, title: 'RCM Insights', desc: 'Explore how modern revenue cycle management improves cash flow and reduces denials.', path: '/rsm-services', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: BarChart3, title: 'RCM Insights', desc: 'Explore how modern revenue cycle management improves cash flow and reduces denials.', path: '/rcm-services', color: 'from-blue-500/20 to-blue-500/5' },
 ]
 
 const quickFacts = [

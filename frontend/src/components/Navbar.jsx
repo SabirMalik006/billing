@@ -77,14 +77,14 @@ const navItems = [
     ],
   },
   {
-    label: 'RSM Services',
-    path: '/rsm-services',
+    label: 'RCM Services',
+    path: '/rcm-services',
     children: [
-      { heading: 'RSM Services', items: [
-        { label: 'Revenue Cycle Management', path: '/rsm-services' },
-        { label: 'Medical Coding', path: '/rsm-services#coding' },
-        { label: 'AR Follow-up', path: '/rsm-services#ar' },
-        { label: 'Denial Management', path: '/rsm-services#denial' },
+      { heading: 'RCM Services', items: [
+        { label: 'Revenue Cycle Management', path: '/rcm-services' },
+        { label: 'Medical Coding', path: '/rcm-services#coding' },
+        { label: 'AR Follow-up', path: '/rcm-services#ar' },
+        { label: 'Denial Management', path: '/rcm-services#denial' },
       ]},
     ],
   },
