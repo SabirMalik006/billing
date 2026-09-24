@@ -8,13 +8,17 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center overflow-hidden bg-atmos">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
-        <div className="hero-grid absolute inset-0" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D"
+            alt=""
+            className="h-[115%] w-full object-cover object-[center_30%] opacity-70 translate-y-8"
+          />
+        </div>
         {/* Blue glows */}
-        <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
-        <div className="absolute bottom-1/4 left-0 h-[400px] w-[400px] rounded-full bg-[#C7E7F8]/70 blur-[140px]" />
-        <div className="absolute top-10 left-1/4 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[120px]" />
-        <div className="absolute top-1/3 right-1/4 h-[280px] w-[280px] rounded-full bg-[#4486BF]/8 blur-[100px]" />
+        <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-[#4486BF]/10 blur-[150px]" />
+        <div className="absolute top-1/3 right-1/4 h-[280px] w-[280px] rounded-full bg-[#4486BF]/6 blur-[100px]" />
         {/* Giant background text */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
           <span className="text-[20vw] font-extrabold text-mbx-teal/[0.04] tracking-tighter">RCM</span>
@@ -61,7 +65,7 @@ export default function HeroSection() {
             </div>
 
             <motion.p
-              className="mt-6 max-w-xl text-lg leading-relaxed text-mbx-text-muted md:text-xl"
+              className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white md:text-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1 }}
@@ -85,7 +89,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 to="/capabilities"
-                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-mbx-teal/30 px-8 py-4 text-base font-bold text-mbx-navy transition-all duration-300 hover:border-[#4486BF] hover:bg-[#4486BF]/10 hover:text-[#4486BF]"
+                className="group inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5"
               >
                 Explore Our Capabilities
               </Link>
