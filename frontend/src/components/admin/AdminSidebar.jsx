@@ -3,13 +3,15 @@ import { useAdmin } from './AdminLayout'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   LayoutDashboard, Image, MessageSquare, Star, ArrowLeft,
-  X, Stethoscope, FileText
+  X, Stethoscope, FileText, Headset
 } from 'lucide-react'
+import { useUnreadCount } from '../../utils/liveChat'
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
   { id: 'gallery', label: 'Gallery', icon: Image, path: '/admin/gallery' },
   { id: 'messages', label: 'Messages', icon: MessageSquare, path: '/admin/messages' },
+  { id: 'chat', label: 'Live Chat', icon: Headset, path: '/admin/chat' },
   { id: 'testimonials', label: 'Testimonials', icon: Star, path: '/admin/testimonials' },
   { id: 'blog', label: 'Blog', icon: FileText, path: '/admin/blog' },
 ]
@@ -17,6 +19,7 @@ const navItems = [
 export default function AdminSidebar() {
   const { sidebarOpen, setSidebarOpen } = useAdmin()
   const navigate = useNavigate()
+  const unread = useUnreadCount()
 
   const SidebarContent = () => (
     <div className="flex h-full flex-col">
@@ -43,7 +46,7 @@ export default function AdminSidebar() {
             end={item.id === 'dashboard'}
             onClick={() => setSidebarOpen(false)}
             className={({ isActive }) =>
-              `group flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
+              `group relative flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[13px] font-semibold transition-all duration-200 ${
                 isActive
                   ? 'bg-[#4486BF] text-white shadow-lg shadow-[#4486BF]/25'
                   : 'text-white/50 hover:text-white hover:bg-white/[0.06]'
@@ -54,6 +57,11 @@ export default function AdminSidebar() {
               <>
                 <item.icon size={18} strokeWidth={isActive ? 2.5 : 2} className="shrink-0" />
                 <span className="truncate">{item.label}</span>
+                {item.id === 'chat' && unread > 0 && (
+                  <span className="ml-auto flex size-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white shadow-md shadow-red-500/40">
+                    {unread > 9 ? '9+' : unread}
+                  </span>
+                )}
                 {isActive && (
                   <motion.div
                     layoutId="sidebar-active"

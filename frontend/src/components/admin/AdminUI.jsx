@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { X } from 'lucide-react'
 
 export function StatCard({ icon: Icon, label, value, change, changeType = 'neutral', color = '#4486BF', delay = 0 }) {
   return (

@@ -5,6 +5,7 @@ import AdminLogin from './admin/AdminLogin'
 import DashboardOverview from './admin/DashboardOverview'
 import AdminGallery from './admin/AdminGallery'
 import AdminMessages from './admin/AdminMessages'
+import AdminChat from './admin/AdminChat'
 import AdminTestimonials from './admin/AdminTestimonials'
 import AdminBlog from './admin/AdminBlog'
 
@@ -34,6 +35,7 @@ export default function Admin() {
               <Route index element={<DashboardOverview />} />
               <Route path="gallery" element={<AdminGallery />} />
               <Route path="messages" element={<AdminMessages />} />
+              <Route path="chat" element={<AdminChat />} />
               <Route path="testimonials" element={<AdminTestimonials />} />
               <Route path="blog" element={<AdminBlog />} />
             </Routes>
