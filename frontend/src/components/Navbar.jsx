@@ -19,6 +19,9 @@ const navItems = [
         { label: 'HIPAA Compliance', path: '/hipaa' },
         { label: 'Contact Us', path: '/connect-us' },
       ]},
+      { heading: 'Teams', items: [
+        { label: 'Meet Our Team', path: '/team' },
+      ]},
     ],
   },
   {

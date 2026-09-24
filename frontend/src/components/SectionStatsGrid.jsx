@@ -1,20 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
-import { FileText, TrendingDown, TrendingUp, Clock, Users, AlertTriangle, UserCheck, Settings, Diamond, BarChart3 } from 'lucide-react'
+import { FileText, TrendingDown, TrendingUp, Clock, Users, AlertTriangle, Settings, Headset, Award, BarChart3 } from 'lucide-react'
 
 const stats = [
-  { icon: FileText, number: 98, suffix: '%', label: 'Claim Acceptance Rate' },
+  { icon: FileText, number: 98.5, suffix: '%', label: 'Claim Acceptance Rate' },
   { icon: TrendingDown, number: 30, suffix: '%', label: 'Reduction in Denials' },
-  { icon: TrendingUp, number: 20, suffix: '%', label: 'Increase in Revenue' },
+  { icon: TrendingUp, number: 30, suffix: '%', label: 'Increase in Revenue' },
   { icon: Clock, number: 5, suffix: '-Days', label: 'Turnaround Time' },
-  { icon: Users, number: 95, suffix: '%', label: 'Client Satisfaction Rate' },
-  { icon: AlertTriangle, number: 90, suffix: '%', label: 'Reduction in Billing Errors' },
-  { icon: UserCheck, number: 99, suffix: '%', label: 'Customer Retention' },
+  { icon: Users, number: 99, suffix: '%', label: 'Client Satisfaction Rate' },
+  { icon: AlertTriangle, number: 100, suffix: '%', label: 'Reduction in Billing Errors' },
+  { icon: Headset, number: 24, suffix: '/7', label: 'Expert Billing Support' },
   { icon: Settings, number: 70, suffix: '%', label: 'Faster Credentialing Process' },
-  { icon: Diamond, number: 10, suffix: '-15%', label: 'Value Of Claims Processed In 2023' },
+  { icon: Award, number: 10, suffix: '+', label: 'Years of Billing Experience' },
   { icon: BarChart3, number: 33, suffix: '%', label: 'Reduction In A/R' },
 ]
 
-function CountUp({ target, suffix }) {
+function CountUp({ target, suffix, delay = 0 }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
   const [started, setStarted] = useState(false)
@@ -24,7 +24,7 @@ function CountUp({ target, suffix }) {
     if (prefersReduced) { setCount(target); return }
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setStarted(true) },
-      { threshold: 0.3 }
+      { threshold: 0.35 }
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
@@ -32,18 +32,23 @@ function CountUp({ target, suffix }) {
 
   useEffect(() => {
     if (!started) return
+    let frame = 0
     let start = 0
-    const duration = 2000
+    let timer = 0
+    const duration = 2800
     const step = (timestamp) => {
       if (!start) start = timestamp
-      const progress = Math.min((timestamp - start) / duration, 1)
-      setCount(Math.floor(progress * target))
-      if (progress < 1) requestAnimationFrame(step)
+      const raw = Math.min((timestamp - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - raw, 3)
+      setCount(Math.round(eased * target * 10) / 10)
+      if (raw < 1) frame = requestAnimationFrame(step)
     }
-    requestAnimationFrame(step)
-  }, [started, target])
+    timer = setTimeout(() => { frame = requestAnimationFrame(step) }, delay)
+    return () => { clearTimeout(timer); cancelAnimationFrame(frame) }
+  }, [started, target, delay])
 
-  return <span ref={ref}>{count}{suffix}</span>
+  const text = count % 1 === 0 ? count : count.toFixed(1)
+  return <span ref={ref}>{text}{suffix}</span>
 }
 
 export default function SectionStatsGrid() {
@@ -64,12 +69,12 @@ export default function SectionStatsGrid() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {stats.map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center">
+            <div key={idx} className="flex flex-col items-center text-center opacity-0 animate-fade-in-up" style={{ animationDelay: `${idx * 60}ms`, animationFillMode: 'forwards' }}>
               <div className="mb-3 flex size-[70px] items-center justify-center rounded-full bg-[#1B4F8C] text-white">
                 <stat.icon size={28} />
               </div>
               <p className="text-[32px] font-extrabold text-[#0B3D66] leading-none mb-1">
-                <CountUp target={stat.number} suffix={stat.suffix} />
+                <CountUp target={stat.number} suffix={stat.suffix} delay={(idx % 5) * 140} />
               </p>
               <p className="text-[13px] text-mbx-text-muted leading-tight">{stat.label}</p>
             </div>

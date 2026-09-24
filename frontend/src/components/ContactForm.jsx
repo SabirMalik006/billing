@@ -121,13 +121,13 @@ export default function ContactForm({ compact, className }) {
             </div>
             <div className={compact ? 'mt-3 grid gap-3 sm:grid-cols-2' : 'mt-4 grid gap-4 sm:grid-cols-2'}>
               <div>
-                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Patient Name</label>
+                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Patent name</label>
                 <input
                   type="text"
                   name="patientName"
                   value={form.patientName}
                   onChange={handleChange}
-                  placeholder="Patient name"
+                  placeholder="Patent name"
                   className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
                 />
               </div>

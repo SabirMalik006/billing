@@ -23,6 +23,7 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import SmallProject from './pages/SmallProject'
 import LargeProject from './pages/LargeProject'
+import Team from './pages/Team'
 
 function AppContent() {
   const { pathname } = useLocation()
@@ -51,6 +52,7 @@ function AppContent() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/projects/small" element={<SmallProject />} />
           <Route path="/projects/large" element={<LargeProject />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

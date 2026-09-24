@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import HeroSection from '../components/HeroSection'
 import WorkflowVisual from '../components/WorkflowVisual'
+import TeamSection from '../components/TeamSection'
 import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
 import { SectionHeading, PrimaryButton, SecondaryButton } from '../components/UI'
 import SectionStatsGrid from '../components/SectionStatsGrid'
@@ -839,6 +840,7 @@ export default function Home() {
       <SpecialtiesSection />
       <EnterpriseSection />
       <WhyMBXSection />
+      <TeamSection />
       <FAQSection />
       <CTASection />
     </>
