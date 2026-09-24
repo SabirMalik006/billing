@@ -3,7 +3,7 @@ import { useAdmin } from './AdminLayout'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   LayoutDashboard, Image, MessageSquare, Star, ArrowLeft,
-  X, Stethoscope
+  X, Stethoscope, FileText
 } from 'lucide-react'
 
 const navItems = [
@@ -11,6 +11,7 @@ const navItems = [
   { id: 'gallery', label: 'Gallery', icon: Image, path: '/admin/gallery' },
   { id: 'messages', label: 'Messages', icon: MessageSquare, path: '/admin/messages' },
   { id: 'testimonials', label: 'Testimonials', icon: Star, path: '/admin/testimonials' },
+  { id: 'blog', label: 'Blog', icon: FileText, path: '/admin/blog' },
 ]
 
 export default function AdminSidebar() {

@@ -17,6 +17,8 @@ import Software from './pages/Software'
 import MedicalAssistant from './pages/MedicalAssistant'
 import RSMServices from './pages/RSMServices'
 import Solution from './pages/Solution'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 
 function AppContent() {
   const { pathname } = useLocation()
@@ -40,6 +42,8 @@ function AppContent() {
           <Route path="/medical-assistant" element={<MedicalAssistant />} />
           <Route path="/rsm-services" element={<RSMServices />} />
           <Route path="/solution" element={<Solution />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

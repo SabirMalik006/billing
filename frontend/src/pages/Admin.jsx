@@ -6,6 +6,7 @@ import DashboardOverview from './admin/DashboardOverview'
 import AdminGallery from './admin/AdminGallery'
 import AdminMessages from './admin/AdminMessages'
 import AdminTestimonials from './admin/AdminTestimonials'
+import AdminBlog from './admin/AdminBlog'
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth()
@@ -34,6 +35,7 @@ export default function Admin() {
               <Route path="gallery" element={<AdminGallery />} />
               <Route path="messages" element={<AdminMessages />} />
               <Route path="testimonials" element={<AdminTestimonials />} />
+              <Route path="blog" element={<AdminBlog />} />
             </Routes>
           </AdminLayout>
         </ProtectedRoute>

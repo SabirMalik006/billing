@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { StatCard } from '../../components/admin/AdminUI'
-import { Image, MessageSquare, Star, TrendingUp } from 'lucide-react'
+import { Image, MessageSquare, Star, TrendingUp, FileText } from 'lucide-react'
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 export default function DashboardOverview() {
-  const [stats, setStats] = useState({ gallery: 0, contacts: 0, testimonials: 0, unread: 0 })
+  const [stats, setStats] = useState({ gallery: 0, contacts: 0, testimonials: 0, unread: 0, blog: 0 })
   const [recentContacts, setRecentContacts] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -15,12 +15,14 @@ export default function DashboardOverview() {
       fetch(`${API}/api/gallery`).then(r => r.json()),
       fetch(`${API}/api/contact`).then(r => r.json()),
       fetch(`${API}/api/testimonials/all`).then(r => r.json()),
-    ]).then(([gallery, contacts, testimonials]) => {
+      fetch(`${API}/api/blog/admin/all`, { headers: { Authorization: `Bearer ${localStorage.getItem('mbx_admin_token')}` } }).then(r => r.json()),
+    ]).then(([gallery, contacts, testimonials, blogPosts]) => {
       setStats({
         gallery: gallery.length,
         contacts: contacts.length,
         testimonials: testimonials.length,
         unread: contacts.filter(c => !c.read).length,
+        blog: Array.isArray(blogPosts) ? blogPosts.length : 0,
       })
       setRecentContacts(contacts.slice(0, 5))
       setLoading(false)
@@ -30,11 +32,12 @@ export default function DashboardOverview() {
   return (
     <div className="space-y-6">
       {/* Stats Grid */}
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <StatCard icon={Image} label="Gallery Images" value={stats.gallery} color="#4486BF" delay={0} />
         <StatCard icon={MessageSquare} label="Total Messages" value={stats.contacts} color="#0B2348" delay={0.05} />
         <StatCard icon={Star} label="Testimonials" value={stats.testimonials} color="#5A9AD0" delay={0.1} />
         <StatCard icon={TrendingUp} label="Unread Messages" value={stats.unread} color={stats.unread > 0 ? '#E53935' : '#4486BF'} delay={0.15} />
+        <StatCard icon={FileText} label="Blog Posts" value={stats.blog} color="#5A9AD0" delay={0.2} />
       </div>
 
       {/* Recent Messages */}

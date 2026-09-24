@@ -100,6 +100,10 @@ const navItems = [
       ]},
     ],
   },
+  {
+    label: 'Blog',
+    path: '/blog',
+  },
 ]
 
 export default function Navbar() {

@@ -16,7 +16,7 @@ const footerLinks = {
     { label: 'Services', path: '/services' },
     { label: 'Home Health & Hospice', path: '/capabilities#home-health' },
     { label: 'Specialties', path: '/capabilities#private-practice' },
-    { label: 'Insights', path: '/our-insights' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Testimonials', path: '/testimonials' },
     { label: 'HIPAA Compliance', path: '/hipaa' },
   ],
