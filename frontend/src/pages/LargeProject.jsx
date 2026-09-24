@@ -6,12 +6,12 @@ import { SectionHeading, PrimaryButton } from '../components/UI'
 import SectionStatsGrid from '../components/SectionStatsGrid'
 
 const capabilities = [
-  { icon: Building2, title: 'Multi-Site Billing Ops', desc: 'Unified billing across multiple facilities and locations — one dashboard, one team, consistent results.' },
-  { icon: ServerCog, title: 'Full-Service RCM', desc: 'Eligibility, coding, claims, payment posting and AR management delivered as one accountable pipeline.' },
-  { icon: Layers, title: 'Scalable Workflows', desc: 'Dedicated teams that scale with your claim volume — peak seasons and growth handled without strain.' },
-  { icon: BarChart3, title: 'Advanced Reporting', desc: 'Executive dashboards, KPI tracking and payer analytics that give leadership visibility at every level.' },
-  { icon: Users2, title: 'Dedicated Account Team', desc: 'A named billing manager and support pod that knows your operation, your payers and your targets.' },
-  { icon: ShieldCheck, title: 'Compliance & Security', desc: 'Enterprise-grade HIPAA compliance, audits and data protection baked into every workflow.' },
+  { icon: Building2, title: 'Multi-Site Billing Ops', desc: 'MBX Solutions delivers unified billing across multiple facilities and locations — one dashboard, one team, consistent results.' },
+  { icon: ServerCog, title: 'Full-Service RCM', desc: 'MBX Solutions delivers eligibility, coding, claims, payment posting and AR management as one accountable pipeline.' },
+  { icon: Layers, title: 'Scalable Workflows', desc: 'MBX Solutions\' dedicated teams scale with your claim volume — peak seasons and growth handled without strain.' },
+  { icon: BarChart3, title: 'Advanced Reporting', desc: 'MBX Solutions provides executive dashboards, KPI tracking and payer analytics that give leadership visibility at every level.' },
+  { icon: Users2, title: 'Dedicated Account Team', desc: 'With MBX Solutions, you get a named billing manager and support pod that knows your operation, your payers and your targets.' },
+  { icon: ShieldCheck, title: 'Compliance & Security', desc: 'MBX Solutions bakes enterprise-grade HIPAA compliance, audits and data protection into every workflow.' },
 ]
 
 const stats = [
@@ -50,7 +50,7 @@ export default function LargeProject() {
               Enterprise-Grade Revenue Cycle for <span className="text-mbx-teal">Growing Agencies</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              A complete, scalable RCM partnership for large home health, hospice and multi-site
+              A complete, scalable RCM partnership from MBX Solutions for large home health, hospice and multi-site
               organizations that need volume, certainty and leadership-grade reporting.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -84,7 +84,7 @@ export default function LargeProject() {
             <SectionHeading
               eyebrow="Large Project Scope"
               title="Built to Handle Serious Volume"
-              subtitle="The larger the operation, the more a disconnected billing stack costs you. We replace it with one accountable engine."
+              subtitle="The larger the operation, the more a disconnected billing stack costs you. MBX Solutions replaces it with one accountable engine."
             />
           </AnimatedSection>
           <StaggerChildren className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -114,7 +114,7 @@ export default function LargeProject() {
                   Accountability at Every Scale
                 </h2>
                 <p className="text-lg leading-relaxed text-mbx-text-muted max-w-xl">
-                  From onboarding to daily claims flow, every large project gets clear SLAs, named
+                  From onboarding to daily claims flow, every MBX Solutions large project gets clear SLAs, named
                   points of contact and reporting leadership can actually act on.
                 </p>
               </AnimatedSection>
@@ -146,7 +146,7 @@ export default function LargeProject() {
               Let's Discuss Your Large Project
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
-              Get a free RCM analysis for your agency and see what a dedicated billing operation can recover for you.
+              Get a free RCM analysis from MBX Solutions for your agency and see what a dedicated billing operation can recover for you.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Claim Free Audit</PrimaryButton>
           </AnimatedSection>

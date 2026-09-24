@@ -4,18 +4,18 @@ import { SectionHeading, PrimaryButton } from '../components/UI'
 import { Link } from 'react-router-dom'
 
 const values = [
-  { icon: Heart, title: 'Patient-Centered', desc: 'Every workflow starts with better patient outcomes in mind.' },
-  { icon: Target, title: 'Results-Driven', desc: 'We measure success by the tangible improvements we deliver.' },
-  { icon: Shield, title: 'Compliance-First', desc: 'HIPAA and regulatory awareness is embedded in everything we do.' },
-  { icon: Users, title: 'Client Partnership', desc: 'We work alongside you as an extension of your team.' },
+  { icon: Heart, title: 'Patient-Centered', desc: 'Every MBX Solutions workflow starts with better patient outcomes in mind.' },
+  { icon: Target, title: 'Results-Driven', desc: 'MBX Solutions measures success by the tangible improvements we deliver.' },
+  { icon: Shield, title: 'Compliance-First', desc: 'HIPAA and regulatory awareness is embedded in everything MBX Solutions does.' },
+  { icon: Users, title: 'Client Partnership', desc: 'MBX Solutions works alongside you as an extension of your team.' },
 ]
 
 const companyLinks = [
   { label: 'About Us', path: '/about', desc: 'Meet the team behind MBX Solutions.' },
-  { label: 'Gallery', path: '/gallery', desc: 'Browse photos from our events and community.' },
-  { label: 'Testimonials', path: '/testimonials', desc: 'Hear what our clients say about us.' },
-  { label: 'HIPAA Compliance', path: '/hipaa', desc: 'Our commitment to data privacy and security.' },
-  { label: 'Contact Us', path: '/connect-us', desc: 'Get in touch with our team today.' },
+  { label: 'Gallery', path: '/gallery', desc: 'Browse photos from MBX Solutions events and community.' },
+  { label: 'Testimonials', path: '/testimonials', desc: 'Hear what our clients say about MBX Solutions.' },
+  { label: 'HIPAA Compliance', path: '/hipaa', desc: 'MBX Solutions\' commitment to data privacy and security.' },
+  { label: 'Contact Us', path: '/connect-us', desc: 'Get in touch with the MBX Solutions team today.' },
 ]
 
 export default function Company() {
@@ -73,7 +73,7 @@ export default function Company() {
                 </div>
                 <div className="mt-8 flex items-center gap-3 rounded-xl bg-white/10 border border-white/20 px-4 py-3">
                   <Award size={18} className="text-white/80 shrink-0" />
-                  <p className="text-xs text-white/75">Trusted by healthcare organizations across the United States</p>
+                  <p className="text-xs text-white/75">MBX Solutions is trusted by healthcare organizations across the United States</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -87,7 +87,7 @@ export default function Company() {
               />
               <p className="text-base leading-relaxed text-mbx-text-muted">
                 We understand that healthcare organizations face unique revenue challenges —
-                and our team brings deep operational knowledge to every billing, coding, and compliance workflow.
+                and MBX Solutions brings deep operational knowledge to every billing, coding, and compliance workflow.
               </p>
               <div className="mt-8 grid grid-cols-2 gap-3">
                 {['Home Health Expertise', 'Hospice Billing Knowledge', 'Private Practice Support', 'Enterprise Operations'].map((item) => (
@@ -109,7 +109,7 @@ export default function Company() {
             <SectionHeading
               eyebrow="Our Values"
               title="What We Believe"
-              subtitle="The principles that guide how we support healthcare organizations."
+              subtitle="The principles that guide how MBX Solutions supports healthcare organizations."
             />
           </AnimatedSection>
 
@@ -136,7 +136,7 @@ export default function Company() {
             <SectionHeading
               eyebrow="Explore"
               title="More About MBX Solutions"
-              subtitle="Learn more about our team, culture, and commitment to healthcare providers."
+              subtitle="Learn more about the MBX Solutions team, culture, and commitment to healthcare providers."
             />
           </AnimatedSection>
 

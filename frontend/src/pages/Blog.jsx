@@ -213,7 +213,7 @@ export default function Blog() {
               Insights &amp; <span className="bg-gradient-to-r from-mbx-teal to-mbx-teal-light bg-clip-text text-transparent">Billing Guides</span>
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-mbx-text-muted">
-              Practical articles on medical billing, revenue cycle management, coding and
+              MBX Solutions publishes practical articles on medical billing, revenue cycle management, coding and
               compliance — written for home health, home care and hospice agencies.
             </p>
           </motion.div>
@@ -320,7 +320,7 @@ export default function Blog() {
             Want Revenue Tips for Your Agency?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-mbx-text-muted">
-            Talk to our billing experts and get a free audit — no strings attached.
+            Talk to MBX Solutions' billing experts and get a free audit — no strings attached.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <PrimaryButton to="/services#free-audit" size="lg">Claim Free Audit</PrimaryButton>

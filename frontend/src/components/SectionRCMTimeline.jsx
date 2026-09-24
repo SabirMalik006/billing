@@ -5,17 +5,17 @@ import { motion, useInView } from 'framer-motion'
 const letters = [
   {
     letter: 'R',
-    text: 'Reducing overhead costs through efficient outsourcing can streamline your practice\'s financial health, allowing you to focus on patient care rather than administrative tasks.',
+    text: 'Reducing overhead costs through efficient outsourcing with MBX Solutions can streamline your practice\'s financial health, allowing you to focus on patient care rather than administrative tasks.',
   },
   {
     letter: 'C',
-    text: 'Choosing a reliable billing partner, such as our',
+    text: 'Choosing a reliable billing partner, such as MBX Solutions\' ',
     link: { label: 'Outsourced Credentialing Services', path: '/services#credentialing' },
-    textAfter: ', ensures compliance and maximizes revenue cycles. We are well-versed in coding updates, preventing costly mistakes and denials.',
+    textAfter: ', ensures compliance and maximizes revenue cycles. MBX Solutions is well-versed in coding updates, preventing costly mistakes and denials.',
   },
   {
     letter: 'M',
-    text: 'Managing claims effectively with outsourced services improves patient satisfaction and accelerates payments. We ensure faster and more accurate claims processing with',
+    text: 'Managing claims effectively with outsourced services improves patient satisfaction and accelerates payments. MBX Solutions ensures faster and more accurate claims processing with',
     link: { label: 'Insurance Eligibility Verification', path: '/services#insurance' },
     textAfter: ' services.',
   },

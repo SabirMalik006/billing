@@ -10,31 +10,31 @@ const stats = [
 ]
 
 const pillars = [
-  { icon: Target, title: 'Our Mission', text: 'Empower healthcare providers with accurate, compliant, and transparent Revenue Cycle Management that maximizes financial health and reduces administrative burden.' },
-  { icon: Eye, title: 'Our Vision', text: 'To be the most trusted revenue cycle partner for healthcare organizations across the United States — known for clarity, reliability, and results.' },
-  { icon: Heart, title: 'Our Values', text: 'Patient-Centered, Results-Driven, Compliance-First, and Client Partnership guide every workflow, decision, and engagement.' },
+  { icon: Target, title: 'Our Mission', text: 'MBX Solutions empowers healthcare providers with accurate, compliant, and transparent Revenue Cycle Management that maximizes financial health and reduces administrative burden.' },
+  { icon: Eye, title: 'Our Vision', text: 'MBX Solutions aims to be the most trusted revenue cycle partner for healthcare organizations across the United States — known for clarity, reliability, and results.' },
+  { icon: Heart, title: 'Our Values', text: 'Patient-Centered, Results-Driven, Compliance-First, and Client Partnership guide every MBX Solutions workflow, decision, and engagement.' },
 ]
 
 const approach = [
-  { num: '01', title: 'Understand', desc: 'We learn your organization, workflows, and revenue challenges.' },
-  { num: '02', title: 'Design', desc: 'We build a tailored support plan aligned with your goals.' },
-  { num: '03', title: 'Implement', desc: 'We integrate with your team and technology systems.' },
-  { num: '04', title: 'Optimize', desc: 'We continuously monitor and refine for better performance.' },
+  { num: '01', title: 'Understand', desc: 'At MBX Solutions, we learn your organization, workflows, and revenue challenges.' },
+  { num: '02', title: 'Design', desc: 'At MBX Solutions, we build a tailored support plan aligned with your goals.' },
+  { num: '03', title: 'Implement', desc: 'At MBX Solutions, we integrate with your team and technology systems.' },
+  { num: '04', title: 'Optimize', desc: 'At MBX Solutions, we continuously monitor and refine for better performance.' },
 ]
 
 const expertise = [
-  { icon: FileText, title: 'Home Health Depth', desc: 'PDGM, OASIS, LUPA — we understand the complexities of home health billing.' },
-  { icon: Shield, title: 'Hospice Specialization', desc: 'NOE/NOTR, revenue codes, GIP/respite — hospice-specific expertise.' },
-  { icon: Users, title: 'Multi-Specialty Support', desc: 'From private practices to health systems, we scale to your needs.' },
-  { icon: Zap, title: 'Technology Integration', desc: 'Modern workflows that work alongside your existing systems.' },
+  { icon: FileText, title: 'Home Health Depth', desc: 'PDGM, OASIS, LUPA — MBX Solutions understands the complexities of home health billing.' },
+  { icon: Shield, title: 'Hospice Specialization', desc: 'NOE/NOTR, revenue codes, GIP/respite — MBX Solutions provides hospice-specific expertise.' },
+  { icon: Users, title: 'Multi-Specialty Support', desc: 'From private practices to health systems, MBX Solutions scales to your needs.' },
+  { icon: Zap, title: 'Technology Integration', desc: 'Modern MBX Solutions workflows that work alongside your existing systems.' },
   { icon: CheckCircle, title: 'Quality Assurance', desc: 'Documentation review, coding accuracy, and claims quality checks.' },
-  { icon: TrendingUp, title: 'Operational Excellence', desc: 'Consistent, reliable revenue cycle support you can depend on.' },
+  { icon: TrendingUp, title: 'Operational Excellence', desc: 'Consistent, reliable revenue cycle support you can depend on from MBX Solutions.' },
 ]
 
 const certificates = [
-  { icon: LockKeyhole, title: 'HIPAA Compliant', desc: 'Patient information is protected under strict privacy and security policies.' },
-  { icon: HardHat, title: 'OSHA Compliant', desc: 'Safe and healthful working conditions maintained across our operations.' },
-  { icon: Award, title: 'HBMA Standards', desc: 'Aligned with the Healthcare Billing & Management Association best practices.' },
+  { icon: LockKeyhole, title: 'HIPAA Compliant', desc: 'MBX Solutions protects patient information under strict privacy and security policies.' },
+  { icon: HardHat, title: 'OSHA Compliant', desc: 'Safe and healthful working conditions maintained across MBX Solutions operations.' },
+  { icon: Award, title: 'HBMA Standards', desc: 'MBX Solutions is aligned with the Healthcare Billing & Management Association best practices.' },
 ]
 
 export default function About() {
@@ -90,7 +90,7 @@ export default function About() {
             <SectionHeading
               eyebrow="Our Purpose"
               title="What Drives Us at MBX Solutions"
-              subtitle="The principles that guide how we support healthcare organizations."
+              subtitle="The principles that guide how MBX Solutions supports healthcare organizations."
             />
           </AnimatedSection>
 
@@ -160,7 +160,7 @@ export default function About() {
             <SectionHeading
               eyebrow="Our Approach"
               title="A Structured Path to Your Revenue Goals"
-              subtitle="A structured approach to understanding and supporting your revenue cycle."
+              subtitle="A structured approach from MBX Solutions to understanding and supporting your revenue cycle."
             />
           </AnimatedSection>
 
@@ -185,7 +185,7 @@ export default function About() {
             <SectionHeading
               eyebrow="Our Expertise"
               title="What Sets MBX Apart"
-              subtitle="Deep healthcare revenue cycle knowledge combined with modern technology-enabled workflows."
+              subtitle="Deep healthcare revenue cycle knowledge combined with modern technology-enabled workflows at MBX Solutions."
             />
           </AnimatedSection>
 
@@ -213,7 +213,7 @@ export default function About() {
               <SectionHeading
                 eyebrow="Certified Team & Compliance"
                 title="Certified Experts Behind Every Claim"
-                subtitle="CPC Certified Coders, experienced billing specialists, and personalized service teams — dedicated to your revenue performance and protected by compliance-first workflows."
+                subtitle="15+ years of experience, CPC certified coders, experienced billing specialists, and personalized service teams at MBX Solutions — dedicated to your revenue performance and protected by compliance-first workflows."
                 centered={false}
               />
               <div className="mt-8 flex flex-wrap gap-2.5">

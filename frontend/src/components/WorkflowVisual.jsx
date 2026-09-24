@@ -39,7 +39,7 @@ export default function WorkflowVisual() {
             Every Step Connected.
           </h2>
           <p className="text-lg text-mbx-text-muted">
-            From credentialing to reporting, MBX supports every stage of the healthcare revenue cycle.
+            From credentialing to reporting, MBX Solutions supports every stage of the healthcare revenue cycle.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function WorkflowVisual() {
           transition={{ delay: 1 }}
         >
           <p className="text-sm text-mbx-text-muted/70 font-medium">
-            MBX provides operational support across the entire revenue cycle ecosystem.
+            MBX Solutions provides operational support across the entire revenue cycle ecosystem.
           </p>
         </motion.div>
       </div>

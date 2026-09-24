@@ -61,7 +61,7 @@ function IntroductionSection() {
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <p className="mt-8 text-lg leading-relaxed text-mbx-text-muted max-w-xl">
-                MBX is a trusted medical billing and revenue cycle management company delivering
+                MBX Solutions is a trusted medical billing and revenue cycle management company delivering
                 comprehensive, technology-driven solutions to healthcare providers. We combine billing,
                 coding, OASIS, and QA into one streamlined workflow — eliminating gaps, reducing errors,
                 and improving outcomes across your entire revenue cycle.
@@ -81,9 +81,9 @@ function IntroductionSection() {
           <div className="flex-1">
             <div className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:gap-4">
               {[
-                { value: '98.5%', label: 'Billing Accuracy', desc: 'Industry-leading precision in claims processing and submission', icon: Target },
-                { value: '35%', label: 'A/R Reduction', desc: 'Faster payments and improved cash flow for your practice', icon: TrendingUp },
-                { value: '100%', label: 'HIPAA Compliant', desc: 'Full compliance with healthcare data security standards', icon: Shield },
+                { value: '98.5%', label: 'Billing Accuracy', desc: 'MBX Solutions delivers industry-leading precision in claims processing and submission', icon: Target },
+                { value: '35%', label: 'A/R Reduction', desc: 'MBX Solutions drives faster payments and improved cash flow for your practice', icon: TrendingUp },
+                { value: '100%', label: 'HIPAA Compliant', desc: 'MBX Solutions ensures full compliance with healthcare data security standards', icon: Shield },
               ].map((stat, i) => (
                 <AnimatedSection key={stat.label} delay={0.2 + i * 0.1}>
                   <div className="group relative flex items-start gap-5 rounded-2xl border border-mbx-border/60 bg-white p-6 transition-all duration-500 hover:border-mbx-teal/40 hover:shadow-xl hover:shadow-mbx-teal/5 hover:-translate-y-1 overflow-hidden">
@@ -114,12 +114,12 @@ function IntroductionSection() {
 /* ── MBX Advantage ── */
 function MBXAdvantageSection() {
   const advantages = [
-    { icon: ClipboardCheck, title: 'Accurate Documentation', desc: 'Improve coding precision and reduce costly errors with thorough documentation review and alignment.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-    { icon: TrendingUp, title: 'Higher Star Ratings', desc: 'Boost quality scores and patient satisfaction outcomes through optimized clinical documentation.', color: 'from-blue-500/20 to-blue-500/5' },
-    { icon: BarChart3, title: 'Better Reimbursement', desc: 'Maximize revenue with compliant and optimized claims that capture the full value of services rendered.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-    { icon: Shield, title: 'Denial Prevention', desc: 'QA-driven process that reduces errors at the source, prevents denials before they happen.', color: 'from-blue-500/20 to-blue-500/5' },
-    { icon: Activity, title: 'Revenue Visibility', desc: 'Clear insight into billing performance across your organization with real-time dashboards and reports.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-    { icon: Zap, title: 'End-to-End RCM', desc: 'One partner supporting your entire revenue cycle lifecycle from credentialing to payment posting.', color: 'from-blue-500/20 to-blue-500/5' },
+    { icon: ClipboardCheck, title: 'Accurate Documentation', desc: 'MBX Solutions improves coding precision and reduces costly errors with thorough documentation review and alignment.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+    { icon: TrendingUp, title: 'Higher Star Ratings', desc: 'MBX Solutions boosts quality scores and patient satisfaction outcomes through optimized clinical documentation.', color: 'from-blue-500/20 to-blue-500/5' },
+    { icon: BarChart3, title: 'Better Reimbursement', desc: 'MBX Solutions maximizes revenue with compliant and optimized claims that capture the full value of services rendered.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+    { icon: Shield, title: 'Denial Prevention', desc: 'MBX Solutions\' QA-driven process reduces errors at the source and prevents denials before they happen.', color: 'from-blue-500/20 to-blue-500/5' },
+    { icon: Activity, title: 'Revenue Visibility', desc: 'MBX Solutions provides clear insight into billing performance across your organization with real-time dashboards and reports.', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+    { icon: Zap, title: 'End-to-End RCM', desc: 'MBX Solutions serves as one partner supporting your entire revenue cycle lifecycle from credentialing to payment posting.', color: 'from-blue-500/20 to-blue-500/5' },
   ]
 
   return (
@@ -129,7 +129,7 @@ function MBXAdvantageSection() {
           <SectionHeading
             eyebrow="The MBX Advantage"
             title="Every Step Connected, Every Claim Optimized"
-            subtitle="We combine billing, coding, OASIS, and QA into one streamlined workflow — eliminating gaps, reducing errors, and improving outcomes across your entire revenue cycle."
+            subtitle="At MBX Solutions, we combine billing, coding, OASIS, and QA into one streamlined workflow — eliminating gaps, reducing errors, and improving outcomes across your entire revenue cycle."
           />
         </AnimatedSection>
 
@@ -183,15 +183,15 @@ function MBXAdvantageSection() {
 function ServiceExplorer() {
   const [expanded, setExpanded] = useState(0)
   const services = [
-    { number: '01', title: 'Medical Billing', description: 'Clean claims, faster payments, zero revenue leakage. Full-cycle billing support from charge capture to payment posting.', details: ['Claim Submission', 'Payment Posting', 'Revenue Cycle Management', 'Denial Prevention', 'AR Follow-up', 'Reporting'] },
-    { number: '02', title: 'Medical Coding', description: 'Precision coding that drives accuracy and maximizes reimbursement. ICD-10 expertise aligned with clinical documentation.', details: ['ICD-10 Coding', 'CPT/HCPCS Coding', 'Code Review', 'Documentation Alignment', 'Coding Audits', 'Compliance'] },
-    { number: '03', title: 'OASIS QA & Chart Review', description: 'Accurate OASIS, stronger scores, better outcomes. Comprehensive quality assurance on OASIS assessments.', details: ['OASIS Accuracy Review', 'Scoring Optimization', 'Star Rating Impact', 'Clinical Documentation', 'QA Metrics', 'Compliance Check'] },
-    { number: '04', title: 'EDI & EFT Setup', description: 'Seamless setup for faster claims and quicker payments. Electronic data interchange configuration and management.', details: ['Electronic Claims', 'ERA/EOB Setup', 'EFT Configuration', 'Clearinghouse Integration', 'Payer Connectivity', 'Testing & Validation'] },
-    { number: '05', title: 'AR Aging & Recovery', description: 'We recover what others leave behind. Strategic follow-up on aging receivables and revenue recovery.', details: ['Aging AR Analysis', 'Payer Follow-up', 'Appeal Management', 'Revenue Recovery', 'Collections Strategy', 'Trend Reporting'] },
-    { number: '06', title: 'Credentialing', description: 'Get approved faster and start billing without delays. Complete provider enrollment lifecycle management.', details: ['Provider Credentialing', 'Payer Enrollment', 'CAQH Setup', 'Recredentialing', 'Contracting', 'Enrollment Tracking'] },
-    { number: '07', title: 'Audit', description: 'Identify hidden gaps and unlock missed revenue opportunities. Comprehensive billing and coding audits.', details: ['Coding Audit', 'Billing Compliance', 'Revenue Leakage Analysis', 'Process Review', 'Gap Identification', 'Remediation Plan'] },
-    { number: '08', title: 'Virtual Assistance', description: 'Extend your team\'s capacity with dedicated healthcare virtual assistants for administrative workflows.', details: ['Patient Intake', 'Scheduling', 'Insurance Verification', 'Referral Coordination', 'Documentation Follow-up', 'Back-Office Support'] },
-    { number: '09', title: 'Contracting', description: 'Payer contracting support to optimize reimbursement rates and strengthen provider-payer relationships.', details: ['Rate Negotiation', 'Contract Review', 'Payer Analysis', 'Terms Optimization', 'Renewal Management', 'Compliance'] },
+    { number: '01', title: 'Medical Billing', description: 'Clean claims, faster payments, zero revenue leakage. MBX Solutions provides full-cycle billing support from charge capture to payment posting.', details: ['Claim Submission', 'Payment Posting', 'Revenue Cycle Management', 'Denial Prevention', 'AR Follow-up', 'Reporting'] },
+    { number: '02', title: 'Medical Coding', description: 'Precision coding that drives accuracy and maximizes reimbursement. MBX Solutions aligns ICD-10 expertise with clinical documentation.', details: ['ICD-10 Coding', 'CPT/HCPCS Coding', 'Code Review', 'Documentation Alignment', 'Coding Audits', 'Compliance'] },
+    { number: '03', title: 'OASIS QA & Chart Review', description: 'Accurate OASIS, stronger scores, better outcomes. MBX Solutions provides comprehensive quality assurance on OASIS assessments.', details: ['OASIS Accuracy Review', 'Scoring Optimization', 'Star Rating Impact', 'Clinical Documentation', 'QA Metrics', 'Compliance Check'] },
+    { number: '04', title: 'EDI & EFT Setup', description: 'Seamless setup for faster claims and quicker payments. MBX Solutions handles electronic data interchange configuration and management.', details: ['Electronic Claims', 'ERA/EOB Setup', 'EFT Configuration', 'Clearinghouse Integration', 'Payer Connectivity', 'Testing & Validation'] },
+    { number: '05', title: 'AR Aging & Recovery', description: 'We recover what others leave behind. MBX Solutions provides strategic follow-up on aging receivables and revenue recovery.', details: ['Aging AR Analysis', 'Payer Follow-up', 'Appeal Management', 'Revenue Recovery', 'Collections Strategy', 'Trend Reporting'] },
+    { number: '06', title: 'Credentialing', description: 'Get approved faster and start billing without delays. MBX Solutions manages the complete provider enrollment lifecycle.', details: ['Provider Credentialing', 'Payer Enrollment', 'CAQH Setup', 'Recredentialing', 'Contracting', 'Enrollment Tracking'] },
+    { number: '07', title: 'Audit', description: 'Identify hidden gaps and unlock missed revenue opportunities. MBX Solutions delivers comprehensive billing and coding audits.', details: ['Coding Audit', 'Billing Compliance', 'Revenue Leakage Analysis', 'Process Review', 'Gap Identification', 'Remediation Plan'] },
+    { number: '08', title: 'Virtual Assistance', description: 'MBX Solutions extends your team\'s capacity with dedicated healthcare virtual assistants for administrative workflows.', details: ['Patient Intake', 'Scheduling', 'Insurance Verification', 'Referral Coordination', 'Documentation Follow-up', 'Back-Office Support'] },
+    { number: '09', title: 'Contracting', description: 'MBX Solutions provides payer contracting support to optimize reimbursement rates and strengthen provider-payer relationships.', details: ['Rate Negotiation', 'Contract Review', 'Payer Analysis', 'Terms Optimization', 'Renewal Management', 'Compliance'] },
   ]
 
   return (
@@ -201,7 +201,7 @@ function ServiceExplorer() {
           <SectionHeading
             eyebrow="Capabilities"
             title="Comprehensive Revenue Cycle Support"
-            subtitle="From specialized home health billing to enterprise-scale operations, we support the full spectrum of healthcare revenue needs."
+            subtitle="At MBX Solutions, we support the full spectrum of healthcare revenue needs — from specialized home health billing to enterprise-scale operations."
           />
         </AnimatedSection>
 
@@ -278,12 +278,12 @@ function ServiceExplorer() {
 function VirtualAssistanceSection() {
   const steps = ['Referral', 'Intake', 'Scheduling', 'Documentation', 'Follow-up', 'Billing']
   const cards = [
-    { icon: Clock, title: 'Scheduling Support', desc: 'Appointment coordination and calendar management for your clinical team.' },
-    { icon: FileText, title: 'Documentation Follow-up', desc: 'Incomplete chart and documentation tracking to keep workflows moving.' },
-    { icon: Shield, title: 'Insurance Verification', desc: 'Eligibility checks and prior authorization before patient visits.' },
-    { icon: Users, title: 'Referral Coordination', desc: 'Intake processing and referral management across your network.' },
-    { icon: Zap, title: 'Back-Office Support', desc: 'Administrative tasks, data entry, and operational workflows.' },
-    { icon: Target, title: 'Communication Workflows', desc: 'Payer and provider communication tracking and follow-up.' },
+    { icon: Clock, title: 'Scheduling Support', desc: 'MBX Solutions provides appointment coordination and calendar management for your clinical team.' },
+    { icon: FileText, title: 'Documentation Follow-up', desc: 'MBX Solutions tracks incomplete charts and documentation to keep workflows moving.' },
+    { icon: Shield, title: 'Insurance Verification', desc: 'MBX Solutions performs eligibility checks and prior authorization before patient visits.' },
+    { icon: Users, title: 'Referral Coordination', desc: 'MBX Solutions handles intake processing and referral management across your network.' },
+    { icon: Zap, title: 'Back-Office Support', desc: 'MBX Solutions manages administrative tasks, data entry, and operational workflows.' },
+    { icon: Target, title: 'Communication Workflows', desc: 'MBX Solutions tracks payer and provider communication and follow-up.' },
   ]
 
   return (
@@ -293,7 +293,7 @@ function VirtualAssistanceSection() {
           <SectionHeading
             eyebrow="Virtual Assistance"
             title="Extending Your Team's Capacity"
-            subtitle="Operational support that allows your clinical team to focus on patient care while we handle the administrative workflows."
+            subtitle="At MBX Solutions, our operational support allows your clinical team to focus on patient care while we handle the administrative workflows."
           />
         </AnimatedSection>
 
@@ -363,7 +363,7 @@ function CredentialingSection() {
           <SectionHeading
             eyebrow="Contracting & Credentialing"
             title="Streamlined Provider Enrollment"
-            subtitle="From initial credentialing to recredentialing, we manage the complete payer enrollment lifecycle."
+            subtitle="From initial credentialing to recredentialing, MBX Solutions manages the complete payer enrollment lifecycle."
           />
         </AnimatedSection>
 
@@ -436,12 +436,12 @@ function CredentialingSection() {
 function QASection() {
   const flow = ['Documentation', 'Coding', 'Claim', 'Payment', 'Revenue']
   const items = [
-    { icon: ClipboardCheck, title: 'Medical Coding Accuracy', desc: 'Precise ICD-10 and CPT coding aligned with clinical documentation for maximum reimbursement.' },
-    { icon: FileText, title: 'Documentation Review', desc: 'Thorough review of clinical documentation to support coding accuracy and compliance.' },
-    { icon: Shield, title: 'Billing QA Checks', desc: 'Multi-step quality checks before claim submission to minimize denials and rejections.' },
-    { icon: Activity, title: 'Claims Quality Validation', desc: 'Systematic validation of claims data, codes, and modifiers for accuracy.' },
-    { icon: CheckCircle, title: 'Compliance Workflow Review', desc: 'Ensuring all billing workflows meet payer and regulatory compliance standards.' },
-    { icon: TrendingUp, title: 'Revenue Integrity Analysis', desc: 'Analyzing revenue patterns to identify gaps and optimize financial performance.' },
+    { icon: ClipboardCheck, title: 'Medical Coding Accuracy', desc: 'MBX Solutions delivers precise ICD-10 and CPT coding aligned with clinical documentation for maximum reimbursement.' },
+    { icon: FileText, title: 'Documentation Review', desc: 'MBX Solutions provides thorough review of clinical documentation to support coding accuracy and compliance.' },
+    { icon: Shield, title: 'Billing QA Checks', desc: 'MBX Solutions performs multi-step quality checks before claim submission to minimize denials and rejections.' },
+    { icon: Activity, title: 'Claims Quality Validation', desc: 'MBX Solutions performs systematic validation of claims data, codes, and modifiers for accuracy.' },
+    { icon: CheckCircle, title: 'Compliance Workflow Review', desc: 'MBX Solutions ensures all billing workflows meet payer and regulatory compliance standards.' },
+    { icon: TrendingUp, title: 'Revenue Integrity Analysis', desc: 'MBX Solutions analyzes revenue patterns to identify gaps and optimize financial performance.' },
   ]
 
   return (
@@ -451,7 +451,7 @@ function QASection() {
           <SectionHeading
             eyebrow="QA & Medical Coding"
             title="Small Errors Create Large Revenue Consequences"
-            subtitle="Quality assurance at every step ensures accuracy, compliance, and revenue integrity."
+            subtitle="At MBX Solutions, quality assurance at every step ensures accuracy, compliance, and revenue integrity."
           />
         </AnimatedSection>
 
@@ -495,11 +495,11 @@ function QASection() {
 /* ── Specialties ── */
 function SpecialtiesSection() {
   const specialties = [
-    { title: 'Internal Medicine', desc: 'Comprehensive billing solutions designed to streamline patient care services, improve claim accuracy, and maximize reimbursements for internal medicine practices.', icon: Stethoscope, image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80' },
-    { title: 'Cardiology', desc: 'Specialized revenue cycle management for cardiology practices, ensuring accurate coding, faster claims processing, and reduced payment delays.', icon: Activity, image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80' },
-    { title: 'Immunology', desc: 'Efficient billing support for immunology services with optimized workflows, accurate documentation, and improved reimbursement outcomes.', icon: Shield, image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80' },
-    { title: 'Pain Management', desc: 'Specialized billing support for pain management practices with complex multi-procedure coding requirements.', icon: Target, image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80' },
-    { title: 'Behavioral Health', desc: 'Specialized billing for behavioral health organizations, ABA providers, and related healthcare specialties.', icon: Users, image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80' },
+    { title: 'Internal Medicine', desc: 'MBX Solutions provides comprehensive billing solutions designed to streamline patient care services, improve claim accuracy, and maximize reimbursements for internal medicine practices.', icon: Stethoscope, image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80' },
+    { title: 'Cardiology', desc: 'MBX Solutions delivers specialized revenue cycle management for cardiology practices, ensuring accurate coding, faster claims processing, and reduced payment delays.', icon: Activity, image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80' },
+    { title: 'Immunology', desc: 'MBX Solutions provides efficient billing support for immunology services with optimized workflows, accurate documentation, and improved reimbursement outcomes.', icon: Shield, image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80' },
+    { title: 'Pain Management', desc: 'MBX Solutions provides specialized billing support for pain management practices with complex multi-procedure coding requirements.', icon: Target, image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80' },
+    { title: 'Behavioral Health', desc: 'MBX Solutions provides specialized billing for behavioral health organizations, ABA providers, and related healthcare specialties.', icon: Users, image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80' },
   ]
 
   return (
@@ -514,7 +514,7 @@ function SpecialtiesSection() {
           </h2>
           <div className="w-[60px] h-[3px] bg-mbx-teal mx-auto mb-5" />
           <p className="text-[15px] text-mbx-text-muted max-w-2xl mx-auto leading-relaxed">
-            Our expertise spans across multiple medical specialties, delivering customized billing and RCM solutions tailored to each practice.
+            MBX Solutions' expertise spans across multiple medical specialties, delivering customized billing and RCM solutions tailored to each practice.
           </p>
         </div>
 
@@ -590,7 +590,7 @@ function EnterpriseSection() {
             <SectionHeading
               eyebrow="Enterprise Scale"
               title="Built to Scale With Your Organization"
-              subtitle="For large medical groups, multi-location practices, and growing healthcare organizations."
+              subtitle="MBX Solutions supports large medical groups, multi-location practices, and growing healthcare organizations."
               centered={false}
             />
             <div className="grid grid-cols-2 gap-3 mt-8">
@@ -652,12 +652,12 @@ function EnterpriseSection() {
 /* ── Why MBX / Structural Advantage ── */
 function WhyMBXSection() {
   const pillars = [
-    { icon: Target, title: 'Specialized Expertise', desc: 'Deep understanding of home health and hospice revenue workflows that generic billing companies miss.' },
-    { icon: Users, title: 'Operational Support', desc: 'Extend your internal team\'s capacity with dedicated billing specialists who know your practice.' },
-    { icon: BarChart3, title: 'Revenue Visibility', desc: 'Better understanding of billing performance across your organization with clear dashboards.' },
-    { icon: Shield, title: 'Quality Focus', desc: 'Emphasis on accurate and consistent revenue cycle workflows at every step of the process.' },
-    { icon: TrendingUp, title: 'Scalable Support', desc: 'Designed for growing organizations and multi-location operations that need flexible billing support.' },
-    { icon: Zap, title: 'Technology-Enabled', desc: 'Modern workflows and reporting for operational efficiency and real-time revenue insights.' },
+    { icon: Target, title: 'Specialized Expertise', desc: 'MBX Solutions brings deep understanding of home health and hospice revenue workflows that generic billing companies miss.' },
+    { icon: Users, title: 'Operational Support', desc: 'MBX Solutions extends your internal team\'s capacity with dedicated billing specialists who know your practice.' },
+    { icon: BarChart3, title: 'Revenue Visibility', desc: 'MBX Solutions provides better understanding of billing performance across your organization with clear dashboards.' },
+    { icon: Shield, title: 'Quality Focus', desc: 'MBX Solutions places emphasis on accurate and consistent revenue cycle workflows at every step of the process.' },
+    { icon: TrendingUp, title: 'Scalable Support', desc: 'MBX Solutions is designed for growing organizations and multi-location operations that need flexible billing support.' },
+    { icon: Zap, title: 'Technology-Enabled', desc: 'MBX Solutions delivers modern workflows and reporting for operational efficiency and real-time revenue insights.' },
   ]
 
   return (
@@ -667,7 +667,7 @@ function WhyMBXSection() {
           <SectionHeading
             eyebrow="The Structural Advantage"
             title="Why Healthcare Organizations Choose MBX"
-            subtitle="We don't just manage billing — we build a structured, end-to-end revenue cycle where every step is connected, compliant, and optimized for performance."
+            subtitle="At MBX Solutions, we don't just manage billing — we build a structured, end-to-end revenue cycle where every step is connected, compliant, and optimized for performance."
           />
         </AnimatedSection>
 
@@ -689,9 +689,9 @@ function WhyMBXSection() {
         <AnimatedSection delay={0.3}>
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-mbx-teal/15">
             {[
-              { value: '98.5%', label: 'Billing Accuracy', desc: 'Multi-tier verification process ensures minimal errors.' },
-              { value: 'HIPAA & SOC2', label: 'Compliant', desc: 'Data security protocols to protect patient information.' },
-              { value: '35%', label: 'A/R Reduction', desc: 'Optimized workflows reduce A/R days within the first 6 months.' },
+              { value: '98.5%', label: 'Billing Accuracy', desc: 'MBX Solutions\' multi-tier verification process ensures minimal errors.' },
+              { value: 'HIPAA & SOC2', label: 'Compliant', desc: 'MBX Solutions applies data security protocols to protect patient information.' },
+              { value: '35%', label: 'A/R Reduction', desc: 'MBX Solutions\' optimized workflows reduce A/R days within the first 6 months.' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-3xl font-extrabold text-mbx-teal">{stat.value}</p>
@@ -724,7 +724,7 @@ function CTASection() {
             <span className="text-mbx-teal">Get a Free Billing Audit.</span>
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
-            Let our experts analyze your current RCM performance and identify untapped revenue opportunities.
+            Let MBX Solutions' experts analyze your current RCM performance and identify untapped revenue opportunities.
             No obligation, total transparency.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -749,16 +749,16 @@ function CTASection() {
 function FAQSection() {
   const [open, setOpen] = useState(null)
   const faqs = [
-    { q: 'What services do you provide in medical billing?', a: 'We provide end-to-end medical billing services including claim entry, claims scrubbing & submission, AR follow-up, denial management, medical coding (ICD-10), EDI/ERA/EFT setup, credentialing & enrollment, patient collections, value-based care support, and analytics & reporting.' },
-    { q: 'How can medical billing services help my practice?', a: 'Our billing services help reduce claim denials, accelerate reimbursements, improve cash flow, ensure coding accuracy, maintain compliance, and free up your clinical team to focus on patient care instead of administrative tasks.' },
-    { q: 'Do you handle insurance claim denials?', a: 'Yes. Our denial management team identifies root causes, drafts appeal letters, corrects claims, and resubmits them for faster approval. We also implement prevention strategies to reduce future denials.' },
-    { q: 'Do you offer provider credentialing services?', a: 'Absolutely. We manage the complete credentialing lifecycle including provider enrollment, CAQH profile setup, payer enrollment, recredentialing, and contract negotiation to ensure uninterrupted revenue flow.' },
-    { q: 'How do you improve claim approval rates?', a: 'We use multi-step claim scrubbing, coding accuracy verification, payer-specific rule checks, and thorough documentation review to ensure clean claims are submitted the first time, dramatically improving approval rates.' },
-    { q: 'Can you work with small practices and large healthcare groups?', a: 'Yes. We support everything from single-provider private practices to multi-location health systems. Our scalable workflows adapt to your organization\'s size and complexity.' },
-    { q: 'Do you provide billing reports and financial analytics?', a: 'Yes. We provide detailed analytics and reporting including financial dashboards, revenue trend analysis, payer performance reports, KPI tracking, and custom report generation to support data-driven decisions.' },
-    { q: 'Is patient information kept secure?', a: 'Absolutely. We design all workflows with HIPAA compliance and data security in mind. Our operational processes are built to support healthcare organizations\' strictest compliance requirements.' },
-    { q: 'How long does the credentialing process take?', a: 'Credentialing timelines vary by payer and state, but typically range from 30-90 days. We track every application proactively and follow up regularly to expedite the process.' },
-    { q: 'Do you offer a free billing audit?', a: 'Yes! We provide a free audit of your practice for the last 3 months — even if you\'re currently with another billing company. We deliver a detailed report showing where revenue exists and how much we can improve it.' },
+    { q: 'What services do you provide in medical billing?', a: 'MBX Solutions provides end-to-end medical billing services including claim entry, claims scrubbing & submission, AR follow-up, denial management, medical coding (ICD-10), EDI/ERA/EFT setup, credentialing & enrollment, patient collections, value-based care support, and analytics & reporting.' },
+    { q: 'How can medical billing services help my practice?', a: 'At MBX Solutions, our billing services help reduce claim denials, accelerate reimbursements, improve cash flow, ensure coding accuracy, maintain compliance, and free up your clinical team to focus on patient care instead of administrative tasks.' },
+    { q: 'Do you handle insurance claim denials?', a: 'Yes. MBX Solutions\' denial management team identifies root causes, drafts appeal letters, corrects claims, and resubmits them for faster approval. We also implement prevention strategies to reduce future denials.' },
+    { q: 'Do you offer provider credentialing services?', a: 'Absolutely. MBX Solutions manages the complete credentialing lifecycle including provider enrollment, CAQH profile setup, payer enrollment, recredentialing, and contract negotiation to ensure uninterrupted revenue flow.' },
+    { q: 'How do you improve claim approval rates?', a: 'MBX Solutions uses multi-step claim scrubbing, coding accuracy verification, payer-specific rule checks, and thorough documentation review to ensure clean claims are submitted the first time, dramatically improving approval rates.' },
+    { q: 'Can you work with small practices and large healthcare groups?', a: 'Yes. MBX Solutions supports everything from single-provider private practices to multi-location health systems. Our scalable workflows adapt to your organization\'s size and complexity.' },
+    { q: 'Do you provide billing reports and financial analytics?', a: 'Yes. MBX Solutions provides detailed analytics and reporting including financial dashboards, revenue trend analysis, payer performance reports, KPI tracking, and custom report generation to support data-driven decisions.' },
+    { q: 'Is patient information kept secure?', a: 'Absolutely. MBX Solutions designs all workflows with HIPAA compliance and data security in mind. Our operational processes are built to support healthcare organizations\' strictest compliance requirements.' },
+    { q: 'How long does the credentialing process take?', a: 'Credentialing timelines vary by payer and state, but typically range from 30-90 days. MBX Solutions tracks every application proactively and follows up regularly to expedite the process.' },
+    { q: 'Do you offer a free billing audit?', a: 'Yes! MBX Solutions provides a free audit of your practice for the last 3 months — even if you\'re currently with another billing company. We deliver a detailed report showing where revenue exists and how much we can improve it.' },
   ]
 
   return (
@@ -768,7 +768,7 @@ function FAQSection() {
           <SectionHeading
             eyebrow="FAQ"
             title="Frequently Asked Questions"
-            subtitle="Get answers to the most common questions about our medical billing services."
+            subtitle="Get answers to the most common questions about MBX Solutions' medical billing services."
           />
         </AnimatedSection>
 

@@ -134,7 +134,7 @@ export default function Team() {
                 transition={{ duration: 0.7, delay: 0.12 }}
                 className="mt-6 max-w-xl text-lg leading-relaxed text-mbx-text-muted"
               >
-                Meet the professionals dedicated to delivering thoughtful support, responsive
+                Meet the MBX Solutions professionals dedicated to delivering thoughtful support, responsive
                 communication and exceptional service for your organization.
               </motion.p>
               <motion.div

@@ -45,7 +45,7 @@ export default function Gallery() {
               See Our <span className="text-[#4486BF]">Work in Action</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              A visual showcase of our team, operations, and the healthcare organizations we support.
+              A visual showcase of the MBX Solutions team, operations, and the healthcare organizations we support.
             </p>
           </AnimatedSection>
         </div>

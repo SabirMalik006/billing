@@ -6,9 +6,9 @@ import { SectionHeading, PrimaryButton } from '../components/UI'
 import SectionStatsGrid from '../components/SectionStatsGrid'
 
 const services = [
-  { icon: FileCheck2, title: 'Claim Entry & Scrubbing', desc: 'Accurate claim entry, eligibility checks and scrubbing before submission so clean claims leave on the first pass.' },
-  { icon: Stethoscope, title: 'Coding & AR Follow-up', desc: 'ICD-10/CPT coding and proactive follow-up that keeps your small practice billing working without extra hires.' },
-  { icon: BadgeCheck, title: 'Credentialing & Enrollment', desc: 'Provider credentialing and payer enrollment so you get paid without the paperwork delays.' },
+  { icon: FileCheck2, title: 'Claim Entry & Scrubbing', desc: 'MBX Solutions performs accurate claim entry, eligibility checks and scrubbing before submission so clean claims leave on the first pass.' },
+  { icon: Stethoscope, title: 'Coding & AR Follow-up', desc: 'MBX Solutions handles ICD-10/CPT coding and proactive follow-up that keeps your small practice billing working without extra hires.' },
+  { icon: BadgeCheck, title: 'Credentialing & Enrollment', desc: 'MBX Solutions manages provider credentialing and payer enrollment so you get paid without the paperwork delays.' },
 ]
 
 const included = ['Fixed transparent pricing', 'Dedicated billing specialist', 'Weekly revenue reports', 'HIPAA-compliant workflows', 'No long-term contracts', 'Phone & email support']
@@ -42,7 +42,7 @@ export default function SmallProject() {
               Billing Support Built for <span className="text-mbx-teal">Small Practices</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              You handle the patients — we handle the billing. A complete, affordable revenue cycle
+              You handle the patients — MBX Solutions handles the billing. A complete, affordable revenue cycle
               service designed for small clinics, solo providers and home care startups.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -62,7 +62,7 @@ export default function SmallProject() {
             <SectionHeading
               eyebrow="What's Included"
               title="Everything a Small Practice Needs"
-              subtitle="No bloated contracts or hidden fees — just the billing essentials that keep your revenue healthy."
+              subtitle="MBX Solutions offers no bloated contracts or hidden fees — just the billing essentials that keep your revenue healthy."
             />
           </AnimatedSection>
           <StaggerChildren className="grid gap-6 md:grid-cols-3">
@@ -93,7 +93,7 @@ export default function SmallProject() {
                   Small Practices, Big Expectations
                 </h2>
                 <p className="text-lg leading-relaxed text-white/60 max-w-xl">
-                  Our small project package is built to fit modest volumes and tight budgets — without
+                  MBX Solutions' small project package is built to fit modest volumes and tight budgets — without
                   sacrificing accuracy, compliance or response time.
                 </p>
               </AnimatedSection>
@@ -125,7 +125,7 @@ export default function SmallProject() {
               Ready to Get Your Billing in Order?
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
-              Start with a free audit and see exactly where your small practice is losing revenue.
+              Start with a free audit from MBX Solutions and see exactly where your small practice is losing revenue.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Get Free Audit</PrimaryButton>
           </AnimatedSection>

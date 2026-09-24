@@ -9,56 +9,56 @@ const capabilities = [
   {
     number: 1,
     title: 'Medical Billing & Claims',
-    description: 'End-to-end claim entry, scrubbing, submission and resubmission across billing platforms — built to stop denials before they happen.',
+    description: 'MBX Solutions provides end-to-end claim entry, scrubbing, submission and resubmission across billing platforms — built to stop denials before they happen.',
     link: '/services#claim-entry',
   },
   {
     number: 2,
     title: 'Medical Coding',
-    description: 'ICD-10-CM, CPT and HCPCS coding validated for accuracy, documentation alignment and compliance, so payers approve the first time.',
+    description: 'MBX Solutions validates ICD-10-CM, CPT and HCPCS coding for accuracy, documentation alignment and compliance, so payers approve the first time.',
     link: '/services#medical-coding',
   },
   {
     number: 3,
     title: 'Credentialing & Enrollment',
-    description: 'Provider credentialing, payer enrollment, CAQH setup and recredentialing — approvals on time, revenue without gaps.',
+    description: 'MBX Solutions handles provider credentialing, payer enrollment, CAQH setup and recredentialing — approvals on time, revenue without gaps.',
     link: '/services#credentialing',
   },
   {
     number: 4,
     title: 'A/R Follow-up & Denial Management',
-    description: 'Active AR tracking, payer follow-up, denial root-cause analysis and appeals that recover revenue you were quietly losing.',
+    description: 'MBX Solutions performs active AR tracking, payer follow-up, denial root-cause analysis and appeals that recover revenue you were quietly losing.',
     link: '/services#ar-followup',
   },
   {
     number: 5,
     title: 'Revenue Cycle Management',
-    description: 'One connected RCM engine — from front-end eligibility to payment posting — for predictable, healthier cash flow.',
+    description: 'MBX Solutions provides one connected RCM engine — from front-end eligibility to payment posting — for predictable, healthier cash flow.',
     link: '/rcm-services',
     featured: true,
   },
   {
     number: 6,
     title: 'EDI, ERA & EFT Setup',
-    description: 'Seamless electronic workflows, clearinghouse integration and payment automation that remove manual work from your team.',
+    description: 'MBX Solutions builds seamless electronic workflows, clearinghouse integration and payment automation that remove manual work from your team.',
     link: '/services#edi-eft',
   },
   {
     number: 7,
     title: 'EHR & Practice Management',
-    description: 'Deep experience across major EHR/PM platforms, so billing runs smoothly with the software you already use.',
+    description: 'MBX Solutions brings deep experience across major EHR/PM platforms, so billing runs smoothly with the software you already use.',
     link: '/software',
   },
   {
     number: 8,
     title: 'Specialty Solutions',
-    description: 'Home Health, Hospice, Behavioral Health, Physical Therapy, Cardiology and more — coded and billed by specialists.',
+    description: 'Home Health, Hospice, Behavioral Health, Physical Therapy, Cardiology and more — coded and billed by MBX Solutions specialists.',
     link: '/services#free-audit',
   },
   {
     number: 9,
     title: 'Analytics & Reporting',
-    description: 'Financial dashboards, KPI tracking and revenue trend analysis that turn billing data into smarter decisions.',
+    description: 'MBX Solutions delivers financial dashboards, KPI tracking and revenue trend analysis that turn billing data into smarter decisions.',
     link: '/services#analytics',
   },
 ]
@@ -103,7 +103,7 @@ export default function Capabilities() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
               From clean claims and accurate coding to credentialing, collections and analytics —
-              MBX gives healthcare organizations a complete revenue cycle capability stack.
+              MBX Solutions gives healthcare organizations a complete revenue cycle capability stack.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <PrimaryButton to="/connect-us" size="lg">Get Free Audit</PrimaryButton>
@@ -120,7 +120,7 @@ export default function Capabilities() {
             <SectionHeading
               eyebrow="What We Do"
               title="Capabilities That Protect Your Revenue"
-              subtitle="A full-stack revenue cycle team handling the work your practice shouldn't have to — so you can focus on patients, not paperwork."
+              subtitle="MBX Solutions is a full-stack revenue cycle team handling the work your practice shouldn't have to — so you can focus on patients, not paperwork."
             />
           </AnimatedSection>
           <StaggerChildren className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -147,7 +147,7 @@ export default function Capabilities() {
                   Every Engagement Includes This
                 </h2>
                 <p className="text-lg leading-relaxed text-white/60 max-w-xl">
-                  No matter what we handle for you, you get a disciplined, transparent billing
+                  No matter what we handle for you, MBX Solutions runs a disciplined, transparent billing
                   operation that treats your revenue like it's our own.
                 </p>
               </AnimatedSection>

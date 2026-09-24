@@ -17,21 +17,21 @@ const certificates = [
   {
     icon: HardHat,
     title: 'What Is OSHA & Its Purpose',
-    text: "The Occupational Safety and Health Administration, more commonly known by its acronym OSHA, was established by Congress in 1971 following the passage of the Occupational Safety and Health Act of 1970 to ensure safe and healthful working conditions for working men and women; obligating enforcement of the standards developed under the Act; assisting and encouraging states in their efforts to assure safe and healthful working conditions; by providing for research, information, education, and training in the field of occupational safety and health.",
+    text: "At MBX Solutions, we recognize that the Occupational Safety and Health Administration, more commonly known by its acronym OSHA, was established by Congress in 1971 following the passage of the Occupational Safety and Health Act of 1970 to ensure safe and healthful working conditions for working men and women; obligating enforcement of the standards developed under the Act; assisting and encouraging states in their efforts to assure safe and healthful working conditions; by providing for research, information, education, and training in the field of occupational safety and health.",
     image: 'https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=800&q=80',
     tag: 'Workplace Safety',
   },
   {
     icon: LockKeyhole,
     title: 'What Is HIPAA',
-    text: "The Health Insurance Portability and Accountability Act of 1996 (HIPAA) is a federal law that requires the implementation of national standards to protect sensitive patient health information from being disclosed without the patient's consent or knowledge. The US Department of Health and Human Services (HHS) issued the HIPAA Privacy Rule to implement HIPAA requirements. Additionally, a portion of the data covered by the Privacy Rules is safe under the HIPAA Security Rule.",
+    text: "At MBX Solutions, we hold ourselves to the Health Insurance Portability and Accountability Act of 1996 (HIPAA), a federal law that requires the implementation of national standards to protect sensitive patient health information from being disclosed without the patient's consent or knowledge. The US Department of Health and Human Services (HHS) issued the HIPAA Privacy Rule to implement HIPAA requirements. Additionally, a portion of the data covered by the Privacy Rules is safe under the HIPAA Security Rule.",
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
     tag: 'Data Privacy',
   },
   {
     icon: UserCheck,
     title: 'HIPAA Privacy Rule',
-    text: "The Privacy Rule's rules govern how entities subject to the Privacy Rule use and disclose personal health information (also known as \"protected health information\"). \"Covered entities\" refers to these individuals and businesses. Individuals' rights to understand and regulate how their health information is used are similarly protected under the Privacy Rule.",
+    text: "At MBX Solutions, we recognize that the Privacy Rule's rules govern how entities subject to the Privacy Rule use and disclose personal health information (also known as \"protected health information\"). \"Covered entities\" refers to these individuals and businesses. Individuals' rights to understand and regulate how their health information is used are similarly protected under the Privacy Rule.",
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
     tag: 'Patient Rights',
   },
@@ -169,7 +169,7 @@ export default function HIPAA() {
             <SectionHeading
               eyebrow="Certifications"
               title="MBX Solutions HBMA Certificates"
-              subtitle="The standards and regulations that guide how we protect sensitive health information."
+              subtitle="MBX Solutions follows the standards and regulations that guide how we protect sensitive health information."
             />
           </AnimatedSection>
 
@@ -221,7 +221,7 @@ export default function HIPAA() {
               <SectionHeading
                 eyebrow="Why It Matters"
                 title="Importance Of HIPAA"
-                subtitle="HIPAA is incredibly important for improving the privacy of healthcare details. Apart from these, the major implications of HIPAA are as follows:"
+                subtitle="MBX Solutions recognizes that HIPAA is incredibly important for improving the privacy of healthcare details. Apart from these, the major implications of HIPAA are as follows:"
                 centered={false}
               />
               <div className="grid gap-3">
@@ -292,7 +292,7 @@ export default function HIPAA() {
               Trust MBX Solutions With Your Patient Data
             </h2>
             <p className="text-lg text-mbx-text-muted max-w-2xl mx-auto mb-8">
-              Secure, compliant, and reliable revenue cycle management built around the protection of sensitive health information.
+              MBX Solutions provides secure, compliant, and reliable revenue cycle management built around the protection of sensitive health information.
             </p>
             <a href="/connect-us" className="inline-flex items-center gap-2.5 rounded-xl bg-[#4486BF] px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5">
               Get Started Today

@@ -21,7 +21,7 @@ export default function Contact() {
               Have a <span className="text-[#4486BF]">Question?</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              Send us a message. Our team will get back to you promptly with the right solution for your practice.
+              Send us a message. The MBX Solutions team will get back to you promptly with the right solution for your practice.
             </p>
           </AnimatedSection>
         </div>
@@ -37,7 +37,7 @@ export default function Contact() {
                   Send us a message
                 </h2>
                 <p className="text-lg text-mbx-text-muted">
-                  Have a question about our services? Send us your inquiry and our team will get back to you promptly.
+                  Have a question about MBX Solutions' services? Send us your inquiry and our team will get back to you promptly.
                 </p>
               </div>
             </AnimatedSection>

@@ -4,10 +4,10 @@ import { SectionHeading, PrimaryButton, SecondaryButton } from '../components/UI
 import { Link } from 'react-router-dom'
 
 const resources = [
-  { icon: FileText, title: 'Free Billing Audit', desc: 'Get a free revenue leakage analysis and identify untapped revenue opportunities for your practice.', path: '/services#free-audit', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: BookOpen, title: 'Service Guides', desc: 'Understand our billing, coding, and revenue cycle services in plain language.', path: '/services', color: 'from-blue-500/20 to-blue-500/5' },
-  { icon: Shield, title: 'Compliance Center', desc: 'Learn about HIPAA and how we protect sensitive patient health information.', path: '/hipaa', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: BarChart3, title: 'RCM Insights', desc: 'Explore how modern revenue cycle management improves cash flow and reduces denials.', path: '/rcm-services', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: FileText, title: 'Free Billing Audit', desc: 'Get a free revenue leakage analysis from MBX Solutions and identify untapped revenue opportunities for your practice.', path: '/services#free-audit', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+  { icon: BookOpen, title: 'Service Guides', desc: 'Understand MBX Solutions\' billing, coding, and revenue cycle services in plain language.', path: '/services', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: Shield, title: 'Compliance Center', desc: 'Learn about HIPAA and how MBX Solutions protects sensitive patient health information.', path: '/hipaa', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+  { icon: BarChart3, title: 'RCM Insights', desc: 'Explore how modern revenue cycle management at MBX Solutions improves cash flow and reduces denials.', path: '/rcm-services', color: 'from-blue-500/20 to-blue-500/5' },
 ]
 
 const quickFacts = [
@@ -39,7 +39,7 @@ export default function Resources() {
               Helpful Resources & <span className="text-mbx-teal">Knowledge Center</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              Guides, tools, and insights to help your practice improve billing accuracy, reduce denials,
+              Guides, tools, and insights from MBX Solutions to help your practice improve billing accuracy, reduce denials,
               and stay compliant.
             </p>
           </AnimatedSection>
@@ -53,7 +53,7 @@ export default function Resources() {
             <SectionHeading
               eyebrow="Explore Resources"
               title="Everything You Need to Grow"
-              subtitle="Practical tools and information for healthcare providers and revenue teams."
+              subtitle="Practical tools and information from MBX Solutions for healthcare providers and revenue teams."
             />
           </AnimatedSection>
 
@@ -84,7 +84,7 @@ export default function Resources() {
               <SectionHeading
                 eyebrow="Quick Facts"
                 title="RCM Made Simple"
-                subtitle="Key topics we cover with our clients every day — simplified so you can make confident decisions."
+                subtitle="Key topics we cover with our clients every day at MBX Solutions — simplified so you can make confident decisions."
                 centered={false}
               />
               <div className="grid gap-3">
@@ -106,7 +106,7 @@ export default function Resources() {
                 </div>
                 <h3 className="mb-3 text-2xl font-extrabold text-white">Free Revenue Audit Checklist</h3>
                 <p className="mb-8 text-sm leading-relaxed text-white/85">
-                  Download our simple checklist to spot revenue leakage in your current billing process before you ever pay for an audit.
+                  Download our simple MBX Solutions checklist to spot revenue leakage in your current billing process before you ever pay for an audit.
                 </p>
                 <div className="space-y-2 mb-8">
                   {['Claim quality review', 'Denial trend check', 'Aging AR analysis', 'Coding accuracy scan'].map((step) => (
@@ -129,7 +129,7 @@ export default function Resources() {
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-extrabold text-mbx-navy mb-4">Still Have Questions?</h2>
             <p className="text-lg text-mbx-text-muted max-w-2xl mx-auto mb-8">
-              Our team is here to help you understand the revenue cycle and find the right support.
+              The MBX Solutions team is here to help you understand the revenue cycle and find the right support.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <PrimaryButton to="/connect-us" size="lg">Talk to an Expert</PrimaryButton>

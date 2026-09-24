@@ -12,7 +12,7 @@ const tabs = [
     icon: FileText,
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
     stat: { value: '94.2%', label: 'Clean Claims Rate' },
-    highlight: 'End-to-end billing, from charge capture to payment posting.',
+    highlight: 'MBX Solutions provides end-to-end billing, from charge capture to payment posting.',
     heading: 'Explore how MBX Solutions approaches medical billing as we aim to set new standards for accurate and efficient billing practices.',
     items: [
       'Ensuring all claims are submitted promptly.',
@@ -29,7 +29,7 @@ const tabs = [
     icon: Code,
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
     stat: { value: '98.5%', label: 'Coding Accuracy' },
-    highlight: 'Precise ICD-10 & CPT coding that maximizes compliant reimbursement.',
+    highlight: 'MBX Solutions provides precise ICD-10 & CPT coding that maximizes compliant reimbursement.',
     heading: 'Explore how MBX Solutions approaches medical coding as we aim to set new standards for accurate and efficient coding practices.',
     items: [
       'Precision ICD-10 and CPT coding aligned with documentation.',
@@ -46,7 +46,7 @@ const tabs = [
     icon: Briefcase,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
     stat: { value: '28 Days', label: 'Avg Days to Payment' },
-    highlight: 'Systematic recovery that turns aged receivables into cash.',
+    highlight: 'MBX Solutions performs systematic recovery that turns aged receivables into cash.',
     heading: 'Explore how MBX Solutions approaches AR management as we aim to set new standards for efficient accounts receivable recovery.',
     items: [
       'Systematic follow-up on all outstanding claims.',
@@ -63,7 +63,7 @@ const tabs = [
     icon: Users,
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
     stat: { value: '30–45', label: 'Days to Enrollment' },
-    highlight: 'Complete provider enrollment, tracked and followed up proactively.',
+    highlight: 'MBX Solutions handles complete provider enrollment, tracked and followed up proactively.',
     heading: 'Explore how MBX Solutions approaches credentialing as we aim to streamline provider enrollment and compliance.',
     items: [
       'Complete provider enrollment lifecycle management.',
@@ -80,7 +80,7 @@ const tabs = [
     icon: DollarSign,
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80',
     stat: { value: '-25%', label: 'Denial Reduction' },
-    highlight: 'Root-cause prevention that protects your revenue stream.',
+    highlight: 'MBX Solutions applies root-cause prevention that protects your revenue stream.',
     heading: 'Explore how MBX Solutions approaches denial management as we aim to minimize revenue loss and maximize recoveries.',
     items: [
       'Root cause analysis for all denied claims.',
@@ -154,7 +154,7 @@ export default function SectionSolutionsTabs() {
               {/* Panel header */}
               <div className="px-2 pb-3 mb-2 border-b border-white/20">
                 <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">Our Services</p>
-                <p className="mt-1.5 text-[13px] text-white/70 leading-relaxed">Pick a service to explore our full revenue cycle support.</p>
+                <p className="mt-1.5 text-[13px] text-white/70 leading-relaxed">Pick a service to explore MBX Solutions' full revenue cycle support.</p>
               </div>
 
               {tabs.map((service, idx) => {

@@ -29,7 +29,7 @@ export default function TeamSection() {
                 <span className="text-mbx-teal">exceptional service.</span>
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-mbx-text-muted">
-                A dedicated team of professionals ready to support your organization with experience,
+                MBX Solutions has a dedicated team of professionals ready to support your organization with experience,
                 communication and personal attention.
               </p>
 
@@ -41,7 +41,7 @@ export default function TeamSection() {
                   Dedicated Assistant Managers
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-mbx-text-muted">
-                  Available for direct communication whenever you need them — without unnecessary
+                  At MBX Solutions, they're available for direct communication whenever you need them — without unnecessary
                   delays or long hold times.
                 </p>
                 <Link

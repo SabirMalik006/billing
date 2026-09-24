@@ -408,7 +408,7 @@ export default function BlogPost() {
         <div className="container relative z-10 mx-auto text-center">
           <h2 className="text-3xl font-extrabold text-mbx-navy md:text-4xl">Need Help With Your Billing?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-mbx-text-muted">
-            Get a free billing audit from our experts and see exactly where your revenue is leaking.
+            Get a free billing audit from MBX Solutions' experts and see exactly where your revenue is leaking.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <PrimaryButton to="/services#free-audit" size="lg">Claim Free Audit</PrimaryButton>

@@ -3,12 +3,12 @@ import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Ani
 import { SectionHeading, PrimaryButton } from '../components/UI'
 
 const services = [
-  { icon: FilePlus2, title: 'Claim Entry & Submission', desc: 'Clean claim entry and electronic submission designed to minimize rejections and denials.', id: 'claim-entry' },
-  { icon: ScrollText, title: 'Medical Coding', desc: 'Precise ICD-10, CPT and HCPCS coding aligned with clinical documentation.', id: 'coding' },
-  { icon: Milestone, title: 'AR Follow-up', desc: 'Proactive follow-up on aging accounts receivable to accelerate reimbursements.', id: 'ar' },
-  { icon: ShieldAlert, title: 'Denial Management', desc: 'Root-cause analysis, appeals, and prevention strategies to reduce denials.', id: 'denial' },
-  { icon: ClipboardCheck, title: 'OASIS QA & Chart Review', desc: 'Quality assurance on OASIS assessments and chart documentation for better outcomes.', id: 'oasis' },
-  { icon: TrendingUp, title: 'Reporting & Analytics', desc: 'Clear KPI reporting and revenue analytics for data-driven decisions.', id: 'reporting' },
+  { icon: FilePlus2, title: 'Claim Entry & Submission', desc: 'MBX Solutions provides clean claim entry and electronic submission designed to minimize rejections and denials.', id: 'claim-entry' },
+  { icon: ScrollText, title: 'Medical Coding', desc: 'MBX Solutions delivers precise ICD-10, CPT and HCPCS coding aligned with clinical documentation.', id: 'coding' },
+  { icon: Milestone, title: 'AR Follow-up', desc: 'MBX Solutions performs proactive follow-up on aging accounts receivable to accelerate reimbursements.', id: 'ar' },
+  { icon: ShieldAlert, title: 'Denial Management', desc: 'MBX Solutions applies root-cause analysis, appeals, and prevention strategies to reduce denials.', id: 'denial' },
+  { icon: ClipboardCheck, title: 'OASIS QA & Chart Review', desc: 'MBX Solutions performs quality assurance on OASIS assessments and chart documentation for better outcomes.', id: 'oasis' },
+  { icon: TrendingUp, title: 'Reporting & Analytics', desc: 'MBX Solutions delivers clear KPI reporting and revenue analytics for data-driven decisions.', id: 'reporting' },
 ]
 
 export default function RCMServices() {
@@ -31,7 +31,7 @@ export default function RCMServices() {
               Revenue Cycle <span className="text-mbx-teal">Management Services</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              End-to-end revenue cycle support that reduces denials, improves cash flow, and gives you full visibility into your financial health.
+              MBX Solutions provides end-to-end revenue cycle support that reduces denials, improves cash flow, and gives you full visibility into your financial health.
             </p>
           </AnimatedSection>
         </div>
@@ -44,7 +44,7 @@ export default function RCMServices() {
             <SectionHeading
               eyebrow="RCM Services"
               title="Every Step of the Revenue Cycle, Covered"
-              subtitle="From the moment a claim is created to the day payment posts — we manage it all."
+              subtitle="From the moment a claim is created to the day payment posts — MBX Solutions manages it all."
             />
           </AnimatedSection>
 
@@ -73,7 +73,7 @@ export default function RCMServices() {
               <SectionHeading
                 eyebrow="Why It Matters"
                 title="Small Errors Create Large Revenue Consequences"
-                subtitle="Quality assurance at every step ensures accuracy, compliance, and revenue integrity."
+                subtitle="MBX Solutions applies quality assurance at every step to ensure accuracy, compliance, and revenue integrity."
                 centered={false}
               />
               <div className="grid gap-3">
@@ -128,7 +128,7 @@ export default function RCMServices() {
               Optimize Your Revenue Cycle
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
-              Let our experts analyze your current RCM performance and identify untapped revenue opportunities.
+              Let MBX Solutions experts analyze your current RCM performance and identify untapped revenue opportunities.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Get a Free Audit</PrimaryButton>
           </AnimatedSection>

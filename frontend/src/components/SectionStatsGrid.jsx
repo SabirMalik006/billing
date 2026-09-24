@@ -10,7 +10,7 @@ const stats = [
   { icon: AlertTriangle, number: 100, suffix: '%', label: 'Reduction in Billing Errors' },
   { icon: Headset, number: 24, suffix: '/7', label: 'Expert Billing Support' },
   { icon: Settings, number: 70, suffix: '%', label: 'Faster Credentialing Process' },
-  { icon: Award, number: 10, suffix: '+', label: 'Years of Billing Experience' },
+  { icon: Award, number: 15, suffix: '+', label: 'Years of Billing Experience' },
   { icon: BarChart3, number: 33, suffix: '%', label: 'Reduction In A/R' },
 ]
 

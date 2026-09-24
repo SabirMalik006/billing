@@ -3,10 +3,10 @@ import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Ani
 import { SectionHeading, PrimaryButton } from '../components/UI'
 
 const features = [
-  { icon: Zap, title: 'Fast Claim Submission', desc: 'Clean, scrubbed claims submitted electronically the same day — reducing rejections and speeding up payments.' },
-  { icon: ShieldCheck, title: 'HIPAA-Compliant', desc: 'Patient data is encrypted and protected with strict security protocols at every step of the workflow.' },
-  { icon: Code2, title: 'Smart Coding Assistance', desc: 'ICD-10 and CPT coding support that aligns with clinical documentation for maximum reimbursement.' },
-  { icon: Globe2, title: 'Payer Connectivity', desc: 'Built-in EDI, ERA and EFT integrations with major clearinghouses and payers.' },
+  { icon: Zap, title: 'Fast Claim Submission', desc: 'MBX Solutions submits clean, scrubbed claims electronically the same day — reducing rejections and speeding up payments.' },
+  { icon: ShieldCheck, title: 'HIPAA-Compliant', desc: 'MBX Solutions encrypts patient data and protects it with strict security protocols at every step of the workflow.' },
+  { icon: Code2, title: 'Smart Coding Assistance', desc: 'MBX Solutions provides ICD-10 and CPT coding support that aligns with clinical documentation for maximum reimbursement.' },
+  { icon: Globe2, title: 'Payer Connectivity', desc: 'MBX Solutions provides built-in EDI, ERA and EFT integrations with major clearinghouses and payers.' },
 ]
 
 export default function Software() {
@@ -29,7 +29,7 @@ export default function Software() {
               Technology-Enabled <span className="text-mbx-teal">RCM Software</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              Modern billing software and dashboards that bring clarity to your revenue cycle and help your team work faster.
+              MBX Solutions' modern billing software and dashboards bring clarity to your revenue cycle and help your team work faster.
             </p>
           </AnimatedSection>
         </div>
@@ -42,7 +42,7 @@ export default function Software() {
             <SectionHeading
               eyebrow="Software Features"
               title="Built for Speed, Accuracy & Transparency"
-              subtitle="Our software works alongside your existing systems to keep billing accurate, compliant, and on time."
+              subtitle="MBX Solutions software works alongside your existing systems to keep billing accurate, compliant, and on time."
             />
           </AnimatedSection>
 
@@ -71,7 +71,7 @@ export default function Software() {
               <SectionHeading
                 eyebrow="Real-Time Visibility"
                 title="RCM Dashboard & Analytics"
-                subtitle="Track claims, payments, and denials in one place with clear, real-time reporting."
+                subtitle="MBX Solutions helps you track claims, payments, and denials in one place with clear, real-time reporting."
                 centered={false}
               />
               <div className="grid gap-3">
@@ -133,7 +133,7 @@ export default function Software() {
               <SectionHeading
                 eyebrow="Precision Coding"
                 title="Medical Coding Tools"
-                subtitle="Coding software that focuses on accuracy and compliance, aligned to clinical documentation."
+                subtitle="MBX Solutions coding software focuses on accuracy and compliance, aligned to clinical documentation."
                 centered={false}
               />
               <div className="grid gap-3">

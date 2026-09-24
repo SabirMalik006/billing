@@ -3,12 +3,12 @@ import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Ani
 import { SectionHeading, PrimaryButton } from '../components/UI'
 
 const pillars = [
-  { icon: FileText, title: 'Medical Billing', desc: 'Clean claims, faster payments, zero revenue leakage — full-cycle billing support from charge capture to payment posting.', id: 'billing', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: ClipboardCheck, title: 'Medical Coding', desc: 'Precision ICD-10, CPT and HCPCS coding aligned with clinical documentation for maximum reimbursement.', id: 'coding', color: 'from-blue-500/20 to-blue-500/5' },
-  { icon: Workflow, title: 'OASIS & QA', desc: 'Accurate OASIS assessments, scoring optimization, and rigorous chart review for better outcomes.', id: 'oasis', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: BarChart3, title: 'Reporting & Analytics', desc: 'Clear revenue dashboards and KPI reporting for data-driven decisions.', id: 'reporting', color: 'from-blue-500/20 to-blue-500/5' },
-  { icon: UserCheck, title: 'Credentialing', desc: 'Complete provider enrollment lifecycle — from credentialing to recredentialing and contracting.', id: 'credentialing', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: Layers, title: 'EDI & EFT', desc: 'Seamless electronic claims, ERA/EOB and EFT setup for faster, cleaner payments.', id: 'edi', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: FileText, title: 'Medical Billing', desc: 'MBX Solutions delivers clean claims, faster payments, zero revenue leakage — full-cycle billing support from charge capture to payment posting.', id: 'billing', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+  { icon: ClipboardCheck, title: 'Medical Coding', desc: 'MBX Solutions provides precision ICD-10, CPT and HCPCS coding aligned with clinical documentation for maximum reimbursement.', id: 'coding', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: Workflow, title: 'OASIS & QA', desc: 'MBX Solutions delivers accurate OASIS assessments, scoring optimization, and rigorous chart review for better outcomes.', id: 'oasis', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+  { icon: BarChart3, title: 'Reporting & Analytics', desc: 'MBX Solutions delivers clear revenue dashboards and KPI reporting for data-driven decisions.', id: 'reporting', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: UserCheck, title: 'Credentialing', desc: 'MBX Solutions manages the complete provider enrollment lifecycle — from credentialing to recredentialing and contracting.', id: 'credentialing', color: 'from-mbx-teal/20 to-mbx-teal/5' },
+  { icon: Layers, title: 'EDI & EFT', desc: 'MBX Solutions handles seamless electronic claims, ERA/EOB and EFT setup for faster, cleaner payments.', id: 'edi', color: 'from-blue-500/20 to-blue-500/5' },
 ]
 
 export default function Solution() {
@@ -31,7 +31,7 @@ export default function Solution() {
               One Partner, <span className="text-mbx-teal">End-to-End</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              Billing, coding, QA, credentialing and reporting — connected into one streamlined solution that eliminates gaps and maximizes revenue.
+              Billing, coding, QA, credentialing and reporting — MBX Solutions connects everything into one streamlined solution that eliminates gaps and maximizes revenue.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {['Billing', 'Coding', 'OASIS QA', 'Credentialing', 'Reporting'].map((item) => (
@@ -52,7 +52,7 @@ export default function Solution() {
             <SectionHeading
               eyebrow="Our Solution"
               title="Every Step Connected, Every Claim Optimized"
-              subtitle="We combine billing, coding, OASIS, QA, and credentialing into one workflow — eliminating gaps and improving outcomes across your entire revenue cycle."
+              subtitle="MBX Solutions combines billing, coding, OASIS, QA, and credentialing into one workflow — eliminating gaps and improving outcomes across your entire revenue cycle."
             />
           </AnimatedSection>
 
@@ -82,7 +82,7 @@ export default function Solution() {
             <SectionHeading
               eyebrow="Framework"
               title="A Structured, End-to-End Approach"
-              subtitle="We don't just manage billing — we build a structured revenue cycle where every step is compliant and optimized."
+              subtitle="MBX Solutions doesn't just manage billing — we build a structured revenue cycle where every step is compliant and optimized."
             />
           </AnimatedSection>
 
@@ -111,7 +111,7 @@ export default function Solution() {
               Build Your Solution With MBX
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
-              Tell us about your practice and we'll design the right revenue cycle solution for you.
+              Tell MBX Solutions about your practice and we'll design the right revenue cycle solution for you.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Design My Solution</PrimaryButton>
           </AnimatedSection>

@@ -5,12 +5,12 @@ import { SectionHeading, PrimaryButton } from '../components/UI'
 const specialities = ['Home Health', 'Hospice', 'Behavioral Health', 'Physical Therapy', 'Occupational Therapy', 'Cardiology', 'Internal Medicine', 'Psychiatric', 'Dental']
 
 const services = [
-  { icon: ClipboardList, title: 'Patient Intake', desc: 'Accurate intake processing and referral management across your network.', id: 'intake' },
-  { icon: CalendarClock, title: 'Scheduling', desc: 'Appointment coordination and calendar management for your clinical team.', id: 'scheduling' },
-  { icon: ShieldCheck, title: 'Insurance Verification', desc: 'Eligibility checks and prior authorization before patient visits.', id: 'verification' },
-  { icon: FileCheck2, title: 'Documentation Follow-up', desc: 'Incomplete chart and documentation tracking to keep workflows moving.' },
-  { icon: Users, title: 'Referral Coordination', desc: 'Seamless coordination between referring providers and your practice.' },
-  { icon: Stethoscope, title: 'Back-Office Support', desc: 'Administrative tasks, data entry, and operational workflows handled for you.' },
+  { icon: ClipboardList, title: 'Patient Intake', desc: 'MBX Solutions provides accurate intake processing and referral management across your network.', id: 'intake' },
+  { icon: CalendarClock, title: 'Scheduling', desc: 'MBX Solutions handles appointment coordination and calendar management for your clinical team.', id: 'scheduling' },
+  { icon: ShieldCheck, title: 'Insurance Verification', desc: 'MBX Solutions completes eligibility checks and prior authorization before patient visits.', id: 'verification' },
+  { icon: FileCheck2, title: 'Documentation Follow-up', desc: 'MBX Solutions tracks incomplete charts and documentation to keep workflows moving.' },
+  { icon: Users, title: 'Referral Coordination', desc: 'MBX Solutions coordinates seamlessly between referring providers and your practice.' },
+  { icon: Stethoscope, title: 'Back-Office Support', desc: 'MBX Solutions handles administrative tasks, data entry, and operational workflows for you.' },
 ]
 
 const steps = ['Referral', 'Intake', 'Scheduling', 'Documentation', 'Follow-up', 'Billing']
@@ -35,7 +35,7 @@ export default function MedicalAssistant() {
               Extending Your Team's <span className="text-mbx-teal">Capacity</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
-              Dedicated virtual medical assistants who handle the administrative workload —
+              MBX Solutions provides dedicated virtual medical assistants who handle the administrative workload —
               so your clinical team can focus on patient care.
             </p>
           </AnimatedSection>
@@ -49,7 +49,7 @@ export default function MedicalAssistant() {
             <SectionHeading
               eyebrow="How It Works"
               title="A Seamless Workflow"
-              subtitle="From referral to billing, our assistants keep every step moving forward."
+              subtitle="From referral to billing, MBX Solutions' assistants keep every step moving forward."
             />
           </AnimatedSection>
 
@@ -77,7 +77,7 @@ export default function MedicalAssistant() {
             <SectionHeading
               eyebrow="Speciality"
               title="Assistants Trained for Your Speciality"
-              subtitle="Our virtual medical assistants are trained across the specialities healthcare organizations serve — so terminology, documentation and workflows feel familiar from day one."
+              subtitle="MBX Solutions' virtual medical assistants are trained across the specialities healthcare organizations serve — so terminology, documentation and workflows feel familiar from day one."
             />
           </AnimatedSection>
           <AnimatedSection delay={0.15}>
@@ -99,7 +99,7 @@ export default function MedicalAssistant() {
             <SectionHeading
               eyebrow="Assistants"
               title="What Our Medical Assistants Handle"
-              subtitle="Determined by section: intake, scheduling, verification and more — all HIPAA-compliant and reliable."
+              subtitle="Determined by section: intake, scheduling, verification and more — all HIPAA-compliant and reliable with MBX Solutions."
             />
           </AnimatedSection>
 
@@ -131,7 +131,7 @@ export default function MedicalAssistant() {
               Add Capacity Without the Overhead
             </h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
-              Scale your team with dedicated virtual medical assistants — flexible, trained, and ready to help.
+              Scale your team with MBX Solutions' dedicated virtual medical assistants — flexible, trained, and ready to help.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Get a Virtual Assistant</PrimaryButton>
           </AnimatedSection>

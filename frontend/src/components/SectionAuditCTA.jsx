@@ -14,7 +14,7 @@ export default function SectionAuditCTA() {
             {/* Orange underline */}
             <div className="w-[50px] h-[3px] bg-[#F5A623] mb-6 mx-auto lg:mx-0" />
             <p className="text-[15px] leading-[1.6] text-mbx-text-muted mb-8 max-w-lg mx-auto lg:mx-0">
-              Ready to take the first step toward optimizing your revenue cycle? We conduct a thorough analysis of your billing processes. Get a free optimized audit report now.
+              Ready to take the first step toward optimizing your revenue cycle? MBX Solutions conducts a thorough analysis of your billing processes. Get a free optimized audit report now.
             </p>
             <Link
               to="/connect-us"

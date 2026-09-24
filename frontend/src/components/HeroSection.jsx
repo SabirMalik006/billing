@@ -30,7 +30,7 @@ const slides = [
     card: {
       title: 'Medical Billing Services',
       tagline: 'Clean claims, faster payments, zero revenue leakage.',
-      desc: 'We handle the complete claims cycle from initial eligibility verification to prompt payment posting, maintaining an industry-leading 98.5% first-pass clean claims rate.',
+      desc: 'MBX Solutions handles the complete claims cycle from initial eligibility verification to prompt payment posting, maintaining an industry-leading 98.5% first-pass clean claims rate.',
       bullets: [
         'Electronic claim submission within 24–48 hours',
         'Continuous clearinghouse & payer rejection monitoring',
@@ -54,7 +54,7 @@ const slides = [
     card: {
       title: 'Medical Coding (ICD-10)',
       tagline: 'Precision coding that drives accuracy and maximizes reimbursement.',
-      desc: 'Our AAPC/AHIMA certified coders ensure accurate clinical documentation translation, code sequencing, and compliant PDGM / Medicare reimbursement.',
+      desc: 'At MBX Solutions, our AAPC/AHIMA certified coders ensure accurate clinical documentation translation, code sequencing, and compliant PDGM / Medicare reimbursement.',
       bullets: [
         'Certified ICD-10-CM & CPT clinical coders',
         'PDGM case-mix grouping & diagnosis sequencing',
