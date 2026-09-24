@@ -41,29 +41,31 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center bg-atmos overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
           <div className="hero-grid absolute inset-0" />
-          <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-[#C7E7F8]/60 blur-[140px]" />
+          <div className="absolute top-1/4 right-1/4 h-[300px] w-[300px] rounded-full bg-[#4486BF]/8 blur-[120px]" />
         </div>
         <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-48 lg:pb-28">
           <AnimatedSection>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               About MBX Solutions
             </span>
-            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
+            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-mbx-navy md:text-5xl lg:text-6xl leading-[1.1]">
               Healthcare Revenue,<br />
               <span className="text-mbx-teal">Without the Complexity.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
               MBX Solutions is a healthcare revenue cycle partner with deep expertise in Home Health
               and Hospice — combining billing, coding, OASIS, and QA into one streamlined workflow.
               Greater clarity. Stronger workflows. More time to focus on care.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <PrimaryButton to="/connect-us" size="lg">Start a Conversation</PrimaryButton>
-              <SecondaryButton to="/services#free-audit" size="lg" light>Get a Free Audit</SecondaryButton>
+              <SecondaryButton to="/services#free-audit" size="lg">Get a Free Audit</SecondaryButton>
             </div>
           </AnimatedSection>
 
@@ -71,9 +73,9 @@ export default function About() {
           <StaggerChildren className="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.08}>
             {stats.map((stat) => (
               <StaggerItem key={stat.label}>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:border-mbx-teal/40 hover:bg-white/[0.07]">
+                <div className="rounded-2xl border border-mbx-teal/20 bg-white/70 p-6 backdrop-blur-sm transition-all duration-300 hover:border-mbx-teal/40 hover:bg-white/90">
                   <p className="text-3xl font-extrabold text-mbx-teal lg:text-4xl">{stat.value}</p>
-                  <p className="mt-2 text-sm font-semibold text-white/70">{stat.label}</p>
+                  <p className="mt-2 text-sm font-semibold text-mbx-text-muted">{stat.label}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -97,7 +99,7 @@ export default function About() {
               <StaggerItem key={pillar.title}>
                 <div className={`h-full rounded-2xl p-8 transition-all duration-500 hover:-translate-y-1 ${
                   i === 0
-                    ? 'bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white shadow-xl shadow-mbx-navy/20'
+                    ? 'bg-[#4486BF] text-white shadow-xl shadow-[#4486BF]/25'
                     : 'border border-mbx-border bg-mbx-surface'
                 }`}>
                   <div className={`mb-6 flex size-14 items-center justify-center rounded-2xl ${
@@ -149,26 +151,26 @@ export default function About() {
       </section>
 
       {/* Approach */}
-      <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+      <section className="py-28 lg:py-36 bg-atmos-soft relative overflow-hidden">
         <div className="absolute inset-0 hero-grid opacity-30" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[200px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#4486BF]/10 blur-[200px]" />
+        <div className="absolute top-0 right-0 h-[380px] w-[380px] rounded-full bg-[#C7E7F8]/60 blur-[140px]" />
         <div className="container mx-auto relative z-10">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Approach"
               title="A Structured Path to Your Revenue Goals"
               subtitle="A structured approach to understanding and supporting your revenue cycle."
-              light
             />
           </AnimatedSection>
 
           <StaggerChildren className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
             {approach.map((step) => (
               <StaggerItem key={step.num}>
-                <div className="group h-full rounded-2xl bg-white/[0.04] border border-white/[0.06] p-7 transition-all duration-500 hover:bg-white/[0.07] hover:border-mbx-teal/30 hover:-translate-y-1">
-                  <span className="text-4xl font-extrabold text-mbx-teal/30 group-hover:text-mbx-teal transition-colors">{step.num}</span>
-                  <h3 className="mt-5 text-lg font-extrabold text-white group-hover:text-mbx-teal transition-colors">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/45">{step.desc}</p>
+                <div className="group h-full rounded-2xl bg-white/70 border border-mbx-teal/15 p-7 transition-all duration-500 hover:bg-white/90 hover:border-mbx-teal/30 hover:-translate-y-1">
+                  <span className="text-4xl font-extrabold text-mbx-teal/40 group-hover:text-mbx-teal transition-colors">{step.num}</span>
+                  <h3 className="mt-5 text-lg font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-mbx-text-muted">{step.desc}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -244,17 +246,18 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+      <section className="py-28 lg:py-36 bg-atmos-cta relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute -top-20 right-0 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[130px]" />
         </div>
         <div className="container mx-auto text-center relative z-10">
           <AnimatedSection>
             <Stethoscope size={34} className="mx-auto text-mbx-teal" />
-            <h2 className="mt-6 mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+            <h2 className="mt-6 mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-mbx-navy">
               Partner With MBX Solutions
             </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg text-white/50">
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
               Discover how MBX Solutions can support your organization's revenue cycle.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Start a Conversation</PrimaryButton>

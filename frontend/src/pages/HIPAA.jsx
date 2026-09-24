@@ -62,17 +62,12 @@ export default function HIPAA() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center bg-atmos overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80"
-            alt="Healthcare professionals protecting patient data"
-            className="h-full w-full object-cover opacity-25"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy/90 to-mbx-navy-light/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
           <div className="hero-grid absolute inset-0" />
-          <div className="absolute top-1/3 -right-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/3 -right-32 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute bottom-0 left-0 h-[380px] w-[380px] rounded-full bg-[#C7E7F8]/65 blur-[140px]" />
         </div>
         <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-48 lg:pb-28">
           <AnimatedSection>
@@ -84,15 +79,15 @@ export default function HIPAA() {
                 <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
                   HIPAA Compliance
                 </span>
-                <h1 className="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                <h1 className="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-mbx-navy md:text-5xl lg:text-6xl leading-[1.1]">
                   Protecting Patient <span className="text-mbx-teal">Health Information</span>
                 </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
                   MBX Solutions is committed to maintaining the highest standards of HIPAA compliance to protect patient health information.
                 </p>
                 <div className="mt-10 flex flex-wrap gap-3">
                   {['PHI Protected', 'Security Trained Staff', 'Audited Workflows'].map((item) => (
-                    <div key={item} className="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-5 py-2.5 text-sm text-white/70 backdrop-blur-sm">
+                    <div key={item} className="flex items-center gap-2 rounded-full bg-white/70 border border-mbx-teal/15 px-5 py-2.5 text-sm text-mbx-navy backdrop-blur-sm">
                       <CheckCircle size={14} className="text-mbx-teal" />
                       {item}
                     </div>
@@ -105,7 +100,7 @@ export default function HIPAA() {
                   <img
                     src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=900&q=80"
                     alt="Healthcare professional reviewing medical records"
-                    className="w-full rounded-3xl border border-white/10 object-cover shadow-2xl shadow-mbx-navy-dark/50"
+                    className="w-full rounded-3xl border border-mbx-teal/20 object-cover shadow-2xl shadow-[#4486BF]/20"
                     loading="lazy"
                   />
                   <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-5 shadow-2xl">
@@ -119,9 +114,9 @@ export default function HIPAA() {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute -top-6 -right-6 rounded-2xl bg-mbx-navy p-4 shadow-2xl border border-white/10">
+                  <div className="absolute -top-6 -right-6 rounded-2xl bg-[#4486BF] p-4 shadow-2xl border border-white/15">
                     <div className="flex items-center gap-2 text-white">
-                      <Fingerprint size={20} className="text-mbx-teal" />
+                      <Fingerprint size={20} className="text-white/80" />
                       <span className="text-sm font-bold">Data Secured</span>
                     </div>
                   </div>
@@ -245,30 +240,30 @@ export default function HIPAA() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+      <section className="py-28 lg:py-36 bg-atmos-soft relative overflow-hidden">
         <div className="absolute inset-0 hero-grid opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-mbx-teal/5 blur-[200px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-[#4486BF]/10 blur-[200px]" />
+        <div className="absolute -top-20 right-0 size-[380px] rounded-full bg-[#C7E7F8]/60 blur-[140px]" />
         <div className="container mx-auto relative z-10">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Client Feedback"
               title="The Most Reliable Revenue Cycle Management (RCM) Experts"
               subtitle="Real feedback from healthcare professionals who trust MBX Solutions for their revenue cycle management."
-              light
             />
           </AnimatedSection>
 
           <StaggerChildren className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.12}>
             {testimonials.map((t) => (
               <StaggerItem key={t.name}>
-                <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.04] p-8 transition-all duration-500 hover:bg-white/[0.07] hover:border-mbx-teal/30 hover:-translate-y-2 overflow-hidden backdrop-blur-sm">
+                <div className="group relative h-full rounded-2xl border border-mbx-teal/15 bg-white/70 p-8 transition-all duration-500 hover:bg-white/90 hover:border-mbx-teal/30 hover:-translate-y-2 overflow-hidden backdrop-blur-sm">
                   <div className="absolute top-0 left-0 h-[3px] w-0 rounded-full bg-gradient-to-r from-mbx-teal to-mbx-teal-light transition-all duration-500 group-hover:w-full" />
                   <div className="absolute top-6 right-6 text-6xl text-mbx-teal/15 font-serif leading-none select-none">&ldquo;</div>
                   <div className="mb-6 flex size-12 items-center justify-center rounded-xl bg-mbx-teal/10 text-mbx-teal">
                     <Quote size={22} />
                   </div>
-                  <p className="text-sm leading-relaxed text-white/60 mb-8">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="border-t border-white/10 pt-5">
+                  <p className="text-sm leading-relaxed text-mbx-text-muted mb-8">&ldquo;{t.quote}&rdquo;</p>
+                  <div className="border-t border-mbx-teal/15 pt-5">
                     <div className="flex items-center gap-4">
                       <img
                         src={t.avatar}
@@ -277,7 +272,7 @@ export default function HIPAA() {
                         loading="lazy"
                       />
                       <div>
-                        <p className="text-base font-extrabold text-white">{t.name}</p>
+                        <p className="text-base font-extrabold text-mbx-navy">{t.name}</p>
                         <p className="text-sm text-mbx-teal font-medium">{t.role}</p>
                       </div>
                     </div>

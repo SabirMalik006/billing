@@ -23,20 +23,22 @@ export default function Resources() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[55vh] flex items-center bg-mbx-navy overflow-hidden">
+      <section className="relative min-h-[55vh] flex items-center bg-atmos overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
           <div className="hero-grid absolute inset-0" />
+          <div className="absolute top-1/3 -right-32 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute bottom-0 left-0 h-[360px] w-[360px] rounded-full bg-[#C7E7F8]/65 blur-[140px]" />
         </div>
         <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-48 lg:pb-28">
           <AnimatedSection>
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-white/70 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Resources
             </span>
-            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
+            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-mbx-navy md:text-5xl lg:text-6xl leading-[1.1]">
               Helpful Resources & <span className="text-mbx-teal">Knowledge Center</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
               Guides, tools, and insights to help your practice improve billing accuracy, reduce denials,
               and stay compliant.
             </p>
@@ -98,18 +100,18 @@ export default function Resources() {
             </AnimatedSection>
 
             <AnimatedSection className="flex-1" delay={0.15}>
-              <div className="rounded-3xl bg-mbx-navy p-10 shadow-2xl">
-                <div className="mb-8 flex size-14 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal">
+              <div className="rounded-3xl bg-[#4486BF] p-10 shadow-2xl">
+                <div className="mb-8 flex size-14 items-center justify-center rounded-2xl bg-white/15 text-white">
                   <Download size={26} />
                 </div>
                 <h3 className="mb-3 text-2xl font-extrabold text-white">Free Revenue Audit Checklist</h3>
-                <p className="mb-8 text-sm leading-relaxed text-white/50">
+                <p className="mb-8 text-sm leading-relaxed text-white/85">
                   Download our simple checklist to spot revenue leakage in your current billing process before you ever pay for an audit.
                 </p>
                 <div className="space-y-2 mb-8">
                   {['Claim quality review', 'Denial trend check', 'Aging AR analysis', 'Coding accuracy scan'].map((step) => (
-                    <div key={step} className="flex items-center gap-2.5 text-sm text-white/60">
-                      <CheckCircle size={14} className="text-mbx-teal" />
+                    <div key={step} className="flex items-center gap-2.5 text-sm text-white/85">
+                      <CheckCircle size={14} className="text-white/80" />
                       {step}
                     </div>
                   ))}

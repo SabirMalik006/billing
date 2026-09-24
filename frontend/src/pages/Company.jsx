@@ -22,23 +22,24 @@ export default function Company() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center bg-mbx-navy overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center bg-atmos overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
           <div className="hero-grid absolute inset-0" />
-          <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-[#C7E7F8]/60 blur-[140px]" />
         </div>
         <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-48 lg:pb-28">
           <AnimatedSection>
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-white/70 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Company
             </span>
-            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
+            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-mbx-navy md:text-5xl lg:text-6xl leading-[1.1]">
               Healthcare Expertise.<br />
               Revenue Intelligence.<br />
               <span className="text-mbx-teal">Human Support.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
               MBX Solutions is a healthcare revenue cycle partner with deep expertise in billing, coding,
               and compliance — supporting organizations that want greater clarity, stronger workflows and
               more time to focus on care.
@@ -52,10 +53,10 @@ export default function Company() {
         <div className="container mx-auto">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
             <AnimatedSection className="flex-1" direction="right">
-              <div className="relative rounded-2xl bg-mbx-navy p-10 shadow-2xl">
+              <div className="relative rounded-2xl bg-[#4486BF] p-10 shadow-2xl">
                 <div className="mb-8 flex items-center gap-2">
-                  <Building2 size={28} className="text-mbx-teal" />
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-mbx-teal-light">At a Glance</span>
+                  <Building2 size={28} className="text-white/80" />
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">At a Glance</span>
                 </div>
                 <div className="grid grid-cols-2 gap-6">
                   {[
@@ -65,14 +66,14 @@ export default function Company() {
                     { value: '24/7', label: 'Client Support' },
                   ].map((stat) => (
                     <div key={stat.label}>
-                      <p className="text-3xl font-extrabold text-mbx-teal">{stat.value}</p>
-                      <p className="mt-1 text-sm font-bold text-white">{stat.label}</p>
+                      <p className="text-3xl font-extrabold text-white">{stat.value}</p>
+                      <p className="mt-1 text-sm font-bold text-white/80">{stat.label}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-8 flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3">
-                  <Award size={18} className="text-mbx-teal shrink-0" />
-                  <p className="text-xs text-white/50">Trusted by healthcare organizations across the United States</p>
+                <div className="mt-8 flex items-center gap-3 rounded-xl bg-white/10 border border-white/20 px-4 py-3">
+                  <Award size={18} className="text-white/80 shrink-0" />
+                  <p className="text-xs text-white/75">Trusted by healthcare organizations across the United States</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -156,16 +157,17 @@ export default function Company() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+      <section className="py-28 lg:py-36 bg-atmos-cta relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute -bottom-20 left-0 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[130px]" />
         </div>
         <div className="container mx-auto text-center relative z-10">
           <AnimatedSection>
-            <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+            <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-mbx-navy">
               Partner With MBX
             </h2>
-            <p className="mx-auto mb-10 max-w-2xl text-lg text-white/50">
+            <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
               Discover how MBX Solutions can support your organization's revenue cycle.
             </p>
             <PrimaryButton to="/connect-us" size="lg">Start a Conversation</PrimaryButton>

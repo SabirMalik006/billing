@@ -162,7 +162,7 @@ export default function BlogPost() {
           <p className="mt-2 text-sm text-mbx-text-muted">This post may have been unpublished or removed.</p>
           <button
             onClick={() => navigate('/blog')}
-            className="mt-6 rounded-xl bg-mbx-navy px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-mbx-navy-light"
+            className="mt-6 rounded-xl bg-[#4486BF] px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#3a73a8]"
           >
             Back to Blog
           </button>
@@ -176,17 +176,10 @@ export default function BlogPost() {
   return (
     <>
       {/* ── Hero (centered) ── */}
-      <section className="relative overflow-hidden bg-mbx-navy pt-36 pb-16 md:pt-48 md:pb-20 lg:pt-48">
-        <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
-        <div
-          className="absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '56px 56px',
-          }}
-        />
-        <div className="pointer-events-none absolute left-1/2 top-0 size-96 -translate-x-1/2 rounded-full bg-mbx-teal/15 blur-[140px]" />
+      <section className="relative overflow-hidden pt-36 pb-16 bg-atmos md:pt-48 md:pb-20 lg:pt-48">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
+        <div className="hero-grid absolute inset-0" />
+        <div className="pointer-events-none absolute left-1/2 top-0 size-96 -translate-x-1/2 rounded-full bg-[#4486BF]/12 blur-[140px]" />
 
         <div className="container relative z-10 mx-auto">
           <motion.div
@@ -196,45 +189,45 @@ export default function BlogPost() {
             className="mx-auto flex max-w-3xl flex-col items-center text-center"
           >
             {/* Breadcrumb */}
-            <nav className="mb-7 flex items-center gap-1.5 text-[13px] font-medium text-white/40" aria-label="Breadcrumb">
-              <Link to="/" className="inline-flex items-center gap-1.5 transition-colors hover:text-white">
+            <nav className="mb-7 flex items-center gap-1.5 text-[13px] font-medium text-mbx-text-muted" aria-label="Breadcrumb">
+              <Link to="/" className="inline-flex items-center gap-1.5 transition-colors hover:text-mbx-teal">
                 <Home size={13} />
                 Home
               </Link>
-              <ChevronRight size={13} className="text-white/25" />
-              <Link to="/blog" className="transition-colors hover:text-white">Blog</Link>
+              <ChevronRight size={13} className="text-mbx-border" />
+              <Link to="/blog" className="transition-colors hover:text-mbx-teal">Blog</Link>
             </nav>
 
             {/* Chips */}
             <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <span className="rounded-full border border-mbx-teal/40 bg-mbx-teal/15 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-mbx-teal-light">
+              <span className="rounded-full border border-mbx-teal/30 bg-white/70 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-mbx-teal">
                 {post.category}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] px-3.5 py-1 text-[11px] font-bold text-white/70">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-mbx-teal/15 bg-white/70 px-3.5 py-1 text-[11px] font-bold text-mbx-navy">
                 <Clock size={12} />
                 {readTime} min read
               </span>
             </div>
 
-            <h1 className="mt-6 text-[1.75rem] font-extrabold leading-[1.25] tracking-tight text-white md:text-[2.35rem] md:leading-[1.22]">
+            <h1 className="mt-6 text-[1.75rem] font-extrabold leading-[1.25] tracking-tight text-mbx-navy md:text-[2.35rem] md:leading-[1.22]">
               {post.title}
             </h1>
 
             {post.excerpt && (
-              <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-white/55 md:text-[17px]">
+              <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-mbx-text-muted md:text-[17px]">
                 {post.excerpt}
               </p>
             )}
 
             {/* Meta */}
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm text-white/55">
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm text-mbx-text-muted">
               <span className="inline-flex items-center gap-2.5">
                 <span className="flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-mbx-teal to-mbx-teal-dark text-[13px] font-extrabold text-white shadow-md">
                   {post.author.charAt(0).toUpperCase()}
                 </span>
-                <span className="font-semibold text-white/80">{post.author}</span>
+                <span className="font-semibold text-mbx-navy">{post.author}</span>
               </span>
-              <span className="hidden h-4 w-px bg-white/15 sm:block" aria-hidden="true" />
+              <span className="hidden h-4 w-px bg-mbx-border sm:block" aria-hidden="true" />
               <span className="inline-flex items-center gap-1.5">
                 <CalendarDays size={14} />
                 {new Date(post.createdAt).toLocaleDateString('en-US', DATE_OPTS)}
@@ -261,7 +254,7 @@ export default function BlogPost() {
                 className="aspect-[16/8] w-full object-cover"
               />
             ) : (
-              <div className="relative aspect-[16/7] w-full bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-teal/70">
+              <div className="relative aspect-[16/7] w-full bg-gradient-to-br from-[#4486BF] via-mbx-teal-light to-[#A9D5F0]">
                 <div
                   className="absolute inset-0 opacity-[0.08]"
                   style={{
@@ -270,9 +263,9 @@ export default function BlogPost() {
                     backgroundSize: '32px 32px',
                   }}
                 />
-                <div className="absolute -bottom-10 -right-10 size-48 rounded-full bg-mbx-teal/30 blur-3xl" />
+                <div className="absolute -bottom-10 -right-10 size-48 rounded-full bg-white/30 blur-3xl" />
                 <div className="flex size-full items-center justify-center">
-                  <Newspaper className="size-12 text-white/20" strokeWidth={1.25} />
+                  <Newspaper className="size-12 text-white/40" strokeWidth={1.25} />
                 </div>
               </div>
             )}
@@ -296,7 +289,7 @@ export default function BlogPost() {
               {/* Author + Share */}
               <div className="mt-8 flex flex-col gap-6 rounded-2xl border border-mbx-border bg-mbx-surface/60 p-5 sm:flex-row sm:items-center sm:justify-between md:p-6">
                 <div className="flex items-center gap-4">
-                  <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-lg font-extrabold text-white shadow-lg">
+                  <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4486BF] to-[#3570A0] text-lg font-extrabold text-white shadow-lg">
                     {post.author.charAt(0).toUpperCase()}
                   </span>
                   <div>
@@ -379,10 +372,10 @@ export default function BlogPost() {
                     {p.coverImage ? (
                       <img src={p.coverImage} alt={p.title} loading="lazy" className="size-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
                     ) : (
-                      <div className="relative size-full bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-teal/70">
-                        <div className="absolute -bottom-8 -right-8 size-32 rounded-full bg-mbx-teal/30 blur-3xl" />
+                      <div className="relative size-full bg-gradient-to-br from-[#4486BF] via-mbx-teal-light to-[#A9D5F0]">
+                        <div className="absolute -bottom-8 -right-8 size-32 rounded-full bg-white/30 blur-3xl" />
                         <div className="flex size-full items-center justify-center">
-                          <Newspaper className="size-9 text-white/20" strokeWidth={1.25} />
+                          <Newspaper className="size-9 text-white/40" strokeWidth={1.25} />
                         </div>
                       </div>
                     )}
@@ -409,19 +402,12 @@ export default function BlogPost() {
       )}
 
       {/* ── CTA ── */}
-      <section className="relative overflow-hidden border-t border-mbx-border bg-mbx-navy py-20">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '56px 56px',
-          }}
-        />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 size-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-mbx-teal/10 blur-[120px]" />
+      <section className="relative overflow-hidden border-t border-mbx-border bg-atmos-cta py-20">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 size-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4486BF]/12 blur-[130px]" />
+        <div className="pointer-events-none absolute -bottom-20 right-0 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[130px]" />
         <div className="container relative z-10 mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white md:text-4xl">Need Help With Your Billing?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/60">
+          <h2 className="text-3xl font-extrabold text-mbx-navy md:text-4xl">Need Help With Your Billing?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-mbx-text-muted">
             Get a free billing audit from our experts and see exactly where your revenue is leaking.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">

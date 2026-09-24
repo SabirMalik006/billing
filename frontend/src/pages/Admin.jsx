@@ -12,10 +12,10 @@ function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth()
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0B2348]">
+      <div className="flex min-h-screen items-center justify-center bg-[#4486BF]">
         <div className="text-center">
-          <div className="mx-auto size-8 border-3 border-[#4486BF]/30 border-t-[#4486BF] rounded-full animate-spin" />
-          <p className="mt-4 text-sm text-white/30">Loading...</p>
+          <div className="mx-auto size-8 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+          <p className="mt-4 text-sm text-white/70">Loading...</p>
         </div>
       </div>
     )

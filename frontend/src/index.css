@@ -145,8 +145,8 @@
 
   .hero-grid {
     background-image:
-      linear-gradient(rgba(21, 159, 160, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(21, 159, 160, 0.06) 1px, transparent 1px);
+      linear-gradient(rgba(68, 134, 191, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(68, 134, 191, 0.05) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
@@ -213,8 +213,38 @@
 
   .section-bg-dots {
     background-image:
-      radial-gradient(circle, rgba(21, 159, 160, 0.08) 1px, transparent 1px);
+      radial-gradient(circle, rgba(68, 134, 191, 0.06) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  /* Premium atmospheric blue gradient system */
+  .bg-atmos {
+    background:
+      radial-gradient(1100px 560px at 88% -10%, rgba(68, 134, 191, 0.14), transparent 58%),
+      radial-gradient(900px 520px at -8% 112%, rgba(68, 134, 191, 0.10), transparent 55%),
+      radial-gradient(820px 460px at 50% 60%, rgba(199, 231, 248, 0.5), transparent 70%),
+      linear-gradient(135deg, #F3FAFF 0%, #E4F4FC 30%, #CDEAF8 55%, #A9D5F0 78%, #8BC5E8 100%);
+  }
+
+  .bg-atmos-soft {
+    background:
+      radial-gradient(1000px 520px at 12% -15%, rgba(68, 134, 191, 0.1), transparent 55%),
+      radial-gradient(900px 500px at 95% 115%, rgba(68, 134, 191, 0.12), transparent 58%),
+      linear-gradient(155deg, #F8FCFF 0%, #EAF6FF 40%, #DDF1FC 75%, #C7E7F8 100%);
+  }
+
+  .bg-atmos-cta {
+    background:
+      radial-gradient(900px 480px at 85% 0%, rgba(68, 134, 191, 0.22), transparent 60%),
+      radial-gradient(760px 420px at 0% 100%, rgba(68, 134, 191, 0.16), transparent 55%),
+      radial-gradient(600px 380px at 50% 40%, rgba(221, 241, 252, 0.75), transparent 70%),
+      linear-gradient(135deg, #EAF6FF 0%, #DDF1FC 40%, #C7E7F8 70%, #A9D5F0 100%);
+  }
+
+  .bg-soft-solid {
+    background:
+      radial-gradient(800px 420px at 90% -10%, rgba(68, 134, 191, 0.1), transparent 60%),
+      linear-gradient(160deg, #F3FAFF 0%, #E4F4FC 50%, #CDEAF8 100%);
   }
 }
 

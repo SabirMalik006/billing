@@ -120,26 +120,27 @@ export default function Services() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center bg-mbx-navy overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center bg-atmos overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
           <div className="hero-grid absolute inset-0" />
-          <div className="absolute top-1/4 -right-32 h-[500px] w-[500px] rounded-full bg-mbx-teal/5 blur-[150px]" />
-          <div className="absolute bottom-1/4 -left-32 h-[400px] w-[400px] rounded-full bg-mbx-teal/4 blur-[120px]" />
+          <div className="absolute top-1/4 -right-32 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+          <div className="absolute bottom-1/4 -left-32 h-[400px] w-[400px] rounded-full bg-[#C7E7F8]/65 blur-[130px]" />
+          <div className="absolute top-10 left-1/4 h-[320px] w-[320px] rounded-full bg-[#DDF1FC]/80 blur-[120px]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
-            <span className="text-[18vw] font-extrabold text-white/[0.02] tracking-tighter">SERVICES</span>
+            <span className="text-[18vw] font-extrabold text-mbx-teal/[0.04] tracking-tighter">SERVICES</span>
           </div>
         </div>
         <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-48 lg:pb-28">
           <AnimatedSection>
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-white/70 px-4 py-1.5 text-[11px] font-bold tracking-[0.15em] uppercase text-mbx-teal">
               Our Services
             </span>
-            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
+            <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-mbx-navy md:text-5xl lg:text-6xl leading-[1.1]">
               Smart Billing & Coding Solutions<br />
               <span className="text-mbx-teal">for Home Health and Hospice</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/50 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mbx-text-muted md:text-xl">
               Delivering end-to-end medical billing, credentialing, and revenue cycle management
               solutions that maximize reimbursements, reduce denials, and support the financial
               growth of your healthcare practice.
@@ -148,7 +149,7 @@ export default function Services() {
               <PrimaryButton to="/connect-us" size="lg">Get Free Audit</PrimaryButton>
               <Link
                 to="/capabilities"
-                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-white/15 px-8 py-4 text-base font-bold text-white/80 transition-all duration-300 hover:border-mbx-teal hover:bg-mbx-teal/10 hover:text-white"
+                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-mbx-teal/30 px-8 py-4 text-base font-bold text-mbx-navy transition-all duration-300 hover:border-mbx-teal hover:bg-mbx-teal/10 hover:text-[#4486BF]"
               >
                 Explore Capabilities
               </Link>
@@ -177,7 +178,7 @@ export default function Services() {
                   onClick={() => setExpandedService(expandedService === index ? null : index)}
                   className={`group relative rounded-2xl border p-7 lg:p-8 cursor-pointer transition-all duration-500 h-full overflow-hidden text-center ${
                     expandedService === index
-                      ? 'border-mbx-teal/40 bg-mbx-navy shadow-2xl shadow-mbx-navy/20'
+                      ? 'border-mbx-teal/40 bg-[#4486BF] shadow-2xl shadow-[#4486BF]/25'
                       : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/30 hover:shadow-xl hover:-translate-y-1.5'
                   }`}
                 >
@@ -203,7 +204,7 @@ export default function Services() {
 
                     {/* Number */}
                     <span className={`mb-3 block text-xs font-extrabold tracking-wider transition-colors ${
-                      expandedService === index ? 'text-mbx-teal' : 'text-mbx-border group-hover:text-mbx-teal/50'
+                      expandedService === index ? 'text-white/90' : 'text-mbx-border group-hover:text-mbx-teal/50'
                     }`}>
                       {String(index + 1).padStart(2, '0')}
                     </span>
@@ -217,7 +218,7 @@ export default function Services() {
 
                     {/* Tagline */}
                     <p className={`text-sm font-medium transition-colors ${
-                      expandedService === index ? 'text-mbx-teal-light' : 'text-mbx-teal/70'
+                      expandedService === index ? 'text-white/80' : 'text-mbx-teal/70'
                     }`}>
                       {service.tagline}
                     </p>
@@ -242,7 +243,7 @@ export default function Services() {
                           <div className="mt-5 pt-5 border-t border-white/10">
                             <div className="grid grid-cols-2 gap-2">
                               {service.details.map((detail) => (
-                                <div key={detail} className="flex items-center justify-center gap-2 rounded-lg bg-white/5 px-3 py-2.5 text-xs font-semibold text-mbx-teal-light border border-white/5">
+                                <div key={detail} className="flex items-center justify-center gap-2 rounded-lg bg-white/10 px-3 py-2.5 text-xs font-semibold text-white border border-white/15">
                                   <CheckCircle size={12} className="shrink-0" />
                                   {detail}
                                 </div>
@@ -264,7 +265,7 @@ export default function Services() {
 
                     {/* Expand indicator */}
                     <div className={`mt-4 flex items-center justify-center gap-2 text-xs font-bold transition-colors ${
-                      expandedService === index ? 'text-mbx-teal' : 'text-mbx-text-muted group-hover:text-mbx-teal'
+                      expandedService === index ? 'text-white' : 'text-mbx-text-muted group-hover:text-mbx-teal'
                     }`}>
                       <span>{expandedService === index ? 'Show less' : 'View details'}</span>
                       <ChevronDown size={14} className={`transition-transform duration-300 ${
@@ -300,7 +301,7 @@ export default function Services() {
                       onClick={() => setActiveSpecialty(i)}
                       className={`w-full text-left rounded-xl px-5 py-4 text-sm font-bold transition-all duration-300 ${
                         activeSpecialty === i
-                          ? 'bg-mbx-navy text-white shadow-lg'
+                          ? 'bg-[#4486BF] text-white shadow-lg'
                           : 'bg-mbx-white text-mbx-text-muted border border-mbx-border hover:border-mbx-teal/30 hover:text-mbx-navy'
                       }`}
                     >
@@ -324,14 +325,13 @@ export default function Services() {
       </section>
 
       {/* Billing Process */}
-      <section className="py-28 lg:py-36 bg-mbx-navy">
+      <section className="py-28 lg:py-36 bg-atmos-soft">
         <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading
               eyebrow="Our Billing Process"
               title="Streamlined Medical Billing for Maximum Revenue"
               subtitle="Our streamlined medical billing process ensures accuracy, faster reimbursements, and complete revenue cycle management."
-              light
             />
           </AnimatedSection>
 
@@ -351,12 +351,12 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-6 text-center transition-all duration-500 hover:border-mbx-teal/30 hover:bg-mbx-teal/5">
-                  <span className="mb-3 block text-3xl font-extrabold text-mbx-teal/30 group-hover:text-mbx-teal transition-colors">
+                <div className="rounded-2xl border border-mbx-teal/15 bg-white/70 p-6 text-center transition-all duration-500 hover:border-mbx-teal/35 hover:bg-white/90">
+                  <span className="mb-3 block text-3xl font-extrabold text-mbx-teal/40 group-hover:text-mbx-teal transition-colors">
                     {step.number}
                   </span>
-                  <h3 className="mb-1 text-sm font-extrabold text-white">{step.title}</h3>
-                  <p className="text-xs text-white/40">{step.desc}</p>
+                  <h3 className="mb-1 text-sm font-extrabold text-mbx-navy">{step.title}</h3>
+                  <p className="text-xs text-mbx-text-muted">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -364,7 +364,7 @@ export default function Services() {
 
           <AnimatedSection delay={0.3}>
             <div className="mt-12 text-center">
-              <p className="text-sm text-white/40 max-w-3xl mx-auto">
+              <p className="text-sm text-mbx-text-muted max-w-3xl mx-auto">
                 From credentialing and contracting to claims submission, collections, and payment posting — we help
                 healthcare providers maximize revenue while reducing administrative burden.
               </p>

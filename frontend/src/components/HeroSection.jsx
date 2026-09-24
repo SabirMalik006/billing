@@ -5,26 +5,19 @@ import ContactForm from './ContactForm'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-mbx-navy">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-atmos">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D"
-            alt=""
-            className="h-full w-full object-cover opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-mbx-navy/40 via-mbx-navy/15 to-transparent" />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
         <div className="hero-grid absolute inset-0" />
-        {/* Teal glows */}
-        <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-mbx-teal/6 blur-[150px]" />
-        <div className="absolute bottom-1/4 left-0 h-[400px] w-[400px] rounded-full bg-mbx-teal/4 blur-[120px]" />
+        {/* Blue glows */}
+        <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+        <div className="absolute bottom-1/4 left-0 h-[400px] w-[400px] rounded-full bg-[#C7E7F8]/70 blur-[140px]" />
+        <div className="absolute top-10 left-1/4 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[120px]" />
+        <div className="absolute top-1/3 right-1/4 h-[280px] w-[280px] rounded-full bg-[#4486BF]/8 blur-[100px]" />
         {/* Giant background text */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none">
-          <span className="text-[20vw] font-extrabold text-white/[0.02] tracking-tighter">RCM</span>
+          <span className="text-[20vw] font-extrabold text-mbx-teal/[0.04] tracking-tighter">RCM</span>
         </div>
         {/* Subtle pulse line */}
         <svg className="absolute bottom-0 left-0 right-0 h-24 text-mbx-teal/8" viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -45,7 +38,7 @@ export default function HeroSection() {
           <div>
             <div>
               <motion.h1
-                className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.08]"
+                className="text-4xl font-extrabold tracking-tight text-mbx-navy sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.08]"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -68,7 +61,7 @@ export default function HeroSection() {
             </div>
 
             <motion.p
-              className="mt-6 max-w-xl text-lg leading-relaxed text-white/50 md:text-xl"
+              className="mt-6 max-w-xl text-lg leading-relaxed text-mbx-text-muted md:text-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1 }}
@@ -92,7 +85,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 to="/capabilities"
-                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-white/15 px-8 py-4 text-base font-bold text-white/80 transition-all duration-300 hover:border-[#4486BF] hover:bg-[#4486BF]/10 hover:text-white"
+                className="group inline-flex items-center gap-2.5 rounded-xl border-2 border-mbx-teal/30 px-8 py-4 text-base font-bold text-mbx-navy transition-all duration-300 hover:border-[#4486BF] hover:bg-[#4486BF]/10 hover:text-[#4486BF]"
               >
                 Explore Our Capabilities
               </Link>

@@ -91,7 +91,7 @@ function IntroductionSection() {
                     {/* Glow */}
                     <div className="absolute -top-20 -right-20 w-40 h-40 bg-mbx-teal/8 rounded-full blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                    <div className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-mbx-teal group-hover:to-mbx-teal-dark group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-mbx-teal/30">
+                    <div className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4486BF] to-[#3570A0] text-white transition-all duration-500 group-hover:from-mbx-teal group-hover:to-mbx-teal-dark group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-mbx-teal/30">
                       <stat.icon size={26} />
                     </div>
                     <div className="relative z-10">
@@ -150,7 +150,7 @@ function MBXAdvantageSection() {
                   </span>
 
                   {/* Icon */}
-                  <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-mbx-teal group-hover:to-mbx-teal-dark group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-mbx-teal/30">
+                  <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4486BF] to-[#3570A0] text-white transition-all duration-500 group-hover:from-mbx-teal group-hover:to-mbx-teal-dark group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-mbx-teal/30">
                     <item.icon size={28} />
                   </div>
 
@@ -211,7 +211,7 @@ function ServiceExplorer() {
                 <div
                   className={`rounded-2xl border transition-all duration-500 overflow-hidden ${
                     expanded === index
-                      ? 'border-mbx-teal/30 bg-mbx-navy shadow-xl shadow-mbx-navy/10'
+                      ? 'border-mbx-teal/30 bg-[#4486BF] shadow-xl shadow-[#4486BF]/20'
                       : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/20'
                   }`}
                 >
@@ -220,7 +220,7 @@ function ServiceExplorer() {
                     className="flex w-full items-center gap-5 p-6 text-left"
                     aria-expanded={expanded === index}
                   >
-                    <span className={`text-2xl font-extrabold transition-colors ${expanded === index ? 'text-mbx-teal' : 'text-mbx-teal/30'}`}>
+                    <span className={`text-2xl font-extrabold transition-colors ${expanded === index ? 'text-white' : 'text-mbx-teal/30'}`}>
                       {service.number}
                     </span>
                     <div className="flex-1">
@@ -234,7 +234,7 @@ function ServiceExplorer() {
                     <ChevronRight
                       size={20}
                       className={`shrink-0 transition-all duration-300 ${
-                        expanded === index ? 'rotate-90 text-mbx-teal' : 'text-mbx-text-muted'
+                        expanded === index ? 'rotate-90 text-white' : 'text-mbx-text-muted'
                       }`}
                     />
                   </button>
@@ -246,17 +246,17 @@ function ServiceExplorer() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-6 pt-0">
-                      <div className="border-t border-white/10 pt-5">
-                        <p className="mb-5 text-sm leading-relaxed text-white/50">{service.description}</p>
+                      <div className="border-t border-white/15 pt-5">
+                        <p className="mb-5 text-sm leading-relaxed text-white/85">{service.description}</p>
                         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                           {service.details.map((detail) => (
-                            <div key={detail} className="rounded-lg bg-white/5 px-3 py-2 text-xs font-semibold text-mbx-teal-light border border-white/5">
+                            <div key={detail} className="rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold text-white border border-white/15">
                               {detail}
                             </div>
                           ))}
                         </div>
                         <div className="mt-5">
-                          <Link to="/connect-us" className="inline-flex items-center gap-2 text-sm font-bold text-mbx-teal hover:text-mbx-teal-light transition-colors">
+                          <Link to="/connect-us" className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#EAF6FF] transition-colors">
                             Get Started <ArrowRight size={14} />
                           </Link>
                         </div>
@@ -286,7 +286,7 @@ function VirtualAssistanceSection() {
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-[#f0fdf4]">
+    <section className="py-28 lg:py-36 bg-soft-solid">
       <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
@@ -327,7 +327,7 @@ function VirtualAssistanceSection() {
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#4486BF]/8 rounded-full blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 <div className="relative z-10">
-                  <div className="mb-6 mx-auto flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-mbx-navy to-mbx-navy-light text-white transition-all duration-500 group-hover:from-[#4486BF] group-hover:to-[#3570A0] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#4486BF]/30">
+                  <div className="mb-6 mx-auto flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#4486BF] to-[#3570A0] text-white transition-all duration-500 group-hover:from-[#4486BF] group-hover:to-[#3570A0] group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[#4486BF]/30">
                     <item.icon size={26} />
                   </div>
                   <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-navy transition-colors">{item.title}</h3>
@@ -353,9 +353,9 @@ function CredentialingSection() {
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+    <section className="py-28 lg:py-36 bg-atmos relative overflow-hidden">
       <div className="absolute inset-0 hero-grid opacity-30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[200px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#4486BF]/10 blur-[200px]" />
 
       <div className="container mx-auto relative z-10">
         <AnimatedSection>
@@ -363,7 +363,6 @@ function CredentialingSection() {
             eyebrow="Contracting & Credentialing"
             title="Streamlined Provider Enrollment"
             subtitle="From initial credentialing to recredentialing, we manage the complete payer enrollment lifecycle."
-            light
           />
         </AnimatedSection>
 
@@ -386,7 +385,7 @@ function CredentialingSection() {
                   >
                     {/* Icon circle */}
                     <div className="relative mx-auto mb-6">
-                      <div className="mx-auto flex size-[84px] items-center justify-center rounded-full border-2 border-white/10 bg-mbx-navy-light/80 text-mbx-teal transition-all duration-500 group-hover:border-mbx-teal/50 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-2xl group-hover:shadow-mbx-teal/30 group-hover:scale-110">
+                      <div className="mx-auto flex size-[84px] items-center justify-center rounded-full border-2 border-mbx-teal/30 bg-white text-mbx-teal transition-all duration-500 group-hover:border-mbx-teal/50 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-2xl group-hover:shadow-mbx-teal/30 group-hover:scale-110">
                         <step.icon size={30} />
                       </div>
                       {/* Number badge */}
@@ -396,8 +395,8 @@ function CredentialingSection() {
                     </div>
 
                     {/* Text */}
-                    <h4 className="mb-2 text-lg font-extrabold text-white group-hover:text-mbx-teal transition-colors">{step.title}</h4>
-                    <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
+                    <h4 className="mb-2 text-lg font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors">{step.title}</h4>
+                    <p className="text-sm text-mbx-text-muted leading-relaxed">{step.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -411,7 +410,7 @@ function CredentialingSection() {
             <AnimatedSection key={step.num} delay={i * 0.1}>
               <div className="flex gap-5">
                 <div className="flex flex-col items-center">
-                  <div className="flex size-14 shrink-0 items-center justify-center rounded-full border-2 border-mbx-teal/30 bg-mbx-navy-light text-mbx-teal transition-all duration-500 hover:bg-mbx-teal hover:text-white hover:shadow-xl hover:shadow-mbx-teal/20 hover:border-mbx-teal">
+                  <div className="flex size-14 shrink-0 items-center justify-center rounded-full border-2 border-mbx-teal/30 bg-white text-mbx-teal transition-all duration-500 hover:bg-mbx-teal hover:text-white hover:shadow-xl hover:shadow-mbx-teal/20 hover:border-mbx-teal">
                     <step.icon size={22} />
                   </div>
                   {i < steps.length - 1 && <div className="mt-2 h-full w-px bg-gradient-to-b from-mbx-teal/20 to-transparent" />}
@@ -420,8 +419,8 @@ function CredentialingSection() {
                   <div className="flex items-center gap-3 mb-1.5">
                     <span className="text-xs font-extrabold text-mbx-teal tracking-wider">{step.num}</span>
                   </div>
-                  <h4 className="mb-1.5 text-xl font-extrabold text-white">{step.title}</h4>
-                  <p className="text-sm text-white/40">{step.desc}</p>
+                  <h4 className="mb-1.5 text-xl font-extrabold text-mbx-navy">{step.title}</h4>
+                  <p className="text-sm text-mbx-text-muted">{step.desc}</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -445,7 +444,7 @@ function QASection() {
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-[#fefce8]">
+    <section className="py-28 lg:py-36 bg-soft-solid">
       <div className="container mx-auto">
         <AnimatedSection>
           <SectionHeading
@@ -503,16 +502,16 @@ function SpecialtiesSection() {
   ]
 
   return (
-    <section className="py-20 lg:py-28 bg-[#f0fdf4] overflow-hidden">
+    <section className="py-20 lg:py-28 bg-soft-solid overflow-hidden">
       <div className="container mx-auto">
         {/* Heading — centered */}
         <div className="text-center mb-14">
-          <p className="text-sm font-semibold text-[#29ABE2] mb-2 tracking-wide uppercase">Beyond Home Health & Hospice</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B3D66] leading-tight mb-3">
+          <p className="text-sm font-semibold text-mbx-teal mb-2 tracking-wide uppercase">Beyond Home Health & Hospice</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-mbx-navy leading-tight mb-3">
             Expertise Across{' '}
-            <span className="text-[#29ABE2]">Medical Specialties</span>
+            <span className="text-mbx-teal">Medical Specialties</span>
           </h2>
-          <div className="w-[60px] h-[3px] bg-[#F5A623] mx-auto mb-5" />
+          <div className="w-[60px] h-[3px] bg-mbx-teal mx-auto mb-5" />
           <p className="text-[15px] text-mbx-text-muted max-w-2xl mx-auto leading-relaxed">
             Our expertise spans across multiple medical specialties, delivering customized billing and RCM solutions tailored to each practice.
           </p>
@@ -531,18 +530,18 @@ function SpecialtiesSection() {
                     className="w-full h-full object-cover opacity-0 scale-110 group-hover:opacity-100 group-hover:scale-100 transition-all duration-700 ease-in-out"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-[#0B3D66]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-mbx-navy/85 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col items-center justify-center h-full p-6 text-center">
                   {/* Icon */}
-                  <div className="mb-5 flex size-[64px] items-center justify-center rounded-2xl bg-[#E8F4FD] text-[#0B3D66] transition-all duration-500 group-hover:bg-white/20 group-hover:text-white group-hover:scale-110 group-hover:shadow-lg">
+                  <div className="mb-5 flex size-[64px] items-center justify-center rounded-2xl bg-white text-mbx-navy transition-all duration-500 group-hover:bg-white/20 group-hover:text-white group-hover:scale-110 group-hover:shadow-lg">
                     <s.icon size={28} strokeWidth={1.5} />
                   </div>
 
                   {/* Title */}
-                  <h3 className="mb-2 text-base font-extrabold text-[#0B3D66] transition-colors duration-500 group-hover:text-white leading-tight">
+                  <h3 className="mb-2 text-base font-extrabold text-mbx-navy transition-colors duration-500 group-hover:text-white leading-tight">
                     {s.title}
                   </h3>
 
@@ -553,7 +552,7 @@ function SpecialtiesSection() {
 
                   {/* Arrow — shows on hover */}
                   <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-10 group-hover:opacity-100">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#29ABE2] group-hover:text-[#F5A623] transition-colors duration-300">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-mbx-teal group-hover:text-[#5A9AD0] transition-colors duration-300">
                       Learn More
                       <ArrowRight size={12} />
                     </span>
@@ -561,7 +560,7 @@ function SpecialtiesSection() {
                 </div>
 
                 {/* Bottom accent bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#29ABE2] to-[#F5A623] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-mbx-teal to-[#5A9AD0] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </AnimatedSection>
           ))}
@@ -570,7 +569,7 @@ function SpecialtiesSection() {
         {/* Bottom note */}
         <AnimatedSection delay={0.4}>
           <div className="mt-12 text-center">
-            <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold text-[#29ABE2] hover:text-[#F5A623] transition-colors">
+            <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold text-mbx-teal hover:text-[#5A9AD0] transition-colors">
               View All Specialties <ArrowRight size={14} />
             </Link>
           </div>
@@ -607,7 +606,7 @@ function EnterpriseSection() {
           </AnimatedSection>
 
           <AnimatedSection className="flex-1" direction="left" delay={0.2}>
-            <div className="relative rounded-2xl bg-mbx-navy p-8 shadow-2xl">
+            <div className="relative rounded-2xl bg-[#4486BF] p-8 shadow-2xl shadow-[#4486BF]/30">
               <div className="mb-6 flex items-center gap-2">
                 <div className="size-2.5 rounded-full bg-red-400" />
                 <div className="size-2.5 rounded-full bg-yellow-400" />
@@ -619,17 +618,17 @@ function EnterpriseSection() {
                   { label: 'Clean Claims Rate', value: '94.2%', color: 'text-green-400' },
                   { label: 'Avg Days to Payment', value: '28', color: 'text-mbx-teal' },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center justify-between rounded-xl bg-white/5 px-5 py-3">
-                    <span className="text-sm text-white/50">{item.label}</span>
+                  <div key={item.label} className="flex items-center justify-between rounded-xl bg-white/10 px-5 py-3">
+                    <span className="text-sm text-white/70">{item.label}</span>
                     <span className={`text-sm font-bold ${item.color}`}>{item.value}</span>
                   </div>
                 ))}
-                <div className="rounded-xl bg-white/5 px-5 py-3">
+                <div className="rounded-xl bg-white/10 px-5 py-3">
                   <div className="mb-2 flex items-center justify-between">
-                    <span className="text-sm text-white/50">Revenue Performance</span>
-                    <span className="text-xs text-mbx-teal font-bold">+12% this quarter</span>
+                    <span className="text-sm text-white/70">Revenue Performance</span>
+                    <span className="text-xs text-white font-bold">+12% this quarter</span>
                   </div>
-                  <div className="h-2 rounded-full bg-white/10">
+                  <div className="h-2 rounded-full bg-white/20">
                     <motion.div
                       className="h-full rounded-full bg-gradient-to-r from-mbx-teal to-mbx-teal-light"
                       initial={{ width: 0 }}
@@ -640,7 +639,7 @@ function EnterpriseSection() {
                   </div>
                 </div>
               </div>
-              <p className="mt-5 text-center text-xs text-white/20">Illustrative data — MBX technology-enabled approach</p>
+              <p className="mt-5 text-center text-xs text-white/25">Illustrative data — MBX technology-enabled approach</p>
             </div>
           </AnimatedSection>
         </div>
@@ -661,27 +660,25 @@ function WhyMBXSection() {
   ]
 
   return (
-    <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
-      <div className="absolute inset-0 hero-grid opacity-50" />
+    <section className="py-28 lg:py-36 bg-atmos-soft relative overflow-hidden">
       <div className="container mx-auto relative z-10">
         <AnimatedSection>
           <SectionHeading
             eyebrow="The Structural Advantage"
             title="Why Healthcare Organizations Choose MBX"
             subtitle="We don't just manage billing — we build a structured, end-to-end revenue cycle where every step is connected, compliant, and optimized for performance."
-            light
           />
         </AnimatedSection>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {pillars.map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.06}>
-              <div className="group rounded-2xl bg-white/[0.04] p-8 border border-white/[0.06] transition-all duration-500 hover:bg-white/[0.08] hover:border-mbx-teal/20 h-full">
+              <div className="group rounded-2xl bg-white/70 p-8 border border-mbx-teal/15 transition-all duration-500 hover:bg-white/90 hover:border-mbx-teal/30 h-full">
                 <div className="mb-6 flex size-16 items-center justify-center rounded-2xl bg-mbx-teal/10 text-mbx-teal transition-all duration-500 group-hover:bg-mbx-teal group-hover:text-white group-hover:shadow-xl group-hover:shadow-mbx-teal/25">
                   <item.icon size={28} />
                 </div>
-                <h3 className="mb-3 text-xl font-extrabold text-white group-hover:text-mbx-teal transition-colors">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-white/45">{item.desc}</p>
+                <h3 className="mb-3 text-xl font-extrabold text-mbx-navy group-hover:text-mbx-teal transition-colors">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-mbx-text-muted">{item.desc}</p>
               </div>
             </AnimatedSection>
           ))}
@@ -689,7 +686,7 @@ function WhyMBXSection() {
 
         {/* Stats */}
         <AnimatedSection delay={0.3}>
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-white/10">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto pt-12 border-t border-mbx-teal/15">
             {[
               { value: '98.5%', label: 'Billing Accuracy', desc: 'Multi-tier verification process ensures minimal errors.' },
               { value: 'HIPAA & SOC2', label: 'Compliant', desc: 'Data security protocols to protect patient information.' },
@@ -697,8 +694,8 @@ function WhyMBXSection() {
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-3xl font-extrabold text-mbx-teal">{stat.value}</p>
-                <p className="text-sm font-bold text-white mt-1">{stat.label}</p>
-                <p className="text-xs text-white/40 mt-1">{stat.desc}</p>
+                <p className="text-sm font-bold text-mbx-navy mt-1">{stat.label}</p>
+                <p className="text-xs text-mbx-text-muted mt-1">{stat.desc}</p>
               </div>
             ))}
           </div>
@@ -850,26 +847,27 @@ function TestimonialsSection() {
 /* ── Free Audit CTA ── */
 function CTASection() {
   return (
-    <section className="py-28 lg:py-36 bg-mbx-navy relative overflow-hidden">
+    <section className="py-28 lg:py-36 bg-atmos-cta relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-mbx-teal/5 blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#4486BF]/12 blur-[150px]" />
+        <div className="absolute -bottom-20 right-0 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[130px]" />
       </div>
       <div className="container mx-auto text-center relative z-10">
         <AnimatedSection>
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase text-mbx-teal">
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-white/70 px-5 py-2 text-xs font-bold tracking-[0.15em] uppercase text-mbx-teal">
             Free Financial Audit
           </span>
-          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="mb-6 text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-mbx-navy leading-tight">
             Stop Losing Revenue.<br />
             <span className="text-mbx-teal">Get a Free Billing Audit.</span>
           </h2>
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-white/50">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-mbx-text-muted">
             Let our experts analyze your current RCM performance and identify untapped revenue opportunities.
             No obligation, total transparency.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {['Free Revenue Leakage Analysis', 'Compliance Risk Assessment', 'Customized ROI Roadmap'].map((item) => (
-              <div key={item} className="flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-5 py-2.5 text-sm text-white/70">
+              <div key={item} className="flex items-center gap-2 rounded-full bg-white/70 border border-mbx-teal/20 px-5 py-2.5 text-sm text-mbx-navy">
                 <CheckCircle size={14} className="text-mbx-teal" />
                 {item}
               </div>
@@ -877,7 +875,7 @@ function CTASection() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <PrimaryButton to="/connect-us" size="lg">Schedule Your Free Audit</PrimaryButton>
-            <SecondaryButton to="/capabilities" size="lg" light>Explore Capabilities</SecondaryButton>
+            <SecondaryButton to="/capabilities" size="lg">Explore Capabilities</SecondaryButton>
           </div>
         </AnimatedSection>
       </div>

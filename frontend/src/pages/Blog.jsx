@@ -32,7 +32,7 @@ function Cover({ post, className = '' }) {
           className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
         />
       ) : (
-        <div className="relative size-full bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-teal/70">
+        <div className="relative size-full bg-gradient-to-br from-[#4486BF] via-mbx-teal-light to-[#A9D5F0]">
           <div
             className="absolute inset-0 opacity-[0.08]"
             style={{
@@ -41,14 +41,14 @@ function Cover({ post, className = '' }) {
               backgroundSize: '28px 28px',
             }}
           />
-          <div className="absolute -bottom-10 -right-10 size-40 rounded-full bg-mbx-teal/30 blur-3xl" />
+          <div className="absolute -bottom-10 -right-10 size-40 rounded-full bg-white/30 blur-3xl" />
           <div className="flex size-full items-center justify-center">
-            <Newspaper className="size-10 text-white/20" strokeWidth={1.25} />
+            <Newspaper className="size-10 text-white/40" strokeWidth={1.25} />
           </div>
         </div>
       )}
       {/* bottom gradient for legibility */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-mbx-navy-dark/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-mbx-navy/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
     </div>
   )
 }
@@ -68,7 +68,7 @@ function PostCard({ post }) {
             {post.category}
           </span>
           {/* read time */}
-          <span className="absolute bottom-3 right-4 inline-flex items-center gap-1 rounded-full bg-mbx-navy-dark/70 px-2.5 py-1 text-[10.5px] font-bold text-white/90 backdrop-blur">
+          <span className="absolute bottom-3 right-4 inline-flex items-center gap-1 rounded-full bg-[#4486BF]/90 px-2.5 py-1 text-[10.5px] font-bold text-white/95 backdrop-blur">
             <Clock size={10} />
             {readTime(post)} min
           </span>
@@ -114,7 +114,7 @@ function FeaturedCard({ post }) {
       >
         <div className="relative md:w-[52%]">
           <Cover post={post} className="aspect-[16/9] w-full md:absolute md:inset-0 md:aspect-auto md:h-full" />
-          <span className="absolute left-4 top-4 rounded-full bg-[#F5A623] px-3 py-1 text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-white shadow-md">
+          <span className="absolute left-4 top-4 rounded-full bg-[#4486BF] px-3 py-1 text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-white shadow-md">
             ★ Featured
           </span>
         </div>
@@ -135,7 +135,7 @@ function FeaturedCard({ post }) {
             {post.excerpt || String(post.content).replace(/[#*>`]/g, '').slice(0, 180) + '…'}
           </p>
 
-          <div className="mt-6 inline-flex w-fit items-center gap-2.5 rounded-full bg-mbx-navy px-5 py-2.5 text-[13px] font-extrabold text-white transition-all duration-300 group-hover:gap-3.5 group-hover:bg-mbx-teal">
+          <div className="mt-6 inline-flex w-fit items-center gap-2.5 rounded-full bg-[#4486BF] px-5 py-2.5 text-[13px] font-extrabold text-white transition-all duration-300 group-hover:gap-3.5 group-hover:bg-[#3a73a8]">
             Read Article
             <ArrowUpRight size={15} />
           </div>
@@ -190,19 +190,12 @@ export default function Blog() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative flex min-h-[52vh] items-center overflow-hidden bg-mbx-navy pt-40 pb-24 md:pt-44">
+      <section className="relative flex min-h-[52vh] items-center overflow-hidden pt-40 pb-24 bg-atmos md:pt-44">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-mbx-navy-dark via-mbx-navy to-mbx-navy-light" />
-          <div
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-              backgroundSize: '56px 56px',
-            }}
-          />
-          <div className="pointer-events-none absolute -right-24 top-0 size-96 rounded-full bg-mbx-teal/20 blur-[140px]" />
-          <div className="pointer-events-none absolute -left-24 bottom-0 size-96 rounded-full bg-mbx-teal/10 blur-[140px]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F3FAFF] via-[#E4F4FC] to-[#A9D5F0]" />
+          <div className="hero-grid absolute inset-0" />
+          <div className="pointer-events-none absolute -right-24 top-0 size-96 rounded-full bg-[#4486BF]/12 blur-[140px]" />
+          <div className="pointer-events-none absolute -left-24 bottom-0 size-96 rounded-full bg-[#C7E7F8]/70 blur-[140px]" />
         </div>
 
         <div className="container relative z-10 mx-auto">
@@ -212,14 +205,14 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-mbx-teal/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-mbx-teal-light">
+            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-mbx-teal/30 bg-white/70 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-mbx-teal">
               <BookOpen size={13} />
               MBX Blog
             </span>
-            <h1 className="text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-[3.4rem]">
-              Insights &amp; <span className="bg-gradient-to-r from-mbx-teal-light to-mbx-teal bg-clip-text text-transparent">Billing Guides</span>
+            <h1 className="text-4xl font-extrabold leading-tight text-mbx-navy md:text-5xl lg:text-[3.4rem]">
+              Insights &amp; <span className="bg-gradient-to-r from-mbx-teal to-mbx-teal-light bg-clip-text text-transparent">Billing Guides</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/60">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-mbx-text-muted">
               Practical articles on medical billing, revenue cycle management, coding and
               compliance — written for home health, home care and hospice agencies.
             </p>
@@ -237,7 +230,7 @@ export default function Blog() {
                 onClick={() => setActiveCat(cat)}
                 className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
                   activeCat === cat
-                    ? 'bg-mbx-navy text-white shadow-md shadow-mbx-navy/20'
+                    ? 'bg-[#4486BF] text-white shadow-md shadow-[#4486BF]/20'
                     : 'bg-mbx-surface text-mbx-text-muted hover:bg-mbx-surface-warm hover:text-mbx-navy'
                 }`}
               >
@@ -296,7 +289,7 @@ export default function Blog() {
                 {(query || activeCat !== 'All') && (
                   <button
                     onClick={() => { setQuery(''); setActiveCat('All') }}
-                    className="mt-6 rounded-xl bg-mbx-navy px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-mbx-navy-light"
+                    className="mt-6 rounded-xl bg-[#4486BF] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#3a73a8]"
                   >
                     Clear filters
                   </button>
@@ -319,21 +312,14 @@ export default function Blog() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="relative overflow-hidden border-t border-mbx-border bg-mbx-navy py-20">
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '56px 56px',
-          }}
-        />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 size-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-mbx-teal/10 blur-[120px]" />
+      <section className="relative overflow-hidden border-t border-mbx-border bg-atmos-cta py-20">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 size-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4486BF]/12 blur-[130px]" />
+        <div className="pointer-events-none absolute -bottom-20 right-0 h-[340px] w-[340px] rounded-full bg-[#DDF1FC]/80 blur-[130px]" />
         <div className="container relative z-10 mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white md:text-4xl">
+          <h2 className="text-3xl font-extrabold text-mbx-navy md:text-4xl">
             Want Revenue Tips for Your Agency?
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/60">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-mbx-text-muted">
             Talk to our billing experts and get a free audit — no strings attached.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">

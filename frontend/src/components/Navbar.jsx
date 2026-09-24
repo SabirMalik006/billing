@@ -185,18 +185,18 @@ export default function Navbar() {
 
                 {item.children && (
                   <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
-                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max rounded-2xl bg-mbx-navy border border-white/10 shadow-2xl shadow-black/40 p-5`}>
+                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max rounded-2xl bg-[#4486BF] border border-white/15 shadow-2xl shadow-[#0B2348]/25 p-5`}>
                       {item.children.map((child, idx) => (
                         <div key={idx}>
                           {child.heading && (
-                            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-mbx-teal">{child.heading}</p>
+                            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">{child.heading}</p>
                           )}
                           <ul className={child.heading ? 'mb-4 space-y-1' : 'space-y-1'}>
                             {(child.items || [child]).map((sub, subIdx) => (
                               <li key={subIdx}>
                                 <Link
                                   to={sub.path}
-                                  className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-white/60 transition-all hover:bg-white/5 hover:text-white"
+                                  className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10 hover:text-white"
                                 >
                                   {sub.label}
                                 </Link>
@@ -234,7 +234,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-mbx-navy xl:hidden"
+            className="fixed inset-0 z-40 bg-atmos-cta xl:hidden"
           >
             <div className="flex h-full flex-col overflow-y-auto pt-60 pb-10 px-8 md:pt-48 lg:pt-44">
               <ul className="space-y-0">
@@ -244,15 +244,15 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.08 }}
-                    className="border-b border-white/5"
+                    className="border-b border-mbx-teal/15"
                   >
                     <div className="flex items-center justify-between py-5">
-                      <Link to={item.path} className="text-[1.35rem] font-bold text-white">
+                      <Link to={item.path} className="text-[1.35rem] font-bold text-mbx-navy">
                         {item.label}
                       </Link>
                       {item.children && (
                         <button
-                          className="flex size-10 items-center justify-center text-white/40"
+                          className="flex size-10 items-center justify-center text-mbx-text-muted"
                           onClick={() => setExpandedMobile(expandedMobile === item.label ? null : item.label)}
                           aria-expanded={expandedMobile === item.label}
                         >
@@ -282,7 +282,7 @@ export default function Navbar() {
                                   <Link
                                     key={sIdx}
                                     to={sub.path}
-                                    className="block rounded-lg py-2.5 pl-3 text-base text-white/50 transition-colors hover:text-white"
+                                    className="block rounded-lg py-2.5 pl-3 text-base text-mbx-text-muted transition-colors hover:text-mbx-navy"
                                   >
                                     {sub.label}
                                   </Link>
@@ -310,7 +310,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   to="/connect-us"
-                  className="flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 px-8 py-4 text-lg font-bold text-white"
+                  className="flex items-center justify-center gap-2 rounded-xl border-2 border-mbx-teal/40 px-8 py-4 text-lg font-bold text-mbx-navy"
                 >
                   Let's Talk
                 </Link>

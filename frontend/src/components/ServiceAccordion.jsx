@@ -51,7 +51,7 @@ export default function ServiceAccordion() {
           key={service.number}
           className={`rounded-2xl border transition-all duration-500 overflow-hidden ${
             expanded === index
-              ? 'border-mbx-teal/30 bg-mbx-navy shadow-xl shadow-mbx-navy/10'
+              ? 'border-mbx-teal/30 bg-[#4486BF] shadow-xl shadow-[#4486BF]/20'
               : 'border-mbx-border bg-mbx-white hover:border-mbx-teal/20'
           }`}
         >
@@ -60,7 +60,7 @@ export default function ServiceAccordion() {
             className="flex w-full items-center gap-5 p-6 text-left"
             aria-expanded={expanded === index}
           >
-            <span className={`text-2xl font-extrabold transition-colors ${expanded === index ? 'text-mbx-teal' : 'text-mbx-teal/30'}`}>
+            <span className={`text-2xl font-extrabold transition-colors ${expanded === index ? 'text-white' : 'text-mbx-teal/30'}`}>
               {service.number}
             </span>
             <div className="flex-1">
@@ -86,13 +86,13 @@ export default function ServiceAccordion() {
                 className="overflow-hidden"
               >
                 <div className="px-6 pb-6 pt-0">
-                  <div className="border-t border-white/10 pt-5">
-                    <p className="mb-5 text-sm leading-relaxed text-white/50">{service.description}</p>
+                  <div className="border-t border-white/15 pt-5">
+                    <p className="mb-5 text-sm leading-relaxed text-white/85">{service.description}</p>
                     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                       {service.details.map((detail) => (
                         <div
                           key={detail}
-                          className="rounded-lg bg-white/5 px-3 py-2 text-xs font-semibold text-mbx-teal-light border border-white/5"
+                          className="rounded-lg bg-white/10 px-3 py-2 text-xs font-semibold text-white border border-white/15"
                         >
                           {detail}
                         </div>
