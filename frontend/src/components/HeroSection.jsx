@@ -58,7 +58,7 @@ export default function HeroSection() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                   >
-                    {i === 2 ? <span className="text-mbx-teal">{line}</span> : line}
+                    {i === 2 ? <span className="text-[#00B8A9]">{line}</span> : line}
                   </motion.span>
                 ))}
               </motion.h1>

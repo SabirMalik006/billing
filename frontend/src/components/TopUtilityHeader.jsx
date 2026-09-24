@@ -59,12 +59,12 @@ export function TopContactBar() {
              className="flex items-center gap-1.5 text-white/90 transition-colors hover:text-white"
            >
              <Phone className="text-white/70" {...iconProps} />
-             <span className="font-semibold">888-370-6494</span>
+             <span className="font-semibold text-[#FFB300]">888-370-6494</span>
            </a>
 
           <span aria-hidden="true" className="font-light text-white/25">|</span>
 
-          <a href="tel:+15597777919" className="text-white/70 transition-colors hover:text-white">
+          <a href="tel:+15597777919" className="text-[12.5px] font-semibold text-[#FFB300] transition-colors hover:text-[#FFB300]/70">
             559-777-7919
           </a>
 
@@ -85,7 +85,7 @@ export function TopContactBar() {
 
         <Link
            to="/connect-us"
-           className="inline-flex h-[26px] items-center rounded-[5px] bg-white px-3.5 text-[12px] font-bold text-[#4486BF] transition-colors hover:bg-[#EAF6FF]"
+           className="inline-flex h-[26px] items-center rounded-[5px] bg-white px-3.5 text-[12px] font-bold text-[#0B2348] transition-colors hover:bg-[#EAF6FF]"
          >
            Get Free Quote
          </Link>

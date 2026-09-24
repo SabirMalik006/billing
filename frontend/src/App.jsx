@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AuthProvider } from './contexts/AuthContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import TestimonialsSection from './components/SectionTestimonials'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Gallery from './pages/Gallery'
@@ -48,7 +49,12 @@ function AppContent() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      {!isAdmin && <Footer />}
+      {!isAdmin && (
+        <>
+          <TestimonialsSection />
+          <Footer />
+        </>
+      )}
     </div>
   )
 }
