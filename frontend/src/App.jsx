@@ -17,6 +17,7 @@ import Resources from './pages/Resources'
 import Software from './pages/Software'
 import MedicalAssistant from './pages/MedicalAssistant'
 import RCMServices from './pages/RCMServices'
+import Capabilities from './pages/Capabilities'
 import Solution from './pages/Solution'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
@@ -42,6 +43,7 @@ function AppContent() {
           <Route path="/software" element={<Software />} />
           <Route path="/medical-assistant" element={<MedicalAssistant />} />
           <Route path="/rcm-services" element={<RCMServices />} />
+          <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/solution" element={<Solution />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

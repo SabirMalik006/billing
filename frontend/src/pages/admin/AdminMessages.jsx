@@ -23,7 +23,16 @@ export default function AdminMessages() {
   const unreadCount = contacts.filter(c => !c.read).length
   const filtered = contacts
     .filter(c => filter === 'all' || (filter === 'unread' && !c.read) || (filter === 'read' && c.read))
-    .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || c.email.toLowerCase().includes(search.toLowerCase()) || c.message.toLowerCase().includes(search.toLowerCase()))
+    .filter(c => {
+      const q = search.toLowerCase()
+      return c.name.toLowerCase().includes(q)
+        || c.email.toLowerCase().includes(q)
+        || c.message.toLowerCase().includes(q)
+        || (c.agencyName || '').toLowerCase().includes(q)
+        || (c.patientName || '').toLowerCase().includes(q)
+        || (c.specialty || '').toLowerCase().includes(q)
+        || (c.ehrSoftware || '').toLowerCase().includes(q)
+    })
 
   const handleMarkRead = async (id) => {
     await fetch(`${API}/api/contact/${id}`, { method: 'PATCH' })
@@ -152,6 +161,35 @@ export default function AdminMessages() {
                   <span>{new Date(selectedMsg.createdAt).toLocaleString()}</span>
                 </div>
               </div>
+
+              {(selectedMsg.agencyName || selectedMsg.patientName || selectedMsg.specialty || selectedMsg.ehrSoftware) && (
+                <div className="mb-4 grid gap-2.5 sm:grid-cols-2">
+                  {selectedMsg.agencyName && (
+                    <div className="rounded-xl border border-[#DEE4EB] bg-[#F5F8FA]/70 px-3.5 py-2.5">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8A94A6]">Agency</p>
+                      <p className="mt-0.5 text-sm font-semibold text-[#0B2348]">{selectedMsg.agencyName}</p>
+                    </div>
+                  )}
+                  {selectedMsg.patientName && (
+                    <div className="rounded-xl border border-[#DEE4EB] bg-[#F5F8FA]/70 px-3.5 py-2.5">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8A94A6]">Patient</p>
+                      <p className="mt-0.5 text-sm font-semibold text-[#0B2348]">{selectedMsg.patientName}</p>
+                    </div>
+                  )}
+                  {selectedMsg.specialty && (
+                    <div className="rounded-xl border border-[#DEE4EB] bg-[#F5F8FA]/70 px-3.5 py-2.5">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8A94A6]">Specialty</p>
+                      <p className="mt-0.5 text-sm font-semibold text-[#0B2348]">{selectedMsg.specialty}</p>
+                    </div>
+                  )}
+                  {selectedMsg.ehrSoftware && (
+                    <div className="rounded-xl border border-[#DEE4EB] bg-[#F5F8FA]/70 px-3.5 py-2.5">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8A94A6]">EHR Software</p>
+                      <p className="mt-0.5 text-sm font-semibold text-[#0B2348]">{selectedMsg.ehrSoftware}</p>
+                    </div>
+                  )}
+                </div>
+              )}
 
               <div className="rounded-xl bg-[#F5F8FA] p-4">
                 <p className="text-sm leading-relaxed text-[#0B2348] whitespace-pre-wrap">{selectedMsg.message}</p>

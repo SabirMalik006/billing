@@ -186,20 +186,24 @@ export default function Navbar() {
 
                 {item.children && (
                   <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
-                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max rounded-2xl bg-[#4486BF] border border-white/15 shadow-2xl shadow-[#0B2348]/25 p-5`}>
+                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-5`}>
                       {item.children.map((child, idx) => (
-                        <div key={idx}>
+                        <div key={idx} className={idx > 0 ? 'mt-4 border-t border-mbx-teal/10 pt-4' : ''}>
                           {child.heading && (
-                            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">{child.heading}</p>
+                            <p className="mb-1.5 flex items-center gap-2 px-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-mbx-teal">
+                              <span className="inline-block h-3.5 w-1 rounded-full bg-mbx-teal" />
+                              {child.heading}
+                            </p>
                           )}
-                          <ul className={child.heading ? 'mb-4 space-y-1' : 'space-y-1'}>
+                          <ul className="space-y-0.5">
                             {(child.items || [child]).map((sub, subIdx) => (
                               <li key={subIdx}>
                                 <Link
                                   to={sub.path}
-                                  className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10 hover:text-white"
+                                  className="group/item flex items-center rounded-lg px-3 py-2 text-[13.5px] font-medium text-mbx-text-muted transition-all duration-200 hover:text-mbx-navy hover:bg-mbx-teal/5 hover:pl-4"
                                 >
                                   {sub.label}
+                                  <ArrowRight size={14} className="ml-auto -translate-x-1 text-mbx-teal opacity-0 transition-all duration-200 group-hover/item:translate-x-0 group-hover/item:opacity-100" />
                                 </Link>
                               </li>
                             ))}
@@ -277,7 +281,10 @@ export default function Navbar() {
                             {item.children.map((child, cIdx) => (
                               <div key={cIdx}>
                                 {child.heading && (
-                                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-mbx-teal pt-3">{child.heading}</p>
+                                  <p className="mb-1.5 mt-4 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-mbx-teal">
+                                    <span className="inline-block h-3.5 w-1 rounded-full bg-mbx-teal" />
+                                    {child.heading}
+                                  </p>
                                 )}
                                 {(child.items || [child]).map((sub, sIdx) => (
                                   <Link

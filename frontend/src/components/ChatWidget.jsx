@@ -232,10 +232,10 @@ export default function ChatWidget() {
           else if (menuOpen) { setMenuOpen(false); setMode(null) }
         }}
         aria-label="24/7 Availability support"
-        className="group flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#1DA851] py-3 pl-4 pr-5 text-white shadow-xl shadow-[#25D366]/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-[#25D366]/40"
+        className="group flex items-center gap-2.5 rounded-full bg-[#00B8A9] py-3 pl-4 pr-5 text-white shadow-xl shadow-[#00B8A9]/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-[#00B8A9]/40"
       >
         <span className="relative flex">
-          <span className="animate-whatsapp-ring pointer-events-none absolute inset-0 rounded-full bg-white/60" aria-hidden="true" />
+          <span className="animate-whatsapp-ring pointer-events-none absolute inset-0 rounded-full bg-[#00B8A9]" aria-hidden="true" />
           <span className="relative flex items-center justify-center">
             <MessageSquareText size={19} />
           </span>

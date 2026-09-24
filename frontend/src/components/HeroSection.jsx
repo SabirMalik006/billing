@@ -37,8 +37,8 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto relative z-10 pt-72 pb-20 md:pt-60 lg:pt-56 lg:pb-28">
-        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-stretch lg:gap-16 xl:grid-cols-[minmax(0,1fr)_460px]">
+      <div className="container mx-auto relative z-10 pt-40 pb-16 md:pt-44 lg:pt-40 lg:pb-24">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 xl:grid-cols-[minmax(0,1fr)_460px] xl:gap-24">
           <div>
             <div>
               <motion.h1
@@ -65,7 +65,7 @@ export default function HeroSection() {
             </div>
 
             <motion.p
-              className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-white md:text-xl"
+              className="mt-5 max-w-xl text-lg font-medium leading-relaxed text-white md:text-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1 }}
@@ -75,7 +75,7 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.div
-              className="mt-10 flex flex-wrap items-center gap-4"
+              className="mt-8 flex flex-wrap items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.2 }}
@@ -101,7 +101,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
-            className="flex w-full max-w-md mx-auto lg:mx-0 lg:h-full"
+            className="flex w-full max-w-md mx-auto lg:mx-0 lg:h-full lg:mt-6"
           >
             <ContactForm compact className="flex-1" />
           </motion.div>

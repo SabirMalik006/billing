@@ -4,7 +4,7 @@ import { CheckCircle, ArrowRight } from 'lucide-react'
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 export default function ContactForm({ compact, className }) {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', agencyName: '', patientName: '', specialty: '', ehrSoftware: '', message: '' })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState('')
@@ -26,7 +26,7 @@ export default function ContactForm({ compact, className }) {
       })
       if (res.ok) {
         setSent(true)
-        setForm({ name: '', phone: '', email: '', message: '' })
+        setForm({ name: '', phone: '', email: '', agencyName: '', patientName: '', specialty: '', ehrSoftware: '', message: '' })
       } else {
         const data = await res.json()
         setError(data.error || 'Something went wrong')
@@ -79,7 +79,7 @@ export default function ContactForm({ compact, className }) {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2.5' : 'py-3'}`}
+                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
                 />
               </div>
               <div>
@@ -90,20 +90,68 @@ export default function ContactForm({ compact, className }) {
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="Phone number"
-                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2.5' : 'py-3'}`}
+                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+                />
+              </div>
+            </div>
+            <div className={compact ? 'mt-3 grid gap-3 sm:grid-cols-2' : 'mt-4 grid gap-4 sm:grid-cols-2'}>
+              <div>
+                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="Your email"
+                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+                />
+              </div>
+              <div>
+                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Agency Name</label>
+                <input
+                  type="text"
+                  name="agencyName"
+                  value={form.agencyName}
+                  onChange={handleChange}
+                  placeholder="Your agency / practice"
+                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+                />
+              </div>
+            </div>
+            <div className={compact ? 'mt-3 grid gap-3 sm:grid-cols-2' : 'mt-4 grid gap-4 sm:grid-cols-2'}>
+              <div>
+                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Patient Name</label>
+                <input
+                  type="text"
+                  name="patientName"
+                  value={form.patientName}
+                  onChange={handleChange}
+                  placeholder="Patient name"
+                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+                />
+              </div>
+              <div>
+                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Specialty</label>
+                <input
+                  type="text"
+                  name="specialty"
+                  value={form.specialty}
+                  onChange={handleChange}
+                  placeholder="e.g. Dermatology"
+                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
                 />
               </div>
             </div>
             <div className={compact ? 'mt-3' : 'mt-4'}>
-              <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Email *</label>
+              <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>EHR Software</label>
               <input
-                type="email"
-                name="email"
-                required
-                value={form.email}
+                type="text"
+                name="ehrSoftware"
+                value={form.ehrSoftware}
                 onChange={handleChange}
-                placeholder="Your email"
-                className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2.5' : 'py-3'}`}
+                placeholder="e.g. Kareo, eClinicalWorks"
+                className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
               />
             </div>
             <div className={compact ? 'mt-3 flex flex-1 flex-col' : 'mt-4'}>
@@ -111,11 +159,11 @@ export default function ContactForm({ compact, className }) {
               <textarea
                 name="message"
                 required
-                rows={compact ? 3 : 4}
+                rows={compact ? 2 : 4}
                 value={form.message}
                 onChange={handleChange}
                 placeholder="Your message..."
-                className={`w-full resize-none rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'flex-1 min-h-[90px] py-2.5' : 'py-3'}`}
+                className={`w-full resize-none rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'flex-1 min-h-[60px] py-2' : 'py-3'}`}
               />
             </div>
             <button
@@ -123,7 +171,7 @@ export default function ContactForm({ compact, className }) {
               disabled={sending}
               className={`inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#4486BF] px-8 font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed ${compact ? 'mt-4 py-3 text-sm' : 'mt-6 py-3.5 text-base'}`}
             >
-              {sending ? 'Sending...' : 'Send Message'}
+{sending ? 'Sending...' : 'Send Message'}
               {!sending && <ArrowRight size={16} />}
             </button>
           </form>
