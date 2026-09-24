@@ -38,9 +38,9 @@ function Divider({ className = '' }) {
 
 export function TopContactBar() {
   return (
-    <div className="bg-[#0B1226] text-white py-3">
+    <div className="bg-[#0B1226] text-white">
       <div
-        className={`${announceContainer} flex-wrap items-center justify-center gap-x-3 gap-y-1 py-1.5 md:justify-start lg:h-[28px] lg:flex-nowrap lg:py-0.5`}
+        className={`${announceContainer} flex-wrap items-center justify-center gap-x-3 gap-y-1 py-2 md:justify-start lg:h-[42px] lg:flex-nowrap lg:py-0.5`}
       >
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12.5px] leading-none lg:flex-nowrap">
            <a
