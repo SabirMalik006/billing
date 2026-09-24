@@ -61,10 +61,29 @@ blogSchema.pre('validate', function (next) {
   next()
 })
 
+const chatSessionSchema = new mongoose.Schema({
+  sessionId: { type: String, required: true, unique: true },
+  visitorName: { type: String, default: 'Visitor' },
+  lastMessage: { type: String, default: '' },
+  lastMessageAt: { type: Date, default: Date.now },
+  adminUnread: { type: Number, default: 0 },
+  visitorUnread: { type: Number, default: 0 },
+  status: { type: String, enum: ['waiting', 'active', 'ended'], default: 'waiting' },
+}, { timestamps: true })
+
+const chatMessageSchema = new mongoose.Schema({
+  sessionId: { type: String, required: true, index: true },
+  sender: { type: String, enum: ['visitor', 'admin'], required: true },
+  text: { type: String, required: true, trim: true },
+  read: { type: Boolean, default: false },
+}, { timestamps: true })
+
 const Gallery = mongoose.models.Gallery || mongoose.model('Gallery', gallerySchema)
 const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema)
 const Testimonial = mongoose.models.Testimonial || mongoose.model('Testimonial', testimonialSchema)
 const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema)
+const ChatSession = mongoose.models.ChatSession || mongoose.model('ChatSession', chatSessionSchema)
+const ChatMessage = mongoose.models.ChatMessage || mongoose.model('ChatMessage', chatMessageSchema)
 
 // ── DB Connection (cached) ──
 let cached = null
@@ -336,6 +355,116 @@ app.delete('/api/blog/:id', auth, async (req, res) => {
       await Blog.findByIdAndDelete(req.params.id)
     }
     res.json({ message: 'Deleted' })
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// ── Live Chat Routes ──
+
+// Public - start/resume a chat session
+app.post('/api/chat/start', async (req, res) => {
+  await connectDB()
+  try {
+    const { sessionId, name } = req.body
+    if (!sessionId) return res.status(400).json({ error: 'sessionId required' })
+    let session = await ChatSession.findOne({ sessionId })
+    if (!session) {
+      session = await ChatSession.create({ sessionId, visitorName: name ? String(name).slice(0, 60) : 'Visitor' })
+    } else if (name && session.visitorName === 'Visitor') {
+      session.visitorName = String(name).slice(0, 60)
+      await session.save()
+    }
+    res.json({ sessionId: session.sessionId, ok: true })
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Public - visitor sends a message
+app.post('/api/chat/:sessionId/messages', async (req, res) => {
+  await connectDB()
+  try {
+    const sessionId = req.params.sessionId
+    const text = String(req.body.text || '').trim().slice(0, 3000)
+    if (!text) return res.status(400).json({ error: 'Message text required' })
+    let session = await ChatSession.findOne({ sessionId })
+    if (!session) session = await ChatSession.create({ sessionId, visitorName: String(req.body.name || 'Visitor').slice(0, 60) })
+    session.lastMessage = text
+    session.lastMessageAt = new Date()
+    session.adminUnread = (session.adminUnread || 0) + 1
+    if (session.status === 'waiting') session.status = 'active'
+    await session.save()
+    const msg = await ChatMessage.create({ sessionId, sender: 'visitor', text })
+    res.status(201).json(msg)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Public - visitor polls for new messages (after = ISO timestamp)
+app.get('/api/chat/:sessionId/messages', async (req, res) => {
+  await connectDB()
+  try {
+    const sessionId = req.params.sessionId
+    const after = req.query.after
+    const query = { sessionId }
+    if (after) query.createdAt = { $gt: new Date(after) }
+    const messages = await ChatMessage.find(query).sort({ createdAt: 1 })
+    res.json(messages)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Public - visitor marks admin messages as read
+app.post('/api/chat/:sessionId/read', async (req, res) => {
+  await connectDB()
+  try {
+    const sessionId = req.params.sessionId
+    await ChatMessage.updateMany({ sessionId, sender: 'admin', read: false }, { $set: { read: true } })
+    await ChatSession.findOneAndUpdate({ sessionId }, { $set: { visitorUnread: 0 } })
+    res.json({ message: 'Read' })
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - list all chat sessions (for alarm + list)
+app.get('/api/chat/admin/conversations', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const sessions = await ChatSession.find().sort({ lastMessageAt: -1 })
+    res.json(sessions)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - full message thread for a session
+app.get('/api/chat/admin/:sessionId/messages', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const messages = await ChatMessage.find({ sessionId: req.params.sessionId }).sort({ createdAt: 1 })
+    res.json(messages)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - admin replies
+app.post('/api/chat/admin/:sessionId/messages', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const sessionId = req.params.sessionId
+    const text = String(req.body.text || '').trim().slice(0, 3000)
+    if (!text) return res.status(400).json({ error: 'Message text required' })
+    const session = await ChatSession.findOne({ sessionId })
+    if (!session) return res.status(404).json({ error: 'Session not found' })
+    session.lastMessage = text
+    session.lastMessageAt = new Date()
+    session.visitorUnread = (session.visitorUnread || 0) + 1
+    session.status = 'active'
+    await session.save()
+    const msg = await ChatMessage.create({ sessionId, sender: 'admin', text })
+    res.status(201).json(msg)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - mark visitor messages read (clears alarm count)
+app.post('/api/chat/admin/:sessionId/read', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const sessionId = req.params.sessionId
+    await ChatMessage.updateMany({ sessionId, sender: 'visitor', read: false }, { $set: { read: true } })
+    await ChatSession.findOneAndUpdate({ sessionId }, { $set: { adminUnread: 0 } })
+    res.json({ message: 'Read' })
   } catch (err) { res.status(500).json({ error: err.message }) }
 })
 
