@@ -109,11 +109,13 @@ const navItems = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedMobile, setExpandedMobile] = useState(null)
+  const [hasScrolled, setHasScrolled] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
     setMobileOpen(false)
     setExpandedMobile(null)
+    setHasScrolled(false)
     window.scrollTo(0, 0)
   }, [location.pathname])
 
@@ -122,11 +124,40 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
+  useEffect(() => {
+    let frameId = 0
+    const handleScroll = () => {
+      if (frameId) return
+
+      frameId = requestAnimationFrame(() => {
+        setHasScrolled(window.scrollY > 12)
+        frameId = 0
+      })
+    }
+
+    setHasScrolled(window.scrollY > 12)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      cancelAnimationFrame(frameId)
+    }
+  }, [])
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50">
-        <TopUtilityHeader className="hidden lg:block" />
-        <header className="relative bg-white shadow-lg shadow-black/5">
+        <div
+          className={`pointer-events-none absolute left-0 right-0 top-0 hidden overflow-hidden transition-[opacity,transform] duration-300 ease-out will-change-transform lg:block ${
+            hasScrolled ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+          }`}
+        >
+          <TopUtilityHeader />
+        </div>
+        <header
+          className={`relative bg-white shadow-lg shadow-black/5 transition-transform duration-300 ease-out will-change-transform ${
+            hasScrolled ? 'translate-y-0' : 'lg:translate-y-[84px]'
+          }`}
+        >
         <nav className="container mx-auto grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 py-2 md:gap-4 lg:py-2.5 xl:gap-6">
           <Link to="/" className="relative z-10 shrink-0">
             <img src="https://mbxsol.com/wp-content/uploads/2026/04/MBX-Solutions-Logo-2-e1779169428791.png" alt="MBX Solutions" className="h-8 md:h-10 lg:h-12 w-auto" />
