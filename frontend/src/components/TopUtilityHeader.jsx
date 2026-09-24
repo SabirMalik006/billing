@@ -22,7 +22,7 @@ export function TopAnnouncementBar() {
 
          <Link
            to="/services#free-audit"
-           className="group flex items-center gap-1 whitespace-nowrap text-[13px] font-bold text-white underline-offset-4 hover:underline md:text-[13.5px]"
+           className="group inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-[6px] border border-white/30 bg-white/15 px-3 py-1.5 text-[12.5px] font-bold text-white transition-all hover:bg-white hover:text-[#0B2348] active:scale-95 md:text-[13px]"
          >
            Claim Free Audit
            <ArrowRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
@@ -43,30 +43,33 @@ export function TopContactBar() {
         className={`${announceContainer} flex-wrap items-center justify-center gap-x-3 gap-y-1 py-2 md:justify-start lg:h-[42px] lg:flex-nowrap lg:py-0.5`}
       >
         <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[12.5px] leading-none lg:flex-nowrap">
-           <a
+<a
              href="mailto:info@mbxsol.com"
-             className="flex items-center gap-1.5 text-white/85 transition-colors hover:text-white"
+             className="flex cursor-pointer items-center gap-1.5 rounded-[6px] px-1.5 py-1 text-white/85 transition-colors hover:bg-white/10 hover:text-white active:scale-95"
            >
              <Mail className="text-white/70" {...iconProps} />
              info@mbxsol.com
            </a>
 
-          <Divider className="hidden sm:inline-block" />
+           <Divider className="hidden sm:inline-block" />
 
-          <span className="hidden text-white/45 sm:inline">Need Help? Call Us:</span>
+           <span className="hidden text-white/45 sm:inline">Need Help? Call Us:</span>
+            <a
+              href="tel:+18883706494"
+              className="group flex cursor-pointer items-center gap-1.5 text-white/90 transition-all hover:text-white active:scale-95"
+            >
+              <Phone className="text-white/70" {...iconProps} />
+              <span className="inline-flex cursor-pointer items-center rounded-[6px] border border-[#FFB300]/40 bg-[#FFB300]/10 px-2.5 py-[5px] font-bold leading-none text-[#FFB300] transition-all group-hover:bg-[#FFB300] group-hover:text-[#0B2348]">888-370-6494</span>
+            </a>
+
+           <span aria-hidden="true" className="font-light text-white/25">|</span>
+
            <a
-             href="tel:+18883706494"
-             className="flex items-center gap-1.5 text-white/90 transition-colors hover:text-white"
+             href="tel:+15597777919"
+             className="group inline-flex cursor-pointer items-center rounded-[6px] border border-[#FFB300]/40 bg-[#FFB300]/10 px-2.5 py-[5px] text-[12.5px] font-bold leading-none text-[#FFB300] transition-all hover:bg-[#FFB300] hover:text-[#0B2348] active:scale-95"
            >
-             <Phone className="text-white/70" {...iconProps} />
-             <span className="font-semibold text-[#FFB300]">888-370-6494</span>
+             559-777-7919
            </a>
-
-          <span aria-hidden="true" className="font-light text-white/25">|</span>
-
-          <a href="tel:+15597777919" className="text-[12.5px] font-semibold text-[#FFB300] transition-colors hover:text-[#FFB300]/70">
-            559-777-7919
-          </a>
 
           <Divider className="hidden lg:inline-block" />
 
@@ -85,7 +88,7 @@ export function TopContactBar() {
 
         <Link
            to="/connect-us"
-           className="inline-flex h-[26px] items-center rounded-[5px] bg-white px-3.5 text-[12px] font-bold text-[#0B2348] transition-colors hover:bg-[#EAF6FF]"
+           className="inline-flex h-[26px] cursor-pointer items-center rounded-[5px] bg-white px-3.5 text-[12px] font-bold text-[#0B2348] transition-all hover:bg-[#EAF6FF] active:scale-95"
          >
            Get Free Quote
          </Link>

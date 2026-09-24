@@ -2,6 +2,8 @@ import { Stethoscope, CalendarClock, ShieldCheck, FileCheck2, Users, ClipboardLi
 import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
 import { SectionHeading, PrimaryButton } from '../components/UI'
 
+const specialities = ['Home Health', 'Hospice', 'Behavioral Health', 'Physical Therapy', 'Occupational Therapy', 'Cardiology', 'Internal Medicine', 'Psychiatric', 'Dental']
+
 const services = [
   { icon: ClipboardList, title: 'Patient Intake', desc: 'Accurate intake processing and referral management across your network.', id: 'intake' },
   { icon: CalendarClock, title: 'Scheduling', desc: 'Appointment coordination and calendar management for your clinical team.', id: 'scheduling' },
@@ -68,8 +70,30 @@ export default function MedicalAssistant() {
         </div>
       </section>
 
+      {/* Speciality */}
+      <section id="speciality" className="py-16 lg:py-20 bg-mbx-white">
+        <div className="container mx-auto">
+          <AnimatedSection>
+            <SectionHeading
+              eyebrow="Speciality"
+              title="Assistants Trained for Your Speciality"
+              subtitle="Our virtual medical assistants are trained across the specialities healthcare organizations serve — so terminology, documentation and workflows feel familiar from day one."
+            />
+          </AnimatedSection>
+          <AnimatedSection delay={0.15}>
+            <div className="flex flex-wrap justify-center gap-3">
+              {specialities.map((s) => (
+                <span key={s} className="rounded-full border border-mbx-teal/25 bg-mbx-teal/5 px-5 py-2.5 text-sm font-bold text-mbx-teal">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Services */}
-      <section id="intake" className="py-28 lg:py-36 bg-mbx-white">
+      <section id="intake" className="py-28 lg:py-36 bg-mbx-surface">
         <div className="container mx-auto">
           <AnimatedSection>
             <SectionHeading

@@ -71,9 +71,7 @@ const navItems = [
     children: [
       { heading: 'Medical Assistant', items: [
         { label: 'Virtual Assistant', path: '/medical-assistant' },
-        { label: 'Patient Intake', path: '/medical-assistant#intake' },
-        { label: 'Scheduling', path: '/medical-assistant#scheduling' },
-        { label: 'Insurance Verification', path: '/medical-assistant#verification' },
+        { label: 'Speciality', path: '/medical-assistant#speciality' },
       ]},
     ],
   },
@@ -148,8 +146,8 @@ export default function Navbar() {
     <>
       <div className="fixed top-0 left-0 right-0 z-50">
         <div
-          className={`pointer-events-none absolute left-0 right-0 top-0 hidden overflow-hidden transition-[opacity,transform] duration-300 ease-out will-change-transform lg:block ${
-            hasScrolled ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+          className={`absolute left-0 right-0 top-0 hidden overflow-hidden transition-[opacity,transform] duration-300 ease-out will-change-transform lg:block ${
+            hasScrolled ? 'pointer-events-none -translate-y-full opacity-0' : 'pointer-events-auto translate-y-0 opacity-100'
           }`}
         >
           <TopUtilityHeader />
