@@ -34,9 +34,37 @@ const testimonialSchema = new mongoose.Schema({
   order: { type: Number, default: 0 },
 }, { timestamps: true })
 
+const blogSchema = new mongoose.Schema({
+  title: { type: String, required: true, trim: true },
+  slug: { type: String, required: true, unique: true },
+  excerpt: { type: String, default: '', trim: true },
+  content: { type: String, required: true },
+  coverImage: { type: String, default: '' },
+  coverPublicId: { type: String, default: '' },
+  category: { type: String, default: 'General', trim: true },
+  tags: { type: [String], default: [] },
+  author: { type: String, default: 'MBX Solutions' },
+  published: { type: Boolean, default: false },
+  views: { type: Number, default: 0 },
+}, { timestamps: true })
+
+// Auto-generate unique slug from title
+blogSchema.pre('validate', function (next) {
+  if (this.isModified('title') && !this.slug) {
+    this.slug = this.title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .slice(0, 80) + '-' + Date.now().toString(36)
+  }
+  next()
+})
+
 const Gallery = mongoose.models.Gallery || mongoose.model('Gallery', gallerySchema)
 const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema)
 const Testimonial = mongoose.models.Testimonial || mongoose.model('Testimonial', testimonialSchema)
+const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema)
 
 // ── DB Connection (cached) ──
 let cached = null
@@ -185,6 +213,130 @@ app.delete('/api/testimonials/:id', async (req, res) => {
   await connectDB()
   await Testimonial.findByIdAndDelete(req.params.id)
   res.json({ message: 'Deleted' })
+})
+
+// ── Blog Routes ──
+
+// Public - published posts only
+app.get('/api/blog', async (req, res) => {
+  await connectDB()
+  try {
+    const { category, search, limit } = req.query
+    const query = { published: true }
+    if (category && category !== 'All') query.category = category
+    if (search) {
+      const rx = new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i')
+      query.$or = [{ title: rx }, { excerpt: rx }, { content: rx }, { tags: rx }]
+    }
+    let posts = Blog.find(query).sort({ createdAt: -1 })
+    if (limit) posts = posts.limit(Number(limit))
+    const data = await posts
+    res.json(data)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Public - single post by slug
+app.get('/api/blog/slug/:slug', async (req, res) => {
+  await connectDB()
+  try {
+    const post = await Blog.findOne({ slug: req.params.slug, published: true })
+    if (!post) return res.status(404).json({ error: 'Post not found' })
+    post.views += 1
+    await post.save()
+    res.json(post)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Public - categories list
+app.get('/api/blog/categories', async (req, res) => {
+  await connectDB()
+  try {
+    const cats = await Blog.distinct('category', { published: true })
+    res.json(cats)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - all posts (including drafts)
+app.get('/api/blog/admin/all', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const posts = await Blog.find().sort({ createdAt: -1 })
+    res.json(posts)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - single post by id (for editing)
+app.get('/api/blog/admin/:id', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const post = await Blog.findById(req.params.id)
+    if (!post) return res.status(404).json({ error: 'Post not found' })
+    res.json(post)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - create (cover via image URL)
+app.post('/api/blog', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const { title, excerpt, content, category, tags, author, published, coverImage } = req.body
+    if (!title || !content) return res.status(400).json({ error: 'Title and content are required' })
+    const post = await Blog.create({
+      title,
+      excerpt: excerpt || '',
+      content,
+      category: category || 'General',
+      tags: tags ? String(tags).split(',').map(t => t.trim()).filter(Boolean) : [],
+      author: author || 'MBX Solutions',
+      published: published === 'true' || published === true,
+      coverImage: coverImage || '',
+      coverPublicId: '',
+    })
+    res.status(201).json(post)
+  } catch (err) {
+    if (err.code === 11000) return res.status(400).json({ error: 'Slug already exists, try a different title' })
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// Admin - update (cover via image URL)
+app.put('/api/blog/:id', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const post = await Blog.findById(req.params.id)
+    if (!post) return res.status(404).json({ error: 'Post not found' })
+    const { title, excerpt, content, category, tags, author, published, coverImage } = req.body
+    if (title !== undefined) post.title = title
+    if (excerpt !== undefined) post.excerpt = excerpt
+    if (content !== undefined) post.content = content
+    if (category !== undefined) post.category = category
+    if (tags !== undefined) post.tags = String(tags).split(',').map(t => t.trim()).filter(Boolean)
+    if (author !== undefined) post.author = author
+    if (published !== undefined) post.published = published === 'true' || published === true
+    if (coverImage !== undefined) {
+      // If old cover was a Cloudinary upload, clean it up
+      if (post.coverPublicId && coverImage !== post.coverImage) {
+        await cloudinary.uploader.destroy(post.coverPublicId).catch(() => {})
+        post.coverPublicId = ''
+      }
+      post.coverImage = coverImage
+    }
+    await post.save()
+    res.json(post)
+  } catch (err) { res.status(500).json({ error: err.message }) }
+})
+
+// Admin - delete
+app.delete('/api/blog/:id', auth, async (req, res) => {
+  await connectDB()
+  try {
+    const post = await Blog.findById(req.params.id)
+    if (post) {
+      if (post.coverPublicId) await cloudinary.uploader.destroy(post.coverPublicId)
+      await Blog.findByIdAndDelete(req.params.id)
+    }
+    res.json({ message: 'Deleted' })
+  } catch (err) { res.status(500).json({ error: err.message }) }
 })
 
 // ── Vercel Export ──
