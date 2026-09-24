@@ -19,6 +19,10 @@ const contactSchema = new mongoose.Schema({
   name: { type: String, required: true },
   phone: { type: String },
   email: { type: String, required: true },
+  agencyName: { type: String, default: '' },
+  patientName: { type: String, default: '' },
+  specialty: { type: String, default: '' },
+  ehrSoftware: { type: String, default: '' },
   message: { type: String, required: true },
   read: { type: Boolean, default: false },
 }, { timestamps: true })
@@ -169,9 +173,9 @@ app.delete('/api/gallery/:id', async (req, res) => {
 // ── Contact Routes ──
 app.post('/api/contact', async (req, res) => {
   await connectDB()
-  const { name, phone, email, message } = req.body
+  const { name, phone, email, agencyName, patientName, specialty, ehrSoftware, message } = req.body
   if (!name || !email || !message) return res.status(400).json({ error: 'Name, email and message required' })
-  const submission = await Contact.create({ name, phone, email, message })
+  const submission = await Contact.create({ name, phone, email, agencyName, patientName, specialty, ehrSoftware, message })
   res.status(201).json(submission)
 })
 
