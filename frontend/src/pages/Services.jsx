@@ -1,11 +1,27 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, CheckCircle, ChevronDown, ClipboardCheck, FileText, Activity, Shield, TrendingUp, Users, Zap, Target, BarChart3, Eye } from 'lucide-react'
+import { ArrowRight, CheckCircle, ChevronDown, ClipboardCheck, FileText, Activity, Shield, TrendingUp, Users, Zap, Target, BarChart3, Eye, Home, HeartPulse } from 'lucide-react'
 import { AnimatedSection } from '../components/Animated'
 import { SectionHeading, PrimaryButton } from '../components/UI'
 
 const services = [
+  {
+    id: 'home-health',
+    icon: Home,
+    title: 'Home Health Billing',
+    tagline: 'Full-cycle billing for home health agencies',
+    description: 'End-to-end billing for home health agencies — OASIS-based episode billing, PPS review, claim submission and A/R follow-up tailored to home care requirements.',
+    details: ['OASIS & PPS review', 'HHRG optimization', 'Episode billing', 'CWF & U423 checks', 'Claim submission', 'A/R follow-up'],
+  },
+  {
+    id: 'hospice',
+    icon: HeartPulse,
+    title: 'Hospice Billing',
+    tagline: 'Compliant billing for hospice providers',
+    description: 'Specialized hospice billing covering election periods, level-of-care changes and certification periods — coded and billed accurately, fully compliant.',
+    details: ['Election statement tracking', 'Certification period billing', 'Level-of-care changes', 'Continuous home care', 'Revocation processing', 'A/R follow-up'],
+  },
   {
     id: 'claim-entry',
     icon: ClipboardCheck,

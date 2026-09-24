@@ -40,6 +40,10 @@ const navItems = [
         { label: 'Credentialing & Enrollment', path: '/services#credentialing' },
         { label: 'Free Audit', path: '/services#free-audit' },
       ]},
+      { heading: 'Projects', items: [
+        { label: 'Small Project', path: '/projects/small' },
+        { label: 'Large Project', path: '/projects/large' },
+      ]},
     ],
   },
   {
@@ -184,7 +188,7 @@ export default function Navbar() {
 
                 {item.children && (
                   <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
-                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-5`}>
+                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-5 max-h-[70vh] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-mbx-teal/30`}>
                       {item.children.map((child, idx) => (
                         <div key={idx} className={idx > 0 ? 'mt-4 border-t border-mbx-teal/10 pt-4' : ''}>
                           {child.heading && (
