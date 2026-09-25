@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight, MapPin } from 'lucide-react'
 import TopUtilityHeader from './TopUtilityHeader'
 import ChatWidget from './ChatWidget'
+import { FEATURED_LOCATIONS } from '../data/locations'
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -21,6 +22,17 @@ const navItems = [
       ]},
       { heading: 'Teams', items: [
         { label: 'Meet Our Team', path: '/team' },
+      ]},
+    ],
+  },
+  {
+    label: 'Locations',
+    path: '/locations',
+    isLocations: true,
+    children: [
+      { heading: 'Locations', items: [
+        ...FEATURED_LOCATIONS.map((loc) => ({ label: loc.name, path: `/locations/${loc.slug}` })),
+        { label: 'View all locations', path: '/locations', isViewAll: true },
       ]},
     ],
   },
@@ -191,31 +203,88 @@ export default function Navbar() {
 
                 {item.children && (
                   <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
-                    <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-5 max-h-[70vh] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-mbx-teal/30`}>
-                      {item.children.map((child, idx) => (
-                        <div key={idx} className={idx > 0 ? 'mt-4 border-t border-mbx-teal/10 pt-4' : ''}>
-                          {child.heading && (
-                            <p className="mb-1.5 flex items-center gap-2 px-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-mbx-teal">
-                              <span className="inline-block h-3.5 w-1 rounded-full bg-mbx-teal" />
-                              {child.heading}
-                            </p>
-                          )}
-                          <ul className="space-y-0.5">
-                            {(child.items || [child]).map((sub, subIdx) => (
-                              <li key={subIdx}>
-                                <Link
-                                  to={sub.path}
-                                  className="group/item flex items-center rounded-lg px-3 py-2 text-[13.5px] font-medium text-mbx-text-muted transition-all duration-200 hover:text-mbx-navy hover:bg-mbx-teal/5 hover:pl-4"
-                                >
-                                  {sub.label}
-                                  <ArrowRight size={14} className="ml-auto -translate-x-1 text-mbx-teal opacity-0 transition-all duration-200 group-hover/item:translate-x-0 group-hover/item:opacity-100" />
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                    {item.isLocations ? (
+                      <div className="w-[44rem] max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-6 max-h-[80vh] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-mbx-teal/30">
+                        <div className="mb-4 flex items-center justify-between">
+                          <p className="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-mbx-teal">
+                            <span className="inline-block h-4 w-1.5 rounded-full bg-mbx-teal" />
+                            Our Locations
+                          </p>
+                          <Link
+                            to="/locations"
+                            className="group/item flex items-center gap-1.5 text-[13px] font-bold text-mbx-navy transition-colors hover:text-mbx-teal"
+                          >
+                            View all locations
+                            <ArrowRight size={14} className="text-mbx-teal transition-transform duration-200 group-hover/item:translate-x-1" />
+                          </Link>
                         </div>
-                      ))}
-                    </div>
+                        <div className="grid grid-cols-3 xl:grid-cols-4 gap-1">
+                          {FEATURED_LOCATIONS.map((loc) => (
+                            <Link
+                              key={loc.slug}
+                              to={`/locations/${loc.slug}`}
+                              className="group/item flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] font-medium text-mbx-text-muted transition-all duration-200 hover:text-mbx-navy hover:bg-mbx-teal/5 hover:pl-4"
+                            >
+                              <MapPin size={13} className="shrink-0 text-mbx-teal/60" />
+                              {loc.name}
+                            </Link>
+                          ))}
+                        </div>
+                        <div className="mt-5 rounded-xl bg-mbx-navy p-5 lg:flex lg:items-center lg:justify-between lg:gap-6">
+                          <div>
+                            <p className="text-base font-extrabold text-mbx-white">Find your state. We'll take it from there.</p>
+                            <p className="mt-1 text-[13px] text-white/60">Some billing companies have a comfort zone. Ours isn't limited by a zip code.</p>
+                          </div>
+                          <div className="mt-4 flex items-center gap-6 lg:mt-0">
+                            <div className="flex items-center gap-5">
+                              {[
+                                { value: '90%+', label: 'Rate' },
+                                { value: '<40d', label: 'Days' },
+                                { value: '97%', label: 'Paid' },
+                              ].map((stat) => (
+                                <div key={stat.label}>
+                                  <p className="text-lg font-extrabold leading-none text-mbx-teal-light">{stat.value}</p>
+                                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">{stat.label}</p>
+                                </div>
+                              ))}
+                            </div>
+                            <Link
+                              to="/connect-us"
+                              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#4486BF] px-5 py-2.5 text-[13px] font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8]"
+                            >
+                              Talk to an expert
+                              <ArrowRight size={14} />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className={`${item.children.length > 1 ? 'min-w-[22rem]' : 'min-w-[16rem]'} w-max max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-5 max-h-[70vh] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-mbx-teal/30`}>
+                        {item.children.map((child, idx) => (
+                          <div key={idx} className={idx > 0 ? 'mt-4 border-t border-mbx-teal/10 pt-4' : ''}>
+                            {child.heading && (
+                              <p className="mb-1.5 flex items-center gap-2 px-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-mbx-teal">
+                                <span className="inline-block h-3.5 w-1 rounded-full bg-mbx-teal" />
+                                {child.heading}
+                              </p>
+                            )}
+                            <ul className="space-y-0.5">
+                              {(child.items || [child]).map((sub, subIdx) => (
+                                <li key={subIdx}>
+                                  <Link
+                                    to={sub.path}
+                                    className="group/item flex items-center rounded-lg px-3 py-2 text-[13.5px] font-medium text-mbx-text-muted transition-all duration-200 hover:text-mbx-navy hover:bg-mbx-teal/5 hover:pl-4"
+                                  >
+                                    {sub.label}
+                                    <ArrowRight size={14} className="ml-auto -translate-x-1 text-mbx-teal opacity-0 transition-all duration-200 group-hover/item:translate-x-0 group-hover/item:opacity-100" />
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
