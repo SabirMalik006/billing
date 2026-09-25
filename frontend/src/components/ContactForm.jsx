@@ -3,14 +3,107 @@ import { CheckCircle, ArrowRight } from 'lucide-react'
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
+const SPECIALTY_OPTIONS = [
+  'Family Medicine',
+  'Internal Medicine',
+  'Pediatrics',
+  'Cardiology',
+  'Dermatology',
+  'OB/GYN',
+  'Orthopedics',
+  'Physical Therapy',
+  'Behavioral Health',
+  'Urgent Care',
+  'Pain Management',
+  'Home Health',
+  'Hospice',
+  'Dental',
+  'Other',
+]
+
+const CENSUS_OPTIONS = [...Array.from({ length: 10 }, (_, i) => String(i + 1)), 'Other']
+
+const EHR_OPTIONS = [
+  'eClinicalWorks',
+  'Kareo',
+  'AdvancedMD',
+  'athenahealth',
+  'Epic',
+  'Cerner',
+  'NextGen Healthcare',
+  'Practice Fusion',
+  'CareCloud',
+  'WebPT',
+  'Other',
+]
+
+function SmartSelect({ label, options, value, onChange, other, onOtherChange, otherPlaceholder, otherType = 'text', compact, inputName, placeholder = 'Select...' }) {
+  return (
+    <div>
+      <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>{label}</label>
+      <select
+        name={inputName}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+      >
+        <option value="" disabled>
+          {placeholder}
+        </option>
+        {options.map((o) => (
+          <option key={o} value={o}>
+            {o}
+          </option>
+        ))}
+      </select>
+      {value === 'Other' && (
+        <input
+          type={otherType}
+          value={other}
+          onChange={(e) => onOtherChange(e.target.value)}
+          placeholder={otherPlaceholder}
+          className={`mt-2 w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+        />
+      )}
+    </div>
+  )
+}
+
 export default function ContactForm({ compact, className }) {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', agencyName: '', patientName: '', specialty: '', ehrSoftware: '', message: '' })
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    agencyName: '',
+    patientName: '',
+    censusOther: '',
+    specialty: '',
+    specialtyOther: '',
+    ehrSoftware: '',
+    ehrSoftwareOther: '',
+    message: '',
+  })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState('')
 
+  const emptyForm = {
+    name: '',
+    phone: '',
+    email: '',
+    agencyName: '',
+    patientName: '',
+    censusOther: '',
+    specialty: '',
+    specialtyOther: '',
+    ehrSoftware: '',
+    ehrSoftwareOther: '',
+    message: '',
+  }
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    setForm((f) => ({ ...f, [name]: value }))
     setError('')
   }
 
@@ -18,15 +111,24 @@ export default function ContactForm({ compact, className }) {
     e.preventDefault()
     setSending(true)
     setError('')
+    const payload = {
+      ...form,
+      patientName: form.patientName === 'Other' ? form.censusOther || 'Other' : form.patientName,
+      specialty: form.specialty === 'Other' ? form.specialtyOther || 'Other' : form.specialty,
+      ehrSoftware: form.ehrSoftware === 'Other' ? form.ehrSoftwareOther || 'Other' : form.ehrSoftware,
+    }
+    delete payload.censusOther
+    delete payload.specialtyOther
+    delete payload.ehrSoftwareOther
     try {
       const res = await fetch(`${API}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       })
       if (res.ok) {
         setSent(true)
-        setForm({ name: '', phone: '', email: '', agencyName: '', patientName: '', specialty: '', ehrSoftware: '', message: '' })
+        setForm(emptyForm)
       } else {
         const data = await res.json()
         setError(data.error || 'Something went wrong')
@@ -120,38 +222,44 @@ export default function ContactForm({ compact, className }) {
               </div>
             </div>
             <div className={compact ? 'mt-3 grid gap-3 sm:grid-cols-2' : 'mt-4 grid gap-4 sm:grid-cols-2'}>
-              <div>
-                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Patent name</label>
-                <input
-                  type="text"
-                  name="patientName"
-                  value={form.patientName}
-                  onChange={handleChange}
-                  placeholder="Patent name"
-                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
-                />
-              </div>
-              <div>
-                <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>Specialty</label>
-                <input
-                  type="text"
-                  name="specialty"
-                  value={form.specialty}
-                  onChange={handleChange}
-                  placeholder="e.g. Dermatology"
-                  className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
-                />
-              </div>
+              <SmartSelect
+                label="Patient census"
+                options={CENSUS_OPTIONS}
+                value={form.patientName}
+                onChange={(v) => setForm((f) => ({ ...f, patientName: v }))}
+                other={form.censusOther}
+                onOtherChange={(v) => setForm((f) => ({ ...f, censusOther: v }))}
+                otherPlaceholder="Enter patient count"
+                otherType="number"
+                compact={compact}
+                inputName="patientName"
+                placeholder="Select patient count"
+              />
+              <SmartSelect
+                label="Specialty"
+                options={SPECIALTY_OPTIONS}
+                value={form.specialty}
+                onChange={(v) => setForm((f) => ({ ...f, specialty: v }))}
+                other={form.specialtyOther}
+                onOtherChange={(v) => setForm((f) => ({ ...f, specialtyOther: v }))}
+                otherPlaceholder="Enter specialty"
+                compact={compact}
+                inputName="specialty"
+                placeholder="Select specialty"
+              />
             </div>
             <div className={compact ? 'mt-3' : 'mt-4'}>
-              <label className={`mb-1 block text-sm font-bold text-mbx-navy ${compact ? 'text-xs' : ''}`}>EHR Software</label>
-              <input
-                type="text"
-                name="ehrSoftware"
+              <SmartSelect
+                label="EHR Software"
+                options={EHR_OPTIONS}
                 value={form.ehrSoftware}
-                onChange={handleChange}
-                placeholder="e.g. Kareo, eClinicalWorks"
-                className={`w-full rounded-xl border border-mbx-border bg-mbx-surface px-4 text-sm text-mbx-navy outline-none transition-all focus:border-[#4486BF] focus:ring-2 focus:ring-[#4486BF]/10 ${compact ? 'py-2' : 'py-3'}`}
+                onChange={(v) => setForm((f) => ({ ...f, ehrSoftware: v }))}
+                other={form.ehrSoftwareOther}
+                onOtherChange={(v) => setForm((f) => ({ ...f, ehrSoftwareOther: v }))}
+                otherPlaceholder="Enter EHR software name"
+                compact={compact}
+                inputName="ehrSoftware"
+                placeholder="Select software"
               />
             </div>
             <div className={compact ? 'mt-3 flex flex-1 flex-col' : 'mt-4'}>
@@ -171,7 +279,7 @@ export default function ContactForm({ compact, className }) {
               disabled={sending}
               className={`inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#4486BF] px-8 font-bold text-white transition-all duration-300 hover:bg-[#3a73a8] hover:shadow-lg hover:shadow-[#4486BF]/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed ${compact ? 'mt-4 py-3 text-sm' : 'mt-6 py-3.5 text-base'}`}
             >
-{sending ? 'Sending...' : 'Send Message'}
+              {sending ? 'Sending...' : 'Send Message'}
               {!sending && <ArrowRight size={16} />}
             </button>
           </form>
