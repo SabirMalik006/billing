@@ -67,6 +67,7 @@ const navItems = [
     children: [
       { heading: 'Resources', items: [
         { label: 'Resource Center', path: '/resources' },
+        { label: 'Account Manager', path: '/account-manager' },
         { label: 'Free Billing Audit', path: '/services#free-audit' },
         { label: 'Compliance (HIPAA)', path: '/hipaa' },
         { label: 'Our Services', path: '/services' },

@@ -14,6 +14,7 @@ import HIPAA from './pages/HIPAA'
 import Admin from './pages/Admin'
 import Company from './pages/Company'
 import Resources from './pages/Resources'
+import AccountManager from './pages/AccountManager'
 import Software from './pages/Software'
 import MedicalAssistant from './pages/MedicalAssistant'
 import RCMServices from './pages/RCMServices'
@@ -45,6 +46,7 @@ function AppContent() {
           <Route path="/hipaa" element={<HIPAA />} />
           <Route path="/company" element={<Company />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/account-manager" element={<AccountManager />} />
           <Route path="/software" element={<Software />} />
           <Route path="/medical-assistant" element={<MedicalAssistant />} />
           <Route path="/rcm-services" element={<RCMServices />} />
