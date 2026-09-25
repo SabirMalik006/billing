@@ -246,6 +246,38 @@
       radial-gradient(800px 420px at 90% -10%, rgba(68, 134, 191, 0.1), transparent 60%),
       linear-gradient(160deg, #F3FAFF 0%, #E4F4FC 50%, #CDEAF8 100%);
   }
+
+  /* EHR marquee — classic smooth infinite scroll.
+     The strip holds an even number of identical copies and animates by
+     exactly -50% of its own width, so the wrap-around is seamless. */
+  .marquee-strip {
+    will-change: transform;
+  }
+
+  .marquee-hover-pause:hover .marquee-strip {
+    animation-play-state: paused;
+  }
+
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-strip {
+    animation: none !important;
+  }
 }
 
 @keyframes float {
