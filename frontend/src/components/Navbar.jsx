@@ -19,6 +19,7 @@ const navItems = [
         { label: 'Testimonials', path: '/testimonials' },
         { label: 'HIPAA Compliance', path: '/hipaa' },
         { label: 'Contact Us', path: '/connect-us' },
+        { label: 'Blog', path: '/blog' },
       ]},
       { heading: 'Teams', items: [
         { label: 'Meet Our Team', path: '/team' },
@@ -75,6 +76,10 @@ const navItems = [
     ],
   },
   {
+    label: 'The MBX Advantage',
+    path: '/mbx-advantage',
+  },
+  {
     label: 'Software',
     path: '/software',
     children: [
@@ -118,10 +123,6 @@ const navItems = [
         { label: 'Reporting', path: '/solution#reporting' },
       ]},
     ],
-  },
-  {
-    label: 'Blog',
-    path: '/blog',
   },
 ]
 
@@ -205,8 +206,8 @@ export default function Navbar() {
                 {item.children && (
                   <div className={`pointer-events-none invisible absolute z-50 top-full pt-3 opacity-0 scale-y-95 origin-top transition-all duration-250 group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:scale-y-100 ${idx >= navItems.length - 2 ? 'right-0' : 'left-0'}`}>
                     {item.isLocations ? (
-                      <div className="w-[44rem] max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-6 max-h-[80vh] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-mbx-teal/30">
-                        <div className="mb-4 flex items-center justify-between">
+                      <div className="w-[44rem] max-w-[calc(100vw-2.5rem)] rounded-2xl bg-white/95 backdrop-blur-md border border-mbx-teal/15 shadow-2xl shadow-[#0B2348]/15 p-5 max-h-[80vh] overflow-y-auto overscroll-contain [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-mbx-teal/30">
+                        <div className="mb-3 flex items-center justify-between">
                           <p className="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-mbx-teal">
                             <span className="inline-block h-4 w-1.5 rounded-full bg-mbx-teal" />
                             Our Locations
@@ -224,39 +225,37 @@ export default function Navbar() {
                             <Link
                               key={loc.slug}
                               to={`/locations/${loc.slug}`}
-                              className="group/item flex items-center gap-2 rounded-lg px-3 py-2 text-[13px] font-medium text-mbx-text-muted transition-all duration-200 hover:text-mbx-navy hover:bg-mbx-teal/5 hover:pl-4"
+                              className="group/item flex items-center gap-2 rounded-lg px-3 py-1.5 text-[13px] font-medium text-mbx-text-muted transition-all duration-200 hover:text-mbx-navy hover:bg-mbx-teal/5 hover:pl-4"
                             >
                               <MapPin size={13} className="shrink-0 text-mbx-teal/60" />
                               {loc.name}
                             </Link>
                           ))}
                         </div>
-                        <div className="mt-5 rounded-xl bg-mbx-navy p-5 lg:flex lg:items-center lg:justify-between lg:gap-6">
-                          <div>
-                            <p className="text-base font-extrabold text-mbx-white">Find your state. We'll take it from there.</p>
-                            <p className="mt-1 text-[13px] text-white/60">Some billing companies have a comfort zone. Ours isn't limited by a zip code.</p>
+                        <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 rounded-xl bg-mbx-navy px-5 py-4">
+                          <div className="min-w-0">
+                            <p className="text-sm font-extrabold text-mbx-white">Find your state. We'll take it from there.</p>
+                            <p className="mt-0.5 text-xs text-white/60">Some billing companies have a comfort zone. Ours isn't limited by a zip code.</p>
                           </div>
-                          <div className="mt-4 flex items-center gap-6 lg:mt-0">
-                            <div className="flex items-center gap-5">
-                              {[
-                                { value: '90%+', label: 'Rate' },
-                                { value: '<40d', label: 'Days' },
-                                { value: '97%', label: 'Paid' },
-                              ].map((stat) => (
-                                <div key={stat.label}>
-                                  <p className="text-lg font-extrabold leading-none text-mbx-teal-light">{stat.value}</p>
-                                  <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">{stat.label}</p>
-                                </div>
-                              ))}
-                            </div>
-                            <Link
-                              to="/connect-us"
-                              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#4486BF] px-5 py-2.5 text-[13px] font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8]"
-                            >
-                              Talk to an expert
-                              <ArrowRight size={14} />
-                            </Link>
+                          <div className="flex items-center gap-5">
+                            {[
+                              { value: '90%+', label: 'Rate' },
+                              { value: '<40d', label: 'Days' },
+                              { value: '97%', label: 'Paid' },
+                            ].map((stat) => (
+                              <div key={stat.label}>
+                                <p className="text-base font-extrabold leading-none text-mbx-teal-light">{stat.value}</p>
+                                <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/40">{stat.label}</p>
+                              </div>
+                            ))}
                           </div>
+                          <Link
+                            to="/connect-us"
+                            className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#4486BF] px-4 py-2.5 text-xs font-bold text-mbx-white transition-all duration-300 hover:bg-[#3a73a8]"
+                          >
+                            Talk to an expert
+                            <ArrowRight size={14} />
+                          </Link>
                         </div>
                       </div>
                     ) : (
