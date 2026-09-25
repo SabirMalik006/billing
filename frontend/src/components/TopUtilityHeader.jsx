@@ -16,7 +16,7 @@ export function TopAnnouncementBar() {
           </span>
           <p className="text-[13px] font-medium leading-snug text-white/85 md:text-[13.5px]">
             Stop Losing Revenue! <span className="font-bold text-white">Get a FREE Billing Audit</span> for Your Home
-            Health, Home Care &amp; Hospice Agency.
+            Health, Home Care &amp; Hospice Agency with MBX Solutions.
           </p>
         </div>
 

@@ -18,7 +18,7 @@ export default function SectionEHRLogos() {
           <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60px] h-[3px] bg-[#F5A623]" />
         </h2>
         <p className="text-sm sm:text-[15px] text-[#6b7280] max-w-[650px] mx-auto mt-[18px] mb-[40px] lg:mb-[55px]">
-          We possess extensive experience in handling over 50+ of the most prominent EHR systems in various industries.
+          At MBX Solutions, we possess extensive experience in handling over 50+ of the most prominent EHR systems in various industries.
         </p>
 
         {/* ── Desktop: 3-column cluster ── */}

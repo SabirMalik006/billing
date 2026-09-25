@@ -32,7 +32,7 @@ export default function Footer() {
               <img src="/logo.jpeg" alt="MBX Solutions" className="h-10 w-auto" />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75 sm:mx-0 mx-auto">
-              Healthcare revenue cycle expertise for organizations that want greater clarity,
+              Healthcare revenue cycle expertise from MBX Solutions for organizations that want greater clarity,
               stronger workflows and more time to focus on care.
             </p>
 

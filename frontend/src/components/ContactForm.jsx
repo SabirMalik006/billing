@@ -58,7 +58,7 @@ export default function ContactForm({ compact, className }) {
             </h3>
             {!compact && (
               <p className="mt-1.5 text-sm text-mbx-text-muted">
-                Fill out the form and our team will get back to you promptly.
+                Fill out the form and the MBX Solutions team will get back to you promptly.
               </p>
             )}
           </div>

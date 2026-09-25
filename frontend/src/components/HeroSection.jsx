@@ -37,7 +37,7 @@ const slides = [
     para: null,
     card: {
       title: 'Medical Billing Services',
-      tagline: 'Clean claims, faster payments, zero revenue leakage.',
+      tagline: 'MBX Solutions: clean claims, faster payments, zero revenue leakage.',
       bullets: [
         'Electronic claim submission within 24–48 hours',
         'Aggressive denial appeals & timely filing management',
@@ -59,7 +59,7 @@ const slides = [
     para: null,
     card: {
       title: 'Medical Coding (ICD-10)',
-      tagline: 'ICD-10 coding that maximizes reimbursement.',
+      tagline: 'MBX Solutions: ICD-10 coding that maximizes reimbursement.',
       bullets: [
         'Certified ICD-10-CM & CPT clinical coders',
         'PDGM case-mix grouping & diagnosis sequencing',

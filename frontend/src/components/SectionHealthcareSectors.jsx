@@ -6,19 +6,19 @@ const sectors = [
   {
     icon: Stethoscope,
     label: 'Physicians & Medical Practices',
-    desc: 'Tailored billing solutions for solo and group practices across all specialties.',
+    desc: 'MBX Solutions delivers tailored billing solutions for solo and group practices across all specialties.',
     image: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=600&q=80',
   },
   {
     icon: Building2,
     label: 'Hospitals & Clinics',
-    desc: 'End-to-end RCM for multi-department hospitals and outpatient clinics.',
+    desc: 'MBX Solutions provides end-to-end RCM for multi-department hospitals and outpatient clinics.',
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80',
   },
   {
     icon: HeartPulse,
     label: 'Healthcare Centers',
-    desc: 'Comprehensive revenue cycle management for community and specialty centers.',
+    desc: 'MBX Solutions delivers comprehensive revenue cycle management for community and specialty centers.',
     image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&q=80',
   },
 ]
@@ -44,7 +44,7 @@ export default function SectionHealthcareSectors() {
           </h2>
           <div className="w-[60px] h-[3px] bg-[#F5A623] mx-auto mb-5" />
           <p className="text-[15px] text-mbx-text-muted max-w-2xl mx-auto leading-relaxed">
-            Our specialized services are designed to address the specific needs of various healthcare providers, from hospitals and private practices to dental clinics and behavioral health centers.
+            Our specialized services at MBX Solutions are designed to address the specific needs of various healthcare providers, from hospitals and private practices to dental clinics and behavioral health centers.
           </p>
         </motion.div>
 
