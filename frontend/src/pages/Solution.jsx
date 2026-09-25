@@ -1,12 +1,13 @@
 import { Layers, FileText, ClipboardCheck, BarChart3, Workflow, UserCheck, CheckCircle } from 'lucide-react'
 import { AnimatedSection, StaggerChildren, StaggerItem } from '../components/Animated'
 import { SectionHeading, PrimaryButton } from '../components/UI'
+import PricingPlans from '../components/PricingPlans'
 
 const pillars = [
   { icon: FileText, title: 'Medical Billing', desc: 'MBX Solutions delivers clean claims, faster payments, zero revenue leakage — full-cycle billing support from charge capture to payment posting.', id: 'billing', color: 'from-mbx-teal/20 to-mbx-teal/5' },
   { icon: ClipboardCheck, title: 'Medical Coding', desc: 'MBX Solutions provides precision ICD-10, CPT and HCPCS coding aligned with clinical documentation for maximum reimbursement.', id: 'coding', color: 'from-blue-500/20 to-blue-500/5' },
   { icon: Workflow, title: 'OASIS & QA', desc: 'MBX Solutions delivers accurate OASIS assessments, scoring optimization, and rigorous chart review for better outcomes.', id: 'oasis', color: 'from-mbx-teal/20 to-mbx-teal/5' },
-  { icon: BarChart3, title: 'Reporting & Analytics', desc: 'MBX Solutions delivers clear revenue dashboards and KPI reporting for data-driven decisions.', id: 'reporting', color: 'from-blue-500/20 to-blue-500/5' },
+  { icon: BarChart3, title: 'Reporting & Analytics', desc: 'MBX Solutions delivers clear revenue dashboards and KPI reporting for data-driven decisions.', color: 'from-blue-500/20 to-blue-500/5' },
   { icon: UserCheck, title: 'Credentialing', desc: 'MBX Solutions manages the complete provider enrollment lifecycle — from credentialing to recredentialing and contracting.', id: 'credentialing', color: 'from-mbx-teal/20 to-mbx-teal/5' },
   { icon: Layers, title: 'EDI & EFT', desc: 'MBX Solutions handles seamless electronic claims, ERA/EOB and EFT setup for faster, cleaner payments.', id: 'edi', color: 'from-blue-500/20 to-blue-500/5' },
 ]
@@ -74,6 +75,9 @@ export default function Solution() {
           </StaggerChildren>
         </div>
       </section>
+
+      {/* Pricing */}
+      <PricingPlans />
 
       {/* Framework */}
       <section className="py-28 lg:py-36 bg-mbx-surface">
