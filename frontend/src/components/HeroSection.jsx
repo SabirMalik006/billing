@@ -143,10 +143,10 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="container mx-auto relative z-10 pt-40 pb-16 md:pt-44 lg:pt-40 lg:pb-24">
+      <div className="container mx-auto relative z-10 pt-24 pb-14 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-20 xl:grid-cols-[minmax(0,1fr)_460px] xl:gap-24">
           {/* Left: Slide content */}
-          <div className="min-h-[500px] sm:min-h-[520px] lg:min-h-[560px]">
+          <div className="min-h-[440px] sm:min-h-[480px] lg:min-h-[560px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={slide.id}

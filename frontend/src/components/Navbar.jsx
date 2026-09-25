@@ -315,7 +315,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-atmos-cta xl:hidden"
           >
-            <div className="flex h-full flex-col overflow-y-auto pt-60 pb-10 px-8 md:pt-48 lg:pt-44">
+            <div className="flex h-full flex-col overflow-y-auto pt-24 pb-10 px-8 md:pt-32 lg:pt-40">
               <ul className="space-y-0">
                 {navItems.map((item, idx) => (
                   <motion.li
