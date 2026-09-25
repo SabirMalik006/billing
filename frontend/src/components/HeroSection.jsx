@@ -7,13 +7,21 @@ import ContactForm from './ContactForm'
 const slides = [
   {
     id: 'intro',
-    bg: 'https://plus.unsplash.com/premium_photo-1661380853137-39299fc23a2a?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvcnBvcmF0ZSUyMHNlY3RvciUyMHBlb3BsZXN8ZW58MHx8MHx8fDA%3D',
+    bg: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&auto=format&fit=crop&q=80',
     giant: 'RCM',
-    eyebrow: null,
+    eyebrow: 'MBX Solutions',
     lines: ['Leave Billing To Us.', 'Focus On What', 'Matters Most.'],
     highlightIndex: 2,
-    para: 'MBX Solutions helps healthcare organizations simplify medical billing, coding, credentialing and revenue cycle management — with deep expertise in Home Health and Hospice.',
-    card: null,
+    para: null,
+    card: {
+      title: 'Why MBX Solutions',
+      tagline: 'Full-cycle RCM, simplified for your practice.',
+      bullets: [
+        'Industry-leading 98.5% clean claims rate',
+        '24/7 expert billing support',
+        '5-day claims turnaround',
+      ],
+    },
     buttons: [
       { label: 'Get Your Free Billing Audit', to: '/connect-us' },
       { label: 'Explore Our Capabilities', to: '/capabilities' },
@@ -30,12 +38,10 @@ const slides = [
     card: {
       title: 'Medical Billing Services',
       tagline: 'Clean claims, faster payments, zero revenue leakage.',
-      desc: 'MBX Solutions handles the complete claims cycle from initial eligibility verification to prompt payment posting, maintaining an industry-leading 98.5% first-pass clean claims rate.',
       bullets: [
         'Electronic claim submission within 24–48 hours',
-        'Continuous clearinghouse & payer rejection monitoring',
-        'Aggressive denial appeals and timely filing management',
-        'Comprehensive ERA/EOB payment posting & reconciliation',
+        'Aggressive denial appeals & timely filing management',
+        'ERA/EOB payment posting & reconciliation',
       ],
     },
     buttons: [
@@ -53,12 +59,10 @@ const slides = [
     para: null,
     card: {
       title: 'Medical Coding (ICD-10)',
-      tagline: 'Precision coding that drives accuracy and maximizes reimbursement.',
-      desc: 'At MBX Solutions, our AAPC/AHIMA certified coders ensure accurate clinical documentation translation, code sequencing, and compliant PDGM / Medicare reimbursement.',
+      tagline: 'ICD-10 coding that maximizes reimbursement.',
       bullets: [
         'Certified ICD-10-CM & CPT clinical coders',
         'PDGM case-mix grouping & diagnosis sequencing',
-        'Documentation gap analysis to prevent compliance audits',
         'Turnaround in as fast as 24 hours',
       ],
     },
@@ -98,10 +102,15 @@ export default function HeroSection() {
             <img
               src={slide.bg}
               alt=""
-              className="h-[115%] w-full object-cover object-[center_30%] opacity-70 translate-y-8"
+              className="h-[115%] w-full object-cover object-[center_30%] opacity-85 translate-y-8"
             />
           </motion.div>
         </AnimatePresence>
+        {/* Readability scrim behind content */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/45 to-white/0"
+          aria-hidden="true"
+        />
         {/* Blue glows */}
         <div className="absolute top-1/4 right-0 h-[500px] w-[500px] rounded-full bg-[#4486BF]/10 blur-[150px]" />
         <div className="absolute top-1/3 right-1/4 h-[280px] w-[280px] rounded-full bg-[#4486BF]/6 blur-[100px]" />
@@ -153,7 +162,7 @@ export default function HeroSection() {
                 )}
 
                 <motion.h1
-                  className="text-4xl font-extrabold tracking-tight text-mbx-navy sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4rem] leading-[1.08]"
+                  className="text-[1.7rem] font-extrabold tracking-tight text-mbx-navy sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] leading-[1.08]"
                   initial="hidden"
                   animate="visible"
                   variants={{
@@ -176,7 +185,7 @@ export default function HeroSection() {
 
                 {slide.para && (
                   <motion.p
-                    className="mt-5 max-w-xl text-lg font-medium leading-relaxed text-white md:text-xl"
+                    className="mt-4 max-w-xl text-base font-medium leading-relaxed text-mbx-navy/75 md:text-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: index === 0 ? 1 : 0.3 }}
@@ -191,9 +200,11 @@ export default function HeroSection() {
                       {slide.card.title}
                     </h3>
                     <p className="mt-1 text-sm font-bold text-mbx-teal">{slide.card.tagline}</p>
-                    <p className="mt-2.5 text-[13.5px] leading-relaxed text-mbx-text-muted">
-                      {slide.card.desc}
-                    </p>
+                    {slide.card.desc && (
+                      <p className="mt-2.5 text-[13.5px] leading-relaxed text-mbx-text-muted">
+                        {slide.card.desc}
+                      </p>
+                    )}
                     <ul className="mt-4 space-y-2">
                       {slide.card.bullets.map((b) => (
                         <li key={b} className="flex items-start gap-2.5 text-[13.5px] font-medium text-mbx-text-muted">
@@ -253,7 +264,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
-            className="flex w-full max-w-md mx-auto lg:mx-0 lg:h-full lg:mt-6"
+            className="flex w-full max-w-md mx-auto lg:mx-0 lg:h-full"
           >
             <ContactForm compact className="flex-1" />
           </motion.div>
